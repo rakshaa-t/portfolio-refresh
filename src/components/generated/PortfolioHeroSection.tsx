@@ -575,10 +575,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         /* Desktop Navigation */
         <nav className="fixed left-0 right-0 top-[20px] z-50">
           <div 
-            className="flex items-center h-full mx-auto"
             style={{
               width: '100%',
-              maxWidth: '100%',
               paddingLeft: '40px',
               paddingRight: '40px',
               paddingTop: '4px',
@@ -587,7 +585,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               backdropFilter: 'none',
               WebkitBackdropFilter: 'none',
               display: 'grid',
-              gridTemplateColumns: '1fr auto 1fr'
+              gridTemplateColumns: '1fr auto 1fr',
+              alignItems: 'center',
+              gap: '20px'
             }}
           >
             {/* Logo - "raks" */}
@@ -598,7 +598,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 fontSize: '36px',
                 fontFamily: 'Neulis Cursive, system-ui, sans-serif',
                 fontWeight: '500',
-                wordWrap: 'break-word'
+                wordWrap: 'break-word',
+                justifySelf: 'start'
               }}
             >
               raks
@@ -609,7 +610,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             className="flex items-start justify-center gap-[28px]"
             style={{
               width: '236px',
-              height: '60px'
+              height: '60px',
+              justifySelf: 'center'
             }}
           >
             {NAV_ITEMS.map((item, index) => {
@@ -851,7 +853,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
           {/* Social Icons - Right Side */}
-          <div className="flex items-center justify-end gap-[16px]">
+          <div 
+            className="flex items-center justify-end gap-[16px]"
+            style={{
+              justifySelf: 'end'
+            }}
+          >
             <a
               href="https://linkedin.com"
               target="_blank"
