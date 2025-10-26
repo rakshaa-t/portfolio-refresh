@@ -214,10 +214,13 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         <div style={{width: '100%', height: '100%', position: 'relative', background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)', boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)', overflow: 'hidden', borderRadius: 44, outline: '2px white solid', outlineOffset: '-2px'}}>
         
         {/* Chat Messages Container */}
-        <div ref={chatContainerRef} style={{position: 'absolute', top: 34, left: 16, right: 32, bottom: 150, overflowY: 'auto', overflowX: 'hidden', paddingRight: 8}}>
+        <div ref={chatContainerRef} style={{position: 'absolute', top: 14, left: 12, right: 12, bottom: 150, overflowY: 'auto', overflowX: 'hidden', padding: 0}}>
           {/* Welcome Message - Always show */}
-          <div style={{marginBottom: 12}}>
-            <div style={{display: 'flex', alignItems: 'flex-end', gap: 8, position: 'relative'}}>
+          <div style={{marginBottom: 14, display: 'flex', justifyContent: 'center'}}>
+            <div style={{display: 'flex', alignItems: 'flex-end', gap: 8, position: 'relative', maxWidth: '100%'}}>
+              <div style={{width: 29, height: 29, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
+                <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+              </div>
               <div style={{
                 maxWidth: '85%',
                 background: 'white',
@@ -226,12 +229,9 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                 padding: 12,
                 wordWrap: 'break-word'
               }}>
-                <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
+                <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word', textAlign: 'left'}}>
                   you can ask me here about my design process, my past projects or just get to know me better!
                 </div>
-              </div>
-              <div style={{width: 29, height: 29, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
-                <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
               </div>
             </div>
           </div>
@@ -240,7 +240,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
           {messages.map((msg) => {
             const attachment = cardAttachments[msg.id];
             return (
-              <div key={msg.id} style={{marginBottom: 14, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start', flexDirection: 'column'}}>
+              <div key={msg.id} style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                 {/* Card Thumbnail for user messages with attachments */}
                 {attachment && msg.sender === 'user' && (
                   <div style={{width: 80, height: 80, borderRadius: 12, overflow: 'hidden', marginLeft: 'auto', marginBottom: 8}}>
@@ -248,42 +248,46 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                   </div>
                 )}
                 {msg.sender === 'ai' && (
-                  <div style={{display: 'flex', alignItems: 'flex-end', gap: 8, position: 'relative'}}>
-                    <div style={{
-                      maxWidth: '85%',
-                      background: 'white',
-                      boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                      borderRadius: '44px 44px 44px 0',
-                      padding: 12,
-                      wordWrap: 'break-word'
-                    }}>
-                      <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
-                        {msg.content}
+                  <div style={{display: 'flex', justifyContent: 'center', marginBottom: 14}}>
+                    <div style={{display: 'flex', alignItems: 'flex-end', gap: 8, position: 'relative', maxWidth: '100%'}}>
+                      <div style={{width: 29, height: 29, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
+                        <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                       </div>
-                    </div>
-                    <div style={{width: 29, height: 29, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
-                      <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                      <div style={{
+                        maxWidth: '85%',
+                        background: 'white',
+                        boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
+                        borderRadius: '44px 44px 44px 0',
+                        padding: 12,
+                        wordWrap: 'break-word'
+                      }}>
+                        <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word', textAlign: 'left'}}>
+                          {msg.content}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
                 {msg.sender === 'user' && (
-                  <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <div style={{
-                      maxWidth: '85%',
-                      background: 'rgba(0, 0, 0, 0.79)',
-                      boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                      borderRadius: '44px 44px 0 44px',
-                      padding: 16,
-                      wordWrap: 'break-word'
-                    }}>
+                  <div style={{display: 'flex', justifyContent: 'center', marginBottom: 14}}>
+                    <div style={{display: 'flex', justifyContent: 'flex-end', maxWidth: '100%'}}>
                       <div style={{
-                        color: 'white',
-                        fontSize: 14,
-                        fontFamily: 'Outfit',
-                        fontWeight: '300',
-                        textAlign: 'right'
+                        maxWidth: '85%',
+                        background: 'rgba(0, 0, 0, 0.79)',
+                        boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
+                        borderRadius: '44px 44px 0 44px',
+                        padding: 12,
+                        wordWrap: 'break-word'
                       }}>
-                        {msg.content}
+                        <div style={{
+                          color: 'white',
+                          fontSize: 14,
+                          fontFamily: 'Outfit',
+                          fontWeight: '300',
+                          textAlign: 'right'
+                        }}>
+                          {msg.content}
+                        </div>
                       </div>
                     </div>
                   </div>
