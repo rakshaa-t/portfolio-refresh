@@ -2,7 +2,8 @@
 // This file contains the API key and settings that users won't see
 
 export const AI_CONFIG = {
-  // Replace this with your actual OpenAI API key
+  // API key is loaded from environment variable (VITE_OPENAI_API_KEY)
+  // See ENV_SETUP.md for configuration instructions
   API_KEY: import.meta.env.VITE_OPENAI_API_KEY || '',
   
   // AI is always enabled for users
@@ -20,8 +21,11 @@ export const AI_CONFIG = {
 // Debug: Log if API key is loaded (first 10 chars only for security)
 if (AI_CONFIG.API_KEY) {
   console.log('🔑 API Key loaded:', AI_CONFIG.API_KEY.substring(0, 10) + '...');
+  console.log('✅ Chat functionality is ready!');
 } else {
-  console.error('❌ NO API KEY FOUND! Check environment variables.');
+  console.error('❌ NO API KEY FOUND!');
+  console.error('📖 See ENV_SETUP.md for configuration instructions');
+  console.error('🔗 Quick fix: Add VITE_OPENAI_API_KEY to Vercel and redeploy WITHOUT cache');
 }
 
 // Instructions for updating the API key:
