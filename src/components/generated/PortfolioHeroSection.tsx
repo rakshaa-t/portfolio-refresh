@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
-import { RakshaPortfolioMobile } from "./PortfolioHeroSectionMobile";
 
 export interface RakshaPortfolioProps {}
 
@@ -485,10 +484,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     }
   };
 
-  // Render mobile version on mobile devices
-  if (isMobile) {
-    return <RakshaPortfolioMobile />;
-  }
+  // Mobile uses same component with responsive styles (no separate component)
+  // This ensures chat functionality works on mobile
 
   // Desktop version
   return (
