@@ -239,11 +239,17 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
 
-  // Mobile detection
+  // Mobile detection - more robust check
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => {
+      const isMobileWidth = window.innerWidth <= 768;
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const shouldUseMobile = isMobileWidth || isMobileDevice;
+      console.log('🔍 Mobile Detection:', { width: window.innerWidth, isMobileDevice, shouldUseMobile });
+      setIsMobile(shouldUseMobile);
+    };
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -488,8 +494,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
   // Render separate mobile component on mobile devices
   if (isMobile) {
+    console.log('✅ Rendering MOBILE component');
     return <PortfolioMobile />;
   }
+  
+  console.log('✅ Rendering DESKTOP component');
 
   // Desktop version
   return (
