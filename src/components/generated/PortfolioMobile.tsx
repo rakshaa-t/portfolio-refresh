@@ -37,7 +37,13 @@ const PROJECT_CARDS = [
 const SUGGESTION_PILLS = [
   'tell me more about ova',
   'what is your design process?',
-  'what tools do you use ?'
+  'what is your design tech stack?',
+  'how did you get into design?',
+  'what\'s your favorite project?',
+  'do you take freelance work?',
+  'what\'s your design philosophy?',
+  'tell me about the greex project',
+  'what inspired you to design?'
 ] as const;
 
 export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: PortfolioMobileProps) => {
@@ -46,10 +52,17 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
   const [isLoading, setIsLoading] = React.useState(false);
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
   const [visibleCards, setVisibleCards] = React.useState<string[]>(PROJECT_CARDS.map(c => c.id));
+  const [clickedPill, setClickedPill] = React.useState<string | null>(null);
 
   const handleSendMessage = async (messageText?: string) => {
     const textToSend = messageText || inputValue.trim();
     if (!textToSend || isLoading) return;
+
+    // Track clicked pill for animation
+    if (messageText) {
+      setClickedPill(messageText);
+      setTimeout(() => setClickedPill(null), 200);
+    }
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -62,6 +75,13 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     setMessages(prev => [...prev, userMessage]);
     setInputValue("");
     setIsLoading(true);
+
+    // Auto-scroll to latest message
+    setTimeout(() => {
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      }
+    }, 100);
 
     try {
       const response = await sendToAI(textToSend, messages, AI_CONFIG.API_KEY);
@@ -141,7 +161,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         <div style={{width: '100%', height: '100%', position: 'relative', background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)', boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)', overflow: 'hidden', borderRadius: 44, outline: '2px white solid', outlineOffset: '-2px'}}>
         
         {/* Chat Messages Container */}
-        <div style={{position: 'absolute', top: 34, left: 16, right: 16, bottom: 150, overflowY: 'auto', overflowX: 'hidden'}}>
+        <div ref={chatContainerRef} style={{position: 'absolute', top: 34, left: 16, right: 32, bottom: 150, overflowY: 'auto', overflowX: 'hidden', paddingRight: 8}}>
           {/* Welcome Message - Always show */}
           <div style={{marginBottom: 12}}>
             <div style={{width: '100%', maxWidth: 355, background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: '44px 44px 0 44px', padding: 12, display: 'flex', alignItems: 'center', gap: 12}}>
@@ -156,18 +176,18 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
 
           {/* User and AI Messages */}
           {messages.map((msg) => (
-            <div key={msg.id} style={{marginBottom: 8, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
+            <div key={msg.id} style={{marginBottom: 14, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
               <div style={{
                 maxWidth: '85%',
                 background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: msg.sender === 'user' ? '44px 44px 0 44px' : '44px 44px 44px 0',
-                padding: 12,
+                borderRadius: msg.sender === 'user' ? '44px 44px 0 44px' : '0 44px 44px 44px',
+                padding: 16,
                 wordWrap: 'break-word'
               }}>
                 <div style={{
                   color: msg.sender === 'user' ? 'white' : 'black',
-                  fontSize: 16,
+                  fontSize: 14,
                   fontFamily: 'Outfit',
                   fontWeight: '300',
                   textAlign: msg.sender === 'user' ? 'right' : 'left'
@@ -179,15 +199,15 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
           ))}
 
           {isLoading && (
-            <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+            <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: 14}}>
               <div style={{
                 background: 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: '44px 44px 44px 0',
-                padding: 12
+                borderRadius: '0 44px 44px 44px',
+                padding: 16
               }}>
-                <div style={{color: 'black', fontSize: 16, fontFamily: 'Outfit', fontWeight: '300'}}>
-                  thinking...
+                <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300'}}>
+                  ...
                 </div>
               </div>
             </div>
@@ -203,7 +223,16 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                 key={index}
                 onClick={() => handleSendMessage(pill)}
                 disabled={isLoading}
-                style={{padding: '8px 20px', background: 'rgba(255, 255, 255, 0.10)', borderRadius: 2222, border: 'none', cursor: 'pointer', whiteSpace: 'nowrap'}}
+                style={{
+                  padding: '8px 20px',
+                  background: 'rgba(255, 255, 255, 0.10)',
+                  borderRadius: 2222,
+                  border: 'none',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transform: clickedPill === pill ? 'scale(0.95)' : 'scale(1)',
+                  transition: 'transform 0.1s ease'
+                }}
               >
                 <div style={{color: 'rgba(0, 0, 0, 0.64)', fontSize: 14, fontFamily: 'Outfit', fontWeight: '400'}}>
                   {pill}
