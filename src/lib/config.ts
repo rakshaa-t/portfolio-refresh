@@ -17,6 +17,13 @@ export const AI_CONFIG = {
   USE_FALLBACK: true
 };
 
+// Debug: Log if API key is loaded (first 10 chars only for security)
+if (AI_CONFIG.API_KEY) {
+  console.log('🔑 API Key loaded:', AI_CONFIG.API_KEY.substring(0, 10) + '...');
+} else {
+  console.error('❌ NO API KEY FOUND! Check environment variables.');
+}
+
 // Instructions for updating the API key:
 // 1. Replace 'sk-proj-your-openai-key-here' with your actual API key
 // 2. Commit and push the changes
