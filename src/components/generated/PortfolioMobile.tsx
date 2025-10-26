@@ -160,7 +160,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         {/* Suggestion Pills & Input */}
         <div style={{width: 'calc(100% - 40px)', position: 'absolute', left: 20, bottom: 30, flexDirection: 'column', gap: 15, display: 'flex'}}>
           {/* Suggestion Pills */}
-          <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12, scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitScrollbarDisplay: 'none'}}>
+          <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12, scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
             {SUGGESTION_PILLS.map((pill, index) => (
               <button
                 key={index}
