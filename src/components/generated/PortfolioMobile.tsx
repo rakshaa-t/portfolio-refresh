@@ -302,7 +302,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                 background: 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
                 borderRadius: '44px 44px 0 44px',
-                padding: 16
+                padding: 12
               }}>
                 <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300'}}>
                   ...
