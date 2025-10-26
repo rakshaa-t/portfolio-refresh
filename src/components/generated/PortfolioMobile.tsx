@@ -332,7 +332,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                 left: 20,
                 width: 'auto',
                 maxWidth: '85%',
-                background: 'rgba(255, 255, 255, 0.04)',
+                background: 'rgba(255, 255, 255, 0.40)',
                 backdropFilter: 'blur(10px)',
                 padding: '8px 16px',
                 borderRadius: 20,
