@@ -102,10 +102,10 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
   };
 
   return (
-    <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#E3DDED', overflow: 'hidden'}}>
+    <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#E3DDED', overflow: 'hidden', padding: '0 16px'}}>
       
-      {/* Header Bar */}
-      <div style={{width: '100%', padding: 12, background: 'transparent', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
+      {/* Header Bar with blur effect */}
+      <div style={{width: '100%', padding: '16px', background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(10px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
         <div style={{textAlign: 'center', color: 'white', fontSize: 36, fontFamily: 'Neulis Cursive', fontWeight: '500', wordWrap: 'break-word'}}>raks</div>
         <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
           <div style={{width: 73, opacity: 0.44, justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
@@ -124,7 +124,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       </div>
 
       {/* Title Text */}
-      <div style={{width: '100%', maxWidth: '100vw', padding: '0 20px', marginTop: 80, boxSizing: 'border-box'}}>
+      <div style={{width: '100%', marginTop: 100, boxSizing: 'border-box'}}>
         <span style={{color: 'rgba(41.29, 41.29, 41.29, 0.88)', fontSize: 18, fontFamily: 'Nexa', fontWeight: '700', lineHeight: '20px', wordWrap: 'break-word'}}>Raksha T<br/></span>
         <span style={{color: 'rgba(41.29, 41.29, 41.29, 0.88)', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', lineHeight: '20px', wordWrap: 'break-word'}}>
           aka raks - product designer who builds products that work, look good and sell<br/><br/>
@@ -137,11 +137,11 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       </div>
 
       {/* Chat Component */}
-      <div id="mobile-chat" style={{width: '100%', maxWidth: 388, height: 514, margin: '20px auto', padding: '0 20px', boxSizing: 'border-box'}}>
+      <div id="mobile-chat" style={{width: '100%', maxWidth: 'calc(100vw - 32px)', height: 514, margin: '20px auto 0', boxSizing: 'border-box'}}>
         <div style={{width: '100%', height: '100%', position: 'relative', background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)', boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)', overflow: 'hidden', borderRadius: 44, outline: '2px white solid', outlineOffset: '-2px'}}>
         
         {/* Welcome Message */}
-        <div style={{width: 355, height: 120, left: 16, top: 34, position: 'absolute', background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, padding: 16, display: 'flex', alignItems: 'center', gap: 16}}>
+        <div style={{width: 'calc(100% - 32px)', maxWidth: 355, height: 120, left: 16, top: 34, position: 'absolute', background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, padding: 16, display: 'flex', alignItems: 'center', gap: 16}}>
           <div style={{width: 49, height: 49, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden'}}>
             <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
           </div>
@@ -151,16 +151,16 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         </div>
 
         {/* Sample User Message */}
-        <div style={{width: 355, height: 70, left: 16, top: 173, position: 'absolute', background: 'rgba(0, 0, 0, 0.79)', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16}}>
+        <div style={{width: 'calc(100% - 32px)', maxWidth: 355, minHeight: 70, left: 16, top: 173, position: 'absolute', background: 'rgba(0, 0, 0, 0.79)', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16}}>
           <div style={{textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
             Hi raksha can u tell me a bit about yourself?
           </div>
         </div>
 
         {/* Suggestion Pills & Input */}
-        <div style={{width: 348, position: 'absolute', left: 20, bottom: 30, flexDirection: 'column', gap: 15, display: 'flex'}}>
+        <div style={{width: 'calc(100% - 40px)', position: 'absolute', left: 20, bottom: 30, flexDirection: 'column', gap: 15, display: 'flex'}}>
           {/* Suggestion Pills */}
-          <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12}}>
+          <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12, scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitScrollbarDisplay: 'none'}}>
             {SUGGESTION_PILLS.map((pill, index) => (
               <button
                 key={index}
@@ -216,7 +216,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       </div>
 
       {/* Project Cards */}
-      <div style={{width: '100%', padding: '0 38px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 30, display: 'flex', marginBottom: 60}}>
+      <div style={{width: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 30, display: 'flex', marginBottom: 60}}>
         {PROJECT_CARDS.map((card) => {
           if (!visibleCards.includes(card.id)) return null;
           
@@ -264,6 +264,17 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
           </div>
         </div>
       </div>
+
+      <style>{`
+        /* Hide scrollbar for suggestion pills */
+        div[style*="overflowX: 'auto'"]::-webkit-scrollbar {
+          display: none;
+        }
+        div[style*="overflowX: 'auto'"] {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </div>
   );
 };
