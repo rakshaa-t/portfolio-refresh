@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
+import { RakshaPortfolioMobile } from "./PortfolioHeroSectionMobile";
 
 export interface RakshaPortfolioProps {}
 
@@ -477,6 +478,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     }
   };
 
+  // Render mobile version on mobile devices
+  if (isMobile) {
+    return <RakshaPortfolioMobile />;
+  }
+
+  // Desktop version
   return (
     <div className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
       {/* Background Blurs - REDUCED blur for better performance */}
