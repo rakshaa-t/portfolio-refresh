@@ -105,9 +105,9 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#E3DDED', overflow: 'hidden'}}>
       
       {/* Header Bar */}
-      <div style={{width: '100%', height: '100%', padding: 12, background: 'rgba(255, 255, 255, 0.01)', backdropFilter: 'blur(11px)', justifyContent: 'center', alignItems: 'center', gap: 200, display: 'inline-flex', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
+      <div style={{width: '100%', height: '100%', padding: 12, background: 'rgba(255, 255, 255, 0.01)', justifyContent: 'center', alignItems: 'center', gap: 200, display: 'inline-flex', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
         <div style={{textAlign: 'center', color: 'white', fontSize: 36, fontFamily: 'Neulis Cursive', fontWeight: '500', wordWrap: 'break-word'}}>raks</div>
-        <div style={{paddingLeft: 12, paddingRight: 12, paddingTop: 4, paddingBottom: 4, background: 'rgba(255, 255, 255, 0.01)', backdropFilter: 'blur(11px)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex'}}>
+        <div style={{paddingLeft: 12, paddingRight: 12, paddingTop: 4, paddingBottom: 4, background: 'rgba(255, 255, 255, 0.01)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex'}}>
           <div style={{width: 73, opacity: 0.44, justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
             <a href="https://linkedin.com/in/raksha-tated" target="_blank" rel="noopener noreferrer" style={{width: 29, height: 29, position: 'relative', overflow: 'hidden'}}>
               <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +237,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
 
       {/* Bottom Navigation Bar */}
       <div style={{width: '100%', position: 'fixed', bottom: 0, left: 0, right: 0, padding: '16px', zIndex: 50, boxSizing: 'border-box'}}>
-        <div style={{width: '100%', maxWidth: '280px', margin: '0 auto', background: 'rgba(255, 255, 255, 0.01)', backdropFilter: 'blur(1px)', justifyContent: 'center', alignItems: 'flex-start', gap: 28, display: 'inline-flex'}}>
+        <div style={{width: '100%', maxWidth: '280px', margin: '0 auto', background: 'rgba(255, 255, 255, 0.01)', justifyContent: 'center', alignItems: 'flex-start', gap: 28, display: 'inline-flex'}}>
           <div style={{flex: '1 1 0', height: 60, padding: 18, position: 'relative', background: '#283FE4', boxShadow: '1px 2px 4px rgba(0, 0, 0, 0.10)', overflow: 'hidden', borderRadius: 4444, outline: '1px white solid', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
             <div style={{width: 30, height: 25, left: 0, top: -2, position: 'absolute', background: 'white', boxShadow: '44px 44px 44px ', filter: 'blur(22px)'}} />
             <div style={{width: 24, height: 24, position: 'relative', overflow: 'hidden'}}>
