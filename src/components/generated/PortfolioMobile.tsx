@@ -216,31 +216,6 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
 
         {/* Suggestion Pills & Input - Fixed at bottom */}
         <div style={{width: 'calc(100% - 40px)', position: 'absolute', left: 20, bottom: 30, flexDirection: 'column', gap: 15, display: 'flex'}}>
-          {/* Suggestion Pills */}
-          <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12, scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
-            {SUGGESTION_PILLS.map((pill, index) => (
-              <button
-                key={index}
-                onClick={() => handleSendMessage(pill)}
-                disabled={isLoading}
-                style={{
-                  padding: '8px 20px',
-                  background: 'rgba(255, 255, 255, 0.10)',
-                  borderRadius: 2222,
-                  border: 'none',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  transform: clickedPill === pill ? 'scale(0.95)' : 'scale(1)',
-                  transition: 'transform 0.1s ease'
-                }}
-              >
-                <div style={{color: 'rgba(0, 0, 0, 0.64)', fontSize: 14, fontFamily: 'Outfit', fontWeight: '400'}}>
-                  {pill}
-                </div>
-              </button>
-            ))}
-          </div>
-
           {/* Input Box */}
           <div style={{width: '100%', height: 63, paddingLeft: 22, paddingRight: 22, paddingTop: 6, paddingBottom: 6, background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.44) 100%)', boxShadow: '0px 19px 41px rgba(0, 0, 0, 0.04)', borderRadius: 100, outline: '1px white solid', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
             <div style={{display: 'flex', alignItems: 'center', gap: 12, flex: 1}}>
@@ -256,7 +231,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                 onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="talk 2 me"
                 disabled={isLoading}
-                style={{flex: 1, background: 'transparent', border: 'none', outline: 'none', color: 'rgba(0, 0, 0, 0.44)', fontSize: 16, fontFamily: 'Outfit', fontWeight: '400'}}
+                style={{flex: 1, background: 'transparent', border: 'none', outline: 'none', color: 'rgba(0, 0, 0, 0.44)', fontSize: 14, fontFamily: 'Outfit', fontWeight: '400'}}
               />
             </div>
             <button
@@ -266,6 +241,32 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
             >
               <ArrowUp style={{width: 20, height: 20, color: '#283FE4', strokeWidth: 2}} />
             </button>
+          </div>
+
+          {/* Suggestion Pills - Below Input */}
+          <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12, scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
+            {SUGGESTION_PILLS.map((pill, index) => (
+              <button
+                key={index}
+                onClick={() => handleSendMessage(pill)}
+                disabled={isLoading}
+                style={{
+                  padding: '8px 20px',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: 2222,
+                  border: '1px solid white',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transform: clickedPill === pill ? 'scale(0.95)' : 'scale(1)',
+                  transition: 'transform 0.1s ease'
+                }}
+              >
+                <div style={{color: 'rgba(0, 0, 0, 0.64)', fontSize: 14, fontFamily: 'Outfit', fontWeight: '400'}}>
+                  {pill}
+                </div>
+              </button>
+            ))}
           </div>
         </div>
         </div>
