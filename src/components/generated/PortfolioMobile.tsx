@@ -52,8 +52,11 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     if (!textToSend || isLoading) return;
 
     const userMessage: ChatMessage = {
-      role: 'user',
-      content: textToSend
+      id: `user-${Date.now()}`,
+      type: 'text',
+      content: textToSend,
+      sender: 'user',
+      timestamp: Date.now()
     };
 
     setMessages(prev => [...prev, userMessage]);
@@ -63,14 +66,20 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     try {
       const response = await sendToAI(textToSend, messages, AI_CONFIG.API_KEY);
       const assistantMessage: ChatMessage = {
-        role: 'assistant',
-        content: response
+        id: `ai-${Date.now()}`,
+        type: 'text',
+        content: response.message,
+        sender: 'ai',
+        timestamp: Date.now()
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error: any) {
       const fallbackMessage: ChatMessage = {
-        role: 'assistant',
-        content: getFallbackResponse(error)
+        id: `ai-error-${Date.now()}`,
+        type: 'text',
+        content: getFallbackResponse(error),
+        sender: 'ai',
+        timestamp: Date.now()
       };
       setMessages(prev => [...prev, fallbackMessage]);
     } finally {
