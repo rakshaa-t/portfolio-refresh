@@ -314,19 +314,19 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
               key={card.id}
               onClick={() => handleCardClick(card.id)}
               style={{
-                width: 369,
-                height: 373,
+                width: 263,
+                height: 266,
                 position: 'relative',
-                background: 'rgba(255, 255, 255, 0.30)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(20px)',
                 borderRadius: 44,
                 outline: '1px white solid',
-                outlineOffset: '-1px',
                 cursor: 'pointer',
                 transform: `rotate(${rotation}deg)`
               }}
             >
-              <img style={{width: 369, height: 302.91, left: 0, top: 70.09, position: 'absolute', borderRadius: 44, outline: '1px white solid', objectFit: 'cover'}} src={card.image} alt={card.title} />
-              <div style={{width: 213.37, left: 25.31, top: 21.67, position: 'absolute', color: 'black', fontSize: 14, fontFamily: 'Nexa', fontWeight: '400', wordWrap: 'break-word'}}>
+              <img style={{width: 263, height: 266, position: 'absolute', objectFit: 'cover', borderRadius: 44}} src={card.image} alt={card.title} />
+              <div style={{width: 200, position: 'absolute', top: 16, left: 20, color: 'rgba(0, 0, 0, 0.6)', fontSize: 14, fontFamily: 'Nexa', fontWeight: '400', wordWrap: 'break-word'}}>
                 {card.title}
               </div>
             </div>
