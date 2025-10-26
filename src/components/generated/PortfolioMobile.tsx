@@ -143,8 +143,8 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         {/* Chat Messages Container */}
         <div style={{position: 'absolute', top: 34, left: 16, right: 16, bottom: 150, overflowY: 'auto', overflowX: 'hidden'}}>
           {/* Welcome Message - Always show */}
-          <div style={{marginBottom: 20}}>
-            <div style={{width: '100%', maxWidth: 355, background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, padding: 16, display: 'flex', alignItems: 'center', gap: 16}}>
+          <div style={{marginBottom: 12}}>
+            <div style={{width: '100%', maxWidth: 355, background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: '20px 20px 20px 0', padding: 12, display: 'flex', alignItems: 'center', gap: 12}}>
               <div style={{width: 49, height: 49, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
                 <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
               </div>
@@ -156,13 +156,13 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
 
           {/* User and AI Messages */}
           {messages.map((msg) => (
-            <div key={msg.id} style={{marginBottom: 12, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
+            <div key={msg.id} style={{marginBottom: 8, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
               <div style={{
                 maxWidth: '85%',
                 background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: 20,
-                padding: 16,
+                borderRadius: msg.sender === 'user' ? '20px 20px 0 20px' : '20px 20px 20px 0',
+                padding: 12,
                 wordWrap: 'break-word'
               }}>
                 <div style={{
@@ -183,8 +183,8 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
               <div style={{
                 background: 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: 20,
-                padding: 16
+                borderRadius: '20px 20px 20px 0',
+                padding: 12
               }}>
                 <div style={{color: 'black', fontSize: 16, fontFamily: 'Outfit', fontWeight: '300'}}>
                   thinking...
