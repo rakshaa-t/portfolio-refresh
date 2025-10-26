@@ -490,12 +490,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Desktop version
   return (
     <div className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
-      {/* Background Blurs - REDUCED blur for better performance */}
-      <div className="absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
-      <div className="absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
-      
-      {/* White blur behind chatbox */}
-      <div className="absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
+      {/* Background Blurs - Minimal on mobile for performance */}
+      {!isMobile && (
+        <>
+          <div className="absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
+          <div className="absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
+          <div className="absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
+        </>
+      )}
 
       {/* Nav Background Blur Area - seamless blur (desktop only for performance) */}
       {!isMobile && (
@@ -1116,9 +1118,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </p>
               </div>
           )}
-          {/* Inner Background Blurs */}
-          <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
-          <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
+          {/* Inner Background Blurs - Desktop only for performance */}
+          {!isMobile && (
+            <>
+              <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
+              <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
+            </>
+          )}
 
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
@@ -1507,9 +1513,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       transition={{ duration: 0 }}
                       className="w-[263px] h-[266px] rounded-[44px] border border-white cursor-pointer"
                       style={{
+                        position: 'relative',
                         background: 'rgba(255, 255, 255, 0.30)',
-                        backdropFilter: 'blur(10px)',
-                        WebkitBackdropFilter: 'blur(10px)',
                         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
                       }}
                     >

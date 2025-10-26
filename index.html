@@ -13,25 +13,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Load custom fonts from CDN -->
+    <link href="https://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neulis-cursive" rel="stylesheet">
+    
     <!-- Custom Fonts with fallbacks -->
     <style>
+      @import url('https://fonts.cdnfonts.com/css/nexa-bold');
+      @import url('https://fonts.cdnfonts.com/css/neulis-cursive');
+      
       @font-face {
         font-family: 'Nexa';
-        src: local('Nexa Bold'), local('Nexa-Bold'), local('Outfit');
+        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Bold.woff') format('woff'),
+             local('Outfit');
         font-weight: 700;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: 'Nexa Text';
-        src: local('Nexa Text'), local('NexaText-Regular'), local('Outfit');
+        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Light.woff') format('woff'),
+             local('Outfit');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Nexa Text';
+        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Regular.woff') format('woff'),
+             local('Outfit');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: 'Neulis Cursive';
-        src: local('Neulis Cursive'), local('Pacifico'), local('cursive');
+        src: url('https://fonts.cdnfonts.com/s/107409/Neulis Cursive Alt.woff') format('woff'),
+             local('Pacifico'), local('cursive');
         font-weight: 500;
         font-style: italic;
         font-display: swap;
