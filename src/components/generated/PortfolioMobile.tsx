@@ -179,7 +179,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       
       {/* Header Bar with blur effect */}
       <div style={{width: '100%', padding: '16px', background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(10px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
-        <div style={{textAlign: 'center', color: 'white', fontSize: 36, fontFamily: 'Neulis Cursive', fontWeight: '500', wordWrap: 'break-word'}}>raks</div>
+        <div style={{textAlign: 'center', color: 'white', fontSize: 36, fontFamily: 'Caveat, cursive', fontWeight: '500', wordWrap: 'break-word'}}>raks</div>
         <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
           <div style={{width: 73, opacity: 0.44, justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
             <a href="https://linkedin.com/in/raksha-tated" target="_blank" rel="noopener noreferrer" style={{width: 29, height: 29, position: 'relative', overflow: 'hidden'}}>
@@ -426,10 +426,10 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       {/* Footer */}
       <div style={{width: '100%', padding: 22, marginTop: 100, marginBottom: 100, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: 20, display: 'flex'}}>
         <div style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: 12, display: 'flex'}}>
-          <div style={{textAlign: 'center', color: '#433556', fontSize: 20, fontFamily: 'Neulis Cursive', fontStyle: 'italic', fontWeight: '500', wordWrap: 'break-word'}}>
+          <div style={{textAlign: 'center', color: '#433556', fontSize: 20, fontFamily: 'Caveat, cursive', fontStyle: 'italic', fontWeight: '500', wordWrap: 'break-word'}}>
             lovely to see you here!
           </div>
-          <div style={{width: 242, height: 113, color: 'white', fontSize: 100, fontFamily: 'Neulis Cursive', fontWeight: '500', wordWrap: 'break-word', textAlign: 'center'}}>
+          <div style={{width: 242, height: 113, color: 'white', fontSize: 100, fontFamily: 'Caveat, cursive', fontWeight: '500', wordWrap: 'break-word', textAlign: 'center'}}>
             raks
           </div>
         </div>

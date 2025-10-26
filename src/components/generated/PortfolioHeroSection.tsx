@@ -546,7 +546,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 textAlign: 'center',
                 color: 'white',
                 fontSize: '36px',
-                fontFamily: 'Neulis Cursive, system-ui, sans-serif',
+                fontFamily: 'Caveat, cursive, system-ui, sans-serif',
                 fontWeight: '500',
                 wordWrap: 'break-word'
               }}
@@ -620,7 +620,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 textAlign: 'center',
                 color: 'white',
                 fontSize: '36px',
-                fontFamily: 'Neulis Cursive, system-ui, sans-serif',
+                fontFamily: 'Caveat, cursive, system-ui, sans-serif',
                 fontWeight: '500',
                 wordWrap: 'break-word'
               }}
@@ -1654,7 +1654,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               textAlign: 'center',
               color: '#9F94AD',
               fontSize: isMobile ? '20px' : '44px',
-              fontFamily: 'Neulis Cursive, cursive',
+              fontFamily: 'Caveat, cursive, cursive',
               fontStyle: 'italic',
               fontWeight: '500',
               wordWrap: 'break-word'
@@ -1666,7 +1666,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             style={{
               color: 'white',
               fontSize: isMobile ? '100px' : '200px',
-              fontFamily: 'Neulis Cursive, cursive',
+              fontFamily: 'Caveat, cursive, cursive',
               fontWeight: '500',
               lineHeight: isMobile ? 'normal' : '200px',
               wordWrap: 'break-word',
