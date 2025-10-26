@@ -105,9 +105,9 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#E3DDED', overflow: 'hidden'}}>
       
       {/* Header Bar */}
-      <div style={{width: '100%', height: '100%', padding: 12, background: 'rgba(255, 255, 255, 0.01)', justifyContent: 'center', alignItems: 'center', gap: 200, display: 'inline-flex', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
+      <div style={{width: '100%', padding: 12, background: 'transparent', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
         <div style={{textAlign: 'center', color: 'white', fontSize: 36, fontFamily: 'Neulis Cursive', fontWeight: '500', wordWrap: 'break-word'}}>raks</div>
-        <div style={{paddingLeft: 12, paddingRight: 12, paddingTop: 4, paddingBottom: 4, background: 'rgba(255, 255, 255, 0.01)', justifyContent: 'flex-start', alignItems: 'center', gap: 16, display: 'flex'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
           <div style={{width: 73, opacity: 0.44, justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
             <a href="https://linkedin.com/in/raksha-tated" target="_blank" rel="noopener noreferrer" style={{width: 29, height: 29, position: 'relative', overflow: 'hidden'}}>
               <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -235,48 +235,6 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         })}
       </div>
 
-      {/* Bottom Navigation Bar */}
-      <div style={{width: '100%', position: 'fixed', bottom: 0, left: 0, right: 0, padding: '16px', zIndex: 50, boxSizing: 'border-box'}}>
-        <div style={{width: '100%', maxWidth: '280px', margin: '0 auto', background: 'rgba(255, 255, 255, 0.01)', justifyContent: 'center', alignItems: 'flex-start', gap: 28, display: 'inline-flex'}}>
-          <div style={{flex: '1 1 0', height: 60, padding: 18, position: 'relative', background: '#283FE4', boxShadow: '1px 2px 4px rgba(0, 0, 0, 0.10)', overflow: 'hidden', borderRadius: 4444, outline: '1px white solid', justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
-            <div style={{width: 30, height: 25, left: 0, top: -2, position: 'absolute', background: 'white', boxShadow: '44px 44px 44px ', filter: 'blur(22px)'}} />
-            <div style={{width: 24, height: 24, position: 'relative', overflow: 'hidden'}}>
-              <div style={{width: 24, height: 24, left: 0, top: 0, position: 'absolute', background: 'white'}} />
-              <div style={{width: 14.50, height: 14.50, left: 8.25, top: 7.25, position: 'absolute', background: 'black'}} />
-              <div style={{width: 18, height: 18, left: 1, top: 1, position: 'absolute', background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.34) 100%)'}} />
-              <div style={{width: 14.50, height: 14.50, left: 8.25, top: 7.25, position: 'absolute', background: 'black'}} />
-              <div style={{width: 18, height: 18, left: 1, top: 1, position: 'absolute', background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0.34) 100%)', boxShadow: '4px 4px 4px ', filter: 'blur(2px)'}} />
-              <div style={{width: 14.50, height: 14.50, left: 8.25, top: 7.25, position: 'absolute', background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.60) 100%)'}} />
-              <div style={{width: 14.50, height: 14.50, left: 8.25, top: 7.25, position: 'absolute', background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 100%)'}} />
-            </div>
-          </div>
-          <div style={{flex: '1 1 0', height: 60, padding: 18, background: 'rgba(255, 255, 255, 0.64)', borderRadius: 4444, justifyContent: 'space-between', alignItems: 'center', display: 'flex'}}>
-            <div style={{width: 24, height: 24, position: 'relative', overflow: 'hidden'}}>
-              <div style={{width: 24, height: 24, left: 0, top: 0, position: 'absolute', background: 'white'}} />
-              <div style={{width: 22, height: 8, left: 1, top: 13, position: 'absolute', background: 'black'}} />
-              <div style={{width: 20.80, height: 15, left: 1.60, top: 3, position: 'absolute', background: 'linear-gradient(180deg, #575757 0%, #151515 100%)'}} />
-              <div style={{width: 22, height: 8, left: 1, top: 13, position: 'absolute', background: 'black'}} />
-              <div style={{width: 20.80, height: 15, left: 1.60, top: 3, position: 'absolute', background: 'linear-gradient(180deg, #575757 0%, #151515 100%)', boxShadow: '4px 4px 4px ', filter: 'blur(2px)'}} />
-              <div style={{width: 22, height: 8, left: 1, top: 13, position: 'absolute', background: 'linear-gradient(270deg, rgba(227, 227, 229, 0.60) 0%, rgba(187, 187, 192, 0.60) 100%)'}} />
-              <div style={{width: 22, height: 8, left: 1, top: 13, position: 'absolute', background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 100%)'}} />
-            </div>
-          </div>
-          <button
-            onClick={() => window.open('https://cal.com/raksha-tated-v2ee58/15min', '_blank')}
-            style={{flex: '1 1 0', height: 60, padding: 18, background: 'rgba(255, 255, 255, 0.64)', borderRadius: 4444, justifyContent: 'space-between', alignItems: 'center', display: 'flex', border: 'none', cursor: 'pointer'}}
-          >
-            <div style={{width: 24, height: 24, position: 'relative', overflow: 'hidden'}}>
-              <div style={{width: 24, height: 24, left: 0, top: 0, position: 'absolute', background: 'white'}} />
-              <div style={{width: 20, height: 15, left: 2, top: 7, position: 'absolute', background: 'black'}} />
-              <div style={{width: 20, height: 18.50, left: 2, top: 1, position: 'absolute', background: 'linear-gradient(180deg, #575757 0%, #151515 100%)'}} />
-              <div style={{width: 20, height: 15, left: 2, top: 7, position: 'absolute', background: 'black'}} />
-              <div style={{width: 20, height: 18.50, left: 2, top: 1, position: 'absolute', background: 'linear-gradient(180deg, #575757 0%, #151515 100%)', boxShadow: '4px 4px 4px ', filter: 'blur(2px)'}} />
-              <div style={{width: 20, height: 15, left: 2, top: 7, position: 'absolute', background: 'linear-gradient(180deg, rgba(227, 227, 229, 0.60) 0%, rgba(187, 187, 192, 0.60) 100%)'}} />
-              <div style={{width: 20, height: 15, left: 2, top: 7, position: 'absolute', background: 'linear-gradient(180deg, white 0%, rgba(255, 255, 255, 0) 100%)'}} />
-            </div>
-          </button>
-        </div>
-      </div>
 
       {/* Footer */}
       <div style={{width: '100%', padding: 22, marginTop: 100, marginBottom: 100, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: 20, display: 'flex'}}>
