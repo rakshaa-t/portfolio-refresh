@@ -247,7 +247,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                       borderRadius: '44px 44px 44px 0',
                       padding: 12,
                       display: 'flex',
-                      alignItems: 'center',
+                      alignItems: 'flex-start',
                       gap: 12,
                       wordWrap: 'break-word'
                     }}>
