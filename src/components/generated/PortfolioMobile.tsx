@@ -301,7 +301,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       {/* Footer */}
       <div style={{width: '100%', padding: 22, marginTop: 100, marginBottom: 100, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: 20, display: 'flex'}}>
         <div style={{flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: 12, display: 'flex'}}>
-          <div style={{textAlign: 'center', color: '#9F94AD', fontSize: 20, fontFamily: 'Neulis Cursive', fontStyle: 'italic', fontWeight: '500', wordWrap: 'break-word'}}>
+          <div style={{textAlign: 'center', color: '#433556', fontSize: 20, fontFamily: 'Neulis Cursive', fontStyle: 'italic', fontWeight: '500', wordWrap: 'break-word'}}>
             lovely to see you here!
           </div>
           <div style={{width: 242, height: 113, color: 'white', fontSize: 100, fontFamily: 'Neulis Cursive', fontWeight: '500', wordWrap: 'break-word', textAlign: 'center'}}>
@@ -310,17 +310,17 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         </div>
         <div style={{width: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 40, display: 'flex'}}>
           <div style={{width: '100%', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: 12, display: 'flex'}}>
-            <a href="https://linkedin.com/in/raksha-tated" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#9F94AD', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>Linkedin</a>
-            <a href="https://twitter.com/raksha_tated" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#9F94AD', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>X</a>
-            <a href="https://contra.com/raksha_tated" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#9F94AD', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>Contra</a>
-            <a href="https://medium.com/@raksha" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#9F94AD', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>Medium</a>
-            <a href="mailto:hey@raksha.design" style={{textAlign: 'center', color: '#9F94AD', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>hey@raksha.design</a>
+            <a href="https://linkedin.com/in/raksha-tated" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>Linkedin</a>
+            <a href="https://twitter.com/raksha_tated" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>X</a>
+            <a href="https://contra.com/raksha_tated" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>Contra</a>
+            <a href="https://medium.com/@raksha" target="_blank" rel="noopener noreferrer" style={{textAlign: 'center', color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>Medium</a>
+            <a href="mailto:hey@raksha.design" style={{textAlign: 'center', color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>hey@raksha.design</a>
           </div>
           <div style={{width: '100%', textAlign: 'center'}}>
-            <span style={{color: '#A599B6', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', wordWrap: 'break-word'}}>
+            <span style={{color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', wordWrap: 'break-word'}}>
               Designed and coded by me and cursor<br/> → 
             </span>
-            <span style={{color: '#A599B6', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>
+            <span style={{color: '#433556', fontSize: 12, fontFamily: 'Geist Mono', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'}}>
               View process
             </span>
           </div>
