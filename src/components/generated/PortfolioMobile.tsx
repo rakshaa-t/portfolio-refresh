@@ -237,9 +237,9 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
             <button
               onClick={() => handleSendMessage()}
               disabled={isLoading || !inputValue.trim()}
-              style={{width: 50, height: 50, padding: 13, background: 'white', boxShadow: '-1px 1px 4px rgba(40, 63, 228, 0.04)', borderRadius: 3333, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'}}
+              style={{width: 38, height: 38, padding: 13, background: 'white', boxShadow: '-1px 1px 4px rgba(40, 63, 228, 0.04)', borderRadius: 3333, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'}}
             >
-              <ArrowUp style={{width: 20, height: 20, color: '#283FE4', strokeWidth: 2}} />
+              <ArrowUp style={{width: 19, height: 19, color: '#283FE4', strokeWidth: 2}} />
             </button>
           </div>
 
