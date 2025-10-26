@@ -303,6 +303,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     setIsLoading(true);
 
     try {
+      // Debug: Check if API key exists
+      if (!AI_CONFIG.API_KEY) {
+        console.error('❌ API Key is missing! Check Vercel environment variables.');
+        throw new Error('API Key not configured');
+      }
+      console.log('✅ API Key found, sending message to AI...');
+      
       // Send to AI
       const response = await sendToAI(textToSend, messages, AI_CONFIG.API_KEY);
       
