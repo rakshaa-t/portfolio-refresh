@@ -326,7 +326,22 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
               }}
             >
               <img style={{width: 263, height: 266, position: 'absolute', objectFit: 'cover', borderRadius: 44}} src={card.image} alt={card.title} />
-              <div style={{width: 200, position: 'absolute', top: 16, left: 20, color: 'rgba(0, 0, 0, 0.6)', fontSize: 14, fontFamily: 'Nexa', fontWeight: '400', wordWrap: 'break-word'}}>
+              <div style={{
+                position: 'absolute',
+                top: 16,
+                left: 20,
+                width: 'auto',
+                maxWidth: '85%',
+                background: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(10px)',
+                padding: '8px 16px',
+                borderRadius: 20,
+                color: 'rgba(0, 0, 0, 0.8)',
+                fontSize: 14,
+                fontFamily: 'Nexa',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}>
                 {card.title}
               </div>
             </div>
