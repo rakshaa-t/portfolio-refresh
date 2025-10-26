@@ -113,23 +113,62 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     if (card) {
       setVisibleCards(prev => prev.filter(id => id !== cardId));
       
-      // Create message with card attachment
+      // Create user message directly with card attachment
       const messageId = `user-${Date.now()}`;
+      const userMessage: ChatMessage = {
+        id: messageId,
+        type: 'text',
+        content: card.message,
+        sender: 'user',
+        timestamp: Date.now()
+      };
+      
       setCardAttachments(prev => ({
         ...prev,
         [messageId]: { image: card.image, title: card.title }
       }));
       
-      handleSendMessage(card.message);
+      setMessages(prev => [...prev, userMessage]);
+      setIsLoading(true);
       
-      // Scroll to chat
+      // Auto-scroll to latest message
+      setTimeout(() => {
+        if (chatContainerRef.current) {
+          chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+      }, 100);
+      
+      // Get AI response
+      (async () => {
+        try {
+          const response = await sendToAI(card.message, messages, AI_CONFIG.API_KEY);
+          const assistantMessage: ChatMessage = {
+            id: `ai-${Date.now()}`,
+            type: 'text',
+            content: response.message,
+            sender: 'ai',
+            timestamp: Date.now()
+          };
+          setMessages(prev => [...prev, assistantMessage]);
+        } catch (error: any) {
+          const fallbackMessage: ChatMessage = {
+            id: `ai-error-${Date.now()}`,
+            type: 'text',
+            content: getFallbackResponse(error),
+            sender: 'ai',
+            timestamp: Date.now()
+          };
+          setMessages(prev => [...prev, fallbackMessage]);
+        } finally {
+          setIsLoading(false);
+        }
+      })();
+      
+      // Scroll to chat section
       setTimeout(() => {
         const chatElement = document.getElementById('mobile-chat');
         if (chatElement) {
           chatElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        if (chatContainerRef.current) {
-          chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
         }
       }, 100);
     }
