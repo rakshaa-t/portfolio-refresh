@@ -573,11 +573,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </nav>
       ) : (
         /* Desktop Navigation */
-        <nav className="fixed left-0 right-0 top-[20px] z-50">
+        <nav className="fixed left-0 right-0 top-[20px] z-50 flex justify-center">
           <div 
             style={{
-              width: '100%',
-              height: '100%',
               paddingLeft: '12px',
               paddingRight: '12px',
               paddingTop: '4px',
