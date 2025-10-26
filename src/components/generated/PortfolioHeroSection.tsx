@@ -217,6 +217,7 @@ const PROJECT_CARDS = [
 ] as const;
 
 export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: RakshaPortfolioProps) => {
+  // Mobile-responsive portfolio with working chat, cards, and optimized performance (v2.0)
   const [activeNav, setActiveNav] = React.useState<"chat" | "inbox" | "calendar">("chat");
   const [messages, setMessages] = React.useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = React.useState("");
