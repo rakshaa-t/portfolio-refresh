@@ -181,7 +181,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                 maxWidth: '85%',
                 background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: msg.sender === 'user' ? '44px 44px 0 44px' : '0 44px 44px 44px',
+                borderRadius: msg.sender === 'user' ? '44px 44px 44px 0' : '44px 44px 0 44px',
                 padding: 16,
                 wordWrap: 'break-word'
               }}>
@@ -203,7 +203,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
               <div style={{
                 background: 'white',
                 boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: '0 44px 44px 44px',
+                borderRadius: '44px 44px 0 44px',
                 padding: 16
               }}>
                 <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300'}}>
