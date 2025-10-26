@@ -217,12 +217,21 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
         <div ref={chatContainerRef} style={{position: 'absolute', top: 34, left: 16, right: 32, bottom: 150, overflowY: 'auto', overflowX: 'hidden', paddingRight: 8}}>
           {/* Welcome Message - Always show */}
           <div style={{marginBottom: 12}}>
-            <div style={{width: '100%', maxWidth: 355, background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: '44px 44px 44px 0', padding: 12, display: 'flex', alignItems: 'flex-start', gap: 12}}>
+            <div style={{display: 'flex', alignItems: 'flex-end', gap: 8, position: 'relative'}}>
+              <div style={{
+                maxWidth: '85%',
+                background: 'white',
+                boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
+                borderRadius: '44px 44px 44px 0',
+                padding: 12,
+                wordWrap: 'break-word'
+              }}>
+                <div style={{color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
+                  you can ask me here about my design process, my past projects or just get to know me better!
+                </div>
+              </div>
               <div style={{width: 29, height: 29, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
                 <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-              </div>
-              <div style={{flex: '1 1 0', color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
-                you can ask me here about my design process, my past projects or just get to know me better!
               </div>
             </div>
           </div>
