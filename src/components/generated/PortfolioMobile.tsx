@@ -140,24 +140,61 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       <div id="mobile-chat" style={{width: '100%', maxWidth: 'calc(100vw - 32px)', height: 514, margin: '20px auto 0', boxSizing: 'border-box'}}>
         <div style={{width: '100%', height: '100%', position: 'relative', background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)', boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)', overflow: 'hidden', borderRadius: 44, outline: '2px white solid', outlineOffset: '-2px'}}>
         
-        {/* Welcome Message */}
-        <div style={{width: 'calc(100% - 32px)', maxWidth: 355, height: 120, left: 16, top: 34, position: 'absolute', background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, padding: 16, display: 'flex', alignItems: 'center', gap: 16}}>
-          <div style={{width: 49, height: 49, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden'}}>
-            <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+        {/* Chat Messages Container */}
+        <div style={{position: 'absolute', top: 34, left: 16, right: 16, bottom: 150, overflowY: 'auto', overflowX: 'hidden'}}>
+          {/* Welcome Message - Always show */}
+          <div style={{marginBottom: 20}}>
+            <div style={{width: '100%', maxWidth: 355, background: 'white', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, padding: 16, display: 'flex', alignItems: 'center', gap: 16}}>
+              <div style={{width: 49, height: 49, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
+                <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+              </div>
+              <div style={{flex: '1 1 0', color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
+                you can ask me here about my design process, my past projects or just get to know me better!
+              </div>
+            </div>
           </div>
-          <div style={{flex: '1 1 0', color: 'black', fontSize: 14, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
-            you can ask me here about my design process, my past projects or just get to know me better!
-          </div>
+
+          {/* User and AI Messages */}
+          {messages.map((msg) => (
+            <div key={msg.id} style={{marginBottom: 12, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
+              <div style={{
+                maxWidth: '85%',
+                background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
+                boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
+                borderRadius: 20,
+                padding: 16,
+                wordWrap: 'break-word'
+              }}>
+                <div style={{
+                  color: msg.sender === 'user' ? 'white' : 'black',
+                  fontSize: 16,
+                  fontFamily: 'Outfit',
+                  fontWeight: '300',
+                  textAlign: msg.sender === 'user' ? 'right' : 'left'
+                }}>
+                  {msg.content}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {isLoading && (
+            <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+              <div style={{
+                background: 'white',
+                boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
+                borderRadius: 20,
+                padding: 16
+              }}>
+                <div style={{color: 'black', fontSize: 16, fontFamily: 'Outfit', fontWeight: '300'}}>
+                  thinking...
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Sample User Message */}
-        <div style={{width: 'calc(100% - 32px)', maxWidth: 355, minHeight: 70, left: 16, top: 173, position: 'absolute', background: 'rgba(0, 0, 0, 0.79)', boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)', borderRadius: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16}}>
-          <div style={{textAlign: 'center', color: 'white', fontSize: 16, fontFamily: 'Outfit', fontWeight: '300', wordWrap: 'break-word'}}>
-            Hi raksha can u tell me a bit about yourself?
-          </div>
-        </div>
-
-        {/* Suggestion Pills & Input */}
+        {/* Suggestion Pills & Input - Fixed at bottom */}
         <div style={{width: 'calc(100% - 40px)', position: 'absolute', left: 20, bottom: 30, flexDirection: 'column', gap: 15, display: 'flex'}}>
           {/* Suggestion Pills */}
           <div style={{width: '100%', overflowX: 'auto', display: 'flex', gap: 12, scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
