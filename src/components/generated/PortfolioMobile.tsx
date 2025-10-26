@@ -199,14 +199,22 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
                     <img src={attachment.image} alt={attachment.title} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                   </div>
                 )}
-                <div style={{display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
+                <div style={{display: 'flex', alignItems: 'flex-start', gap: 12, justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
+                  {/* Avatar for AI messages */}
+                  {msg.sender === 'ai' && (
+                    <div style={{width: 49, height: 49, background: '#D9D9D9', borderRadius: 44444, overflow: 'hidden', flexShrink: 0}}>
+                      <img src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg" alt="Profile" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                    </div>
+                  )}
                   <div style={{
                     maxWidth: '85%',
                     background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
                     boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
                     borderRadius: msg.sender === 'user' ? '44px 44px 0 44px' : '44px 44px 44px 0',
                     padding: 16,
-                    wordWrap: 'break-word'
+                    wordWrap: 'break-word',
+                    display: 'flex',
+                    alignItems: 'center'
                   }}>
                     <div style={{
                       color: msg.sender === 'user' ? 'white' : 'black',
