@@ -217,13 +217,8 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
             <div style={{display: 'flex', alignItems: 'center', gap: 12, flex: 1}}>
               {/* Sparkle Icon */}
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="sparkleGrad" x1="13.1508" y1="41.999" x2="12.8493" y2="16.0008">
-                    <stop stopColor="#283FE4" stopOpacity="0.38" />
-                    <stop offset="1" stopColor="white" stopOpacity="0.6" />
-                  </linearGradient>
-                </defs>
-                <path d="M16.6562 25.2121L14.3939 19.5118C13.893 18.2498 12.1067 18.2496 11.6056 19.5116L9.34196 25.2121C9.31836 25.2714 9.27155 25.3182 9.21228 25.3418L3.51087 27.6058C2.24898 28.1069 2.24898 29.8929 3.51087 30.394L9.21228 32.658C9.27155 32.6816 9.31836 32.7284 9.34196 32.7876L11.6055 38.4882C12.1067 39.7502 13.8929 39.75 14.3939 38.4879L16.6562 32.7876C16.6799 32.7282 16.7273 32.6815 16.7868 32.658L22.4888 30.394C23.7507 29.893 23.7507 28.1068 22.4888 27.6058L16.7868 25.3418C16.7273 25.3183 16.6799 25.2716 16.6562 25.2121Z" fill="url(#sparkleGrad)" transform="scale(0.42) translate(3, -28)" />
+                <path d="M12 2L13.5 6L18 7.5L13.5 9L12 13.5L10.5 9L6 7.5L10.5 6L12 2Z" fill="#283FE4" opacity="0.8" />
+                <path d="M19 10L20.5 14L24 15.5L20.5 17L19 21.5L17.5 17L14 15.5L17.5 14L19 10Z" fill="#283FE4" opacity="0.6" />
               </svg>
               <input
                 type="text"
