@@ -53,6 +53,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
   const chatContainerRef = React.useRef<HTMLDivElement>(null);
   const [visibleCards, setVisibleCards] = React.useState<string[]>(PROJECT_CARDS.map(c => c.id));
   const [clickedPill, setClickedPill] = React.useState<string | null>(null);
+  const [cardAttachments, setCardAttachments] = React.useState<{[key: string]: {image: string, title: string}}>({});
 
   const handleSendMessage = async (messageText?: string) => {
     const textToSend = messageText || inputValue.trim();
@@ -111,18 +112,31 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     const card = PROJECT_CARDS.find(c => c.id === cardId);
     if (card) {
       setVisibleCards(prev => prev.filter(id => id !== cardId));
+      
+      // Create message with card attachment
+      const messageId = `user-${Date.now()}`;
+      setCardAttachments(prev => ({
+        ...prev,
+        [messageId]: { image: card.image, title: card.title }
+      }));
+      
       handleSendMessage(card.message);
       
       // Scroll to chat
-      const chatElement = document.getElementById('mobile-chat');
-      if (chatElement) {
-        chatElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      setTimeout(() => {
+        const chatElement = document.getElementById('mobile-chat');
+        if (chatElement) {
+          chatElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (chatContainerRef.current) {
+          chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+      }, 100);
     }
   };
 
   return (
-    <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#E3DDED', overflow: 'hidden', padding: '0 16px'}}>
+    <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#E3DDED', overflow: 'hidden', padding: '0 20px'}}>
       
       {/* Header Bar with blur effect */}
       <div style={{width: '100%', padding: '16px', background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(10px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50}}>
@@ -175,28 +189,39 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
           </div>
 
           {/* User and AI Messages */}
-          {messages.map((msg) => (
-            <div key={msg.id} style={{marginBottom: 14, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
-              <div style={{
-                maxWidth: '85%',
-                background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
-                boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
-                borderRadius: msg.sender === 'user' ? '44px 44px 0 44px' : '44px 44px 44px 0',
-                padding: 16,
-                wordWrap: 'break-word'
-              }}>
-                <div style={{
-                  color: msg.sender === 'user' ? 'white' : 'black',
-                  fontSize: 14,
-                  fontFamily: 'Outfit',
-                  fontWeight: '300',
-                  textAlign: msg.sender === 'user' ? 'right' : 'left'
-                }}>
-                  {msg.content}
+          {messages.map((msg) => {
+            const attachment = cardAttachments[msg.id];
+            return (
+              <div key={msg.id} style={{marginBottom: 14, display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start', flexDirection: 'column'}}>
+                {/* Card Thumbnail for user messages with attachments */}
+                {attachment && msg.sender === 'user' && (
+                  <div style={{width: 80, height: 80, borderRadius: 12, overflow: 'hidden', marginLeft: 'auto', marginBottom: 8}}>
+                    <img src={attachment.image} alt={attachment.title} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                  </div>
+                )}
+                <div style={{display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start'}}>
+                  <div style={{
+                    maxWidth: '85%',
+                    background: msg.sender === 'user' ? 'rgba(0, 0, 0, 0.79)' : 'white',
+                    boxShadow: '0px 15px 34px rgba(40, 63, 228, 0.04)',
+                    borderRadius: msg.sender === 'user' ? '44px 44px 0 44px' : '44px 44px 44px 0',
+                    padding: 16,
+                    wordWrap: 'break-word'
+                  }}>
+                    <div style={{
+                      color: msg.sender === 'user' ? 'white' : 'black',
+                      fontSize: 14,
+                      fontFamily: 'Outfit',
+                      fontWeight: '300',
+                      textAlign: msg.sender === 'user' ? 'right' : 'left'
+                    }}>
+                      {msg.content}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           {isLoading && (
             <div style={{display: 'flex', justifyContent: 'flex-start', marginBottom: 14}}>
@@ -279,14 +304,26 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
 
       {/* Project Cards */}
       <div style={{width: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 30, display: 'flex', marginBottom: 60}}>
-        {PROJECT_CARDS.map((card) => {
+        {PROJECT_CARDS.map((card, index) => {
           if (!visibleCards.includes(card.id)) return null;
+          
+          const rotation = index % 2 === 0 ? 15 : -15;
           
           return (
             <div
               key={card.id}
               onClick={() => handleCardClick(card.id)}
-              style={{width: 369, height: 373, position: 'relative', background: 'rgba(255, 255, 255, 0.30)', borderRadius: 44, outline: '1px white solid', outlineOffset: '-1px', cursor: 'pointer'}}
+              style={{
+                width: 369,
+                height: 373,
+                position: 'relative',
+                background: 'rgba(255, 255, 255, 0.30)',
+                borderRadius: 44,
+                outline: '1px white solid',
+                outlineOffset: '-1px',
+                cursor: 'pointer',
+                transform: `rotate(${rotation}deg)`
+              }}
             >
               <img style={{width: 369, height: 302.91, left: 0, top: 70.09, position: 'absolute', borderRadius: 44, outline: '1px white solid', objectFit: 'cover'}} src={card.image} alt={card.title} />
               <div style={{width: 213.37, left: 25.31, top: 21.67, position: 'absolute', color: 'black', fontSize: 14, fontFamily: 'Nexa', fontWeight: '400', wordWrap: 'break-word'}}>
