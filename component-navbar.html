@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar Component</title>
+  <style>
+    @font-face {
+      font-family: 'Neulis Cursive';
+      src: url('https://storage.googleapis.com/magicpath-fonts/Neulis-Cursive.otf') format('opentype');
+      font-weight: 500;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Outfit', sans-serif; 
+      background: linear-gradient(180deg, #D4D3F4 0%, #F4F4F4 100%);
+      min-height: 100vh;
+      padding-top: 120px;
+    }
+    
+    /* Desktop Nav */
+    .nav-desktop {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .nav-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 563px;
+      padding: 4px 12px;
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(11px);
+      -webkit-backdrop-filter: blur(11px);
+    }
+    
+    .logo {
+      font-family: 'Neulis Cursive', cursive;
+      font-size: 36px;
+      color: white;
+      font-weight: 500;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      gap: 28px;
+      width: 236px;
+      height: 60px;
+    }
+    
+    .nav-btn {
+      flex: 1;
+      height: 60px;
+      padding: 18px;
+      background: rgba(255,255,255,0.32);
+      border: none;
+      border-radius: 4444px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-btn.active {
+      background: #283FE4;
+      outline: 1px solid white;
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.10);
+    }
+    
+    .nav-btn.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 30px;
+      height: 25px;
+      background: white;
+      box-shadow: 44px 44px 44px;
+      filter: blur(22px);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: space-between;
+      width: 73px;
+      opacity: 0.44;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a {
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 1;
+    }
+    
+    /* Mobile Nav */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 20px;
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(11px);
+    }
+    
+    .nav-mobile-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .mobile-logo {
+      font-family: 'Neulis Cursive', cursive;
+      font-size: 28px;
+      color: white;
+      font-weight: 500;
+    }
+    
+    .mobile-social {
+      display: flex;
+      gap: 16px;
+      opacity: 0.44;
+    }
+    
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(11px);
+      z-index: 50;
+    }
+    
+    .bottom-nav-buttons {
+      display: flex;
+      gap: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .nav-mobile { display: block; }
+      .bottom-nav { display: block; }
+      body { padding-top: 80px; padding-bottom: 100px; }
+    }
+    
+    @media (max-width: 1400px) {
+      .nav-container { gap: 300px; }
+    }
+    
+    @media (max-width: 1100px) {
+      .nav-container { gap: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Desktop Navigation -->
+<nav class="nav-desktop">
+  <div class="nav-container">
+    
+    <!-- Logo -->
+    <div class="logo">raks</div>
+    
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button class="nav-btn active" onclick="setActive(this, 'chat')">
+        <!-- Chat Icon Placeholder -->
+        <span style="font-size: 20px;">💬</span>
+      </button>
+      <button class="nav-btn" onclick="setActive(this, 'inbox')">
+        <!-- Inbox Icon Placeholder -->
+        <span style="font-size: 20px;">📥</span>
+      </button>
+      <button class="nav-btn" onclick="setActive(this, 'calendar')">
+        <!-- Calendar Icon Placeholder -->
+        <span style="font-size: 20px;">📅</span>
+      </button>
+    </div>
+    
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://linkedin.com/in/raksha-t" target="_blank" style="width: 29px; height: 29px; display: block;">
+        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.9583 3.625C23.5993 3.625 24.214 3.87961 24.6672 4.33283C25.1204 4.78604 25.375 5.40073 25.375 6.04167V22.9583C25.375 23.5993 25.1204 24.214 24.6672 24.6672C24.214 25.1204 23.5993 25.375 22.9583 25.375H6.04167C5.40073 25.375 4.78604 25.1204 4.33283 24.6672C3.87961 24.214 3.625 23.5993 3.625 22.9583V6.04167C3.625 5.40073 3.87961 4.78604 4.33283 4.33283C4.78604 3.87961 5.40073 3.625 6.04167 3.625H22.9583ZM22.3542 22.3542V15.95C22.3542 14.9053 21.9391 13.9033 21.2004 13.1646C20.4617 12.4259 19.4597 12.0108 18.415 12.0108C17.3879 12.0108 16.1917 12.6392 15.6117 13.5817V12.2404H12.2404V22.3542H15.6117V16.3971C15.6117 15.4667 16.3608 14.7054 17.2913 14.7054C17.7399 14.7054 18.1702 14.8836 18.4874 15.2009C18.8047 15.5181 18.9829 15.9484 18.9829 16.3971V22.3542H22.3542ZM8.31333 10.3433C8.85172 10.3433 9.36806 10.1295 9.74876 9.74876C10.1295 9.36806 10.3433 8.85172 10.3433 8.31333C10.3433 7.18958 9.43708 6.27125 8.31333 6.27125C7.77174 6.27125 7.25233 6.4864 6.86936 6.86936C6.4864 7.25233 6.27125 7.77174 6.27125 8.31333C6.27125 9.43708 7.18958 10.3433 8.31333 10.3433ZM9.99292 22.3542V12.2404H6.64583V22.3542H9.99292Z" fill="#020617"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com/rakshatated" target="_blank" style="width: 24px; height: 24px; display: block;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M21.5859 21.375L14.0885 10.4471L14.1013 10.4574L20.8613 2.625H18.6023L13.0954 9L8.72227 2.625H2.79766L9.79723 12.8276L9.79638 12.8267L2.41406 21.375H4.67309L10.7955 14.2824L15.6613 21.375H21.5859ZM7.82719 4.32954L18.3466 19.6705H16.5564L6.02852 4.32954H7.82719Z" fill="#020617"/>
+        </svg>
+      </a>
+    </div>
+    
+  </div>
+</nav>
+
+<!-- Mobile Navigation (Top) -->
+<nav class="nav-mobile">
+  <div class="nav-mobile-content">
+    <div class="mobile-logo">raks</div>
+    <div class="mobile-social">
+      <a href="https://linkedin.com/in/raksha-t" target="_blank" style="width: 24px; height: 24px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="12" fill="#020617"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com/rakshatated" target="_blank" style="width: 24px; height: 24px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="12" fill="#020617"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Bottom Navigation -->
+<div class="bottom-nav">
+  <div class="bottom-nav-buttons">
+    <button class="nav-btn active" onclick="setActive(this, 'chat')" style="width: 100%;">
+      <span style="font-size: 20px;">💬</span>
+    </button>
+    <button class="nav-btn" onclick="setActive(this, 'inbox')" style="width: 100%;">
+      <span style="font-size: 20px;">📥</span>
+    </button>
+    <button class="nav-btn" onclick="setActive(this, 'calendar')" style="width: 100%;">
+      <span style="font-size: 20px;">📅</span>
+    </button>
+  </div>
+</div>
+
+<!-- Demo Content -->
+<div style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+  <h2 style="color: rgba(41,41,41,0.88); text-align: center;">Navigation Bar Component</h2>
+  <p style="color: rgba(41,41,41,0.88); text-align: center;">Fully responsive with desktop and mobile layouts</p>
+</div>
+
+<script>
+function setActive(button, view) {
+  // Remove active from all buttons in the same container
+  const container = button.parentElement;
+  const buttons = container.querySelectorAll('.nav-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  
+  // Add active to clicked button
+  button.classList.add('active');
+  
+  console.log('Switched to:', view);
+  
+  // Handle different views (can be extended)
+  if (view === 'calendar') {
+    // Open calendar modal or navigate
+    console.log('Opening calendar...');
+  }
+}
+</script>
+
+</body>
+</html>
+

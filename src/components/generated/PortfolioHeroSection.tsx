@@ -600,7 +600,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               }}
             >
               raks
-            </div>
+      </div>
 
             {/* Navigation Buttons */}
             <div 
@@ -976,7 +976,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       )}
 
       {/* Content Container */}
-      <div className={`relative w-full ${isMobile ? 'px-4 pt-24' : 'pt-36'}`}>
+      <div className={`relative w-full ${isMobile ? 'px-4 pt-24' : 'pt-[124px]'}`}>
         <div className={isMobile ? '' : 'flex justify-center w-full'}>
           {/* Main Heading */}
           <motion.div

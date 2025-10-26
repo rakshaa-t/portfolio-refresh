@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raksha Portfolio - Navigation Reference</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+    
+    @font-face {
+      font-family: 'Neulis Cursive';
+      src: url('https://storage.googleapis.com/magicpath-fonts/Neulis-Cursive.otf') format('opentype');
+      font-weight: 500;
+      font-display: block;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(180deg, #D4D3F4 0%, #F4F4F4 100%);
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Desktop Navigation Bar -->
+<nav style="position: fixed; left: 0; right: 0; top: 20px; z-index: 50; display: flex; justify-content: center;">
+  <div style="
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(11px);
+    display: inline-flex;
+    align-items: center;
+    gap: 563px;
+  ">
+    
+    <!-- Logo -->
+    <div style="
+      color: white;
+      font-size: 36px;
+      font-family: 'Neulis Cursive', cursive;
+      font-weight: 500;
+      text-align: center;
+    ">raks</div>
+    
+    <!-- Navigation Buttons -->
+    <div style="
+      width: 236px;
+      height: 60px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 28px;
+    ">
+      
+      <!-- Chat Button (Active State) -->
+      <button style="
+        flex: 1;
+        height: 60px;
+        padding: 18px;
+        background: #283FE4;
+        border: none;
+        border-radius: 4444px;
+        outline: 1px solid white;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.10);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      ">
+        <!-- Glow Effect -->
+        <div style="
+          width: 30px;
+          height: 25px;
+          position: absolute;
+          left: 0;
+          top: -2px;
+          background: white;
+          box-shadow: 44px 44px 44px;
+          filter: blur(22px);
+        "></div>
+        
+        <!-- Chat Icon (White for active) -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 9.99348C1.00003 11.624 1.44063 13.1472 2.19626 14.4646L1.21379 17.7485L4.22582 18.6419C5.42053 18.2318 7.15411 18.645 10.0009 18.9955C14.9719 18.9954 18.9997 14.9668 19 9.99728C19 5.05316 15.0118 1.04141 10.0779 1C5.1088 1.00007 1 5.02371 1 9.99348Z" fill="white" fill-opacity="0.6"/>
+          <path d="M22.75 14.4971C22.75 15.8083 22.3947 17.0325 21.7881 18.0918L22.5303 20.4648L19.9893 21.4619C17.7323 21.4798 16.6207 21.7461 15.499 21.7461C11.4948 21.7459 8.2502 18.5019 8.25 14.5C8.25 10.498 11.4977 7.25 15.501 7.25C19.5037 7.25018 22.75 10.4949 22.75 14.4971Z" fill="white"/>
+        </svg>
+      </button>
+      
+      <!-- Inbox Button (Inactive State) -->
+      <button style="
+        flex: 1;
+        height: 60px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.32);
+        border: none;
+        border-radius: 4444px;
+        cursor: pointer;
+      ">
+        <!-- Inbox Icon (Dark for inactive) -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="13" width="22" height="8" fill="#575757"/>
+          <rect x="1.6" y="3" width="20.8" height="15" fill="#151515"/>
+        </svg>
+      </button>
+      
+      <!-- Calendar Button (Inactive State) -->
+      <button style="
+        flex: 1;
+        height: 60px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.32);
+        border: none;
+        border-radius: 4444px;
+        cursor: pointer;
+      ">
+        <!-- Calendar Icon (Dark for inactive) -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="7" width="20" height="15" fill="#575757"/>
+          <rect x="2" y="1" width="20" height="18.5" fill="#151515"/>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Social Icons -->
+    <div style="
+      width: 73px;
+      opacity: 0.44;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    ">
+      
+      <!-- LinkedIn Icon -->
+      <a href="https://linkedin.com/in/raksha-t" target="_blank" style="
+        width: 29px;
+        height: 29px;
+        display: block;
+        transition: opacity 0.3s;
+      ">
+        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.9583 3.625C23.5993 3.625 24.214 3.87961 24.6672 4.33283C25.1204 4.78604 25.375 5.40073 25.375 6.04167V22.9583C25.375 23.5993 25.1204 24.214 24.6672 24.6672C24.214 25.1204 23.5993 25.375 22.9583 25.375H6.04167C5.40073 25.375 4.78604 25.1204 4.33283 24.6672C3.87961 24.214 3.625 23.5993 3.625 22.9583V6.04167C3.625 5.40073 3.87961 4.78604 4.33283 4.33283C4.78604 3.87961 5.40073 3.625 6.04167 3.625H22.9583ZM22.3542 22.3542V15.95C22.3542 14.9053 21.9391 13.9033 21.2004 13.1646C20.4617 12.4259 19.4597 12.0108 18.415 12.0108C17.3879 12.0108 16.1917 12.6392 15.6117 13.5817V12.2404H12.2404V22.3542H15.6117V16.3971C15.6117 15.4667 16.3608 14.7054 17.2913 14.7054C17.7399 14.7054 18.1702 14.8836 18.4874 15.2009C18.8047 15.5181 18.9829 15.9484 18.9829 16.3971V22.3542H22.3542ZM8.31333 10.3433C8.85172 10.3433 9.36806 10.1295 9.74876 9.74876C10.1295 9.36806 10.3433 8.85172 10.3433 8.31333C10.3433 7.18958 9.43708 6.27125 8.31333 6.27125C7.77174 6.27125 7.25233 6.4864 6.86936 6.86936C6.4864 7.25233 6.27125 7.77174 6.27125 8.31333C6.27125 9.43708 7.18958 10.3433 8.31333 10.3433ZM9.99292 22.3542V12.2404H6.64583V22.3542H9.99292Z" fill="#020617"/>
+        </svg>
+      </a>
+      
+      <!-- X (Twitter) Icon -->
+      <a href="https://twitter.com/rakshatated" target="_blank" style="
+        width: 24px;
+        height: 24px;
+        display: block;
+        transition: opacity 0.3s;
+      ">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M21.5859 21.375L14.0885 10.4471L14.1013 10.4574L20.8613 2.625H18.6023L13.0954 9L8.72227 2.625H2.79766L9.79723 12.8276L9.79638 12.8267L2.41406 21.375H4.67309L10.7955 14.2824L15.6613 21.375H21.5859ZM7.82719 4.32954L18.3466 19.6705H16.5564L6.02852 4.32954H7.82719Z" fill="#020617"/>
+        </svg>
+      </a>
+    </div>
+    
+  </div>
+</nav>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!-- Navigation Bar: Fixed top 20px, centered, backdrop blur 11px -->
+<nav style="position: fixed; top: 20px; left: 0; right: 0; display: flex; justify-content: center; z-index: 50;">
+  <div style="display: inline-flex; align-items: center; gap: 563px; padding: 4px 12px; background: rgba(255,255,255,0.01); backdrop-filter: blur(11px);">
+    
+    <!-- Logo: Neulis Cursive 36px white -->
+    <div style="font-family: 'Neulis Cursive'; font-size: 36px; color: white;">raks</div>
+    
+    <!-- 3 Buttons: 236px width, 60px height, 28px gap, 4444px border-radius -->
+    <div style="display: flex; gap: 28px; width: 236px; height: 60px;">
+      <!-- Active: #283FE4 bg, white outline, glow effect -->
+      <button style="flex: 1; height: 60px; padding: 18px; background: #283FE4; border-radius: 4444px; outline: 1px solid white; box-shadow: 1px 2px 4px rgba(0,0,0,0.1); border: none;">
+        <div style="position: absolute; left: 0; top: -2px; width: 30px; height: 25px; background: white; filter: blur(22px);"></div>
+        [Chat Icon - white]
+      </button>
+      <!-- Inactive: rgba(255,255,255,0.32) bg -->
+      <button style="flex: 1; height: 60px; padding: 18px; background: rgba(255,255,255,0.32); border-radius: 4444px; border: none;">[Inbox Icon - dark]</button>
+      <button style="flex: 1; height: 60px; padding: 18px; background: rgba(255,255,255,0.32); border-radius: 4444px; border: none;">[Calendar Icon - dark]</button>
+    </div>
+    
+    <!-- Social Icons: 73px width, 0.44 opacity, LinkedIn 29px, X 24px -->
+    <div style="display: flex; justify-content: space-between; width: 73px; opacity: 0.44; gap: 20px;">
+      <a href="#" style="width: 29px; height: 29px;">[LinkedIn SVG]</a>
+      <a href="#" style="width: 24px; height: 24px;">[X SVG]</a>
+    </div>
+    
+  </div>
+</nav>
+
+<!-- SPECS:
+- Gap between sections: 563px
+- Button states: Active=#283FE4 with white outline + glow, Inactive=rgba(255,255,255,0.32)
+- Fonts: Logo=Neulis Cursive 36px, Body=Outfit
+- Background: linear-gradient(180deg, #D4D3F4 0%, #F4F4F4 100%)
+-->
+

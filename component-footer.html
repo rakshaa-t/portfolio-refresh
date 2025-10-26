@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Component</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Outfit', sans-serif; 
+      background: linear-gradient(180deg, #D4D3F4 0%, #F4F4F4 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    footer {
+      width: 100%;
+      max-width: 1200px;
+      padding: 60px 20px;
+      margin: 0 auto;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .signature {
+      width: 200px;
+      height: auto;
+      transition: transform 0.3s;
+    }
+    
+    .signature:hover {
+      transform: scale(1.05);
+    }
+    
+    .footer-text {
+      font-size: 14px;
+      text-align: center;
+      color: rgba(41,41,41,0.88);
+      line-height: 24px;
+    }
+    
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .footer-links a {
+      color: #283FE4;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #283FE4;
+      transition: width 0.3s;
+    }
+    
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+    
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+    
+    .separator {
+      color: rgba(41,41,41,0.4);
+      font-weight: 300;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      footer {
+        padding: 40px 20px;
+      }
+      
+      .footer-content {
+        gap: 30px;
+      }
+      
+      .signature {
+        width: 100px;
+      }
+      
+      .footer-text {
+        font-size: 12px;
+        line-height: 20px;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .separator {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<footer>
+  <div class="footer-content">
+    
+    <!-- Signature / Logo -->
+    <svg class="signature" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Placeholder signature SVG -->
+      <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" 
+            font-family="'Neulis Cursive', cursive" font-size="32" fill="rgba(41,41,41,0.88)">
+        Raksha T
+      </text>
+    </svg>
+    
+    <!-- Footer Text -->
+    <div class="footer-text">
+      <p>made with magicpath.ai + cursor</p>
+    </div>
+    
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/raksha-t" target="_blank" rel="noopener noreferrer">
+        linkedin
+      </a>
+      <span class="separator">·</span>
+      <a href="https://twitter.com/rakshatated" target="_blank" rel="noopener noreferrer">
+        x
+      </a>
+      <span class="separator">·</span>
+      <a href="mailto:raksha@example.com">
+        email
+      </a>
+    </div>
+    
+    <!-- Optional: Copyright -->
+    <div style="font-size: 12px; color: rgba(41,41,41,0.5); text-align: center;">
+      © 2025 Raksha T. All rights reserved.
+    </div>
+    
+  </div>
+</footer>
+
+</body>
+</html>
+

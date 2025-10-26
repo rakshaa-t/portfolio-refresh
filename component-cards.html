@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Cards Component</title>
+  <style>
+    @font-face {
+      font-family: 'Nexa';
+      src: url('https://storage.googleapis.com/magicpath-fonts/Nexa-Bold.otf') format('opentype');
+      font-weight: 700;
+    }
+    body { margin: 0; padding: 40px; background: linear-gradient(180deg, #D4D3F4 0%, #F4F4F4 100%); }
+    .card {
+      position: absolute;
+      width: 263px;
+      height: 266px;
+      background: rgba(255,255,255,0.30);
+      backdrop-filter: blur(20px);
+      border-radius: 44px;
+      outline: 1px solid white;
+      padding: 28px;
+      cursor: grab;
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 1;
+    }
+    .card:hover {
+      box-shadow: 0px 20px 50px rgba(0,0,0,0.15);
+    }
+    .card:active {
+      cursor: grabbing;
+      z-index: 100;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 44px;
+      outline: 1px solid white;
+      pointer-events: none;
+    }
+    .card-title {
+      font-family: 'Nexa', sans-serif;
+      font-size: 14px;
+      color: rgba(0,0,0,0.6);
+      margin: 0 0 20px 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cards Container: Relative positioning -->
+<div style="position: relative; width: 1200px; height: 650px; margin: 0 auto; background: rgba(255,255,255,0.05); border-radius: 20px;">
+  
+  <!-- Drop Zone indicator (hidden by default) -->
+  <div id="dropZone" style="
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 754px;
+    height: 544px;
+    background: rgba(40,63,228,0.1);
+    border: 3px dashed #283FE4;
+    border-radius: 44px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #283FE4;
+    font-weight: 600;
+    z-index: 50;
+  ">Drop to add to chat</div>
+  
+  <!-- Card 1: OVA - Top Left, -15deg rotation -->
+  <div class="card" 
+       id="card-ova"
+       data-message="what did designing ova teach you"
+       style="left: 0; top: 92px; transform: rotate(-15deg);">
+    <p class="card-title">ova : period tracking app</p>
+    <img src="https://res.cloudinary.com/dky01erho/image/upload/v1761388415/Slide_4_3_-_1_2_zr9r7i.png" alt="OVA project">
+  </div>
+  
+  <!-- Card 2: IOC - Bottom Left, 5deg rotation -->
+  <div class="card" 
+       id="card-ioc"
+       data-message="what was the most challenging part about ioc"
+       style="left: 52px; top: 318px; transform: rotate(5deg);">
+    <p class="card-title">ioc : vendor management app</p>
+    <img src="https://res.cloudinary.com/dky01erho/image/upload/v1760525270/190_2x_shots_so_gytftu.png" alt="IOC project">
+  </div>
+  
+  <!-- Card 3: GREEX - Top Right, 15deg rotation -->
+  <div class="card" 
+       id="card-greex"
+       data-message="what was your process for greex"
+       style="right: 0; top: 0; transform: rotate(15deg);">
+    <p class="card-title">greex : defi trading platform</p>
+    <img src="https://res.cloudinary.com/dky01erho/image/upload/v1760525138/172_2x_shots_so_plr79y.png" alt="GREEX project">
+  </div>
+  
+  <!-- Card 4: DEALDOC - Bottom Right, -15deg rotation -->
+  <div class="card" 
+       id="card-dealdoc"
+       data-message="what did the clients request for exactly?"
+       style="right: 60px; top: 341px; transform: rotate(-15deg);">
+    <p class="card-title">dealdoc : deal management platform</p>
+    <img src="https://res.cloudinary.com/dky01erho/image/upload/v1761388291/656_3x_shots_so_qced29.png" alt="DEALDOC project">
+  </div>
+  
+</div>
+
+<script>
+// Drag and Drop functionality
+const cards = document.querySelectorAll('.card');
+const dropZone = document.getElementById('dropZone');
+
+cards.forEach(card => {
+  let isDragging = false;
+  let currentX = 0;
+  let currentY = 0;
+  let initialX = 0;
+  let initialY = 0;
+  let originalTransform = card.style.transform;
+  
+  card.addEventListener('mousedown', dragStart);
+  
+  function dragStart(e) {
+    isDragging = true;
+    initialX = e.clientX - currentX;
+    initialY = e.clientY - currentY;
+    
+    // Store original position
+    card.dataset.originalLeft = card.style.left;
+    card.dataset.originalTop = card.style.top;
+    card.dataset.originalRight = card.style.right;
+    card.dataset.originalTransform = originalTransform;
+    
+    // Show drop zone
+    dropZone.style.display = 'flex';
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', dragEnd);
+  }
+  
+  function drag(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    
+    currentX = e.clientX - initialX;
+    currentY = e.clientY - initialY;
+    
+    // Remove rotation while dragging
+    card.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    card.style.left = card.dataset.originalLeft;
+    card.style.right = 'auto';
+    card.style.top = card.dataset.originalTop;
+  }
+  
+  function dragEnd(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', dragEnd);
+    
+    // Check if dropped in drop zone
+    const dropRect = dropZone.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+    
+    const isOverDropZone = (
+      cardRect.left < dropRect.right &&
+      cardRect.right > dropRect.left &&
+      cardRect.top < dropRect.bottom &&
+      cardRect.bottom > dropRect.top
+    );
+    
+    if (isOverDropZone) {
+      // Successfully dropped
+      const message = card.dataset.message;
+      alert(`Card dropped! Message to send: "${message}"`);
+      card.style.opacity = '0';
+      setTimeout(() => {
+        card.style.display = 'none';
+      }, 300);
+    } else {
+      // Return to original position
+      card.style.transform = card.dataset.originalTransform;
+      card.style.left = card.dataset.originalLeft;
+      card.style.right = card.dataset.originalRight;
+      card.style.top = card.dataset.originalTop;
+      currentX = 0;
+      currentY = 0;
+    }
+    
+    // Hide drop zone
+    dropZone.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
+
