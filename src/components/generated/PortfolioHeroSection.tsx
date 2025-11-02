@@ -1389,9 +1389,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div
           onClick={() => setIsCalendarOpen(true)}
           className="book-call-button"
-          style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '341px', height: '82px', overflow: 'visible' }}
+          style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '341px', position: 'relative', overflow: 'visible' }}
         >
-          <svg width="341" height="172" viewBox="12 0 341 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
+          <svg width="341" height="220" viewBox="12 -10 341 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
               <g clipPath="url(#clip0_463_365)">
                 <rect x="12" y="10" width="317" height="62" rx="16" fill="#2D44E5" style={{ pointerEvents: 'auto' }}/>
@@ -1541,6 +1541,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         /* Book Call Button Hover Animation */
         .book-call-button {
           transition: none;
+        }
+        
+        .book-call-button::before {
+          content: '';
+          position: absolute;
+          top: 20px;
+          left: 0;
+          width: 100%;
+          height: 82px;
+          z-index: 1;
         }
         
         .book-call-button:hover {
