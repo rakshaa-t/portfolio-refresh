@@ -1389,7 +1389,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div
           onClick={() => setIsCalendarOpen(true)}
           className="book-call-button"
-          style={{ cursor: 'pointer', display: 'inline-block', maxWidth: isMobile ? 'calc(100% - 32px)' : '410px', transition: 'transform 0.3s ease, opacity 0.3s ease' }}
+          style={{ cursor: 'pointer', display: 'inline-block', maxWidth: isMobile ? 'calc(100% - 32px)' : '410px' }}
         >
           <svg width="410" height="172" viewBox="0 0 410 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
@@ -1540,12 +1540,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         
         /* Book Call Button Hover Animation */
         .book-call-button {
-          transition: transform 0.3s ease, opacity 0.3s ease;
+          transition: transform 0.1s ease-out, opacity 0.1s ease-out;
         }
         
         .book-call-button:hover {
           transform: scale(1.02);
-          opacity: 0.95;
+          opacity: 0.80;
+          transition: transform 0.2s ease-out, opacity 0.2s ease-out;
         }
         
         /* Custom Scrollbar Styling */
