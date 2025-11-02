@@ -1388,7 +1388,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="flex justify-center w-full mb-8" style={{ marginTop: '92px' }}>
         <div
           onClick={() => setIsCalendarOpen(true)}
-          style={{ cursor: 'pointer', display: 'inline-block', maxWidth: isMobile ? 'calc(100% - 32px)' : '410px' }}
+          className="book-call-button"
+          style={{ cursor: 'pointer', display: 'inline-block', maxWidth: isMobile ? 'calc(100% - 32px)' : '410px', transition: 'transform 0.3s ease, opacity 0.3s ease' }}
         >
           <svg width="410" height="172" viewBox="0 0 410 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
@@ -1536,6 +1537,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         @import url('https://fonts.googleapis.com/css2?family=Nexa+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.cdnfonts.com/css/neulis-cursive');
         @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
+        
+        /* Book Call Button Hover Animation */
+        .book-call-button {
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .book-call-button:hover {
+          transform: scale(1.02);
+          opacity: 0.95;
+        }
         
         /* Custom Scrollbar Styling */
         .custom-scrollbar::-webkit-scrollbar {
