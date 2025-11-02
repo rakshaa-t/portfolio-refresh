@@ -512,19 +512,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </>
       )}
 
-      {/* Nav Background Blur Area - seamless blur (desktop only for performance) */}
-      {!isMobile && (
-        <div 
-          className="fixed top-0 left-0 right-0 z-40 pointer-events-none"
-          style={{
-            height: '108px',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            background: 'transparent'
-          }}
-        />
-      )}
-
       {/* Navigation */}
       {isMobile ? (
         /* Mobile Header */
