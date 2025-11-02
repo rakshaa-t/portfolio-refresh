@@ -1392,23 +1392,23 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''}`}
           style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '341px', position: 'relative', overflow: 'visible' }}
         >
-          {/* Hover detection overlay - exactly matches button rectangle */}
+          {/* Hover detection overlay - exactly matches button rectangle (x=24, y=10, w=317, h=62 in viewBox) */}
           <div
             onMouseEnter={() => setIsButtonHovered(true)}
             onMouseLeave={() => setIsButtonHovered(false)}
             style={{
               position: 'absolute',
-              top: '20px',
-              left: 0,
-              width: '100%',
-              height: '82px',
+              top: '9.09%', // (10 - (-10)) / 220 * 100 = 20/220 = 9.09%
+              left: '3.52%', // (24 - 12) / 341 * 100 = 12/341 = 3.52%
+              width: '92.96%', // 317 / 341 * 100 = 92.96%
+              height: '28.18%', // 62 / 220 * 100 = 28.18%
               zIndex: 10,
               cursor: 'pointer'
             }}
           />
           <svg width="341" height="220" viewBox="12 -10 341 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
-              <g clipPath="url(#clip0_463_365)">
+              <g>
                 <rect x="24" y="10" width="317" height="62" rx="16" fill="#2D44E5" style={{ pointerEvents: 'auto' }}/>
                 <g filter="url(#filter1_f_463_365)">
                   <rect x="24" y="-15" width="50" height="50" fill="#D9D9D9"/>
