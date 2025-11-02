@@ -1508,7 +1508,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#9F94AD',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 textDecoration: 'underline',
                 wordWrap: 'break-word',
                 cursor: 'pointer'
@@ -1525,7 +1525,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#9F94AD',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 textDecoration: 'underline',
                 wordWrap: 'break-word',
                 cursor: 'pointer'
@@ -1542,7 +1542,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#9F94AD',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 textDecoration: 'underline',
                 wordWrap: 'break-word',
                 cursor: 'pointer'
@@ -1559,7 +1559,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#9F94AD',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 textDecoration: 'underline',
                 wordWrap: 'break-word',
                 cursor: 'pointer'
@@ -1574,7 +1574,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#9F94AD',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 textDecoration: 'underline',
                 wordWrap: 'break-word',
                 cursor: 'pointer'
@@ -1591,7 +1591,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#A599B6',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 wordWrap: 'break-word'
               }}
             >
@@ -1603,7 +1603,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#A599B6',
                 fontSize: isMobile ? '12px' : '14px',
                 fontFamily: 'Geist Mono, monospace',
-                fontWeight: '500',
+                fontWeight: '600',
                 textDecoration: 'underline',
                 wordWrap: 'break-word',
                 cursor: 'pointer'
