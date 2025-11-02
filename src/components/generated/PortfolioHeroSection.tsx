@@ -241,6 +241,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
   // Mobile detection - more robust check
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isButtonHovered, setIsButtonHovered] = React.useState(false);
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -1388,10 +1389,24 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="flex justify-center w-full mb-8" style={{ marginTop: '92px', paddingTop: '20px', paddingBottom: '100px' }}>
         <div
           onClick={() => setIsCalendarOpen(true)}
-          className="book-call-button"
+          className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''}`}
           style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '341px', position: 'relative', overflow: 'visible' }}
         >
-          <svg width="341" height="172" viewBox="12 0 341 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
+          {/* Hover detection overlay - exactly matches button rectangle */}
+          <div
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              left: 0,
+              width: '100%',
+              height: '82px',
+              zIndex: 10,
+              cursor: 'pointer'
+            }}
+          />
+          <svg width="341" height="220" viewBox="12 -10 341 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
               <g clipPath="url(#clip0_463_365)">
                 <rect x="24" y="10" width="317" height="62" rx="16" fill="#2D44E5" style={{ pointerEvents: 'auto' }}/>
@@ -1543,18 +1558,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           transition: none;
         }
         
-        .book-call-button:hover {
+        .book-call-button.is-hovered {
           transform: scale(1.02);
           opacity: 0.95;
           transition: transform 0.15s ease-out, opacity 0.15s ease-out;
         }
         
-        .book-call-button:hover #paint0_linear_463_365 stop:first-child {
+        .book-call-button.is-hovered #paint0_linear_463_365 stop:first-child {
           stop-color: #B0B9FF;
           transition: stop-color 0.15s ease-out;
         }
         
-        .book-call-button:hover #paint0_linear_463_365 stop:last-child {
+        .book-call-button.is-hovered #paint0_linear_463_365 stop:last-child {
           stop-color: #2D45D9;
           transition: stop-color 0.15s ease-out;
         }
