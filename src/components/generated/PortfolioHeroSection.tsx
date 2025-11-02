@@ -1384,6 +1384,34 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
+      {/* Book A Call Button */}
+      <div className="flex justify-center w-full mt-8 mb-8">
+        <div style={{
+          width: isMobile ? 'calc(100% - 32px)' : '394px',
+          height: '72px',
+          position: 'relative',
+          background: '#2D44E5',
+          boxShadow: '3px 4px 11px rgba(103, 118, 225, 0.22)',
+          overflow: 'hidden',
+          borderRadius: 16,
+          outline: '3px #95A2FF solid',
+          cursor: 'pointer'
+        }}
+        onClick={() => setIsCalendarOpen(true)}
+        >
+          <div style={{width: 50, height: 50, left: 12, top: -25, position: 'absolute', background: '#D9D9D9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 50, height: 50, left: 12, top: -25, position: 'absolute', background: '#D9D9D9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 118, height: 30, left: 264, top: 45, position: 'absolute', background: '#D9D9D9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 183, height: 56, left: 187, top: 9, position: 'absolute', background: '#10229F', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 61, height: 56, left: 309, top: 9, position: 'absolute', background: '#2032B9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 61, height: 56, left: 309, top: 9, position: 'absolute', background: '#2032B9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 61, height: 56, left: 309, top: 9, position: 'absolute', background: '#2032B9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: 61, height: 56, left: 309, top: 9, position: 'absolute', background: '#2032B9', boxShadow: '100px 100px 100px ', filter: 'blur(50px)'}} />
+          <div style={{width: isMobile ? '100%' : 394, height: 8, left: 1, top: 52, position: 'absolute', background: '#001295', boxShadow: '22px 22px 22px ', filter: 'blur(11px)'}} />
+          <div style={{left: isMobile ? '50%' : 113, top: 20, position: 'absolute', transform: isMobile ? 'translateX(-50%)' : 'none', color: 'white', fontSize: 18, fontFamily: 'Outfit', fontWeight: '500', wordWrap: 'break-word'}}>Book A Call</div>
+        </div>
+      </div>
+
       <style>{`
         @import url('https://fonts.cdnfonts.com/css/nexa-bold');
         @import url('https://fonts.googleapis.com/css2?family=Nexa+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
