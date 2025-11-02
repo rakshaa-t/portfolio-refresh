@@ -604,8 +604,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div 
             style={{
               width: '100%',
-              paddingLeft: '40px',
-              paddingRight: '40px',
+              paddingLeft: '80px',
+              paddingRight: '80px',
               paddingTop: '10px',
               paddingBottom: '10px',
               background: 'rgba(255, 255, 255, 0.01)',
