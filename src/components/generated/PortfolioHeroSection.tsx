@@ -1393,7 +1393,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         >
           <svg width="341" height="220" viewBox="12 -10 341 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
-              <g clipPath="url(#clip0_463_365)">
+              <g>
                 <rect x="12" y="10" width="317" height="62" rx="16" fill="#2D44E5" style={{ pointerEvents: 'auto' }}/>
                 <g filter="url(#filter1_f_463_365)">
                   <rect x="24" y="-15" width="50" height="50" fill="#D9D9D9"/>
@@ -1541,16 +1541,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         /* Book Call Button Hover Animation */
         .book-call-button {
           transition: none;
-        }
-        
-        .book-call-button::before {
-          content: '';
-          position: absolute;
-          top: 20px;
-          left: 0;
-          width: 100%;
-          height: 82px;
-          z-index: 1;
         }
         
         .book-call-button:hover {
