@@ -621,7 +621,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 textAlign: 'center',
                 color: 'white',
                 fontSize: '36px',
-                fontFamily: 'Neulis Cursive',
+                fontFamily: 'Neulis Cursive, cursive, serif',
                 fontWeight: '500',
                 wordWrap: 'break-word'
               }}
@@ -1388,6 +1388,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         @import url('https://fonts.cdnfonts.com/css/nexa-bold');
         @import url('https://fonts.googleapis.com/css2?family=Nexa+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.cdnfonts.com/css/neulis-cursive');
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
         
         /* Custom Scrollbar Styling */
         .custom-scrollbar::-webkit-scrollbar {
