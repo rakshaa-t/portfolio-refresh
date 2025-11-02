@@ -1385,7 +1385,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Book A Call Button */}
-      <div className="flex justify-center w-full mb-8" style={{ marginTop: '92px' }}>
+      <div className="flex justify-center w-full mb-8" style={{ marginTop: '92px', paddingTop: '20px', paddingBottom: '100px' }}>
         <div
           onClick={() => setIsCalendarOpen(true)}
           className="book-call-button"
