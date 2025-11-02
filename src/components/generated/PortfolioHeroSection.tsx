@@ -1450,7 +1450,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               textAlign: 'center',
               color: '#9F94AD',
               fontSize: isMobile ? '20px' : '44px',
-              fontFamily: 'Caveat, cursive, cursive',
+              fontFamily: 'Neulis Cursive',
               fontStyle: 'italic',
               fontWeight: '500',
               wordWrap: 'break-word'
