@@ -604,8 +604,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div 
             style={{
               width: '100%',
-              paddingLeft: '12px',
-              paddingRight: '12px',
+              paddingLeft: '40px',
+              paddingRight: '40px',
               paddingTop: '10px',
               paddingBottom: '10px',
               background: 'rgba(255, 255, 255, 0.01)',
@@ -621,7 +621,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 textAlign: 'center',
                 color: 'white',
                 fontSize: '36px',
-                fontFamily: 'Caveat, cursive, system-ui, sans-serif',
+                fontFamily: 'Neulis Cursive',
                 fontWeight: '500',
                 wordWrap: 'break-word'
               }}
@@ -1462,7 +1462,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             style={{
               color: 'white',
               fontSize: isMobile ? '100px' : '200px',
-              fontFamily: 'Caveat, cursive, cursive',
+              fontFamily: 'Neulis Cursive',
               fontWeight: '500',
               lineHeight: isMobile ? 'normal' : '200px',
               wordWrap: 'break-word',
