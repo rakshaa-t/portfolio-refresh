@@ -1389,9 +1389,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div
           onClick={() => setIsCalendarOpen(true)}
           className="book-call-button"
-          style={{ cursor: 'pointer', display: 'inline-block', maxWidth: isMobile ? 'calc(100% - 32px)' : '410px' }}
+          style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '410px' }}
         >
-          <svg width="410" height="172" viewBox="0 0 410 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
+          <svg width="410" height="172" viewBox="0 0 410 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
               <g clipPath="url(#clip0_463_365)">
                 <rect x="12" y="10" width="317" height="62" rx="16" fill="#2D44E5"/>
@@ -1545,8 +1545,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         
         .book-call-button:hover {
           transform: scale(1.02);
-          opacity: 0.80;
+          opacity: 0.95;
           transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+        }
+        
+        .book-call-button:hover #paint0_linear_463_365 stop:first-child {
+          stop-color: #B0B9FF;
+          transition: stop-color 0.2s ease-out;
+        }
+        
+        .book-call-button:hover #paint0_linear_463_365 stop:last-child {
+          stop-color: #2D45D9;
+          transition: stop-color 0.2s ease-out;
+        }
+        
+        #paint0_linear_463_365 stop {
+          transition: stop-color 0.1s ease-out;
         }
         
         /* Custom Scrollbar Styling */
