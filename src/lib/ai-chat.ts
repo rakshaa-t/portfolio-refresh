@@ -166,6 +166,11 @@ export async function sendToAI(
       }
     ];
 
+    if (!apiKey || apiKey.trim() === '') {
+      console.error('❌ API Key is missing or empty');
+      throw new Error('API Key not configured');
+    }
+
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -182,21 +187,29 @@ export async function sendToAI(
     });
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`❌ API Error ${response.status}:`, errorText);
+      throw new Error(`API Error: ${response.status} - ${errorText.substring(0, 100)}`);
     }
 
     const data = await response.json();
+    
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error('❌ Invalid API response:', data);
+      throw new Error('Invalid API response format');
+    }
     
     return {
       message: data.choices[0].message.content,
       success: true
     };
   } catch (error) {
-    console.error('AI Chat Error:', error);
+    console.error('❌ AI Chat Error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return {
       message: "sorry, i'm having trouble connecting right now. try again in a sec",
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error'
+      error: errorMessage
     };
   }
 }
