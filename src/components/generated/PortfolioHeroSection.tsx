@@ -1389,7 +1389,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div
           onClick={() => setIsCalendarOpen(true)}
           className="book-call-button"
-          style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '410px' }}
+          style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '410px', height: '82px', overflow: 'visible' }}
         >
           <svg width="410" height="172" viewBox="0 0 410 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
