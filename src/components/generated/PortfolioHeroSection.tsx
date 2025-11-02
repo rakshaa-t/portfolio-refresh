@@ -1423,202 +1423,196 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div 
           style={{
             width: '100%',
-            height: '100%',
-            paddingTop: 16,
-            paddingBottom: 28,
-            paddingLeft: 22,
-            paddingRight: 22,
+            maxWidth: isMobile ? '100%' : '1200px',
+            padding: '22px',
+            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            gap: 20,
-            display: 'inline-flex'
+            gap: '20px',
+            marginTop: isMobile ? '60px' : '220px',
+            marginBottom: isMobile ? '100px' : '0',
+            minWidth: 0
+          }}
+        >
+        {/* Top Section - Title */}
+        <div 
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            gap: '12px'
           }}
         >
           <div 
             style={{
-              flex: '1 1 0',
-              flexDirection: 'column',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              gap: 12,
-              display: 'flex'
+              textAlign: 'center',
+              color: '#9F94AD',
+              fontSize: isMobile ? '20px' : '44px',
+              fontFamily: 'Caveat, cursive, cursive',
+              fontStyle: 'italic',
+              fontWeight: '500',
+              wordWrap: 'break-word'
             }}
           >
-            <div 
+            lovely to see you here!
+          </div>
+          <div 
+            style={{
+              color: 'white',
+              fontSize: isMobile ? '100px' : '200px',
+              fontFamily: 'Caveat, cursive, cursive',
+              fontWeight: '500',
+              lineHeight: isMobile ? 'normal' : '200px',
+              wordWrap: 'break-word',
+              width: isMobile ? '242px' : 'auto',
+              height: isMobile ? '113px' : 'auto'
+            }}
+          >
+            raks
+          </div>
+        </div>
+
+        {/* Bottom Section - Links and Credits */}
+        <div 
+          style={{
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: isMobile ? '40px' : '80px',
+            width: '100%',
+            maxWidth: '100%',
+            minWidth: 0
+          }}
+        >
+          {/* Social Links */}
+          <div 
+            style={{
+              width: isMobile ? 'auto' : '463px',
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              justifyContent: isMobile ? 'center' : 'space-between',
+              alignItems: 'center',
+              gap: isMobile ? '20px' : '0',
+              height: isMobile ? '122px' : 'auto'
+            }}
+          >
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
               style={{
                 textAlign: 'center',
                 color: '#9F94AD',
-                fontSize: 44,
-                fontFamily: 'Neulis Cursive',
-                fontStyle: 'italic',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
                 fontWeight: '500',
-                wordWrap: 'break-word'
+                textDecoration: 'underline',
+                wordWrap: 'break-word',
+                cursor: 'pointer'
               }}
             >
-              lovely to see you here!
-            </div>
-
-            <div 
+              Linkedin
+            </a>
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
               style={{
                 textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
+                fontWeight: '500',
+                textDecoration: 'underline',
+                wordWrap: 'break-word',
+                cursor: 'pointer'
+              }}
+            >
+              X
+            </a>
+            <a 
+              href="https://contra.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
+                fontWeight: '500',
+                textDecoration: 'underline',
+                wordWrap: 'break-word',
+                cursor: 'pointer'
+              }}
+            >
+              Contra
+            </a>
+            <a 
+              href="https://medium.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
+                fontWeight: '500',
+                textDecoration: 'underline',
+                wordWrap: 'break-word',
+                cursor: 'pointer'
+              }}
+            >
+              Medium
+            </a>
+            <a 
+              href="mailto:hey@raksha.design"
+              style={{
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
+                fontWeight: '500',
+                textDecoration: 'underline',
+                wordWrap: 'break-word',
+                cursor: 'pointer'
+              }}
+            >
+              hey@raksha.design
+            </a>
+          </div>
+
+          {/* Credits */}
+          <div style={{ textAlign: 'center', alignSelf: isMobile ? 'stretch' : 'auto' }}>
+            <span 
+              style={{
                 color: '#A599B6',
-                fontSize: 14,
-                fontFamily: 'Geist Mono',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
                 fontWeight: '500',
                 wordWrap: 'break-word'
               }}
             >
-              Last updated 12 hours ago :)
-            </div>
-
-            <div 
+              Designed and coded by me and cursor{isMobile && <br />} → 
+            </span>
+            <a 
+              href="#" 
               style={{
-                color: 'white',
-                fontSize: 200,
-                fontFamily: 'Neulis Cursive',
+                color: '#A599B6',
+                fontSize: isMobile ? '12px' : '14px',
+                fontFamily: 'Geist Mono, monospace',
                 fontWeight: '500',
-                lineHeight: 200,
-                wordWrap: 'break-word'
+                textDecoration: 'underline',
+                wordWrap: 'break-word',
+                cursor: 'pointer'
               }}
             >
-              raks
-            </div>
+              View process 
+            </a>
           </div>
-
-          <div 
-            style={{
-              alignSelf: 'stretch',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              display: 'inline-flex'
-            }}
-          >
-            <div 
-              style={{
-                width: 463,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                display: 'flex'
-              }}
-            >
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textAlign: 'center',
-                  color: '#9F94AD',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  textDecoration: 'underline',
-                  wordWrap: 'break-word',
-                  cursor: 'pointer'
-                }}
-              >
-                Linkedin
-              </a>
-
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textAlign: 'center',
-                  color: '#9F94AD',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  textDecoration: 'underline',
-                  wordWrap: 'break-word',
-                  cursor: 'pointer'
-                }}
-              >
-                X
-              </a>
-
-              <a
-                href="https://contra.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textAlign: 'center',
-                  color: '#9F94AD',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  textDecoration: 'underline',
-                  wordWrap: 'break-word',
-                  cursor: 'pointer'
-                }}
-              >
-                Contra
-              </a>
-
-              <a
-                href="https://medium.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textAlign: 'center',
-                  color: '#9F94AD',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  textDecoration: 'underline',
-                  wordWrap: 'break-word',
-                  cursor: 'pointer'
-                }}
-              >
-                Medium
-              </a>
-
-              <a
-                href="mailto:hey@raksha.design"
-                style={{
-                  textAlign: 'center',
-                  color: '#9F94AD',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  textDecoration: 'underline',
-                  wordWrap: 'break-word',
-                  cursor: 'pointer'
-                }}
-              >
-                hey@raksha.design
-              </a>
-            </div>
-
-            <div style={{ textAlign: 'center' }}>
-              <span 
-                style={{
-                  color: '#A599B6',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  wordWrap: 'break-word'
-                }}
-              >
-                Designed and coded by me and cursor → 
-              </span>
-              <a
-                href="#"
-                style={{
-                  color: '#A599B6',
-                  fontSize: 14,
-                  fontFamily: 'Geist Mono',
-                  fontWeight: '500',
-                  textDecoration: 'underline',
-                  wordWrap: 'break-word',
-                  cursor: 'pointer'
-                }}
-              >
-                View process 
-              </a>
-            </div>
-          </div>
+        </div>
         </div>
       </div>
 
