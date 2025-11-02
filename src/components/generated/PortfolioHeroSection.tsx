@@ -600,19 +600,19 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </nav>
       ) : (
         /* Desktop Navigation */
-        <nav className="fixed left-0 right-0 top-0 z-50 flex justify-center">
+        <nav className="fixed left-0 right-0 top-0 z-50 w-full">
           <div 
             style={{
+              width: '100%',
               paddingLeft: '12px',
               paddingRight: '12px',
               paddingTop: '10px',
               paddingBottom: '10px',
               background: 'rgba(255, 255, 255, 0.01)',
               backdropFilter: 'blur(11px)',
-              justifyContent: 'flex-start',
+              justifyContent: 'space-between',
               alignItems: 'center',
-              gap: '563px',
-              display: 'inline-flex'
+              display: 'flex'
             }}
           >
             {/* Logo - "raks" */}
