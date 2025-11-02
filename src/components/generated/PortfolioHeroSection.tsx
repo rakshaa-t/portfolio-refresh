@@ -1391,9 +1391,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="book-call-button"
           style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '341px', position: 'relative', overflow: 'visible' }}
         >
-          <svg width="341" height="220" viewBox="0 -10 341 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
+          <svg width="341" height="172" viewBox="12 0 341 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
             <g filter="url(#filter0_ddddiiii_463_365)">
-              <g>
+              <g clipPath="url(#clip0_463_365)">
                 <rect x="12" y="10" width="317" height="62" rx="16" fill="#2D44E5" style={{ pointerEvents: 'auto' }}/>
                 <g filter="url(#filter1_f_463_365)">
                   <rect x="24" y="-15" width="50" height="50" fill="#D9D9D9"/>
