@@ -1546,17 +1546,17 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         .book-call-button:hover {
           transform: scale(1.02);
           opacity: 0.95;
-          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+          transition: transform 0.24s ease-out, opacity 0.24s ease-out;
         }
         
         .book-call-button:hover #paint0_linear_463_365 stop:first-child {
           stop-color: #B0B9FF;
-          transition: stop-color 0.3s ease-out;
+          transition: stop-color 0.24s ease-out;
         }
         
         .book-call-button:hover #paint0_linear_463_365 stop:last-child {
           stop-color: #2D45D9;
-          transition: stop-color 0.3s ease-out;
+          transition: stop-color 0.24s ease-out;
         }
         
         #paint0_linear_463_365 stop {
