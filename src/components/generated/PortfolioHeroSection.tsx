@@ -1535,7 +1535,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feGaussianBlur stdDeviation="11" result="effect1_foregroundBlur_463_365"/>
               </filter>
-              <linearGradient id="paint0_linear_463_365" x1="52.709" y1="10" x2="362.138" y2="73.3708" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint0_linear_463_365" x1="46.5" y1="0" x2="363.5" y2="0" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#95A2FF"/>
                 <stop offset="1" stopColor="#2133B9"/>
               </linearGradient>
