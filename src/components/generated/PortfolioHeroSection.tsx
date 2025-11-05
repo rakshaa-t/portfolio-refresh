@@ -721,7 +721,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mx-auto text-left w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] mt-5 mb-5 md:mt-10 md:mb-10"
+          className="mx-auto text-left w-full max-w-full lg:max-w-[603.2px] mt-5 mb-5 lg:mt-10 lg:mb-10"
         >
           <div className="w-full">
             <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -756,14 +756,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] md:w-[90vw] lg:w-[1040.8px] md:h-[485.6px]">
+        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full md:absolute md:z-20 md:left-1/2 md:-translate-x-1/2 lg:left-[203.2px] lg:translate-x-0 md:top-[23.2px] md:w-[603.2px] md:h-[439.2px]"
+            className="relative overflow-hidden w-full lg:absolute lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[439.2px]"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -775,7 +775,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           >
           {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
           {isCardOverChat && (
-            <div className="hidden md:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
+            <div className="hidden lg:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)'
@@ -784,10 +784,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <p className="text-lg font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Drop to ask about this project
               </p>
-              </div>
+            </div>
           )}
           {/* Inner Background Blurs - Desktop only for performance */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
               <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
               <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
           </div>
@@ -803,11 +803,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] h-[320px] md:w-[560px]"
+              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] h-[320px] lg:w-[560px]"
             >
               <div 
                 ref={chatContainerRef}
-                className="overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 pb-4 md:pb-20"
+                className="overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
                 style={{ 
                   scrollPaddingBottom: '20px'
                 }}
@@ -1015,9 +1015,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             </div>
           </motion.div>
 
-          {/* Project Cards - Desktop: Draggable around chat, Mobile: Stacked below chat with click */}
-          {/* Desktop Draggable Cards - Hidden on mobile, visible on desktop */}
-          <div className="hidden md:block">
+          {/* Project Cards - Desktop: Draggable around chat, Mobile/iPad Air: Stacked below chat with click */}
+          {/* Desktop Draggable Cards - Hidden on mobile/iPad Air, visible on desktop (lg: 1024px+) */}
+          <div className="hidden lg:block">
             <AnimatePresence>
               {PROJECT_CARDS.map((card) => {
                 if (!visibleCards.includes(card.id)) return null;
@@ -1163,8 +1163,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </AnimatePresence>
           </div>
 
-          {/* Mobile Click Cards - Stacked vertically - Visible on mobile, hidden on desktop */}
-          <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
+          {/* Mobile/iPad Air Click Cards - Stacked vertically - Visible on mobile/iPad Air, hidden on desktop */}
+          <div className="lg:hidden flex flex-col gap-6 mt-8 items-center">
               <AnimatePresence>
                 {PROJECT_CARDS.map((card, index) => {
                   if (!visibleCards.includes(card.id)) return null;
