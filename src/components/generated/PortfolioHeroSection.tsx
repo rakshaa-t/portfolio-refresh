@@ -94,7 +94,7 @@ const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
           />
         </div>
         <div
-          className="px-[18px] py-[14px] bg-white text-black"
+          className="p-1 bg-white text-black"
           style={{
             borderRadius: '30px 30px 30px 0px',
             boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -136,7 +136,7 @@ const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
       )}
       
       <div
-        className="px-[22px] py-[20px] bg-black/[0.79] text-white"
+        className="p-1 bg-black/[0.79] text-white"
         style={{
           borderRadius: '30px 30px 0px 30px',
           boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -518,10 +518,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       {/* Navigation - Responsive */}
         <nav className="fixed left-0 right-0 top-0 z-50 w-full">
         {/* Mobile Header - visible on mobile, hidden on desktop */}
-        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
-          {/* Logo - "raks" */}
+        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px] bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px]">
+            {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
-            raks
+              raks
           </div>
 
             {/* Social Icons (Mobile) */}
@@ -796,7 +796,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              className="absolute left-4 right-4 top-0 h-[40px] pointer-events-none z-10 max-w-full"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -804,11 +804,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[calc(100%-32px)] max-w-[304px] md:max-w-[90vw] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-4 right-4 top-8 flex flex-col w-full max-w-full lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
-                className="overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
+                className="overflow-y-auto flex flex-col gap-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
                 style={{ 
                   scrollPaddingBottom: '20px'
                 }}
@@ -824,7 +824,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     />
                   </div>
                   <div
-                    className="px-[18px] py-[14px] bg-white text-black flex-1"
+                    className="p-1 bg-white text-black flex-1"
                     style={{
                       borderRadius: '30px 30px 30px 0px',
                       filter: 'drop-shadow(0 15px 34px rgba(40, 63, 228, 0.04)) drop-shadow(0 62px 62px rgba(40, 63, 228, 0.03)) drop-shadow(0 139px 84px rgba(40, 63, 228, 0.02)) drop-shadow(0 248px 99px rgba(40, 63, 228, 0.01)) drop-shadow(0 387px 108px rgba(40, 63, 228, 0.00))'
@@ -856,7 +856,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       />
                     </div>
                     <div
-                      className="px-[22px] py-[20px] bg-white text-black"
+                      className="p-1 bg-white text-black"
                       style={{
                         borderRadius: '30px 30px 30px 0px',
                         boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -873,7 +873,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-32px)] max-w-[304px] md:max-w-[90vw] lg:w-[560px] bottom-4 gap-2 md:bottom-10 md:gap-3">
+            <div className="absolute left-4 right-4 bottom-4 flex flex-col items-center gap-3 lg:bottom-10 lg:gap-3 lg:left-1/2 lg:-translate-x-1/2 lg:w-[560px] lg:right-auto">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
