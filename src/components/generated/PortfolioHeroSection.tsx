@@ -796,7 +796,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-4 right-4 top-0 h-[40px] pointer-events-none z-10 max-w-full"
+              className="absolute left-1/2 -translate-x-1/2 top-0 w-[304px] md:w-[560px] lg:w-[560px] h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
