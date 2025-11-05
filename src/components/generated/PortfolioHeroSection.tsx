@@ -94,7 +94,7 @@ const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
           />
         </div>
         <div
-          className="p-1 bg-white text-black"
+          className="p-2 bg-white text-black"
           style={{
             borderRadius: '30px 30px 30px 0px',
             boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -136,7 +136,7 @@ const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
       )}
       
       <div
-        className="p-1 bg-black/[0.79] text-white"
+        className="p-2 bg-black/[0.79] text-white"
         style={{
           borderRadius: '30px 30px 0px 30px',
           boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -824,7 +824,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     />
                   </div>
                   <div
-                    className="p-1 bg-white text-black flex-1"
+                    className="p-2 bg-white text-black flex-1"
                     style={{
                       borderRadius: '30px 30px 30px 0px',
                       filter: 'drop-shadow(0 15px 34px rgba(40, 63, 228, 0.04)) drop-shadow(0 62px 62px rgba(40, 63, 228, 0.03)) drop-shadow(0 139px 84px rgba(40, 63, 228, 0.02)) drop-shadow(0 248px 99px rgba(40, 63, 228, 0.01)) drop-shadow(0 387px 108px rgba(40, 63, 228, 0.00))'
@@ -856,7 +856,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       />
                     </div>
                     <div
-                      className="p-1 bg-white text-black"
+                      className="p-2 bg-white text-black"
                       style={{
                         borderRadius: '30px 30px 30px 0px',
                         boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -873,7 +873,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-4 right-4 bottom-4 flex flex-col items-center gap-3 lg:bottom-10 lg:gap-3 lg:left-1/2 lg:-translate-x-1/2 lg:w-[560px] lg:right-auto">
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-[12px] gap-[8px] md:w-[560px] md:bottom-[40px] md:gap-[12px] lg:w-[560px] lg:bottom-[40px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -988,21 +988,21 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
               {/* Suggestion Pills - Static (no animations) */}
               <div className="w-full overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <div className="flex items-center gap-3 px-1">
+                <div className="flex items-center gap-3">
                   {visiblePills.map((suggestion, index) => {
                     return (
                       <button 
                         key={`${suggestion}-${index}`}
                         onClick={() => handlePillClick(suggestion)}
                         disabled={isLoading}
-                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                        className="relative px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
                         style={{
                           background: 'rgba(255, 255, 255, 0.3)',
                           border: '1px solid rgba(255, 255, 255, 0.4)'
                         }}
                       >
                         <span
-                          className="text-[12px] md:text-[13px] leading-[20px] font-normal text-black/[0.64] whitespace-nowrap text-center"
+                          className="text-[13px] leading-[20px] font-normal text-black/[0.64] whitespace-nowrap text-center"
                           style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
                         >
                           {suggestion}
