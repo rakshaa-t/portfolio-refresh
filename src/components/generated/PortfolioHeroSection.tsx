@@ -507,62 +507,25 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     }
   };
 
-  // Render separate mobile component on mobile devices
-  if (isMobile) {
-    console.log('✅ Rendering MOBILE component');
-    return <PortfolioMobile />;
-  }
-  
-  console.log('✅ Rendering DESKTOP component');
-
-  // Desktop version
+  // Unified responsive component (no separate mobile component)
   return (
     <div className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
-      {/* Background Blurs - Minimal on mobile for performance */}
-      {!isMobile && (
-        <>
-          <div className="absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
-          <div className="absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
-          <div className="absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
-        </>
-      )}
+      {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
+      <div className="hidden lg:block absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
+      <div className="hidden lg:block absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
+      <div className="hidden lg:block absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
 
-      {/* Navigation */}
-      {isMobile ? (
-        /* Mobile Header */
-        <nav className="fixed left-0 right-0 top-0 z-50 w-full">
-          <div 
-            className="flex items-center justify-center h-full"
-            style={{
-              width: '100%',
-              padding: '12px',
-              gap: '200px',
-              justifyContent: 'center',
-              alignItems: 'center',
-              display: 'flex'
-            }}
-          >
-            {/* Logo - "raks" */}
-            <div 
-              style={{
-                textAlign: 'center',
-                color: 'white',
-                fontSize: '36px',
-                fontFamily: 'Caveat, cursive, system-ui, sans-serif',
-                fontWeight: '500',
-                wordWrap: 'break-word'
-              }}
-            >
-              raks
+      {/* Navigation - Responsive */}
+      <nav className="fixed left-0 right-0 top-0 z-50 w-full">
+        {/* Mobile Header - visible on mobile, hidden on desktop */}
+        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
+          {/* Logo - "raks" */}
+          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Caveat, cursive, system-ui, sans-serif' }}>
+            raks
           </div>
 
-            {/* Social Icons (Mobile) */}
-            <div 
-              className="flex items-center gap-[16px]"
-              style={{
-                opacity: 0.44
-              }}
-            >
+          {/* Social Icons (Mobile) */}
+          <div className="flex items-center gap-4 opacity-44">
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -598,48 +561,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </a>
             </div>
           </div>
-        </nav>
-      ) : (
-        /* Desktop Navigation */
-        <nav className="fixed left-0 right-0 top-0 z-50 w-full">
-          <div 
-            style={{
-              width: '100%',
-              paddingLeft: '80px',
-              paddingRight: '80px',
-              paddingTop: '10px',
-              paddingBottom: '10px',
-              background: 'rgba(255, 255, 255, 0.01)',
-              backdropFilter: 'blur(11px)',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              display: 'flex'
-            }}
-          >
-            {/* Logo - "raks" */}
-            <div 
-              style={{
-                textAlign: 'center',
-                color: 'white',
-                fontSize: '36px',
-                fontFamily: 'Neulis Cursive, cursive, serif',
-                fontWeight: '500',
-                wordWrap: 'break-word'
-              }}
-            >
-              raks
-      </div>
 
-            {/* Social Icons */}
-            <div 
-              style={{
-                width: '73px',
-                opacity: 0.44,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                display: 'flex'
-              }}
-            >
+        {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
+        <div className="hidden md:flex w-full px-20 py-2.5 bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px] justify-between items-center">
+          {/* Logo - "raks" */}
+          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+            raks
+          </div>
+
+          {/* Social Icons */}
+          <div className="w-[73px] opacity-44 flex justify-between items-center">
               {/* LinkedIn Icon */}
               <a
                 href="https://linkedin.com/in/raksha-t"
@@ -678,26 +609,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 </svg>
               </a>
             </div>
-          </div>
-        </nav>
-      )}
+        </div>
+      </nav>
 
-      {/* Bottom Navigation Bar (Mobile Only) */}
-      {isMobile && (
-        <div 
-          className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-4"
-          style={{
-            background: 'rgba(255, 255, 255, 0.01)',
-            backdropFilter: 'blur(1px)',
-            WebkitBackdropFilter: 'blur(1px)'
-          }}
-        >
-          <div 
-            className="flex items-start justify-center gap-[28px]"
-            style={{
-              width: '100%'
-            }}
-          >
+      {/* Bottom Navigation Bar - Mobile Only (hidden on desktop) */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 bg-[rgba(255,255,255,0.01)] backdrop-blur-[1px]">
+        <div className="flex items-start justify-center gap-7 w-full">
             {NAV_ITEMS.map((item, index) => {
               const isActive = activeNav === item.id;
               const isCalendar = item.id === "calendar";
@@ -794,88 +711,44 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 </button>
               );
             })}
-          </div>
         </div>
-      )}
+      </div>
 
-      {/* Content Container */}
-      <div className={`relative w-full ${isMobile ? 'px-4 pt-24' : 'pt-[84px]'}`}>
-        <div className={isMobile ? '' : 'flex justify-center w-full'}>
+      {/* Content Container - Responsive */}
+      <div className="relative w-full px-4 pt-24 md:px-0 md:pt-[84px]">
+        <div className="md:flex md:justify-center md:w-full">
           {/* Main Heading */}
           <motion.div
-            initial={isMobile ? false : { opacity: 0, scale: 0.98 }}
-            animate={isMobile ? false : { opacity: 1, scale: 1 }}
-            transition={isMobile ? undefined : { delay: 0.1 }}
-            className={isMobile ? 'text-center mx-auto' : 'text-left'}
-            style={{
-              width: isMobile ? '100%' : '603.2px',
-              maxWidth: isMobile ? '100%' : '603.2px',
-              marginTop: isMobile ? '20px' : '40px',
-              marginBottom: isMobile ? '20px' : '40px'
-            }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="text-center mx-auto md:text-left md:mx-0 w-full md:w-[603.2px] max-w-full md:max-w-[603.2px] mt-5 mb-5 md:mt-10 md:mb-10"
           >
-          <div style={{ width: '100%' }}>
-            <span style={{ 
-              color: isMobile ? 'rgba(41, 41, 41, 0.88)' : '#303034', 
-              fontSize: isMobile ? '16px' : '22px', 
-              fontFamily: 'Nexa, system-ui, sans-serif', 
-              fontWeight: 700, 
-              wordWrap: 'break-word' 
-            }}>
-              Raksha T<br/>{!isMobile && <br/>}
+          <div className="w-full">
+            <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Raksha T<br/><span className="hidden md:inline"><br/></span>
             </span>
-            <span style={{ 
-              color: isMobile ? 'rgba(41, 41, 41, 0.88)' : '#303034', 
-              fontSize: isMobile ? '14px' : '18px', 
-              fontFamily: 'Outfit, system-ui, sans-serif', 
-              fontWeight: 300, 
-              wordWrap: 'break-word' 
-            }}>
+            <span className="text-sm md:text-lg lg:text-xl font-light break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               aka raks - product designer who builds products that work, look good and sell (yes i code too)<br/>
               i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
-              {!isMobile && ' '}to find out more  →  
+              <span className="hidden md:inline"> </span>to find out more  →  
             </span>
             <a 
               href="https://cal.com/raksha-tated-v2ee58/15min"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ 
-                color: isMobile ? 'rgba(41, 41, 41, 0.88)' : '#303034', 
-                fontSize: isMobile ? '14px' : '18px', 
-                fontFamily: 'Outfit, system-ui, sans-serif', 
-                fontWeight: 300, 
-                textDecoration: 'underline', 
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
-              className="hover:opacity-80 transition-opacity"
+              className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity cursor-pointer" 
+              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
             >
               let's talk
             </a>
             <br/><br/>
-            <span style={{ 
-              color: isMobile ? 'rgba(41, 41, 41, 0.88)' : '#303034', 
-              fontSize: isMobile ? '14px' : '18px', 
-              fontFamily: 'Outfit, system-ui, sans-serif', 
-              fontWeight: 300, 
-              wordWrap: 'break-word' 
-            }}>
+            <span className="text-sm md:text-lg lg:text-xl font-light break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               chat with my portfolio below ↓ or explore projects{' '}
             </span>
             <button 
-              style={{ 
-                color: isMobile ? 'rgba(41, 41, 41, 0.88)' : '#303034', 
-                fontSize: isMobile ? '14px' : '18px', 
-                fontFamily: 'Outfit, system-ui, sans-serif', 
-                fontWeight: 300, 
-                textDecoration: 'underline', 
-                wordWrap: 'break-word',
-                background: 'none',
-                border: 'none',
-                padding: 0,
-                cursor: 'pointer'
-              }}
-              className="hover:opacity-80 transition-opacity"
+              className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
+              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
               onClick={() => {/* TODO: navigate to projects */}}
             >
               here
@@ -884,57 +757,42 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
         </div>
 
-        {/* Chat + Cards Container - Sized to fit cards around chat - scaled 80% */}
-        <div ref={cardsContainerRef} className="relative mx-auto" style={isMobile ? { width: '100%', maxWidth: '348px' } : { width: '1040.8px', height: '485.6px' }}>
+        {/* Chat + Cards Container - Responsive sizing */}
+        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:w-[1040.8px] md:h-[485.6px] md:max-w-none">
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className={isMobile ? "relative overflow-hidden w-full" : "absolute overflow-hidden z-20"}
-            style={isMobile ? {
+            className="relative overflow-hidden w-full md:absolute md:z-20 md:left-[203.2px] md:top-[23.2px] md:w-[603.2px] md:h-[439.2px]"
+            style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
               borderRadius: '44px',
               outline: '2px white solid',
               outlineOffset: '-2px',
-              height: '483px',
-              position: 'relative'
-            } : {
-              left: '203.2px',
-              top: '23.2px',
-              width: '603.2px',
-              height: '435.2px',
-              position: 'absolute',
-              background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
-              boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
-              borderRadius: '44px',
-              outline: '2px white solid',
-              outlineOffset: '-2px'
+              height: '483px'
             }}
           >
           {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
-          {!isMobile && isCardOverChat && (
-            <div 
-              className="absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 flex items-center justify-center pointer-events-none"
+          {isCardOverChat && (
+            <div className="hidden md:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)'
               }}
             >
-              <p className="text-[18px] font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <p className="text-lg font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Drop to ask about this project
               </p>
-              </div>
+            </div>
           )}
           {/* Inner Background Blurs - Desktop only for performance */}
-          {!isMobile && (
-            <>
-              <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
-              <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
-            </>
-          )}
+          <div className="hidden md:block">
+            <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
+            <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
+          </div>
 
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
@@ -947,11 +805,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className={`absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col ${isMobile ? 'w-[304px] h-[320px]' : 'w-[560px] h-[320px]'}`}
+              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] h-[320px] md:w-[560px]"
             >
               <div 
                 ref={chatContainerRef}
-                className={`overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 ${isMobile ? 'pb-4' : 'pb-20'}`}
+                className="overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 pb-4 md:pb-20"
                 style={{ 
                   scrollPaddingBottom: '20px'
                 }}
@@ -1016,7 +874,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center ${isMobile ? 'w-[304px] bottom-[12px] gap-[8px]' : 'w-[560px] bottom-[40px] gap-[12px]'}`}>
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-3 gap-2 md:w-[560px] md:bottom-10 md:gap-3">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -1160,8 +1018,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           {/* Project Cards - Desktop: Draggable around chat, Mobile: Stacked below chat with click */}
-          {!isMobile ? (
-            /* Desktop Draggable Cards */
+          {/* Desktop Draggable Cards - Hidden on mobile, visible on desktop */}
+          <div className="hidden md:block">
             <AnimatePresence>
               {PROJECT_CARDS.map((card) => {
                 if (!visibleCards.includes(card.id)) return null;
@@ -1305,29 +1163,29 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               );
             })}
           </AnimatePresence>
-          ) : (
-            /* Mobile Click Cards - Stacked vertically */
-            <div className="flex flex-col gap-6 mt-8 items-center">
-              <AnimatePresence>
-                {PROJECT_CARDS.map((card, index) => {
-                  if (!visibleCards.includes(card.id)) return null;
-                  
-                  const alternateRotation = index % 2 === 0 ? -15 : 15;
-                  
-                  return (
-                    <motion.div
-                      key={card.id}
-                      onClick={() => handleCardClick(card.id)}
-                      initial={false}
-                      animate={{ rotate: alternateRotation }}
-                      transition={{ duration: 0 }}
-                      className="w-[263px] h-[266px] rounded-[44px] border border-white cursor-pointer"
-                      style={{
-                        position: 'relative',
-                        background: 'rgba(255, 255, 255, 0.30)',
-                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
-                      }}
-                    >
+          </div>
+
+          {/* Mobile Click Cards - Stacked vertically - Visible on mobile, hidden on desktop */}
+          <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
+            <AnimatePresence>
+              {PROJECT_CARDS.map((card, index) => {
+                if (!visibleCards.includes(card.id)) return null;
+                
+                const alternateRotation = index % 2 === 0 ? -15 : 15;
+                
+                return (
+                  <motion.div
+                    key={card.id}
+                    onClick={() => handleCardClick(card.id)}
+                    initial={false}
+                    animate={{ rotate: alternateRotation }}
+                    transition={{ duration: 0 }}
+                    className="w-[263px] h-[266px] rounded-[44px] border border-white cursor-pointer relative"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.30)',
+                      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+                    }}
+                  >
                       {/* Card Title */}
                       <div 
                         style={{
@@ -1381,16 +1239,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 })}
               </AnimatePresence>
             </div>
-          )}
         </div>
       </div>
 
       {/* Book A Call Button */}
-      <div className="flex justify-center w-full mb-8" style={{ marginTop: '92px' }}>
+      <div className="flex justify-center w-full mb-8 mt-[92px]">
         <div
           onClick={() => setIsCalendarOpen(true)}
-          className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''}`}
-          style={{ cursor: 'pointer', display: 'block', width: isMobile ? 'calc(100% - 32px)' : '410px', position: 'relative', overflow: 'visible' }}
+          className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''} cursor-pointer block w-[calc(100%-32px)] md:w-[410px] relative overflow-visible`}
         >
           {/* Hover detection overlay - exactly matches button rectangle */}
           <div
@@ -1606,102 +1462,28 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       `}</style>
 
       {/* Footer */}
-      <div 
-        className="relative z-10 flex justify-center w-full"
-      >
-        <div 
-          style={{
-            width: '100%',
-            maxWidth: isMobile ? '100%' : '1200px',
-            padding: '22px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            gap: '20px',
-            marginTop: isMobile ? '60px' : '220px',
-            marginBottom: isMobile ? '100px' : '0',
-            minWidth: 0
-          }}
-        >
+      <div className="relative z-10 flex justify-center w-full">
+        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 mt-[60px] mb-[100px] md:mt-[220px] md:mb-0 min-w-0">
         {/* Top Section - Title */}
-        <div 
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            gap: '12px'
-          }}
-        >
-          <div 
-            style={{
-              textAlign: 'center',
-              color: '#9F94AD',
-              fontSize: isMobile ? '20px' : '44px',
-              fontFamily: 'Neulis Cursive',
-              fontStyle: 'italic',
-              fontWeight: '500',
-              wordWrap: 'break-word'
-            }}
-          >
+        <div className="flex flex-col justify-start items-center gap-3">
+          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
             lovely to see you here!
           </div>
-          <div 
-            style={{
-              color: 'white',
-              fontSize: isMobile ? '100px' : '200px',
-              fontFamily: 'Neulis Cursive',
-              fontWeight: '500',
-              lineHeight: isMobile ? 'normal' : '200px',
-              wordWrap: 'break-word',
-              width: isMobile ? '242px' : 'auto',
-              height: isMobile ? '113px' : 'auto'
-            }}
-          >
+          <div className="text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-[242px] h-[113px] md:w-auto md:h-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive' }}>
             raks
           </div>
         </div>
 
         {/* Bottom Section - Links and Credits */}
-        <div 
-          style={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: isMobile ? '40px' : '80px',
-            width: '100%',
-            maxWidth: '100%',
-            minWidth: 0
-          }}
-        >
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 w-full max-w-full min-w-0">
           {/* Social Links */}
-          <div 
-            style={{
-              width: isMobile ? 'auto' : '463px',
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row',
-              justifyContent: isMobile ? 'center' : 'space-between',
-              alignItems: 'center',
-              gap: isMobile ? '20px' : '0',
-              height: isMobile ? '122px' : 'auto'
-            }}
-          >
+          <div className="w-auto md:w-[463px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 h-[122px] md:h-auto">
             <a 
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{
-                textAlign: 'center',
-                color: '#9F94AD',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                textDecoration: 'underline',
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               Linkedin
             </a>
@@ -1709,16 +1491,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://twitter.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{
-                textAlign: 'center',
-                color: '#9F94AD',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                textDecoration: 'underline',
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               X
             </a>
@@ -1726,16 +1500,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://contra.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{
-                textAlign: 'center',
-                color: '#9F94AD',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                textDecoration: 'underline',
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               Contra
             </a>
@@ -1743,60 +1509,29 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://medium.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{
-                textAlign: 'center',
-                color: '#9F94AD',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                textDecoration: 'underline',
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               Medium
             </a>
             <a 
               href="mailto:hey@raksha.design"
-              style={{
-                textAlign: 'center',
-                color: '#9F94AD',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                textDecoration: 'underline',
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               hey@raksha.design
             </a>
           </div>
 
           {/* Credits */}
-          <div style={{ textAlign: 'center', alignSelf: isMobile ? 'stretch' : 'auto' }}>
-            <span 
-              style={{
-                color: '#A599B6',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                wordWrap: 'break-word'
-              }}
-            >
-              Designed and coded by me and cursor{isMobile && <br />} → 
+          <div className="text-center self-stretch md:self-auto">
+            <span className="text-[#A599B6] text-xs md:text-sm font-semibold break-words" style={{ fontFamily: 'Geist Mono, monospace' }}>
+              Designed and coded by me and cursor<span className="md:hidden"><br /></span> → 
             </span>
             <a 
               href="#" 
-              style={{
-                color: '#A599B6',
-                fontSize: isMobile ? '12px' : '14px',
-                fontFamily: 'Geist Mono, monospace',
-                fontWeight: '600',
-                textDecoration: 'underline',
-                wordWrap: 'break-word',
-                cursor: 'pointer'
-              }}
+              className="text-[#A599B6] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               View process 
             </a>
@@ -1818,7 +1553,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             {/* Close Button - Top right, aligned with modal */}
             <button
               onClick={() => setIsCalendarOpen(false)}
-              className={`absolute z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white transition-colors shadow-lg ${isMobile ? 'top-4 right-4' : 'top-0 -right-12'}`}
+              className="absolute z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white transition-colors shadow-lg top-4 right-4 md:top-0 md:-right-12"
               aria-label="Close calendar"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
