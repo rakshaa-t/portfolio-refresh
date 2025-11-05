@@ -715,15 +715,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Content Container - Responsive */}
-      <div className="relative w-full px-4 pt-24 md:px-0 md:pt-[84px]">
-        <div className="md:flex md:justify-center md:w-full">
-          {/* Main Heading */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1 }}
-            className="text-center mx-auto md:text-left md:mx-0 w-full md:w-[603.2px] max-w-full md:max-w-[603.2px] mt-5 mb-5 md:mt-10 md:mb-10"
-          >
+      <div className="relative w-full p-6 md:p-11">
+        {/* Main Heading */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1 }}
+          className="mx-auto text-left w-full max-w-full md:max-w-[603.2px] lg:max-w-[603.2px] mt-5 mb-5 md:mt-10 md:mb-10"
+        >
           <div className="w-full">
             <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Raksha T<br/><span className="hidden md:inline"><br/></span>
@@ -755,7 +754,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             </button>
           </div>
           </motion.div>
-        </div>
 
         {/* Chat + Cards Container - Responsive sizing */}
         <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:w-[1040.8px] md:h-[485.6px] md:max-w-none">
