@@ -728,7 +728,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               Raksha T<br/><span className="hidden md:inline"><br/></span>
             </span>
             <span className="text-sm md:text-lg lg:text-xl font-light break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              aka raks - product designer who builds products that work, look good and sell (yes i code too)<br/>
+              aka raks - product designer who builds products that work, look good and sell<br/>
               i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
               <span className="hidden md:inline"> </span>to find out more  →  
             </span>
