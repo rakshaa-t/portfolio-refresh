@@ -334,15 +334,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         };
         addMessage(errorMessage);
       } else {
-        // Add AI response
-        const aiMessage: ChatMessage = {
-          id: (Date.now() + 1).toString(),
-          type: 'text',
-          content: response.message,
-          sender: 'ai',
-          timestamp: Date.now()
-        };
-        addMessage(aiMessage);
+      // Add AI response
+      const aiMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        type: 'text',
+        content: response.message,
+        sender: 'ai',
+        timestamp: Date.now()
+      };
+      addMessage(aiMessage);
       }
     } catch (error: any) {
       // Only add fallback if not aborted
@@ -516,15 +516,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="hidden lg:block absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
 
       {/* Navigation - Responsive */}
-      <nav className="fixed left-0 right-0 top-0 z-50 w-full">
+        <nav className="fixed left-0 right-0 top-0 z-50 w-full">
         {/* Mobile Header - visible on mobile, hidden on desktop */}
         <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
-          {/* Logo - "raks" */}
+            {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Caveat, cursive, system-ui, sans-serif' }}>
-            raks
+              raks
           </div>
 
-          {/* Social Icons (Mobile) */}
+            {/* Social Icons (Mobile) */}
           <div className="flex items-center gap-4 opacity-44">
               <a
                 href="https://linkedin.com"
@@ -564,12 +564,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
         <div className="hidden md:flex w-full px-20 py-2.5 bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px] justify-between items-center">
-          {/* Logo - "raks" */}
+            {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             raks
-          </div>
+            </div>
 
-          {/* Social Icons */}
+            {/* Social Icons */}
           <div className="w-[73px] opacity-44 flex justify-between items-center">
               {/* LinkedIn Icon */}
               <a
@@ -609,8 +609,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 </svg>
               </a>
             </div>
-        </div>
-      </nav>
+          </div>
+        </nav>
 
       {/* Bottom Navigation Bar - Mobile Only (hidden on desktop) */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 bg-[rgba(255,255,255,0.01)] backdrop-blur-[1px]">
@@ -711,17 +711,17 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 </button>
               );
             })}
+          </div>
         </div>
-      </div>
 
       {/* Content Container - Responsive */}
-      <div className="relative w-full p-6 md:p-11">
-        {/* Main Heading */}
-        <motion.div
+      <div className="relative w-full p-6 md:p-11 mt-10 md:mt-[60px]">
+          {/* Main Heading */}
+          <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mx-auto text-left w-full max-w-full md:max-w-[603.2px] lg:max-w-[603.2px] mt-5 mb-5 md:mt-10 md:mb-10"
+          className="mx-auto text-left w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] mt-5 mb-5 md:mt-10 md:mb-10"
         >
           <div className="w-full">
             <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -756,14 +756,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:w-[1040.8px] md:h-[485.6px] md:max-w-none">
+        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] md:w-[90vw] lg:w-[1040.8px] md:h-[485.6px]">
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full md:absolute md:z-20 md:left-[203.2px] md:top-[23.2px] md:w-[603.2px] md:h-[439.2px]"
+            className="relative overflow-hidden w-full md:absolute md:z-20 md:left-1/2 md:-translate-x-1/2 lg:left-[203.2px] lg:translate-x-0 md:top-[23.2px] md:w-[603.2px] md:h-[439.2px]"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -784,12 +784,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <p className="text-lg font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Drop to ask about this project
               </p>
-            </div>
+              </div>
           )}
           {/* Inner Background Blurs - Desktop only for performance */}
           <div className="hidden md:block">
-            <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
-            <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
+              <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
+              <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
           </div>
 
           <div className="relative h-full flex flex-col items-center">
@@ -1165,25 +1165,25 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           {/* Mobile Click Cards - Stacked vertically - Visible on mobile, hidden on desktop */}
           <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
-            <AnimatePresence>
-              {PROJECT_CARDS.map((card, index) => {
-                if (!visibleCards.includes(card.id)) return null;
-                
-                const alternateRotation = index % 2 === 0 ? -15 : 15;
-                
-                return (
-                  <motion.div
-                    key={card.id}
-                    onClick={() => handleCardClick(card.id)}
-                    initial={false}
-                    animate={{ rotate: alternateRotation }}
-                    transition={{ duration: 0 }}
+              <AnimatePresence>
+                {PROJECT_CARDS.map((card, index) => {
+                  if (!visibleCards.includes(card.id)) return null;
+                  
+                  const alternateRotation = index % 2 === 0 ? -15 : 15;
+                  
+                  return (
+                    <motion.div
+                      key={card.id}
+                      onClick={() => handleCardClick(card.id)}
+                      initial={false}
+                      animate={{ rotate: alternateRotation }}
+                      transition={{ duration: 0 }}
                     className="w-[263px] h-[266px] rounded-[44px] border border-white cursor-pointer relative"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.30)',
-                      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
-                    }}
-                  >
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.30)',
+                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+                      }}
+                    >
                       {/* Card Title */}
                       <div 
                         style={{
