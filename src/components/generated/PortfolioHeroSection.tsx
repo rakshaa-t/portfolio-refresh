@@ -519,9 +519,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <nav className="fixed left-0 right-0 top-0 z-50 w-full">
         {/* Mobile Header - visible on mobile, hidden on desktop */}
         <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
-            {/* Logo - "raks" */}
-          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Caveat, cursive, system-ui, sans-serif' }}>
-              raks
+          {/* Logo - "raks" */}
+          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+            raks
           </div>
 
             {/* Social Icons (Mobile) */}
@@ -756,21 +756,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
+        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full lg:absolute lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[439.2px]"
+            className="relative overflow-hidden w-full lg:absolute lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[439.2px] p-4"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
               borderRadius: '44px',
               outline: '2px white solid',
               outlineOffset: '-2px',
-              height: '483px'
+              minHeight: '483px',
+              height: 'auto'
             }}
           >
           {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
@@ -784,7 +785,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <p className="text-lg font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Drop to ask about this project
               </p>
-            </div>
+              </div>
           )}
           {/* Inner Background Blurs - Desktop only for performance */}
           <div className="hidden lg:block">
@@ -795,7 +796,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[560px] top-0 h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -803,7 +804,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] h-[320px] lg:w-[560px]"
+              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[calc(100%-32px)] max-w-[304px] md:max-w-[90vw] lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
@@ -872,7 +873,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-3 gap-2 md:w-[560px] md:bottom-10 md:gap-3">
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-32px)] max-w-[304px] md:max-w-[90vw] lg:w-[560px] bottom-4 gap-2 md:bottom-10 md:gap-3">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -987,21 +988,21 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
               {/* Suggestion Pills - Static (no animations) */}
               <div className="w-full overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 px-1">
                   {visiblePills.map((suggestion, index) => {
                     return (
                       <button 
                         key={`${suggestion}-${index}`}
                         onClick={() => handlePillClick(suggestion)}
                         disabled={isLoading}
-                        className="relative px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
                         style={{
                           background: 'rgba(255, 255, 255, 0.3)',
                           border: '1px solid rgba(255, 255, 255, 0.4)'
                         }}
                       >
                         <span
-                          className="text-[13px] leading-[20px] font-normal text-black/[0.64] whitespace-nowrap text-center"
+                          className="text-[12px] md:text-[13px] leading-[20px] font-normal text-black/[0.64] whitespace-nowrap text-center"
                           style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
                         >
                           {suggestion}
