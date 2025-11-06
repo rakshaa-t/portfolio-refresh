@@ -1,8 +1,7 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { Container, Theme } from './settings/types';
 // %IMPORT_STATEMENT
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
-import { GreexCaseStudy } from './components/generated/GreexCaseStudy'
 
 let theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
@@ -19,32 +18,10 @@ function App() {
 
   setTheme(theme);
 
-  // Check URL for case study route
-  const [isCaseStudy, setIsCaseStudy] = useState(false);
-
-  useEffect(() => {
-    const checkRoute = () => {
-      const params = new URLSearchParams(window.location.search);
-      const hasCaseParam = params.get('case') === 'greex';
-      const hasPath = window.location.pathname.includes('/greex');
-      const result = hasCaseParam || hasPath;
-      setIsCaseStudy(result);
-    };
-
-    checkRoute();
-
-    // Listen for popstate (back/forward navigation)
-    window.addEventListener('popstate', checkRoute);
-    return () => window.removeEventListener('popstate', checkRoute);
-  }, []);
-
   const generatedComponent = useMemo(() => {
     // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
-    if (isCaseStudy) {
-      return <GreexCaseStudy />;
-    }
     return <PortfolioHeroSection />; // %EXPORT_STATEMENT%
-  }, [isCaseStudy]);
+  }, []);
 
   if (container === 'centered') {
     return (
