@@ -796,7 +796,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[304px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              className="absolute left-1/2 -translate-x-1/2 w-[304px] md:w-[90vw] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -804,7 +804,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[304px] h-[320px] lg:w-[560px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[304px] md:w-[90vw] lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
@@ -873,7 +873,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-[12px] gap-[8px] lg:w-[560px] lg:bottom-[40px] lg:gap-[12px]">
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] md:w-[90vw] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -987,26 +987,26 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
 
               {/* Suggestion Pills - Static (no animations) */}
-              <div className="w-full overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <div className="flex items-center gap-3">
+              <div className="w-full overflow-x-auto px-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className="flex items-center gap-2 md:gap-3">
                   {visiblePills.map((suggestion, index) => {
                     return (
                       <button 
                         key={`${suggestion}-${index}`}
                         onClick={() => handlePillClick(suggestion)}
                         disabled={isLoading}
-                        className="relative px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
                         style={{
                           background: 'rgba(255, 255, 255, 0.3)',
                           border: '1px solid rgba(255, 255, 255, 0.4)'
                         }}
                       >
                         <span
-                          className="text-[13px] leading-[20px] font-normal text-black/[0.64] whitespace-nowrap text-center"
+                          className="text-[12px] md:text-[13px] leading-[20px] font-normal text-black/[0.64] whitespace-nowrap text-center"
                           style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
                         >
                           {suggestion}
-        </span>
+                        </span>
                       </button>
                     );
                   })}
