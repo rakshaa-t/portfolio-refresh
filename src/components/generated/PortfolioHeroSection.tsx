@@ -763,27 +763,26 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-x-hidden overflow-y-visible w-full lg:absolute lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[439.2px] p-4"
+            className="relative overflow-hidden w-full lg:absolute lg:overflow-hidden lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px]"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
               borderRadius: '44px',
               outline: '2px white solid',
               outlineOffset: '-2px',
-              minHeight: '483px',
-              height: 'auto',
-              paddingBottom: '120px'
+              height: '483px'
             }}
           >
           {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
           {isCardOverChat && (
-            <div className="hidden lg:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
+            <div 
+              className="hidden lg:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)'
               }}
             >
-              <p className="text-lg font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <p className="text-[18px] font-medium text-blue-600" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Drop to ask about this project
               </p>
               </div>
@@ -797,7 +796,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-0 w-[304px] md:w-[560px] lg:w-[560px] h-[40px] pointer-events-none z-10"
+              className="absolute left-1/2 -translate-x-1/2 w-[304px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -805,11 +804,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] md:w-[560px] lg:w-[560px] h-[calc(100%-140px)] max-h-[320px] lg:max-h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[304px] h-[320px] lg:w-[560px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
-                className="overflow-y-auto flex flex-col gap-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
+                className="overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
                 style={{ 
                   scrollPaddingBottom: '20px'
                 }}
@@ -857,7 +856,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       />
                     </div>
                     <div
-                      className="px-[18px] py-[14px] bg-white text-black"
+                      className="px-[22px] py-[20px] bg-white text-black"
                       style={{
                         borderRadius: '30px 30px 30px 0px',
                         boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -874,7 +873,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-4 gap-[8px] md:w-[560px] md:bottom-10 md:gap-[12px] lg:w-[560px] lg:bottom-10 lg:gap-[12px] z-10">
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-[12px] gap-[8px] lg:w-[560px] lg:bottom-[40px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
