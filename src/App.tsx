@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Container, Theme } from './settings/types';
 // %IMPORT_STATEMENT
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
@@ -9,6 +9,19 @@ let theme: Theme = 'light';
 let container: Container = 'none';
 
 function App() {
+  const [currentPath, setCurrentPath] = useState(() => {
+    return window.location.pathname;
+  });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   function setTheme(theme: Theme) {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -21,9 +34,16 @@ function App() {
 
   const generatedComponent = useMemo(() => {
     // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
-    // Always show Greex case study on this branch
-    return <GreexCaseStudy />;
-  }, []);
+    // Check URL to determine which component to show
+    const isGreexPage = currentPath.includes('/greex') || 
+                        new URLSearchParams(window.location.search).get('case') === 'greex';
+    
+    if (isGreexPage) {
+      return <GreexCaseStudy />;
+    }
+    
+    return <PortfolioHeroSection />;
+  }, [currentPath]);
 
   if (container === 'centered') {
     return (
