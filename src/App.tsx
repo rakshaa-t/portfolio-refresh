@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { Container, Theme } from './settings/types';
 // %IMPORT_STATEMENT
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
