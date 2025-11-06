@@ -321,81 +321,149 @@ export const GreexCaseStudy: React.FC = () => {
         left: '50%',
         transform: 'translateX(-50%)',
         top: '1260px',
-        width: '1245px',
+        width: '1293px',
         display: 'flex',
         flexDirection: 'column',
-        height: '315px',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        height: '315px'
       }}>
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
+        {/* Title */}
+        <div style={{
+          alignSelf: 'stretch',
           color: 'white',
-          margin: 0
+          fontSize: '22px',
+          fontFamily: 'Nexa, system-ui, sans-serif',
+          fontWeight: '700',
+          wordWrap: 'break-word'
         }}>
           What I did
-        </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'max-content',
-          gridTemplateRows: 'max-content'
-        }}>
+        </div>
+
+        {/* Container for borders and content */}
+        <div style={{ position: 'relative', width: '1293px', height: '266px' }}>
+          {/* Top border */}
           <div style={{
-            border: '1px solid white',
+            width: '1293px',
             height: '88px',
-            borderRadius: '8px 8px 0 0',
-            display: 'flex',
-            alignItems: 'center',
+            position: 'absolute',
+            top: '0',
+            borderTopLeftRadius: '8px',
+            borderTopRightRadius: '8px',
+            border: '1px white solid'
+          }} />
+
+          {/* Row 1 Content - positioned over top border */}
+          <div style={{
+            width: '1235px',
+            position: 'absolute',
+            top: '0',
+            left: '29px',
+            height: '88px',
             justifyContent: 'space-between',
-            paddingLeft: '34px',
-            paddingRight: '34px',
-            boxSizing: 'border-box'
+            alignItems: 'center',
+            display: 'flex'
           }}>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'rgba(215, 215, 215, 0.8)' }}>
+            <div style={{
+              color: 'rgba(214.88, 214.88, 214.88, 0.80)',
+              fontSize: '17px',
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>
               Product Design
-            </span>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'white' }}>
+            </div>
+            <div style={{
+              color: 'white',
+              fontSize: '17px',
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>
               UX flows , UI design , Mobile Responsive Design
-            </span>
+            </div>
           </div>
+
+          {/* Middle border */}
           <div style={{
-            borderLeft: '1px solid white',
-            borderRight: '1px solid white',
-            borderBottom: 'none',
-            borderTop: 'none',
+            width: '1293px',
             height: '90px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingLeft: '34px',
-            paddingRight: '34px',
-            boxSizing: 'border-box'
-          }}>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'rgba(215, 215, 215, 0.8)' }}>
-              Game Design
-            </span>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'white' }}>
-              Designed Telegram bots for quick gamified trading experiences and parlays
-            </span>
-          </div>
+            position: 'absolute',
+            top: '88px',
+            borderLeft: '1px white solid',
+            borderRight: '1px white solid'
+          }} />
+
+          {/* Row 2 Content - positioned inside middle border */}
           <div style={{
-            border: '1px solid white',
-            height: '88px',
-            borderRadius: '0 0 8px 8px',
-            display: 'flex',
-            alignItems: 'center',
+            width: '1235px',
+            left: '29px',
+            top: '122.5px',
+            position: 'absolute',
             justifyContent: 'space-between',
-            paddingLeft: '29px',
-            paddingRight: '29px',
-            boxSizing: 'border-box'
+            alignItems: 'flex-start',
+            display: 'flex'
           }}>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'rgba(215, 215, 215, 0.8)' }}>
+            <div style={{
+              color: 'rgba(214.88, 214.88, 214.88, 0.80)',
+              fontSize: '17px',
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>
+              Game Design
+            </div>
+            <div style={{
+              color: 'white',
+              fontSize: '17px',
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>
+              Designed Telegram bots for quick gamified trading experiences and parlays
+            </div>
+          </div>
+
+          {/* Bottom border */}
+          <div style={{
+            width: '1293px',
+            height: '88px',
+            position: 'absolute',
+            top: '178px',
+            borderBottomRightRadius: '8px',
+            borderBottomLeftRadius: '8px',
+            border: '1px white solid'
+          }} />
+
+          {/* Row 3 Content - positioned over bottom border */}
+          <div style={{
+            width: '1235px',
+            position: 'absolute',
+            top: '178px',
+            left: '29px',
+            height: '88px',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            display: 'flex'
+          }}>
+            <div style={{
+              color: 'rgba(214.88, 214.88, 214.88, 0.80)',
+              fontSize: '17px',
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>
               Design System
-            </span>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'white' }}>
+            </div>
+            <div style={{
+              color: 'white',
+              fontSize: '17px',
+              fontFamily: 'Outfit, system-ui, sans-serif',
+              fontWeight: '400',
+              wordWrap: 'break-word'
+            }}>
               Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
-            </span>
+            </div>
           </div>
         </div>
       </div>
