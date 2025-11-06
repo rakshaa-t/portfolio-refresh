@@ -134,15 +134,32 @@ export const GreexCaseStudy: React.FC = () => {
         paddingBottom: '12px',
         boxSizing: 'border-box'
       }}>
-        <p style={{
-          fontFamily: 'Neulis Cursive, cursive, serif',
-          fontSize: '36px',
-          color: 'white',
-          margin: 0,
-          fontWeight: 500
-        }}>
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState({}, '', '/');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+          }}
+          style={{
+            fontFamily: 'Neulis Cursive, cursive, serif',
+            fontSize: '36px',
+            color: 'white',
+            margin: 0,
+            fontWeight: 500,
+            textDecoration: 'none',
+            cursor: 'pointer',
+            transition: 'opacity 0.3s'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.opacity = '0.8';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.opacity = '1';
+          }}
+        >
           raks
-        </p>
+        </a>
         <div style={{
           display: 'flex',
           alignItems: 'center',
