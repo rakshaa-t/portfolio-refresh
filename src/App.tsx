@@ -23,10 +23,19 @@ function App() {
   const [isCaseStudy, setIsCaseStudy] = useState(false);
 
   useEffect(() => {
-    setIsCaseStudy(
-      window.location.pathname.includes('/greex') || 
-      window.location.search.includes('case=greex')
-    );
+    const checkRoute = () => {
+      const params = new URLSearchParams(window.location.search);
+      const hasCaseParam = params.get('case') === 'greex';
+      const hasPath = window.location.pathname.includes('/greex');
+      const result = hasCaseParam || hasPath;
+      setIsCaseStudy(result);
+    };
+
+    checkRoute();
+
+    // Listen for popstate (back/forward navigation)
+    window.addEventListener('popstate', checkRoute);
+    return () => window.removeEventListener('popstate', checkRoute);
   }, []);
 
   const generatedComponent = useMemo(() => {
