@@ -75,8 +75,10 @@ export const GreexCaseStudy: React.FC = () => {
       backgroundColor: '#111111', 
       position: 'relative', 
       width: '100%', 
-      minHeight: '100vh',
-      overflowX: 'hidden'
+      minHeight: '16763px',
+      overflowX: 'hidden',
+      maxWidth: '1728px',
+      margin: '0 auto'
     }}>
       {/* Background Blurs */}
       <div style={{
