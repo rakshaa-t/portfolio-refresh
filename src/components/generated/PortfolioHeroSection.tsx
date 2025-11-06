@@ -94,7 +94,7 @@ const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
           />
         </div>
         <div
-          className="p-2 bg-white text-black"
+          className="px-[18px] py-[14px] bg-white text-black"
           style={{
             borderRadius: '30px 30px 30px 0px',
             boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -136,7 +136,7 @@ const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
       )}
       
       <div
-        className="p-2 bg-black/[0.79] text-white"
+        className="px-[22px] py-[20px] bg-black/[0.79] text-white"
         style={{
           borderRadius: '30px 30px 0px 30px',
           boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -763,7 +763,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full lg:absolute lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[439.2px] p-4"
+            className="relative overflow-x-hidden overflow-y-visible w-full lg:absolute lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[439.2px] p-4"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -771,7 +771,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               outline: '2px white solid',
               outlineOffset: '-2px',
               minHeight: '483px',
-              height: 'auto'
+              height: 'auto',
+              paddingBottom: '120px'
             }}
           >
           {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
@@ -804,7 +805,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] md:w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-8 flex flex-col w-[304px] md:w-[560px] lg:w-[560px] h-[calc(100%-140px)] max-h-[320px] lg:max-h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
@@ -824,7 +825,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     />
                   </div>
                   <div
-                    className="p-2 bg-white text-black flex-1"
+                    className="px-[18px] py-[14px] bg-white text-black flex-1"
                     style={{
                       borderRadius: '30px 30px 30px 0px',
                       filter: 'drop-shadow(0 15px 34px rgba(40, 63, 228, 0.04)) drop-shadow(0 62px 62px rgba(40, 63, 228, 0.03)) drop-shadow(0 139px 84px rgba(40, 63, 228, 0.02)) drop-shadow(0 248px 99px rgba(40, 63, 228, 0.01)) drop-shadow(0 387px 108px rgba(40, 63, 228, 0.00))'
@@ -856,7 +857,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       />
                     </div>
                     <div
-                      className="p-2 bg-white text-black"
+                      className="px-[18px] py-[14px] bg-white text-black"
                       style={{
                         borderRadius: '30px 30px 30px 0px',
                         boxShadow: '0 4px 12px rgba(40, 63, 228, 0.08)'
@@ -873,7 +874,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-[12px] gap-[8px] md:w-[560px] md:bottom-[40px] md:gap-[12px] lg:w-[560px] lg:bottom-[40px] lg:gap-[12px]">
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[304px] bottom-4 gap-[8px] md:w-[560px] md:bottom-10 md:gap-[12px] lg:w-[560px] lg:bottom-10 lg:gap-[12px] z-10">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
