@@ -138,9 +138,25 @@ export const GreexCaseStudy: React.FC = () => {
           href="/"
           onClick={(e) => {
             e.preventDefault();
-            // Navigate to homepage - use window.location for full page navigation
-            // This ensures we go to the production/preview homepage URL
-            window.location.href = '/';
+            // Navigate to production homepage
+            // Extract production URL from current domain
+            const currentHost = window.location.hostname;
+            let productionUrl = '/';
+            
+            // If we're on a Vercel preview URL (contains -git-), navigate to production
+            if (currentHost.includes('-git-')) {
+              // Extract the base project name (everything before -git-)
+              // Preview URLs: cursor-portfolio-git-feature-g-xxx.vercel.app
+              // Production: cursor-portfolio.vercel.app or custom domain
+              const baseProject = currentHost.split('-git-')[0];
+              // Navigate to production URL
+              productionUrl = `https://${baseProject}.vercel.app/`;
+            } else {
+              // If already on production or custom domain, navigate to root
+              productionUrl = '/';
+            }
+            
+            window.location.href = productionUrl;
           }}
           style={{
             fontFamily: 'Neulis Cursive, cursive, serif',
