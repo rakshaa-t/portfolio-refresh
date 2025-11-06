@@ -138,8 +138,9 @@ export const GreexCaseStudy: React.FC = () => {
           href="/"
           onClick={(e) => {
             e.preventDefault();
-            window.history.pushState({}, '', '/');
-            window.dispatchEvent(new PopStateEvent('popstate'));
+            // Navigate to homepage - use window.location for full page navigation
+            // This ensures we go to the production/preview homepage URL
+            window.location.href = '/';
           }}
           style={{
             fontFamily: 'Neulis Cursive, cursive, serif',
