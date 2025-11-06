@@ -200,13 +200,14 @@ export const GreexCaseStudy: React.FC = () => {
         </div>
       </nav>
 
-      {/* Sticky Navigation Menu */}
+      {/* Sticky Navigation Menu - Hidden to prevent showing behind cards */}
       <div style={{
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
         top: '930px',
-        width: '866px'
+        width: '866px',
+        display: 'none'
       }}>
         <div style={{
           position: 'absolute',
@@ -270,7 +271,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '254px',
+        top: '194px',
         width: '1293px',
         display: 'flex',
         flexDirection: 'column',
@@ -305,7 +306,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '427px',
+        top: '367px',
         width: '1293px',
         height: '833px',
         borderRadius: '12px',
@@ -319,8 +320,8 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '1320px',
-        width: '1293px',
+        top: '1260px',
+        width: '1245px',
         display: 'flex',
         flexDirection: 'column',
         height: '315px',
@@ -404,7 +405,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '1978px',
+        top: '1918px',
         width: '1293px',
         display: 'flex',
         flexDirection: 'column',
@@ -445,7 +446,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '1695px',
+        top: '1635px',
         width: '1293px',
         display: 'flex',
         alignItems: 'center',
@@ -540,7 +541,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '2305px',
+        top: '2245px',
         width: '1293px',
         height: '603px',
         overflow: 'hidden'
@@ -565,7 +566,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '2948px',
+        top: '2888px',
         width: '1293px',
         display: 'flex',
         flexDirection: 'column',
@@ -599,7 +600,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '3131px',
+        top: '3071px',
         width: '1289px',
         display: 'flex',
         flexDirection: 'column',
@@ -663,7 +664,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '4263px',
+        top: '4203px',
         width: '1293px',
         display: 'flex',
         flexDirection: 'column',
@@ -694,11 +695,11 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Product Screenshots */}
       {[
-        { src: imgCallOptionHover1, top: '4446px' },
-        { src: imgCallOptionHover2, top: '5312px' },
-        { src: imgCallOptionHover3, top: '6178px' },
-        { src: imgCallOptionHover4, top: '7044px' },
-        { src: imgCallOptionHover5, top: '7910px' }
+        { src: imgCallOptionHover1, top: '4386px' },
+        { src: imgCallOptionHover2, top: '5252px' },
+        { src: imgCallOptionHover3, top: '6118px' },
+        { src: imgCallOptionHover4, top: '6984px' },
+        { src: imgCallOptionHover5, top: '7850px' }
       ].map((img, idx) => (
         <div key={idx} style={{
           position: 'absolute',
@@ -720,7 +721,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '8776px',
+        top: '8716px',
         width: '1282px',
         height: '829px'
       }}>
@@ -730,7 +731,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '9665px',
+        top: '9605px',
         width: '1282px',
         height: '303px'
       }}>
@@ -742,7 +743,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '10028px',
+        top: '9968px',
         width: '1289px',
         display: 'flex',
         flexDirection: 'column',
@@ -891,7 +892,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '12955px',
+        top: '12895px',
         width: '1281px',
         display: 'flex',
         flexDirection: 'column',
@@ -926,7 +927,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '13897px',
+        top: '13837px',
         width: '1281px',
         height: '1047px'
       }}>
@@ -938,7 +939,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '15398px',
+        top: '15338px',
         width: '1288px',
         backgroundColor: '#0c0c0c',
         border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -987,7 +988,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '15874px',
+        top: '15814px',
         width: '970.38px',
         display: 'flex',
         flexDirection: 'column',
@@ -1152,7 +1153,7 @@ export const GreexCaseStudy: React.FC = () => {
         position: 'absolute',
         left: '50%',
         transform: 'translateX(-50%)',
-        top: '15056px',
+        top: '14996px',
         width: '1295px',
         display: 'flex',
         flexDirection: 'column',
