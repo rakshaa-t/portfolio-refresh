@@ -20,7 +20,8 @@ function App() {
 
   const generatedComponent = useMemo(() => {
     // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
-    return <PortfolioHeroSection />; // %EXPORT_STATEMENT%
+    // On style/batch-ui branch: Always show homepage preview
+    return <PortfolioHeroSection />;
   }, []);
 
   if (container === 'centered') {
