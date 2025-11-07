@@ -6,48 +6,19 @@
   background-position-x: 0%;
   -webkit-text-fill-color: transparent;
   transition-property: background-position;
-  transition-duration: 4s;
+  transition-duration: 2.3s;
   transition-delay: 0;
   transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
   color: rgba(41, 41, 41, 0.88);
-  display: block;
-  width: 100%;
-}
-
-/* CRITICAL: Children inherit parent's gradient clipping - no separate contexts */
-.highlight-text * {
-  background: inherit !important;
-  -webkit-background-clip: inherit !important;
-  background-clip: inherit !important;
-  background-size: inherit !important;
-  background-position-x: inherit !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  transition-property: inherit !important;
-  transition-duration: inherit !important;
-  transition-timing-function: inherit !important;
+  display: inline-block;
 }
 
 .highlight-text.highlighted {
   background-position-x: -100%;
 }
 
-.highlight-text.highlighted * {
-  background-position-x: -100% !important;
-}
-
-/* Fix hover state for links */
-.highlight-text a:hover,
-.highlight-text button:hover {
-  -webkit-text-fill-color: rgba(41, 41, 41, 0.88) !important;
-  color: rgba(41, 41, 41, 0.88) !important;
-  opacity: 0.8;
-}
-
-.highlight-text::selection,
-.highlight-text *::selection {
+.highlight-text::selection {
   -webkit-text-fill-color: initial;
-  color: initial;
   background-color: rgba(41, 41, 41, 0.2);
 }
 
