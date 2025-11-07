@@ -657,14 +657,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               className="break-words"
               style={{ 
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                whiteSpace: 'pre-wrap',
                 display: 'block'
               }}
             >
-              <span className="text-base md:text-xl lg:text-2xl font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>Raksha T</span>
+              <span style={{ fontSize: '1rem', fontFamily: 'Nexa, system-ui, sans-serif', fontWeight: 'bold' }}>Raksha T</span>
               <span className="hidden md:inline"><br/><br/></span>
               <br/>
-              <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <span style={{ fontSize: '0.875rem', fontFamily: 'Outfit, system-ui, sans-serif', fontWeight: '300' }}>
                 aka raks - product designer who builds products that work, look good and sell
                 <br/>
                 i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
