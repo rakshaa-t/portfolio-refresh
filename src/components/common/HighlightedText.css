@@ -14,9 +14,9 @@
   width: 100%;
 }
 
-/* Critical: All children must use the EXACT same gradient and position */
+/* All text content inherits the gradient - single continuous sweep */
+.highlight-text,
 .highlight-text * {
-  display: inline;
   -webkit-text-fill-color: transparent;
   background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%);
   -webkit-background-clip: text;
@@ -29,10 +29,7 @@
   transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
 }
 
-.highlight-text.highlighted {
-  background-position-x: -100%;
-}
-
+.highlight-text.highlighted,
 .highlight-text.highlighted * {
   background-position-x: -100%;
 }
