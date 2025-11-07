@@ -234,33 +234,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
 
-  // Refs for highlighted text animation - word-by-word sequential sweep
-  const wordRefs = React.useRef(new Map<number, Controls>());
-  const wordIndex = React.useRef(0);
-  const currentWordIndexRef = React.useRef(0); // Track word index as we render
+  // Refs for highlighted text animation - single continuous sweep across all text
+  const headingTextRef = React.useRef<Controls | null>(null);
   
-  // Sequential word-by-word animation
+  // Single continuous animation for all text
   React.useEffect(() => {
-    // Wait a bit for refs to be attached, then start animation
+    // Wait a bit for ref to be attached, then start animation
     const timeout = setTimeout(() => {
-      const totalWords = currentWordIndexRef.current;
-      const animateNextWord = () => {
-        if (wordIndex.current < totalWords) {
-          const control = wordRefs.current.get(wordIndex.current);
-          if (control) {
-            control.start();
-            wordIndex.current += 1;
-            if (wordIndex.current < totalWords) {
-              // Small delay between each word (adjust for speed)
-              setTimeout(animateNextWord, 80); // 80ms between words
-            }
-          } else {
-            // Retry if ref not ready yet
-            setTimeout(animateNextWord, 50);
+      if (headingTextRef.current) {
+        headingTextRef.current.start();
+      } else {
+        setTimeout(() => {
+          if (headingTextRef.current) {
+            headingTextRef.current.start();
           }
-        }
-      };
-      animateNextWord();
+        }, 100);
+      }
     }, 100);
 
     return () => {
@@ -661,118 +650,45 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
           >
           <div className="w-full">
-            <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              {"Raksha T".split(/\s+/).map((word, idx) => (
-                <React.Fragment key={`title-${idx}`}>
-                  <HighlightedText
-                    ref={(e) => {
-                      if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                    }}
-                    className="text-base md:text-xl lg:text-2xl font-bold"
-                  >
-                    {word}
-                  </HighlightedText>
-                  {idx < "Raksha T".split(/\s+/).length - 1 && ' '}
-                </React.Fragment>
-              ))}
-              <span className="hidden md:inline"><br/><br/></span>
-            </h1>
-            <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              {"aka raks - product designer who builds products that work, look good and sell".split(/\s+/).map((word, idx, arr) => (
-                <React.Fragment key={`line1-${idx}`}>
-                  <HighlightedText
-                    ref={(e) => {
-                      if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                    }}
-                    className="text-sm md:text-lg lg:text-xl font-light inline"
-                  >
-                    {word}
-                  </HighlightedText>
-                  {idx < arr.length - 1 && ' '}
-                  {word === 'sell' && <br/>}
-                </React.Fragment>
-              ))}
-              {"i live in duality: lead design experiences at startups and also code frontend with cursor".split(/\s+/).map((word, idx, arr) => (
-                <React.Fragment key={`line2-${idx}`}>
-                  <HighlightedText
-                    ref={(e) => {
-                      if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                    }}
-                    className="text-sm md:text-lg lg:text-xl font-light inline"
-                  >
-                    {word}
-                  </HighlightedText>
-                  {idx < arr.length - 1 && ' '}
-                  {word === 'cursor' && <><br/><span className="hidden md:inline"> </span></>}
-                </React.Fragment>
-              ))}
-              {"to find out more →".split(/\s+/).map((word, idx, arr) => (
-                <React.Fragment key={`line3-${idx}`}>
-                  <HighlightedText
-                    ref={(e) => {
-                      if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                    }}
-                    className="text-sm md:text-lg lg:text-xl font-light inline"
-                  >
-                    {word}
-                  </HighlightedText>
-                  {idx < arr.length - 1 && ' '}
-                  {word === '→' && <br/>}
-                </React.Fragment>
-              ))}
-          </div>
-            {"let's talk".split(/\s+/).map((word, idx) => (
-              <HighlightedText
-                key={`link-${idx}`}
-                ref={(e) => {
-                  if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                }}
-                className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity cursor-pointer block"
-              >
-            <a 
-              href="https://cal.com/raksha-tated-v2ee58/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-                >
-                  {word}
-                </a>
-                {idx < "let's talk".split(/\s+/).length - 1 && ' '}
-              </HighlightedText>
-            ))}
-            <br/><br/>
-            <span className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              {"chat with my portfolio below ↓ or explore projects".split(/\s+/).map((word, idx, arr) => (
-                <React.Fragment key={`cta-${idx}`}>
-                  <HighlightedText
-                    ref={(e) => {
-                      if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                    }}
-                    className="text-sm md:text-lg lg:text-xl font-light inline"
-                  >
-                    {word}
-                  </HighlightedText>
-                  {idx < arr.length - 1 && ' '}
-                </React.Fragment>
-              ))}
-            </span>
-            {"here".split(/\s+/).map((word, idx) => (
-              <HighlightedText
-                key={`button-${idx}`}
-                ref={(e) => {
-                  if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
-                }}
-                className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity inline"
-              >
-                <button 
-                  className="bg-none border-none p-0 cursor-pointer" 
-                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-              onClick={() => {/* TODO: navigate to projects */}}
+            <HighlightedText
+              ref={(e) => {
+                headingTextRef.current = e;
+              }}
+              className="w-full"
             >
-                  {word}
-            </button>
-              </HighlightedText>
-            ))}
+              <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Raksha T
+              </h1>
+              <span className="hidden md:inline"><br/><br/></span>
+              <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                aka raks - product designer who builds products that work, look good and sell
+                <br/>
+                i live in duality: lead design experiences at startups and also code frontend with cursor{' '}
+                <br/>
+                <span className="hidden md:inline"> </span>
+                to find out more →  
+              </div>
+              <a 
+                href="https://cal.com/raksha-tated-v2ee58/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity cursor-pointer block" 
+                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+              >
+                let's talk
+              </a>
+              <br/><br/>
+              <span className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                chat with my portfolio below ↓ or explore projects{' '}
+              </span>
+              <button 
+                className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
+                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                onClick={() => {/* TODO: navigate to projects */}}
+              >
+                here
+              </button>
+            </HighlightedText>
           </div>
           </motion.div>
 

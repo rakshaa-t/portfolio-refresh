@@ -31,7 +31,7 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
   }));
 
   return (
-    <span
+    <div
       className={cn('highlight-text', className, { highlighted })}
       onTransitionEnd={() => {
         onHighlightEnd?.();
@@ -39,7 +39,7 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
       {...props}
     >
       {children}
-    </span>
+    </div>
   );
 });
 
