@@ -217,22 +217,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
-  const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
-  
-  // Card positions state - loaded from localStorage or defaults
-  const [cardPositions, setCardPositions] = React.useState<Record<string, { x: number; y: number }>>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('portfolio-card-positions');
-      if (saved) {
-        try {
-          return JSON.parse(saved);
-        } catch (e) {
-          return {};
-        }
-      }
-    }
-    return {};
-  });
   
   // Input ref for instant typing response
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -934,11 +918,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     data-card-id={card.id}
                     drag
                     dragMomentum={true}
-                    dragElastic={0.1}
-                    dragConstraints={dragConstraintsRef}
+                    dragElastic={0.2}
+                    dragConstraints={cardsContainerRef}
                     dragTransition={{ 
-                      bounceStiffness: 100, 
-                      bounceDamping: 10,
+                      bounceStiffness: 200, 
+                      bounceDamping: 15,
                       power: 0.4
                     }}
                     onDragStart={() => {
@@ -987,27 +971,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         setIsCardOverChat(false);
                       }
                     }}
-                    onDragTransitionEnd={() => {
-                      // This fires after momentum animation completes - perfect for saving position!
-                      const element = document.querySelector(`[data-card-id="${card.id}"]`) as HTMLElement;
-                      const containerRect = cardsContainerRef.current?.getBoundingClientRect();
-                      
-                      if (element && containerRect) {
-                        const elementRect = element.getBoundingClientRect();
-                        const finalPosition = {
-                          x: elementRect.left - containerRect.left,
-                          y: elementRect.top - containerRect.top
-                        };
-                        
-                        setCardPositions(prev => {
-                          const updated = { ...prev, [card.id]: finalPosition };
-                          if (typeof window !== 'undefined') {
-                            localStorage.setItem('portfolio-card-positions', JSON.stringify(updated));
-                          }
-                          return updated;
-                        });
-                      }
-                    }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
           opacity: 1,
@@ -1033,13 +996,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     transition={{ delay: 0.4 + PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1 }}
                     className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
-                      // Use saved position if available, otherwise use default
-                      left: cardPositions[card.id]?.x !== undefined 
-                        ? `${cardPositions[card.id].x}px` 
-                        : card.position.left,
-                      top: cardPositions[card.id]?.y !== undefined 
-                        ? `${cardPositions[card.id].y}px` 
-                        : card.position.top,
+                      // Always use initial position - cards reset on refresh
+                      left: card.position.left,
+                      top: card.position.top,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
