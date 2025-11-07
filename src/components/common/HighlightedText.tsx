@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, ReactNode, useImperativeHandle, useState, useEffect } from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useState } from 'react';
 import { cn } from '../../lib/utils';
 import './HighlightedText.css';
 
@@ -23,7 +23,6 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
 
   useImperativeHandle(ref, () => ({
     start: () => {
-      console.log('🎬 HighlightedText.start() called');
       setHighlighted(true);
     },
     reset: () => {
@@ -31,20 +30,16 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
     },
   }));
 
-  useEffect(() => {
-    console.log('🎨 HighlightedText highlighted state:', highlighted);
-  }, [highlighted]);
-
   return (
-    <span
-      className={cn('highlight-text pb-1', className, { highlighted })}
+    <div
+      className={cn('highlight-text', className, { highlighted })}
       onTransitionEnd={() => {
         onHighlightEnd?.();
       }}
       {...props}
     >
       {children}
-    </span>
+    </div>
   );
 });
 

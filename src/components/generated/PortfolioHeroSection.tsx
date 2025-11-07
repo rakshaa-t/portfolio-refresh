@@ -234,43 +234,25 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
   
-  // Refs for highlighted text animation
-  const headingTextRefs = React.useRef(new Map<number, Controls>());
-  const headingIndex = React.useRef(0);
+  // Refs for highlighted text animation - single continuous sweep
+  const headingTextRef = React.useRef<Controls | null>(null);
   
-  // Sequential animation for heading text - wait for refs to be set
+  // Single continuous animation for all text
   React.useEffect(() => {
-    const lines = [
-      'Raksha T',
-      'aka raks - product designer who builds products that work, look good and sell',
-      'i live in duality: lead design experiences at startups and also code frontend with cursor',
-      'to find out more',
-      "let's talk",
-      'chat with my portfolio below ↓ or explore projects here'
-    ];
-    
-    // Wait a bit for refs to be attached, then start animation
+    // Wait a bit for ref to be attached, then start animation
     const timeout = setTimeout(() => {
-      console.log('🚀 Starting text animation, refs:', headingTextRefs.current);
-      const animateNext = () => {
-        if (headingIndex.current < lines.length) {
-          const control = headingTextRefs.current.get(headingIndex.current);
-          console.log(`📝 Animating line ${headingIndex.current}, control:`, control);
-          if (control) {
-            control.start();
-            headingIndex.current += 1;
-            if (headingIndex.current < lines.length) {
-              setTimeout(animateNext, 300); // 300ms stagger like Marijana's
-            }
-          } else {
-            // Retry if ref not ready yet
-            console.log(`⏳ Ref ${headingIndex.current} not ready, retrying...`);
-            setTimeout(animateNext, 50);
+      console.log('🚀 Starting continuous text animation');
+      if (headingTextRef.current) {
+        headingTextRef.current.start();
+      } else {
+        console.log('⏳ Ref not ready, retrying...');
+        setTimeout(() => {
+          if (headingTextRef.current) {
+            headingTextRef.current.start();
           }
-        }
-      };
-      animateNext();
-    }, 100); // Small delay to ensure refs are set
+        }, 100);
+      }
+    }, 100);
 
     return () => {
       clearTimeout(timeout);
@@ -670,74 +652,39 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
           >
           <div className="w-full">
-            <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              <HighlightedText
-                ref={(e) => {
-                  if (e) headingTextRefs.current.set(0, e);
-                }}
-                className="text-base md:text-xl lg:text-2xl font-bold"
-              >
-                Raksha T
-              </HighlightedText>
-              <span className="hidden md:inline"><br/><br/></span>
-            </h1>
-            <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <HighlightedText
-                ref={(e) => {
-                  if (e) headingTextRefs.current.set(1, e);
-                }}
-                className="text-sm md:text-lg lg:text-xl font-light"
-              >
-                aka raks - product designer who builds products that work, look good and sell
-              </HighlightedText>
-              <br/>
-              <HighlightedText
-                ref={(e) => {
-                  if (e) headingTextRefs.current.set(2, e);
-                }}
-                className="text-sm md:text-lg lg:text-xl font-light"
-              >
-                i live in duality: lead design experiences at startups and also code frontend with cursor
-              </HighlightedText>
-              {' '}<br/>
-              <span className="hidden md:inline"> </span>
-              <HighlightedText
-                ref={(e) => {
-                  if (e) headingTextRefs.current.set(3, e);
-                }}
-                className="text-sm md:text-lg lg:text-xl font-light"
-              >
-                to find out more
-              </HighlightedText>
-              {' '}→  
-            </div>
             <HighlightedText
               ref={(e) => {
-                if (e) headingTextRefs.current.set(4, e);
+                headingTextRef.current = e;
               }}
-              className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity cursor-pointer"
+              className="w-full"
             >
+              <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Raksha T
+              </h1>
+              <span className="hidden md:inline"><br/><br/></span>
+              <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                aka raks - product designer who builds products that work, look good and sell
+                <br/>
+                i live in duality: lead design experiences at startups and also code frontend with cursor{' '}
+                <br/>
+                <span className="hidden md:inline"> </span>
+                to find out more →  
+              </div>
               <a 
                 href="https://cal.com/raksha-tated-v2ee58/15min"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity cursor-pointer block" 
                 style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
               >
                 let's talk
               </a>
-            </HighlightedText>
-            <br/><br/>
-            <HighlightedText
-              ref={(e) => {
-                if (e) headingTextRefs.current.set(5, e);
-              }}
-              className="text-sm md:text-lg lg:text-xl font-light break-words"
-            >
-              <span style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <br/><br/>
+              <span className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 chat with my portfolio below ↓ or explore projects{' '}
               </span>
               <button 
-                className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
+                className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
                 style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
                 onClick={() => {/* TODO: navigate to projects */}}
               >
