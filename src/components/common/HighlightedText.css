@@ -14,17 +14,26 @@
   width: 100%;
 }
 
-/* CRITICAL: Children must NOT have background-clip: text - they inherit parent's gradient */
+/* CRITICAL: Children inherit parent's gradient clipping - no separate contexts */
 .highlight-text * {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  background-clip: initial !important;
+  background: inherit !important;
+  -webkit-background-clip: inherit !important;
+  background-clip: inherit !important;
+  background-size: inherit !important;
+  background-position-x: inherit !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
+  transition-property: inherit !important;
+  transition-duration: inherit !important;
+  transition-timing-function: inherit !important;
 }
 
 .highlight-text.highlighted {
   background-position-x: -100%;
+}
+
+.highlight-text.highlighted * {
+  background-position-x: -100% !important;
 }
 
 /* Fix hover state for links */
