@@ -215,6 +215,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [isDraggingCard, setIsDraggingCard] = React.useState<string | null>(null);
   const [isCardOverChat, setIsCardOverChat] = React.useState(false);
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
+  const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
+  const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
@@ -975,9 +977,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           cursorY <= chatRect.bottom;
                         
                         if (isDroppedOnChat) {
+                          // Card dropped inside chatbox - mark it and keep it under chatbox
+                          setCardsDroppedInChat(prev => new Set(prev).add(card.id));
+                          setIsDraggingCard(null);
+                          setIsCardOverChat(false);
                           // Stop momentum immediately when dropping into chat
                           handleCardDrop(card.id);
                         } else {
+                          // Card dropped outside chatbox - will slide with momentum
+                          // Keep z-index high during momentum, will be lowered in onDragTransitionEnd
+                          setCardsInMomentum(prev => new Set(prev).add(card.id));
                           setIsDraggingCard(null);
                           setIsCardOverChat(false);
                         }
@@ -985,6 +994,42 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         setIsDraggingCard(null);
                         setIsCardOverChat(false);
                       }
+                    }}
+                    onDragTransitionEnd={() => {
+                      // Momentum animation completed - check final position
+                      setTimeout(() => {
+                        if (chatCardRef.current) {
+                          // Find the card element using the data attribute
+                          const cardElement = document.querySelector(`[data-card-id="${card.id}"]`) as HTMLElement;
+                          if (cardElement) {
+                            const cardRect = cardElement.getBoundingClientRect();
+                            const chatRect = chatCardRef.current.getBoundingClientRect();
+                            
+                            // Check if card's center is inside chat area after momentum
+                            const cardCenterX = cardRect.left + cardRect.width / 2;
+                            const cardCenterY = cardRect.top + cardRect.height / 2;
+                            
+                            const isInChatAfterMomentum = 
+                              cardCenterX >= chatRect.left &&
+                              cardCenterX <= chatRect.right &&
+                              cardCenterY >= chatRect.top &&
+                              cardCenterY <= chatRect.bottom;
+                            
+                            if (isInChatAfterMomentum) {
+                              // Card ended up in chatbox after momentum - attach it
+                              setCardsDroppedInChat(prev => new Set(prev).add(card.id));
+                              handleCardDrop(card.id);
+                            }
+                          }
+                        }
+                        
+                        // Remove from momentum set - z-index will be lowered
+                        setCardsInMomentum(prev => {
+                          const next = new Set(prev);
+                          next.delete(card.id);
+                          return next;
+                        });
+                      }, 0);
                     }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
@@ -1018,7 +1063,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-                      zIndex: isDraggingCard === card.id ? 100 : 10,
+                      // Z-index logic:
+                      // - Dragging: 100 (above chatbox z-20)
+                      // - In momentum (sliding): 50 (above chatbox z-20)
+                      // - Dropped in chatbox: 5 (under chatbox z-20)
+                      // - Default: 10 (under chatbox z-20)
+                      zIndex: isDraggingCard === card.id 
+                        ? 100 
+                        : cardsInMomentum.has(card.id) 
+                          ? 50 
+                          : cardsDroppedInChat.has(card.id)
+                            ? 5
+                            : 10,
                       transformStyle: 'preserve-3d'
                     }}
                   >
