@@ -656,39 +656,37 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               }}
               className="w-full"
             >
-              <div style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-                <span className="text-base md:text-xl lg:text-2xl font-bold">Raksha T</span>
-                <span className="hidden md:inline"><br/><br/></span>
+              <span className="text-base md:text-xl lg:text-2xl font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>Raksha T</span>
+              <span className="hidden md:inline"><br/><br/></span>
+              <br/>
+              <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                aka raks - product designer who builds products that work, look good and sell
                 <br/>
-                <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                  aka raks - product designer who builds products that work, look good and sell
-                  <br/>
-                  i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
-                  <br/>
-                  <span className="hidden md:inline"> </span>
-                  to find out more →{' '}
-                </span>
-                <a 
-                  href="https://cal.com/raksha-tated-v2ee58/15min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm md:text-lg lg:text-xl font-light underline hover:opacity-80 transition-opacity cursor-pointer inline" 
-                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-                >
-                  let's talk
-                </a>
-                <br/><br/>
-                <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                  chat with my portfolio below ↓ or explore projects{' '}
-                </span>
-                <button 
-                  className="text-sm md:text-lg lg:text-xl font-light underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
-                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-                  onClick={() => {/* TODO: navigate to projects */}}
-                >
-                  here
-                </button>
-              </div>
+                i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
+                <br/>
+                <span className="hidden md:inline"> </span>
+                to find out more →{' '}
+              </span>
+              <a 
+                href="https://cal.com/raksha-tated-v2ee58/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm md:text-lg lg:text-xl font-light underline hover:opacity-80 transition-opacity cursor-pointer inline" 
+                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+              >
+                let's talk
+              </a>
+              <br/><br/>
+              <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                chat with my portfolio below ↓ or explore projects{' '}
+              </span>
+              <button 
+                className="text-sm md:text-lg lg:text-xl font-light underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer inline" 
+                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                onClick={() => {/* TODO: navigate to projects */}}
+              >
+                here
+              </button>
             </HighlightedText>
           </div>
           </motion.div>
