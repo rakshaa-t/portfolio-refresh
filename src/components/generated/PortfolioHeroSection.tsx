@@ -1,11 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
 import { PortfolioMobile } from "./PortfolioMobile";
+import useScroll from "../../hooks/useScroll";
 
 export interface RakshaPortfolioProps {}
 
@@ -190,7 +191,7 @@ const PROJECT_CARDS = [
     title: 'greex : defi trading',
     image: 'https://res.cloudinary.com/dky01erho/image/upload/v1760525138/172_2x_shots_so_plr79y.png',
     message: 'whats was ur process for greex',
-    position: { left: '831.04px', top: '0px' },
+    position: { left: '777.8px', top: '0px' },
     rotation: 15
   },
   {
@@ -215,8 +216,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [isDraggingCard, setIsDraggingCard] = React.useState<string | null>(null);
   const [isCardOverChat, setIsCardOverChat] = React.useState(false);
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
+  const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
+  const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
+  const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
+  
+  // Scroll tracking for navigation bar
+  const { y, directionY } = useScroll();
+  const headerTriggerY = 50;
   
   // Input ref for instant typing response
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -501,9 +509,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="hidden lg:block absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
 
       {/* Navigation - Responsive */}
-        <nav className="fixed left-0 right-0 top-0 z-50 w-full">
+        <nav className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+          y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
+        }`}>
+        {/* Backdrop blur with gradient fade */}
+        <div className="absolute inset-0 z-[-1] backdrop-blur-[11px] [mask-image:linear-gradient(to_top,transparent,black_65%)]" 
+          style={{
+            background: 'rgba(255,255,255,0.01)'
+          }}
+        />
+        
         {/* Mobile Header - visible on mobile, hidden on desktop */}
-        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px] bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px]">
+        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
             {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
               raks
@@ -548,7 +565,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
-        <div className="hidden md:flex w-full px-20 py-2.5 bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px] justify-between items-center">
+        <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
             {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             raks
@@ -599,14 +616,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
 
       {/* Content Container - Responsive */}
-      <div className="relative w-full p-6 md:p-11 mt-10 md:mt-[60px]">
+      <div className="relative w-full px-6 md:px-11 pt-6 md:pt-11 mt-10 md:mt-[60px] flex flex-col items-center">
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mx-auto text-left w-full max-w-full lg:max-w-[603.2px] mt-5 mb-5 lg:mt-10 lg:mb-10"
-        >
+          className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
+          >
           <div className="w-full">
             <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Raksha T<br/><span className="hidden md:inline"><br/></span>
@@ -640,14 +657,27 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
+        <div 
+          ref={cardsContainerRef} 
+          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
+        >
+          {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
+          <div 
+            ref={dragConstraintsRef}
+            className="pointer-events-none fixed left-0 right-0 w-screen"
+            style={{
+              top: '30vh',
+              height: '70vh',
+              zIndex: 1
+            }}
+          />
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -910,10 +940,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 return (
                   <motion.div
                     key={card.id}
+                    data-card-id={card.id}
                     drag
-                    dragMomentum={false}
-                    dragElastic={0.1}
-                    dragConstraints={false}
+                    dragMomentum={true}
+                    dragElastic={0.2}
+                    dragConstraints={dragConstraintsRef}
+                    dragTransition={{ 
+                      bounceStiffness: 200, 
+                      bounceDamping: 15,
+                      power: 0.4
+                    }}
                     onDragStart={() => {
                       setIsDraggingCard(card.id);
                     }}
@@ -949,8 +985,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           cursorY <= chatRect.bottom;
                         
                         if (isDroppedOnChat) {
+                          // Card dropped inside chatbox - mark it and keep it under chatbox
+                          setCardsDroppedInChat(prev => new Set(prev).add(card.id));
+                          setIsDraggingCard(null);
+                          setIsCardOverChat(false);
+                          // Stop momentum immediately when dropping into chat
                           handleCardDrop(card.id);
                         } else {
+                          // Card dropped outside chatbox - will slide with momentum
+                          // Keep z-index high during momentum, will be lowered in onDragTransitionEnd
+                          setCardsInMomentum(prev => new Set(prev).add(card.id));
                           setIsDraggingCard(null);
                           setIsCardOverChat(false);
                         }
@@ -958,6 +1002,42 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         setIsDraggingCard(null);
                         setIsCardOverChat(false);
                       }
+                    }}
+                    onDragTransitionEnd={() => {
+                      // Momentum animation completed - check final position
+                      setTimeout(() => {
+                        if (chatCardRef.current) {
+                          // Find the card element using the data attribute
+                          const cardElement = document.querySelector(`[data-card-id="${card.id}"]`) as HTMLElement;
+                          if (cardElement) {
+                            const cardRect = cardElement.getBoundingClientRect();
+                            const chatRect = chatCardRef.current.getBoundingClientRect();
+                            
+                            // Check if card's center is inside chat area after momentum
+                            const cardCenterX = cardRect.left + cardRect.width / 2;
+                            const cardCenterY = cardRect.top + cardRect.height / 2;
+                            
+                            const isInChatAfterMomentum = 
+                              cardCenterX >= chatRect.left &&
+                              cardCenterX <= chatRect.right &&
+                              cardCenterY >= chatRect.top &&
+                              cardCenterY <= chatRect.bottom;
+                            
+                            if (isInChatAfterMomentum) {
+                              // Card ended up in chatbox after momentum - attach it
+                              setCardsDroppedInChat(prev => new Set(prev).add(card.id));
+                              handleCardDrop(card.id);
+                            }
+                          }
+                        }
+                        
+                        // Remove from momentum set - z-index will be lowered
+                        setCardsInMomentum(prev => {
+                          const next = new Set(prev);
+                          next.delete(card.id);
+                          return next;
+                        });
+                      }, 0);
                     }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
@@ -984,12 +1064,25 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     transition={{ delay: 0.4 + PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1 }}
                     className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
-                      ...card.position,
+                      // Always use initial position - cards reset on refresh
+                      left: card.position.left,
+                      top: card.position.top,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-                      zIndex: isDraggingCard === card.id ? 100 : 10,
+                      // Z-index logic:
+                      // - Dragging: 100 (above chatbox z-20)
+                      // - In momentum (sliding): 50 (above chatbox z-20)
+                      // - Dropped in chatbox: 5 (under chatbox z-20)
+                      // - Default: 10 (under chatbox z-20)
+                      zIndex: isDraggingCard === card.id 
+                        ? 100 
+                        : cardsInMomentum.has(card.id) 
+                          ? 50 
+                          : cardsDroppedInChat.has(card.id)
+                            ? 5
+                            : 10,
                       transformStyle: 'preserve-3d'
                     }}
                   >
