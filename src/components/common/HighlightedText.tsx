@@ -33,7 +33,7 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
     reset: () => {
       // Ensure transition plays by setting inline style first
       if (elementRef.current) {
-        elementRef.current.style.transition = `background-position-x ${duration} cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s`;
+        elementRef.current.style.transition = `background-position ${duration} cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s`;
         // Force reflow
         void elementRef.current.offsetHeight;
       }
@@ -51,7 +51,7 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
     if (triggerOnHover) {
       // Ensure transition plays by setting inline style first
       if (elementRef.current) {
-        elementRef.current.style.transition = `background-position-x ${duration} cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s`;
+        elementRef.current.style.transition = `background-position ${duration} cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s`;
         // Force reflow
         void elementRef.current.offsetHeight;
       }
