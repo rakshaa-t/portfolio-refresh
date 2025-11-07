@@ -5,10 +5,7 @@
   background-size: 200% 100%;
   background-position-x: 0%;
   -webkit-text-fill-color: transparent;
-  transition-property: background-position;
-  transition-duration: 1.5s;
-  transition-delay: 0;
-  transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
+  transition: background-position-x 1.5s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s;
   color: rgba(41, 41, 41, 0.88);
   display: inline-block;
 }
@@ -17,12 +14,16 @@
   background-position-x: -100%;
 }
 
+.highlight-text-fast {
+  transition: background-position-x 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
+}
+
+.highlight-text-fast.highlight-text {
+  transition: background-position-x 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
+}
+
 .highlight-text::selection {
   -webkit-text-fill-color: initial;
   background-color: rgba(41, 41, 41, 0.2);
-}
-
-.highlight-text-fast {
-  transition-duration: 1.2s;
 }
 

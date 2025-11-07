@@ -29,7 +29,10 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
       setHighlighted(true);
     },
     reset: () => {
-      setHighlighted(false);
+      // Use requestAnimationFrame to ensure the transition plays smoothly
+      requestAnimationFrame(() => {
+        setHighlighted(false);
+      });
     },
   }));
 
@@ -41,7 +44,10 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
 
   const handleMouseLeave = () => {
     if (triggerOnHover) {
-      setHighlighted(false);
+      // Use requestAnimationFrame to ensure the transition plays smoothly
+      requestAnimationFrame(() => {
+        setHighlighted(false);
+      });
     }
   };
 
