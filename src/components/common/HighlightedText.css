@@ -14,23 +14,16 @@
   width: 100%;
 }
 
-/* All text content inherits the gradient - single continuous sweep */
-.highlight-text,
+/* Force all children to NOT have their own background - inherit from parent */
 .highlight-text * {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-size: 200% 100%;
-  background-position-x: 0%;
-  transition-property: background-position;
-  transition-duration: 4s;
-  transition-delay: 0;
-  transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
+  color: transparent;
 }
 
-.highlight-text.highlighted,
-.highlight-text.highlighted * {
+.highlight-text.highlighted {
   background-position-x: -100%;
 }
 
@@ -38,12 +31,14 @@
 .highlight-text a:hover,
 .highlight-text button:hover {
   -webkit-text-fill-color: rgba(41, 41, 41, 0.88);
+  color: rgba(41, 41, 41, 0.88);
   opacity: 0.8;
 }
 
 .highlight-text::selection,
 .highlight-text *::selection {
   -webkit-text-fill-color: initial;
+  color: initial;
   background-color: rgba(41, 41, 41, 0.2);
 }
 
