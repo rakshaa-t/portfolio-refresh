@@ -643,15 +643,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        {/* Visual center adjustment: cards extend 53.24px beyond container on right, so shift container left by 26.62px to balance */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center cards-container-centered"
-          style={{
-            // Desktop: shift left by 26.62px to visually center cards (accounts for rightmost card overflow)
-            // Calculation: visual center offset = (rightmost card right edge - container width) / 2
-            // = (1094.04 - 1040.8) / 2 = 26.62px
-          }}
+          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
         >
           {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
           <div 
@@ -669,7 +663,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-[50vw] lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -1410,14 +1404,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         .custom-scrollbar::-webkit-scrollbar-track {
           background: transparent;
           border-radius: 10px;
-        }
-        
-        /* Cards Container Visual Centering - Desktop only */
-        @media (min-width: 1024px) {
-          .cards-container-centered {
-            margin-left: calc(50% - 520.4px - 26.62px) !important;
-            margin-right: auto;
-          }
         }
         
         .custom-scrollbar::-webkit-scrollbar-thumb {
