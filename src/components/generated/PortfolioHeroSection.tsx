@@ -641,7 +641,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center">
+        {/* Visual center adjustment: cards extend 53.24px beyond container on right, so shift container left by 26.62px to balance */}
+        <div 
+          ref={cardsContainerRef} 
+          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center cards-container-centered"
+          style={{
+            // Desktop: shift left by 26.62px to visually center cards (accounts for rightmost card overflow)
+            // Calculation: visual center offset = (rightmost card right edge - container width) / 2
+            // = (1094.04 - 1040.8) / 2 = 26.62px
+          }}
+        >
           {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
           <div 
             ref={dragConstraintsRef}
@@ -1345,6 +1354,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         .custom-scrollbar::-webkit-scrollbar-track {
           background: transparent;
           border-radius: 10px;
+        }
+        
+        /* Cards Container Visual Centering - Desktop only */
+        @media (min-width: 1024px) {
+          .cards-container-centered {
+            margin-left: calc(50% - 520.4px - 26.62px) !important;
+            margin-right: auto;
+          }
         }
         
         .custom-scrollbar::-webkit-scrollbar-thumb {
