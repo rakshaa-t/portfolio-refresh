@@ -15,20 +15,32 @@
   background-position: -100% 0%;
 }
 
-/* Make all children transparent so parent gradient shows through */
+/* Apply gradient to ALL children with synchronized background-position */
+.highlight-text span,
+.highlight-text a,
+.highlight-text button,
 .highlight-text * {
+  background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  background-size: 200% 100% !important;
+  background-position: 0% 0% !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  background-clip: initial !important;
+  transition: background-position 2.3s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
 }
 
-.highlight-text-fast {
-  transition: background-position 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
+.highlight-text.highlighted span,
+.highlight-text.highlighted a,
+.highlight-text.highlighted button,
+.highlight-text.highlighted * {
+  background-position: -100% 0% !important;
 }
 
-.highlight-text-fast.highlight-text {
+.highlight-text-fast span,
+.highlight-text-fast a,
+.highlight-text-fast button,
+.highlight-text-fast * {
   transition: background-position 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
 }
 
