@@ -654,39 +654,43 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ref={(e) => {
                 headingTextRef.current = e;
               }}
-              className="text-base md:text-xl lg:text-2xl font-bold break-words"
-              style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+              className="break-words"
+              style={{ 
+                fontFamily: 'Nexa, system-ui, sans-serif',
+                whiteSpace: 'pre-wrap',
+                display: 'block'
+              }}
             >
-              Raksha T
+              <span className="text-base md:text-xl lg:text-2xl font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>Raksha T</span>
+              <span className="hidden md:inline"><br/><br/></span>
+              <br/>
+              <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                aka raks - product designer who builds products that work, look good and sell
+                <br/>
+                i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
+                <br/>
+                <span className="hidden md:inline"> </span>
+                to find out more →{' '}
+                <a 
+                  href="https://cal.com/raksha-tated-v2ee58/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:opacity-80 transition-opacity cursor-pointer" 
+                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                >
+                  let's talk
+                </a>
+                <br/><br/>
+                chat with my portfolio below ↓ or explore projects{' '}
+                <button 
+                  className="underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
+                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                  onClick={() => {/* TODO: navigate to projects */}}
+                >
+                  here
+                </button>
+              </span>
             </HighlightedText>
-            <span className="hidden md:inline"><br/><br/></span>
-            <br/>
-            <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              aka raks - product designer who builds products that work, look good and sell
-              <br/>
-              i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
-              <br/>
-              <span className="hidden md:inline"> </span>
-              to find out more →{' '}
-            <a 
-              href="https://cal.com/raksha-tated-v2ee58/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-                className="underline hover:opacity-80 transition-opacity cursor-pointer" 
-                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-            >
-              let's talk
-            </a>
-            <br/><br/>
-              chat with my portfolio below ↓ or explore projects{' '}
-            <button 
-                className="underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
-                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-              onClick={() => {/* TODO: navigate to projects */}}
-            >
-              here
-            </button>
-          </div>
         </div>
           </motion.div>
 

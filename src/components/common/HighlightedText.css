@@ -8,7 +8,17 @@
   transition: background-position-x 1.5s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s;
   will-change: background-position-x;
   color: rgba(41, 41, 41, 0.88);
-  display: inline-block;
+  display: block;
+}
+
+.highlight-text * {
+  background: inherit !important;
+  -webkit-background-clip: inherit !important;
+  background-clip: inherit !important;
+  background-size: inherit !important;
+  background-position-x: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  color: transparent !important;
 }
 
 .highlight-text.highlighted {
@@ -21,6 +31,13 @@
 
 .highlight-text-fast.highlight-text {
   transition: background-position-x 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
+}
+
+.highlight-text a:hover,
+.highlight-text button:hover {
+  -webkit-text-fill-color: rgba(41, 41, 41, 0.88) !important;
+  color: rgba(41, 41, 41, 0.88) !important;
+  opacity: 0.8;
 }
 
 .highlight-text::selection {
