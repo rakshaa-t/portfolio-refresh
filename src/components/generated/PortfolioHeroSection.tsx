@@ -236,6 +236,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
   // Refs for highlighted text animation - single continuous sweep across all text
   const headingTextRef = React.useRef<Controls | null>(null);
+  const inputPlaceholderRef = React.useRef<Controls | null>(null);
   
   // Single continuous animation for all text
   React.useEffect(() => {
@@ -886,6 +887,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
                     <div 
                       className="relative flex-1 min-w-0 h-[24px] flex items-center"
+                      onMouseEnter={() => inputPlaceholderRef.current?.start()}
+                      onMouseLeave={() => inputPlaceholderRef.current?.reset()}
                     >
                       <input
                         ref={inputRef}
@@ -904,7 +907,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       />
                       {!inputValue && (
                         <div className="absolute inset-0 pointer-events-none flex items-center justify-start whitespace-nowrap">
-                          <span
+                          <HighlightedText
+                            ref={inputPlaceholderRef}
+                            speed="fast"
                             className="text-[14px] font-normal text-black/[0.44] whitespace-nowrap"
                             style={{ 
                               fontFamily: 'Outfit, system-ui, sans-serif',
@@ -913,7 +918,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                             }}
                           >
                             talk 2 me
-                          </span>
+                          </HighlightedText>
                         </div>
                       )}
                     </div>

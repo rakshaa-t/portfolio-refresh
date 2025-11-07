@@ -22,3 +22,7 @@
   background-color: rgba(41, 41, 41, 0.2);
 }
 
+.highlight-text-fast {
+  transition-duration: 1.2s;
+}
+

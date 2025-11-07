@@ -9,6 +9,8 @@ type Props = {
   children: ReactNode;
   onHighlightEnd?: () => void;
   style?: CSSProperties;
+  triggerOnHover?: boolean;
+  speed?: 'normal' | 'fast';
 };
 
 export type Controls = {
@@ -17,7 +19,7 @@ export type Controls = {
 };
 
 const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
-  { children, className = '', onHighlightEnd, style, ...props },
+  { children, className = '', onHighlightEnd, style, triggerOnHover = false, speed = 'normal', ...props },
   ref,
 ) {
   const [highlighted, setHighlighted] = useState(false);
@@ -31,13 +33,27 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
     },
   }));
 
+  const handleMouseEnter = () => {
+    if (triggerOnHover) {
+      setHighlighted(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (triggerOnHover) {
+      setHighlighted(false);
+    }
+  };
+
   return (
     <div
-      className={cn('highlight-text', className, { highlighted })}
+      className={cn('highlight-text', className, { highlighted, 'highlight-text-fast': speed === 'fast' })}
       style={style}
       onTransitionEnd={() => {
         onHighlightEnd?.();
       }}
+      onMouseEnter={triggerOnHover ? handleMouseEnter : undefined}
+      onMouseLeave={triggerOnHover ? handleMouseLeave : undefined}
       {...props}
     >
       {children}
