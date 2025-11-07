@@ -725,7 +725,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <HighlightedText
                 key={`link-${idx}`}
                 ref={(e) => {
-                  if (e) wordRefs.current.set(currentWordIndex++, e);
+                  if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
                 }}
                 className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity cursor-pointer block"
               >
@@ -760,7 +760,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <HighlightedText
                 key={`button-${idx}`}
                 ref={(e) => {
-                  if (e) wordRefs.current.set(currentWordIndex++, e);
+                  if (e) wordRefs.current.set(currentWordIndexRef.current++, e);
                 }}
                 className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity inline"
               >
