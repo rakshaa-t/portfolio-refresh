@@ -24,19 +24,13 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
 ) {
   const [highlighted, setHighlighted] = useState(false);
   const elementRef = React.useRef<HTMLDivElement>(null);
-  const duration = speed === 'fast' ? '1.2s' : '2.3s';
+  const duration = speed === 'fast' ? '1.2s' : '1.5s';
 
   useImperativeHandle(ref, () => ({
     start: () => {
       setHighlighted(true);
     },
     reset: () => {
-      // Ensure transition plays by setting inline style first
-      if (elementRef.current) {
-        elementRef.current.style.transition = `background-position ${duration} cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s`;
-        // Force reflow
-        void elementRef.current.offsetHeight;
-      }
       setHighlighted(false);
     },
   }));
@@ -49,15 +43,6 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
 
   const handleMouseLeave = () => {
     if (triggerOnHover) {
-      // Ensure transition plays by setting inline style first
-      if (elementRef.current) {
-        const beforeElement = elementRef.current;
-        if (beforeElement) {
-          beforeElement.style.setProperty('transition', `background-position ${duration} cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s`);
-          // Force reflow
-          void beforeElement.offsetHeight;
-        }
-      }
       setHighlighted(false);
     }
   };
