@@ -238,19 +238,35 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const headingTextRefs = React.useRef(new Map<number, Controls>());
   const headingIndex = React.useRef(0);
   
-  // Sequential animation for heading text
+  // Sequential animation for heading text - wait for refs to be set
   React.useEffect(() => {
     const lines = ['Raksha T', 'aka raks - product designer who builds products that work, look good and sell'];
-    if (headingIndex.current === lines.length) {
-      return;
-    }
-    const interval = setInterval(() => {
-      headingTextRefs.current.get(headingIndex.current)?.start();
-      headingIndex.current += 1;
-    }, 300); // 300ms stagger like Marijana's
+    
+    // Wait a bit for refs to be attached, then start animation
+    const timeout = setTimeout(() => {
+      console.log('🚀 Starting text animation, refs:', headingTextRefs.current);
+      const animateNext = () => {
+        if (headingIndex.current < lines.length) {
+          const control = headingTextRefs.current.get(headingIndex.current);
+          console.log(`📝 Animating line ${headingIndex.current}, control:`, control);
+          if (control) {
+            control.start();
+            headingIndex.current += 1;
+            if (headingIndex.current < lines.length) {
+              setTimeout(animateNext, 300); // 300ms stagger
+            }
+          } else {
+            // Retry if ref not ready yet
+            console.log(`⏳ Ref ${headingIndex.current} not ready, retrying...`);
+            setTimeout(animateNext, 50);
+          }
+        }
+      };
+      animateNext();
+    }, 100); // Small delay to ensure refs are set
 
     return () => {
-      clearInterval(interval);
+      clearTimeout(timeout);
     };
   }, []);
 

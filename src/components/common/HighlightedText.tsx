@@ -23,12 +23,17 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
 
   useImperativeHandle(ref, () => ({
     start: () => {
+      console.log('🎬 HighlightedText.start() called');
       setHighlighted(true);
     },
     reset: () => {
       setHighlighted(false);
     },
   }));
+
+  useEffect(() => {
+    console.log('🎨 HighlightedText highlighted state:', highlighted);
+  }, [highlighted]);
 
   return (
     <span

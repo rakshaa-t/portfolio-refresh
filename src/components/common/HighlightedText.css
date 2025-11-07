@@ -1,6 +1,7 @@
 .highlight-text {
   /* Start with visible text - gradient will sweep over it */
-  background: linear-gradient(90deg, rgba(41, 41, 41, 0.88) 50%, rgba(48, 48, 52, 1) 50%);
+  /* Use contrasting colors: start lighter/transparent, end with full color */
+  background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%);
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 200% 100%;
@@ -12,10 +13,11 @@
   transition-duration: 2.3s;
   transition-delay: 0;
   transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
+  display: inline-block; /* Ensure the element can be animated */
 }
 
 .highlight-text.highlighted {
-  background-position-x: -100%;
+  background-position-x: -100% !important;
 }
 
 .highlight-text::selection {
