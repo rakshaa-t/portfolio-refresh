@@ -6,6 +6,7 @@ import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
 import { PortfolioMobile } from "./PortfolioMobile";
+import useScroll from "../../hooks/useScroll";
 
 export interface RakshaPortfolioProps {}
 
@@ -220,6 +221,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
+  
+  // Scroll tracking for navigation bar
+  const { y, directionY } = useScroll();
+  const headerTriggerY = 50;
   
   // Input ref for instant typing response
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -504,9 +509,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="hidden lg:block absolute w-[800px] h-[600px] left-1/2 -translate-x-1/2 top-[350px] bg-white rounded-[4444px] blur-[100px] pointer-events-none z-[-1]" />
 
       {/* Navigation - Responsive */}
-        <nav className="fixed left-0 right-0 top-0 z-50 w-full">
+        <nav className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+          y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
+        }`}>
+        {/* Backdrop blur with gradient fade */}
+        <div className="absolute inset-0 z-[-1] backdrop-blur-[11px] [mask-image:linear-gradient(to_top,transparent,black_65%)]" 
+          style={{
+            background: 'rgba(255,255,255,0.01)'
+          }}
+        />
+        
         {/* Mobile Header - visible on mobile, hidden on desktop */}
-        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px] bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px]">
+        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
             {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
               raks
@@ -551,7 +565,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
-        <div className="hidden md:flex w-full px-20 py-2.5 bg-[rgba(255,255,255,0.01)] backdrop-blur-[11px] justify-between items-center">
+        <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
             {/* Logo - "raks" */}
           <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             raks
