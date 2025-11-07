@@ -217,6 +217,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
+  const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   
   // Input ref for instant typing response
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -641,6 +642,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
         {/* Chat + Cards Container - Responsive sizing */}
         <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
+          {/* Drag Constraints Container - Full width, bottom half of viewport */}
+          <div 
+            ref={dragConstraintsRef}
+            className="pointer-events-none fixed left-0 right-0 w-screen"
+            style={{
+              top: '50vh',
+              height: '50vh',
+              zIndex: 1
+            }}
+          />
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
@@ -914,7 +925,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     drag
                     dragMomentum={true}
                     dragElastic={0.2}
-                    dragConstraints={cardsContainerRef}
+                    dragConstraints={dragConstraintsRef}
                     dragTransition={{ 
                       bounceStiffness: 200, 
                       bounceDamping: 15,
