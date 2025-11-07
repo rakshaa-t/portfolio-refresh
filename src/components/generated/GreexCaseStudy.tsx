@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import useScroll from "../../hooks/useScroll";
 
 // Image assets from Figma MCP
 const imgRectangle1553 = "https://www.figma.com/api/mcp/asset/3a49c6e6-b7c9-4cde-b76b-a62035d160d9";
@@ -58,6 +59,10 @@ const imgX = "https://www.figma.com/api/mcp/asset/e4a3a7ec-771c-4706-a077-3f43fb
 
 export const GreexCaseStudy: React.FC = () => {
   const [activeSection, setActiveSection] = React.useState("Overview");
+  
+  // Scroll tracking for navigation bar
+  const { y, directionY } = useScroll();
+  const headerTriggerY = 50;
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -115,44 +120,43 @@ export const GreexCaseStudy: React.FC = () => {
         backgroundColor: '#dee1ed'
       }} />
 
-      {/* Navigation Bar */}
-      <nav style={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: 0,
-        zIndex: 50,
-        width: '100%',
-        backdropFilter: 'blur(22px)',
-        backgroundColor: 'rgba(255, 255, 255, 0.01)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingLeft: '44px',
-        paddingRight: '44px',
-        paddingTop: '12px',
-        paddingBottom: '12px',
-        boxSizing: 'border-box'
-      }}>
+      {/* Navigation Bar - Scroll-based hide/show */}
+      <nav 
+        className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+          y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
+        }`}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingLeft: '44px',
+          paddingRight: '44px',
+          paddingTop: '12px',
+          paddingBottom: '12px',
+          boxSizing: 'border-box'
+        }}
+      >
+        {/* Backdrop blur with gradient fade */}
+        <div 
+          className="absolute inset-0 z-[-1] backdrop-blur-[11px] [mask-image:linear-gradient(to_top,transparent,black_65%)]" 
+          style={{
+            background: 'rgba(255, 255, 255, 0.01)'
+          }}
+        />
+        
         <a
           href="/"
           onClick={(e) => {
             e.preventDefault();
             // Navigate to production homepage
-            // Extract production URL from current domain
             const currentHost = window.location.hostname;
             let productionUrl = '/';
             
             // If we're on a Vercel preview URL (contains -git-), navigate to production
             if (currentHost.includes('-git-')) {
-              // Extract the base project name (everything before -git-)
-              // Preview URLs: cursor-portfolio-git-feature-g-xxx.vercel.app
-              // Production: cursor-portfolio.vercel.app or custom domain
               const baseProject = currentHost.split('-git-')[0];
-              // Navigate to production URL
               productionUrl = `https://${baseProject}.vercel.app/`;
             } else {
-              // If already on production or custom domain, navigate to root
               productionUrl = '/';
             }
             
