@@ -641,11 +641,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
         {/* Chat + Cards Container - Responsive sizing */}
         <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
-          {/* Drag Constraints Container - Full screen for smooth dragging */}
-          <div 
-            ref={dragConstraintsRef}
-            className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
-          />
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
