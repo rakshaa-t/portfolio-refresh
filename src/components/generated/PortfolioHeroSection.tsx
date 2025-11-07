@@ -607,7 +607,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
           className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
-        >
+          >
           <div className="w-full">
             <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Raksha T<br/><span className="hidden md:inline"><br/></span>
@@ -641,7 +641,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
+        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center">
           {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
           <div 
             ref={dragConstraintsRef}
