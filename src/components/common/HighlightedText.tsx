@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, ReactNode, useImperativeHandle, useState } from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useState, CSSProperties } from 'react';
 import { cn } from '../../lib/utils';
 import './HighlightedText.css';
 
@@ -8,6 +8,7 @@ type Props = {
   className?: string;
   children: ReactNode;
   onHighlightEnd?: () => void;
+  style?: CSSProperties;
 };
 
 export type Controls = {
@@ -16,7 +17,7 @@ export type Controls = {
 };
 
 const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
-  { children, className = '', onHighlightEnd, ...props },
+  { children, className = '', onHighlightEnd, style, ...props },
   ref,
 ) {
   const [highlighted, setHighlighted] = useState(false);
@@ -33,6 +34,7 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
   return (
     <div
       className={cn('highlight-text', className, { highlighted })}
+      style={style}
       onTransitionEnd={() => {
         onHighlightEnd?.();
       }}
