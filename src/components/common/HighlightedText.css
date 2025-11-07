@@ -1,51 +1,44 @@
 .highlight-text {
-  position: relative;
+  background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position-x: 0%;
+  -webkit-text-fill-color: transparent;
+  transition-property: background-position;
+  transition-duration: 4s;
+  transition-delay: 0;
+  transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
   color: rgba(41, 41, 41, 0.88);
   display: block;
   width: 100%;
 }
 
-/* Single gradient overlay that spans entire text block - uses mix-blend-mode */
-.highlight-text::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%);
-  background-size: 200% 100%;
-  background-position-x: 0%;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 1;
-  transition-property: background-position;
-  transition-duration: 4s;
-  transition-delay: 0;
-  transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
-}
-
-.highlight-text.highlighted::before {
-  background-position-x: -100%;
-}
-
-/* Text should be visible and dark so blend mode works */
-.highlight-text,
+/* CRITICAL: Children must NOT have background-clip: text - they inherit parent's gradient */
 .highlight-text * {
-  color: rgba(41, 41, 41, 0.88);
-  position: relative;
-  z-index: 0;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.highlight-text.highlighted {
+  background-position-x: -100%;
 }
 
 /* Fix hover state for links */
 .highlight-text a:hover,
 .highlight-text button:hover {
+  -webkit-text-fill-color: rgba(41, 41, 41, 0.88) !important;
+  color: rgba(41, 41, 41, 0.88) !important;
   opacity: 0.8;
-  z-index: 2;
 }
 
 .highlight-text::selection,
 .highlight-text *::selection {
+  -webkit-text-fill-color: initial;
+  color: initial;
   background-color: rgba(41, 41, 41, 0.2);
 }
 
