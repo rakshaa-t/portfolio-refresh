@@ -217,6 +217,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
+  const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   
   // Card positions state - loaded from localStorage or defaults
   const [cardPositions, setCardPositions] = React.useState<Record<string, { x: number; y: number }>>(() => {
@@ -656,6 +657,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
         {/* Chat + Cards Container - Responsive sizing */}
         <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
+          {/* Drag Constraints Container - Full screen for smooth dragging */}
+          <div 
+            ref={dragConstraintsRef}
+            className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
+          />
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
@@ -929,7 +935,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     drag
                     dragMomentum={true}
                     dragElastic={0.1}
-                    dragConstraints={cardsContainerRef}
+                    dragConstraints={dragConstraintsRef}
                     dragTransition={{ 
                       bounceStiffness: 100, 
                       bounceDamping: 10,
@@ -1004,16 +1010,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
-                      opacity: 1,
+          opacity: 1,
                       scale: 1,
-                      rotate: card.rotation,
-                      // Apply saved position offset if available
-                      x: cardPositions[card.id]?.x !== undefined 
-                        ? cardPositions[card.id].x - parseFloat(card.position.left || '0')
-                        : 0,
-                      y: cardPositions[card.id]?.y !== undefined 
-                        ? cardPositions[card.id].y - parseFloat(card.position.top || '0')
-                        : 0
+                      rotate: card.rotation
                     }}
                     exit={{ 
           opacity: 0,
