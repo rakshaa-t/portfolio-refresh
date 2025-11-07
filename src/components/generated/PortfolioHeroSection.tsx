@@ -1073,15 +1073,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         });
                       }, 0);
                     }}
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ translateY: 75, opacity: 0 }}
                     animate={{ 
-          opacity: 1,
-                      scale: 1,
+                      translateY: 0,
+                      opacity: 1,
                       rotate: card.rotation
                     }}
                     exit={{ 
-          opacity: 0,
-                      scale: 0.5,
+                      translateY: 75,
+                      opacity: 0,
                       transition: { duration: 0.3 }
                     }}
                     whileHover={{ 
@@ -1095,7 +1095,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
                       cursor: 'grabbing'
                     }}
-                    transition={{ delay: 0.4 + PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1 }}
+                    transition={{ 
+                      ease: 'easeOut',
+                      duration: 0.5,
+                      delay: PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1
+                    }}
                     className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
                       // Always use initial position - cards reset on refresh
