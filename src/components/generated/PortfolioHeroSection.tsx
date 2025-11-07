@@ -600,13 +600,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
 
       {/* Content Container - Responsive */}
-      <div className="relative w-full p-6 md:p-11 mt-10 md:mt-[60px]">
+      <div className="relative w-full px-6 md:px-11 pt-6 md:pt-11 mt-10 md:mt-[60px] flex flex-col items-center">
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="mx-auto text-left w-full max-w-full lg:max-w-[603.2px] mt-5 mb-5 lg:mt-10 lg:mb-10"
+          className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
         >
           <div className="w-full">
             <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -641,7 +641,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
         {/* Chat + Cards Container - Responsive sizing */}
-        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px]">
+        <div ref={cardsContainerRef} className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center">
           {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
           <div 
             ref={dragConstraintsRef}
@@ -658,7 +658,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-[203.2px] lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
