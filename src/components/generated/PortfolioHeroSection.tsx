@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
@@ -925,15 +925,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 return (
                   <motion.div
                     key={card.id}
+                    data-card-id={card.id}
                     drag
                     dragMomentum={true}
                     dragElastic={0.1}
                     dragConstraints={cardsContainerRef}
                     dragTransition={{ 
-                      bounceStiffness: 300, 
-                      bounceDamping: 20,
-                      power: 0.5,
-                      timeConstant: 200
+                      bounceStiffness: 100, 
+                      bounceDamping: 10,
+                      power: 0.4
                     }}
                     onDragStart={() => {
                       setIsDraggingCard(card.id);
@@ -973,48 +973,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           // Stop momentum immediately when dropping into chat
                           handleCardDrop(card.id);
                         } else {
-                          // Get the element's current position relative to container
-                          const element = event.target as HTMLElement;
-                          const containerRect = cardsContainerRef.current?.getBoundingClientRect();
-                          
-                          if (containerRect) {
-                            // Use info.offset for relative position (already relative to drag origin)
-                            // We need to get the absolute position relative to container
-                            const elementRect = element.getBoundingClientRect();
-                            const newPosition = {
-                              x: elementRect.left - containerRect.left,
-                              y: elementRect.top - containerRect.top
-                            };
-                            
-                            // Save position immediately, momentum will continue naturally
-                            setCardPositions(prev => {
-                              const updated = { ...prev, [card.id]: newPosition };
-                              // Save to localStorage
-                              if (typeof window !== 'undefined') {
-                                localStorage.setItem('portfolio-card-positions', JSON.stringify(updated));
-                              }
-                              return updated;
-                            });
-                            
-                            // Update position again after momentum animation completes
-                            // This captures the final position after momentum settles
-                            setTimeout(() => {
-                              const finalRect = element.getBoundingClientRect();
-                              const finalPosition = {
-                                x: finalRect.left - containerRect.left,
-                                y: finalRect.top - containerRect.top
-                              };
-                              
-                              setCardPositions(prev => {
-                                const updated = { ...prev, [card.id]: finalPosition };
-                                if (typeof window !== 'undefined') {
-                                  localStorage.setItem('portfolio-card-positions', JSON.stringify(updated));
-                                }
-                                return updated;
-                              });
-                            }, 800); // Wait for momentum to settle
-                          }
-                          
                           setIsDraggingCard(null);
                           setIsCardOverChat(false);
                         }
@@ -1023,11 +981,39 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         setIsCardOverChat(false);
                       }
                     }}
+                    onDragTransitionEnd={() => {
+                      // This fires after momentum animation completes - perfect for saving position!
+                      const element = document.querySelector(`[data-card-id="${card.id}"]`) as HTMLElement;
+                      const containerRect = cardsContainerRef.current?.getBoundingClientRect();
+                      
+                      if (element && containerRect) {
+                        const elementRect = element.getBoundingClientRect();
+                        const finalPosition = {
+                          x: elementRect.left - containerRect.left,
+                          y: elementRect.top - containerRect.top
+                        };
+                        
+                        setCardPositions(prev => {
+                          const updated = { ...prev, [card.id]: finalPosition };
+                          if (typeof window !== 'undefined') {
+                            localStorage.setItem('portfolio-card-positions', JSON.stringify(updated));
+                          }
+                          return updated;
+                        });
+                      }
+                    }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
                       opacity: 1,
                       scale: 1,
-                      rotate: card.rotation
+                      rotate: card.rotation,
+                      // Apply saved position offset if available
+                      x: cardPositions[card.id]?.x !== undefined 
+                        ? cardPositions[card.id].x - parseFloat(card.position.left || '0')
+                        : 0,
+                      y: cardPositions[card.id]?.y !== undefined 
+                        ? cardPositions[card.id].y - parseFloat(card.position.top || '0')
+                        : 0
                     }}
                     exit={{ 
           opacity: 0,
