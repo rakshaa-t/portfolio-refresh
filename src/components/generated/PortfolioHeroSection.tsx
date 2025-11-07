@@ -7,6 +7,8 @@ import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-ch
 import { AI_CONFIG } from "../../lib/config";
 import { PortfolioMobile } from "./PortfolioMobile";
 import useScroll from "../../hooks/useScroll";
+import HighlightedText, { Controls } from "../common/HighlightedText";
+import "../common/HighlightedText.css";
 
 export interface RakshaPortfolioProps {}
 
@@ -231,6 +233,26 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
+  
+  // Refs for highlighted text animation
+  const headingTextRefs = React.useRef(new Map<number, Controls>());
+  const headingIndex = React.useRef(0);
+  
+  // Sequential animation for heading text
+  React.useEffect(() => {
+    const lines = ['Raksha T', 'aka raks - product designer who builds products that work, look good and sell'];
+    if (headingIndex.current === lines.length) {
+      return;
+    }
+    const interval = setInterval(() => {
+      headingTextRefs.current.get(headingIndex.current)?.start();
+      headingIndex.current += 1;
+    }, 300); // 300ms stagger like Marijana's
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   // Mobile detection - more robust check
   const [isMobile, setIsMobile] = React.useState(false);
@@ -625,14 +647,32 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
           >
           <div className="w-full">
-            <span className="text-base md:text-xl lg:text-2xl font-bold break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Raksha T<br/><span className="hidden md:inline"><br/></span>
-            </span>
-            <span className="text-sm md:text-lg lg:text-xl font-light break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              aka raks - product designer who builds products that work, look good and sell<br/>
-              i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
-              <span className="hidden md:inline"> </span>to find out more  →  
-            </span>
+            <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              <HighlightedText
+                ref={(e) => {
+                  if (e) headingTextRefs.current.set(0, e);
+                }}
+                className="text-base md:text-xl lg:text-2xl font-bold"
+              >
+                Raksha T
+              </HighlightedText>
+              <span className="hidden md:inline"><br/><br/></span>
+            </h1>
+            <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <HighlightedText
+                ref={(e) => {
+                  if (e) headingTextRefs.current.set(1, e);
+                }}
+                className="text-sm md:text-lg lg:text-xl font-light"
+              >
+                aka raks - product designer who builds products that work, look good and sell
+              </HighlightedText>
+              <br/>
+              <span className="text-[rgba(41,41,41,0.88)] md:text-[#303034]">
+                i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
+                <span className="hidden md:inline"> </span>to find out more  →  
+              </span>
+            </div>
             <a 
               href="https://cal.com/raksha-tated-v2ee58/15min"
               target="_blank"
