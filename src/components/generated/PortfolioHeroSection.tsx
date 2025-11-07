@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
@@ -217,6 +217,21 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
+  
+  // Card positions state - loaded from localStorage or defaults
+  const [cardPositions, setCardPositions] = React.useState<Record<string, { x: number; y: number }>>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('portfolio-card-positions');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          return {};
+        }
+      }
+    }
+    return {};
+  });
   
   // Input ref for instant typing response
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -911,9 +926,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                   <motion.div
                     key={card.id}
                     drag
-                    dragMomentum={false}
+                    dragMomentum={true}
                     dragElastic={0.1}
-                    dragConstraints={false}
+                    dragConstraints={cardsContainerRef}
+                    dragTransition={{ 
+                      bounceStiffness: 300, 
+                      bounceDamping: 20,
+                      power: 0.5,
+                      timeConstant: 200
+                    }}
                     onDragStart={() => {
                       setIsDraggingCard(card.id);
                     }}
@@ -949,8 +970,51 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           cursorY <= chatRect.bottom;
                         
                         if (isDroppedOnChat) {
+                          // Stop momentum immediately when dropping into chat
                           handleCardDrop(card.id);
                         } else {
+                          // Get the element's current position relative to container
+                          const element = event.target as HTMLElement;
+                          const containerRect = cardsContainerRef.current?.getBoundingClientRect();
+                          
+                          if (containerRect) {
+                            // Use info.offset for relative position (already relative to drag origin)
+                            // We need to get the absolute position relative to container
+                            const elementRect = element.getBoundingClientRect();
+                            const newPosition = {
+                              x: elementRect.left - containerRect.left,
+                              y: elementRect.top - containerRect.top
+                            };
+                            
+                            // Save position immediately, momentum will continue naturally
+                            setCardPositions(prev => {
+                              const updated = { ...prev, [card.id]: newPosition };
+                              // Save to localStorage
+                              if (typeof window !== 'undefined') {
+                                localStorage.setItem('portfolio-card-positions', JSON.stringify(updated));
+                              }
+                              return updated;
+                            });
+                            
+                            // Update position again after momentum animation completes
+                            // This captures the final position after momentum settles
+                            setTimeout(() => {
+                              const finalRect = element.getBoundingClientRect();
+                              const finalPosition = {
+                                x: finalRect.left - containerRect.left,
+                                y: finalRect.top - containerRect.top
+                              };
+                              
+                              setCardPositions(prev => {
+                                const updated = { ...prev, [card.id]: finalPosition };
+                                if (typeof window !== 'undefined') {
+                                  localStorage.setItem('portfolio-card-positions', JSON.stringify(updated));
+                                }
+                                return updated;
+                              });
+                            }, 800); // Wait for momentum to settle
+                          }
+                          
                           setIsDraggingCard(null);
                           setIsCardOverChat(false);
                         }
@@ -961,7 +1025,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
-          opacity: 1,
+                      opacity: 1,
                       scale: 1,
                       rotate: card.rotation
                     }}
@@ -984,7 +1048,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     transition={{ delay: 0.4 + PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1 }}
                     className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
-                      ...card.position,
+                      // Use saved position if available, otherwise use default
+                      left: cardPositions[card.id]?.x !== undefined 
+                        ? `${cardPositions[card.id].x}px` 
+                        : card.position.left,
+                      top: cardPositions[card.id]?.y !== undefined 
+                        ? `${cardPositions[card.id].y}px` 
+                        : card.position.top,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
