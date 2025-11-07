@@ -31,6 +31,13 @@
   background-position-x: -100%;
 }
 
+/* Fix hover state for links - ensure text remains visible */
+.highlight-text a:hover,
+.highlight-text button:hover {
+  -webkit-text-fill-color: rgba(41, 41, 41, 0.88);
+  opacity: 0.8;
+}
+
 .highlight-text::selection,
 .highlight-text *::selection {
   -webkit-text-fill-color: initial;

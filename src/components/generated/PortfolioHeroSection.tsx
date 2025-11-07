@@ -672,7 +672,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                   href="https://cal.com/raksha-tated-v2ee58/15min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm md:text-lg lg:text-xl font-light underline hover:opacity-80 transition-opacity cursor-pointer" 
+                  className="text-sm md:text-lg lg:text-xl font-light underline hover:opacity-80 transition-opacity cursor-pointer inline" 
                   style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
                 >
                   let's talk
