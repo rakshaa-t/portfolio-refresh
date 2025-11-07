@@ -5,24 +5,29 @@
   background-size: 200% 100%;
   background-position: 0% 0%;
   -webkit-text-fill-color: transparent;
-  transition: background-position 2.3s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s;
+  transition: background-position 3s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s;
   will-change: background-position;
   color: rgba(41, 41, 41, 0.88);
   display: block;
 }
 
 .highlight-text * {
-  background: inherit !important;
-  -webkit-background-clip: inherit !important;
-  background-clip: inherit !important;
-  background-size: inherit !important;
-  background-position: inherit !important;
-  -webkit-text-fill-color: inherit !important;
+  background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  background-size: 200% 100% !important;
+  background-position: 0% 0% !important;
+  -webkit-text-fill-color: transparent !important;
   color: transparent !important;
+  transition: background-position 3s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
 }
 
 .highlight-text.highlighted {
   background-position: -100% 0%;
+}
+
+.highlight-text.highlighted * {
+  background-position: -100% 0% !important;
 }
 
 .highlight-text-fast {
@@ -30,6 +35,10 @@
 }
 
 .highlight-text-fast.highlight-text {
+  transition: background-position 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
+}
+
+.highlight-text-fast.highlight-text * {
   transition: background-position 1.2s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s !important;
 }
 
