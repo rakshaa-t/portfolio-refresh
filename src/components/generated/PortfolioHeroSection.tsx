@@ -6,7 +6,7 @@ import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { sendToAI, getFallbackResponse, type ChatMessage } from "../../lib/ai-chat";
 import { AI_CONFIG } from "../../lib/config";
 import { PortfolioMobile } from "./PortfolioMobile";
-import useScroll from "../../hooks/useScroll";
+import useScroll from "../../hooks/useScroll.ts";
 
 export interface RakshaPortfolioProps {}
 
