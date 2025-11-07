@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, ReactNode, useImperativeHandle, useState } from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 import './HighlightedText.css';
 
