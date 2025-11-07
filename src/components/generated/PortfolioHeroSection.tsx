@@ -240,7 +240,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   
   // Sequential animation for heading text - wait for refs to be set
   React.useEffect(() => {
-    const lines = ['Raksha T', 'aka raks - product designer who builds products that work, look good and sell'];
+    const lines = [
+      'Raksha T',
+      'aka raks - product designer who builds products that work, look good and sell',
+      'i live in duality: lead design experiences at startups and also code frontend with cursor',
+      'to find out more',
+      "let's talk",
+      'chat with my portfolio below ↓ or explore projects here'
+    ];
     
     // Wait a bit for refs to be attached, then start animation
     const timeout = setTimeout(() => {
@@ -253,7 +260,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             control.start();
             headingIndex.current += 1;
             if (headingIndex.current < lines.length) {
-              setTimeout(animateNext, 300); // 300ms stagger
+              setTimeout(animateNext, 300); // 300ms stagger like Marijana's
             }
           } else {
             // Retry if ref not ready yet
@@ -684,31 +691,59 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 aka raks - product designer who builds products that work, look good and sell
               </HighlightedText>
               <br/>
-              <span className="text-[rgba(41,41,41,0.88)] md:text-[#303034]">
-                i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
-                <span className="hidden md:inline"> </span>to find out more  →  
-              </span>
+              <HighlightedText
+                ref={(e) => {
+                  if (e) headingTextRefs.current.set(2, e);
+                }}
+                className="text-sm md:text-lg lg:text-xl font-light"
+              >
+                i live in duality: lead design experiences at startups and also code frontend with cursor
+              </HighlightedText>
+              {' '}<br/>
+              <span className="hidden md:inline"> </span>
+              <HighlightedText
+                ref={(e) => {
+                  if (e) headingTextRefs.current.set(3, e);
+                }}
+                className="text-sm md:text-lg lg:text-xl font-light"
+              >
+                to find out more
+              </HighlightedText>
+              {' '}→  
             </div>
-            <a 
-              href="https://cal.com/raksha-tated-v2ee58/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity cursor-pointer" 
-              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+            <HighlightedText
+              ref={(e) => {
+                if (e) headingTextRefs.current.set(4, e);
+              }}
+              className="text-sm md:text-lg lg:text-xl font-light underline break-words hover:opacity-80 transition-opacity cursor-pointer"
             >
-              let's talk
-            </a>
+              <a 
+                href="https://cal.com/raksha-tated-v2ee58/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+              >
+                let's talk
+              </a>
+            </HighlightedText>
             <br/><br/>
-            <span className="text-sm md:text-lg lg:text-xl font-light break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              chat with my portfolio below ↓ or explore projects{' '}
-            </span>
-            <button 
-              className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
-              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
-              onClick={() => {/* TODO: navigate to projects */}}
+            <HighlightedText
+              ref={(e) => {
+                if (e) headingTextRefs.current.set(5, e);
+              }}
+              className="text-sm md:text-lg lg:text-xl font-light break-words"
             >
-              here
-            </button>
+              <span style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                chat with my portfolio below ↓ or explore projects{' '}
+              </span>
+              <button 
+                className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
+                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                onClick={() => {/* TODO: navigate to projects */}}
+              >
+                here
+              </button>
+            </HighlightedText>
           </div>
           </motion.div>
 

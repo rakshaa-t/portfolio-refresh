@@ -1,27 +1,21 @@
 .highlight-text {
-  /* Start with visible text - gradient will sweep over it */
-  /* Use contrasting colors: start lighter/transparent, end with full color */
   background: linear-gradient(90deg, rgba(41, 41, 41, 0.3) 50%, rgba(41, 41, 41, 0.88) 50%);
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 200% 100%;
   background-position-x: 0%;
   -webkit-text-fill-color: transparent;
-  /* Fallback color for browsers that don't support background-clip */
-  color: rgba(41, 41, 41, 0.88);
   transition-property: background-position;
   transition-duration: 2.3s;
   transition-delay: 0;
   transition-timing-function: cubic-bezier(0.06, 0.56, 0.24, 0.96);
-  display: inline-block; /* Ensure the element can be animated */
 }
 
 .highlight-text.highlighted {
-  background-position-x: -100% !important;
+  background-position-x: -100%;
 }
 
 .highlight-text::selection {
   -webkit-text-fill-color: initial;
-  background-color: rgba(41, 41, 41, 0.2);
 }
 
