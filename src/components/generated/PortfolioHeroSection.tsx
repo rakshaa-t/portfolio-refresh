@@ -190,7 +190,7 @@ const PROJECT_CARDS = [
     title: 'greex : defi trading',
     image: 'https://res.cloudinary.com/dky01erho/image/upload/v1760525138/172_2x_shots_so_plr79y.png',
     message: 'whats was ur process for greex',
-    position: { left: '831.04px', top: '0px' },
+    position: { left: '777.8px', top: '0px' },
     rotation: 15
   },
   {
