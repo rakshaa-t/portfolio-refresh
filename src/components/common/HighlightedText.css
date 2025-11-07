@@ -6,6 +6,7 @@
   background-position-x: 0%;
   -webkit-text-fill-color: transparent;
   transition: background-position-x 1.5s cubic-bezier(0.06, 0.56, 0.24, 0.96) 0s;
+  will-change: background-position-x;
   color: rgba(41, 41, 41, 0.88);
   display: inline-block;
 }

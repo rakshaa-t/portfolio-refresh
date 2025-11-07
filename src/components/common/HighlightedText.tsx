@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, ReactNode, useImperativeHandle, useState, CSSProperties } from 'react';
+import React, { forwardRef, ReactNode, useImperativeHandle, useState, CSSProperties } from 'react';
 import { cn } from '../../lib/utils';
 import './HighlightedText.css';
 
@@ -23,16 +23,18 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
   ref,
 ) {
   const [highlighted, setHighlighted] = useState(false);
+  const elementRef = React.useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
     start: () => {
       setHighlighted(true);
     },
     reset: () => {
-      // Use requestAnimationFrame to ensure the transition plays smoothly
-      requestAnimationFrame(() => {
-        setHighlighted(false);
-      });
+      // Force a reflow to ensure the transition plays
+      if (elementRef.current) {
+        void elementRef.current.offsetHeight;
+      }
+      setHighlighted(false);
     },
   }));
 
@@ -44,15 +46,17 @@ const HighlightedText = forwardRef<Controls, Props>(function HighlightedText(
 
   const handleMouseLeave = () => {
     if (triggerOnHover) {
-      // Use requestAnimationFrame to ensure the transition plays smoothly
-      requestAnimationFrame(() => {
-        setHighlighted(false);
-      });
+      // Force a reflow to ensure the transition plays
+      if (elementRef.current) {
+        void elementRef.current.offsetHeight;
+      }
+      setHighlighted(false);
     }
   };
 
   return (
     <div
+      ref={elementRef}
       className={cn('highlight-text', className, { highlighted, 'highlight-text-fast': speed === 'fast' })}
       style={style}
       onTransitionEnd={() => {
