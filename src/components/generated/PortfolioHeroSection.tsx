@@ -656,14 +656,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               }}
               className="w-full"
             >
-              <div className="break-words" style={{ whiteSpace: 'pre-wrap' }}>
-                <span className="text-base md:text-xl lg:text-2xl font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>Raksha T</span>
+              <div className="break-words" style={{ whiteSpace: 'pre-wrap', display: 'inline-block', width: '100%' }}>
+                <span style={{ fontFamily: 'Nexa, system-ui, sans-serif', fontSize: 'inherit', fontWeight: 'bold' }}>Raksha T</span>
                 <span className="hidden md:inline">
 
 
 </span>
                 <br/>
-                <span className="text-sm md:text-lg lg:text-xl font-light" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: 'inherit', fontWeight: '300' }}>
                   aka raks - product designer who builds products that work, look good and sell
                   <br/>
                   i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
@@ -675,7 +675,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:opacity-80 transition-opacity cursor-pointer" 
-                    style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                    style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: 'inherit', fontWeight: '300' }}
                   >
                     let's talk
                   </a>
@@ -683,7 +683,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                   chat with my portfolio below ↓ or explore projects{' '}
                   <button 
                     className="underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
-                    style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                    style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: 'inherit', fontWeight: '300' }}
                     onClick={() => {/* TODO: navigate to projects */}}
                   >
                     here

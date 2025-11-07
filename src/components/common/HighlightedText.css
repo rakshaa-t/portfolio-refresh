@@ -14,13 +14,13 @@
   width: 100%;
 }
 
-/* Force all children to NOT have their own background - inherit from parent */
+/* CRITICAL: Remove all backgrounds from children so they inherit parent's gradient */
 .highlight-text * {
   background: none !important;
   -webkit-background-clip: initial !important;
   background-clip: initial !important;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
 }
 
 .highlight-text.highlighted {
@@ -30,8 +30,8 @@
 /* Fix hover state for links - ensure text remains visible */
 .highlight-text a:hover,
 .highlight-text button:hover {
-  -webkit-text-fill-color: rgba(41, 41, 41, 0.88);
-  color: rgba(41, 41, 41, 0.88);
+  -webkit-text-fill-color: rgba(41, 41, 41, 0.88) !important;
+  color: rgba(41, 41, 41, 0.88) !important;
   opacity: 0.8;
 }
 
