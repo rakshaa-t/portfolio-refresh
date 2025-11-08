@@ -1178,7 +1178,6 @@ export const GreexCaseStudy: React.FC = () => {
         style={{
           position: 'absolute',
           left: '50%',
-          
           top: '15814px',
           width: '970.38px',
           display: 'flex',
@@ -1418,20 +1417,23 @@ export const GreexCaseStudy: React.FC = () => {
       </motion.div>
 
       {/* Mobile Navigation Menu (for smaller screens) */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        
-        top: '1083px',
-        backgroundColor: 'rgba(255, 255, 255, 0.04)',
-        border: '1px solid rgba(0, 0, 0, 0.04)',
-        borderRadius: '12px',
-        padding: '12px 32px 18px',
-        boxSizing: 'border-box',
-        display: 'flex',
-        gap: '10px',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        initial={{ x: '-50%' }}
+        animate={{ x: '-50%' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: '1083px',
+          backgroundColor: 'rgba(255, 255, 255, 0.04)',
+          border: '1px solid rgba(0, 0, 0, 0.04)',
+          borderRadius: '12px',
+          padding: '12px 32px 18px',
+          boxSizing: 'border-box',
+          display: 'flex',
+          gap: '10px',
+          alignItems: 'flex-start'
+        }}
+      >
         <div style={{
           display: 'flex',
           alignItems: 'center',
