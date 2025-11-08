@@ -510,21 +510,29 @@ export const GreexCaseStudy: React.FC = () => {
           width: '1293px',
           height: '833px',
           borderRadius: '12px',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          position: 'relative'
         }}
       >
-        {/* Blurred placeholder - shows while image loads */}
-        {!heroImageLoaded && (
-          <div style={{
+        {/* Blurred version - shows while image loads */}
+        <img 
+          alt="Greex Project" 
+          src={imgRectangle1553} 
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover', 
+            borderRadius: '12px',
             position: 'absolute',
             inset: 0,
-            background: 'rgba(0, 0, 0, 0.3)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            borderRadius: '12px',
+            filter: heroImageLoaded ? 'blur(0px)' : 'blur(20px)',
+            transform: heroImageLoaded ? 'scale(1)' : 'scale(1.1)',
+            transition: 'filter 0.6s ease-out, transform 0.6s ease-out, opacity 0.6s ease-out',
+            opacity: 1,
             zIndex: 1
-          }} />
-        )}
+          }} 
+        />
+        {/* Full quality image - fades in when loaded */}
         <img 
           alt="Greex Project" 
           src={imgRectangle1553} 
@@ -534,9 +542,10 @@ export const GreexCaseStudy: React.FC = () => {
             height: '100%', 
             objectFit: 'cover', 
             borderRadius: '12px',
+            position: 'absolute',
+            inset: 0,
             opacity: heroImageLoaded ? 1 : 0,
-            transition: 'opacity 0.5s ease-in-out',
-            position: 'relative',
+            transition: 'opacity 0.6s ease-out',
             zIndex: 2
           }} 
         />
