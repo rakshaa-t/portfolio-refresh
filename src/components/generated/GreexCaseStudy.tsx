@@ -1249,7 +1249,7 @@ export const GreexCaseStudy: React.FC = () => {
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontSize: '22px',
           color: 'black',
-          margin: 0,
+          margin: '0 auto',
           textAlign: 'center',
           width: '100%'
         }}>
@@ -1371,7 +1371,7 @@ export const GreexCaseStudy: React.FC = () => {
                 bottom: '0.76px',
                 height: '216.05px',
                 left: '50%',
-                
+                transform: 'translateX(-50%)',
                 width: '263px',
                 borderRadius: '44px',
                 overflow: 'hidden'
