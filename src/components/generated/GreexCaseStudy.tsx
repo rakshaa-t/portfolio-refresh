@@ -395,8 +395,14 @@ export const GreexCaseStudy: React.FC = () => {
                   border: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: '8px 16px',
-                  transition: 'all 0.3s ease'
+                  padding: '10px 20px',
+                  margin: 0,
+                  lineHeight: '1.2',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                  boxSizing: 'border-box'
                 }}
               >
                 {section}
