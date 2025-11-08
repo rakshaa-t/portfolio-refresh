@@ -378,25 +378,40 @@ export const GreexCaseStudy: React.FC = () => {
           alignItems: 'center',
           boxSizing: 'border-box'
         }}>
-          {['Overview', 'Strategy', 'Tele Bots', 'Product', 'Final Thoughts', 'Feedback'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              style={{
-                fontFamily: activeSection === section ? 'Nexa, system-ui, sans-serif' : 'Nexa, system-ui, sans-serif',
-                fontWeight: activeSection === section ? 'bold' : 'normal',
-                fontSize: '16px',
-                color: activeSection === section ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0,
-                transition: 'color 0.3s'
-              }}
-            >
-              {section}
-            </button>
-          ))}
+          {['Overview', 'Strategy', 'Tele Bots', 'Product', 'Final Thoughts', 'Feedback'].map((section) => {
+            const isActive = activeSection === section;
+            return (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive 
+                    ? 'rgba(255, 255, 255, 0.15)' 
+                    : 'rgba(255, 255, 255, 0.05)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  border: isActive 
+                    ? '1px solid rgba(255, 255, 255, 0.3)' 
+                    : '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  padding: '8px 16px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: isActive 
+                    ? '0px 4px 12px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.2)' 
+                    : '0px 2px 8px rgba(0, 0, 0, 0.05)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                {section}
+              </button>
+            );
+          })}
         </div>
         <div style={{
           position: 'absolute',
@@ -1582,19 +1597,26 @@ export const GreexCaseStudy: React.FC = () => {
                   fontWeight: isActive ? 'bold' : 'normal',
                   fontSize: '16px',
                   color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                  backdropFilter: isActive ? 'blur(8px)' : 'none',
-                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
-                  border: 'none',
+                  background: isActive 
+                    ? 'rgba(255, 255, 255, 0.15)' 
+                    : 'rgba(255, 255, 255, 0.05)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  border: isActive 
+                    ? '1px solid rgba(255, 255, 255, 0.3)' 
+                    : '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '9999px',
                   cursor: 'pointer',
                   padding: '4px 4px',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.3s ease',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '32px'
+                  minHeight: '32px',
+                  boxShadow: isActive 
+                    ? '0px 4px 12px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.2)' 
+                    : '0px 2px 8px rgba(0, 0, 0, 0.05)'
                 }}
               >
                 {section}
@@ -1635,13 +1657,14 @@ export const GreexCaseStudy: React.FC = () => {
               width: '32px',
               height: '32px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               cursor: 'pointer',
               flexShrink: 0,
-              pointerEvents: y > 500 ? 'auto' : 'none'
+              pointerEvents: y > 500 ? 'auto' : 'none',
+              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1), inset 0px 1px 0px rgba(255, 255, 255, 0.2)'
             }}
             aria-label="Scroll to top"
           >
