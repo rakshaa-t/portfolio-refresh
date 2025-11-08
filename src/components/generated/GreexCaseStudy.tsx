@@ -1337,7 +1337,7 @@ export const GreexCaseStudy: React.FC = () => {
                 fontSize: '14px',
                 color: 'black',
                 left: '50%',
-                
+                transform: 'translateX(-50%)',
                 top: '17.4px',
                 margin: 0,
                 whiteSpace: 'nowrap',
