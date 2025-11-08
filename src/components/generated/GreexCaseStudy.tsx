@@ -62,6 +62,7 @@ const imgX = "https://www.figma.com/api/mcp/asset/e4a3a7ec-771c-4706-a077-3f43fb
 export const GreexCaseStudy: React.FC = () => {
   const [activeSection, setActiveSection] = React.useState("Overview");
   const [heroImageLoaded, setHeroImageLoaded] = React.useState(false);
+  const [isManualScroll, setIsManualScroll] = React.useState(false);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -78,6 +79,9 @@ export const GreexCaseStudy: React.FC = () => {
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // Don't override manual tab selection during scroll animation
+      if (isManualScroll) return;
+      
       // Find the section that's currently most visible at the top
       let activeEntry: IntersectionObserverEntry | null = null;
       let maxTopRatio = -1;
@@ -134,6 +138,9 @@ export const GreexCaseStudy: React.FC = () => {
 
     // Also check on scroll for more accurate detection
     const handleScroll = () => {
+      // Don't override manual tab selection during scroll animation
+      if (isManualScroll) return;
+      
       const scrollPosition = window.scrollY + 200; // Offset for header
       
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -170,16 +177,26 @@ export const GreexCaseStudy: React.FC = () => {
       });
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isManualScroll]);
 
   const scrollToSection = (sectionId: string) => {
+    // Set active immediately when clicked
     setActiveSection(sectionId);
+    
+    // Prevent scroll handler from overriding during scroll animation
+    setIsManualScroll(true);
+    
     const element = document.getElementById(sectionId.toLowerCase().replace(/\s+/g, '-'));
     if (element) {
       const headerHeight = 71;
       const yOffset = -headerHeight - 20;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
+      
+      // Reset manual scroll flag after scroll animation completes (typically ~500-1000ms)
+      setTimeout(() => {
+        setIsManualScroll(false);
+      }, 1000);
     }
   };
 
@@ -397,8 +414,8 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  paddingTop: '12px',
-                  paddingBottom: '12px',
+                  paddingTop: isActive ? '14px' : '12px',
+                  paddingBottom: isActive ? '14px' : '12px',
                   paddingLeft: '20px',
                   paddingRight: '20px',
                   margin: 0,
@@ -408,10 +425,17 @@ export const GreexCaseStudy: React.FC = () => {
                   justifyContent: 'center',
                   transition: 'all 0.3s ease',
                   boxSizing: 'border-box',
-                  whiteSpace: 'nowrap'
+                  whiteSpace: 'nowrap',
+                  verticalAlign: 'middle'
                 }}
               >
-                {section}
+                <span style={{ 
+                  display: 'inline-block',
+                  lineHeight: '1',
+                  verticalAlign: 'middle'
+                }}>
+                  {section}
+                </span>
               </button>
             );
           })}
@@ -1462,18 +1486,25 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: isActive ? '8px 16px' : '8px',
+                  padding: isActive ? '10px 16px' : '8px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '32px',
+                  minHeight: isActive ? '36px' : '32px',
                   lineHeight: '1',
-                  margin: 0
+                  margin: 0,
+                  verticalAlign: 'middle'
                 }}
               >
-                {section}
+                <span style={{ 
+                  display: 'inline-block',
+                  lineHeight: '1',
+                  verticalAlign: 'middle'
+                }}>
+                  {section}
+                </span>
               </motion.button>
             );
           })}
