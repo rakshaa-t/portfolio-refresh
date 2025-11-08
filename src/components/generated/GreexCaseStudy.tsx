@@ -386,7 +386,7 @@ export const GreexCaseStudy: React.FC = () => {
                 onClick={() => scrollToSection(section)}
                 style={{
                   fontFamily: 'Nexa, system-ui, sans-serif',
-                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontWeight: isActive ? '700' : '400',
                   fontSize: '16px',
                   color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
                   background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
@@ -395,14 +395,18 @@ export const GreexCaseStudy: React.FC = () => {
                   border: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: '10px 20px',
+                  paddingTop: '12px',
+                  paddingBottom: '12px',
+                  paddingLeft: '20px',
+                  paddingRight: '20px',
                   margin: 0,
-                  lineHeight: '1.2',
+                  lineHeight: '1',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'all 0.3s ease',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 {section}
