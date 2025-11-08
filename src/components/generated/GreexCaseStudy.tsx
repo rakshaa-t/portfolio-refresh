@@ -1499,9 +1499,10 @@ export const GreexCaseStudy: React.FC = () => {
                   justifyContent: 'center',
                   minHeight: '32px',
                   height: '32px',
-                  lineHeight: '16px',
+                  lineHeight: '1',
                   margin: 0,
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  transform: 'translateY(0.5px)'
                 }}
               >
                 {section}
