@@ -62,6 +62,7 @@ const imgX = "https://www.figma.com/api/mcp/asset/e4a3a7ec-771c-4706-a077-3f43fb
 export const GreexCaseStudy: React.FC = () => {
   const [activeSection, setActiveSection] = React.useState("Overview");
   const [heroImageLoaded, setHeroImageLoaded] = React.useState(false);
+  const [heroImageBlurLoaded, setHeroImageBlurLoaded] = React.useState(false);
   const [isManualScroll, setIsManualScroll] = React.useState(false);
   
   // Scroll tracking for navigation bar
@@ -510,13 +511,15 @@ export const GreexCaseStudy: React.FC = () => {
           width: '1293px',
           height: '833px',
           borderRadius: '12px',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          backgroundColor: '#0c0c0c'
         }}
       >
-        {/* Blurred version - shows while image loads */}
+        {/* Blurred placeholder - loads instantly with low quality */}
         <img 
           alt="Greex Project" 
           src={imgRectangle1553} 
+          onLoad={() => setHeroImageBlurLoaded(true)}
           style={{ 
             width: '100%', 
             height: '100%', 
@@ -524,11 +527,12 @@ export const GreexCaseStudy: React.FC = () => {
             borderRadius: '12px',
             position: 'absolute',
             inset: 0,
-            filter: heroImageLoaded ? 'blur(0px)' : 'blur(20px)',
-            transform: heroImageLoaded ? 'scale(1)' : 'scale(1.1)',
-            transition: 'filter 0.6s ease-out, transform 0.6s ease-out, opacity 0.6s ease-out',
-            opacity: 1,
-            zIndex: 1
+            filter: 'blur(20px)',
+            transform: 'scale(1.1)',
+            opacity: heroImageBlurLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease-in',
+            zIndex: 1,
+            imageRendering: 'auto'
           }} 
         />
         {/* Full quality image - fades in when loaded */}
