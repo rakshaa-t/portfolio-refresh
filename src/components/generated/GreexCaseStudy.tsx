@@ -1588,7 +1588,7 @@ export const GreexCaseStudy: React.FC = () => {
                   border: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: '4px 4px',
+                  padding: '8px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
