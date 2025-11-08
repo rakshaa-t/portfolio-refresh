@@ -102,7 +102,7 @@ export const GreexCaseStudy: React.FC = () => {
         });
       }
 
-      if (activeEntry) {
+      if (activeEntry && activeEntry.target instanceof HTMLElement) {
         const sectionId = activeEntry.target.id;
         // Map section IDs to display names
         const sectionMap: { [key: string]: string } = {
