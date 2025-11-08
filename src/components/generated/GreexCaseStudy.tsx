@@ -1201,6 +1201,7 @@ export const GreexCaseStudy: React.FC = () => {
           display: 'flex',
           gap: '22px',
           alignItems: 'center',
+          justifyContent: 'center',
           width: '100%'
         }}>
           {/* Ova Card */}
@@ -1470,7 +1471,7 @@ export const GreexCaseStudy: React.FC = () => {
         }}>
           <img alt="" src={imgGroup1171274696} style={{ width: '100%', height: '100%', display: 'block' }} />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
