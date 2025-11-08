@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 import useScroll from "../../hooks/useScroll";
 
 // Image assets from Figma MCP
@@ -1545,7 +1546,7 @@ export const GreexCaseStudy: React.FC = () => {
         style={{
           position: 'fixed',
           left: '50%',
-          top: '100px',
+          bottom: '40px',
           zIndex: 40,
           backgroundColor: 'rgba(0, 0, 0, 0.08)',
           backdropFilter: 'blur(22px)',
@@ -1555,17 +1556,18 @@ export const GreexCaseStudy: React.FC = () => {
           padding: '12px 32px 18px',
           boxSizing: 'border-box',
           display: 'flex',
-          gap: '10px',
-          alignItems: 'flex-start'
+          gap: '16px',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
+          gap: '10px',
           fontSize: '16px',
-          textAlign: 'center',
-          width: '475px'
+          textAlign: 'center'
         }}>
           {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
             const isActive = activeSection === section;
@@ -1596,6 +1598,37 @@ export const GreexCaseStudy: React.FC = () => {
             );
           })}
         </div>
+        
+        {/* Scroll to top button */}
+        <motion.button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ 
+            opacity: y > 200 ? 1 : 0,
+            scale: y > 200 ? 1 : 0
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            cursor: 'pointer',
+            marginLeft: '8px',
+            pointerEvents: y > 200 ? 'auto' : 'none'
+          }}
+          aria-label="Scroll to top"
+        >
+          <ArrowUp size={16} color="white" />
+        </motion.button>
         <div style={{
           position: 'absolute',
           left: '32px',
