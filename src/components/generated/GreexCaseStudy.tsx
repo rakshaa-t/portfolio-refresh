@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
 import useScroll from "../../hooks/useScroll";
 
 // Image assets from Figma MCP
@@ -288,17 +289,24 @@ export const GreexCaseStudy: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <div id="overview" style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '194px',
-        width: '1293px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        id="overview" 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '194px',
+          width: '1293px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+          alignItems: 'flex-start'
+        }}
+      >
         <h1 style={{
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontWeight: 'bold',
@@ -320,35 +328,47 @@ export const GreexCaseStudy: React.FC = () => {
         }}>
           Greex was an interesting case study because this was my stepping stone in the world of crypto. Intended to be a defi trading platform for options and futures. The USP was that they were looking to add pre built strategies within the platform that users could apply to their trades and get insights on which trade would bring what kind of impact. This was directed towards users that needed help with understanding aspects of trading options and futures and the probabilities that come with each trade.
         </p>
-      </div>
+      </motion.div>
 
       {/* Project Image */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '367px',
-        width: '1293px',
-        height: '833px',
-        borderRadius: '12px',
-        overflow: 'hidden'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '367px',
+          width: '1293px',
+          height: '833px',
+          borderRadius: '12px',
+          overflow: 'hidden'
+        }}
+      >
         <img alt="Greex Project" src={imgRectangle1553} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-      </div>
+      </motion.div>
 
       {/* What I did Section */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '1260px',
-        width: '1293px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        height: '315px'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '1260px',
+          width: '1293px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          height: '315px'
+        }}
+      >
         {/* Title */}
         <div style={{
           alignSelf: 'stretch',
@@ -487,20 +507,27 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Strategy Section */}
-      <div id="strategy" style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '1918px',
-        width: '1293px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '18px',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        id="strategy" 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '1918px',
+          width: '1293px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '18px',
+          alignItems: 'flex-start'
+        }}
+      >
         <h2 style={{
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontWeight: 'bold',
@@ -528,19 +555,25 @@ export const GreexCaseStudy: React.FC = () => {
             For there Telegram bots we decided to go with the vision of using "Greek Mythology" as our inspiration, combing "greeks" - the term of the trading world and combing those two to be our anchor for the design system. As for the UI design dark theme was the trend for crypto startups in 2024 and we decided to primarily focus on dark theme + a variation of light theme for future use.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main Features & Star Feature */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '1635px',
-        width: '1293px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '1635px',
+          width: '1293px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -623,18 +656,24 @@ export const GreexCaseStudy: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* MacBook Pro Image Section */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '2245px',
-        width: '1293px',
-        height: '603px',
-        overflow: 'hidden'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '2245px',
+          width: '1293px',
+          height: '603px',
+          overflow: 'hidden'
+        }}
+      >
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
           <img alt="MacBook Pro" src={imgMacBookPro1612} style={{ width: '100%', height: '86.63%', position: 'absolute', top: '3.9%', left: 0 }} />
         </div>
@@ -648,20 +687,27 @@ export const GreexCaseStudy: React.FC = () => {
         }}>
           <img alt="Mask group" src={imgMaskGroup21} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
-      </div>
+      </motion.div>
 
       {/* Telegram Bots Section */}
-      <div id="tele-bots" style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '2888px',
-        width: '1293px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '18px',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        id="tele-bots" 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '2888px',
+          width: '1293px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '18px',
+          alignItems: 'flex-start'
+        }}
+      >
         <h2 style={{
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontWeight: 'bold',
@@ -682,20 +728,26 @@ export const GreexCaseStudy: React.FC = () => {
         }}>
           For the desktop trading platform we knew what we wanted to go with which was standard trading screens, strategy cards, line and candle graphs, and trade screens. However where we had more creative freedom was with the Telegram bots as they were supposed to be gamified trading mini apps for enthusiasts and rookies. Since these were gamified experiences we used an experimental approach for LED style CTAs, louder graphics and colors.
         </p>
-      </div>
+      </motion.div>
 
       {/* Telegram Bot Screenshots Gallery */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '3071px',
-        width: '1289px',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '1072px',
-        justifyContent: 'space-between'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '3071px',
+          width: '1289px',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '1072px',
+          justifyContent: 'space-between'
+        }}
+      >
         <div style={{
           display: 'flex',
           gap: '41px',
@@ -746,20 +798,27 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Product Section */}
-      <div id="product" style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '4203px',
-        width: '1293px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '18px',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        id="product" 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '4203px',
+          width: '1293px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '18px',
+          alignItems: 'flex-start'
+        }}
+      >
         <h2 style={{
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontWeight: 'bold',
@@ -780,7 +839,7 @@ export const GreexCaseStudy: React.FC = () => {
         }}>
           We studied the flow of options and futures trading flow and decided to start with the trading screens first , when I was onboarded a lot of trading screens were already designed so I had to pick up from where it was left off. The trading screens had to include basic actions like call and put, browse through markets and have data visuals in the form og graphs and cards. The challenge was to make the trade screens as less bloated as possible.
         </p>
-      </div>
+      </motion.div>
 
       {/* Product Screenshots */}
       {[
@@ -790,7 +849,13 @@ export const GreexCaseStudy: React.FC = () => {
         { src: imgCallOptionHover4, top: '6984px' },
         { src: imgCallOptionHover5, top: '7850px' }
       ].map((img, idx) => (
-        <div key={idx} style={{
+        <motion.div 
+          key={idx} 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
+          style={{
           position: 'absolute',
           left: '50%',
           transform: 'translateX(-50%)',
@@ -802,43 +867,61 @@ export const GreexCaseStudy: React.FC = () => {
           overflow: 'hidden'
         }}>
           <img alt={`Call option ${idx + 1}`} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-        </div>
+        </motion.div>
       ))}
 
       {/* Additional Product Images */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '8716px',
-        width: '1282px',
-        height: '829px'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '8716px',
+          width: '1282px',
+          height: '829px'
+        }}
+      >
         <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </div>
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '9605px',
-        width: '1282px',
-        height: '303px'
-      }}>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '9605px',
+          width: '1282px',
+          height: '303px'
+        }}
+      >
         <img alt="Frame" src={imgFrame75601} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </div>
+      </motion.div>
 
       {/* Extended Telegram Bot Gallery */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '9968px',
-        width: '1289px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '88px',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '9968px',
+          width: '1289px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '88px',
+          alignItems: 'flex-start'
+        }}
+      >
         {/* Row 1 */}
         <div style={{
           display: 'flex',
@@ -974,21 +1057,27 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* High-Fidelity Designs Section */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '12895px',
-        width: '1281px',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '880px',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '12895px',
+          width: '1281px',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '880px',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start'
+        }}
+      >
         <h2 style={{
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontWeight: 'bold',
@@ -1009,38 +1098,50 @@ export const GreexCaseStudy: React.FC = () => {
         }}>
           <img alt="Call option hover" src={imgCallOptionHover6} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
         </div>
-      </div>
+      </motion.div>
 
       {/* Screenshot Section */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '13837px',
-        width: '1281px',
-        height: '1047px'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '13837px',
+          width: '1281px',
+          height: '1047px'
+        }}
+      >
         <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </div>
+      </motion.div>
 
       {/* Testimonial Section */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '15338px',
-        width: '1288px',
-        backgroundColor: '#0c0c0c',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        borderRadius: '12px',
-        padding: '40px',
-        boxSizing: 'border-box',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '15338px',
+          width: '1288px',
+          backgroundColor: '#0c0c0c',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '40px',
+          boxSizing: 'border-box',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -1070,21 +1171,27 @@ export const GreexCaseStudy: React.FC = () => {
             - Sarthak Sharma, ex Co-founder, Greex
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* More Work Section */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '15814px',
-        width: '970.38px',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '396.2px',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '15814px',
+          width: '970.38px',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '396.2px',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}
+      >
         <h2 style={{
           fontFamily: 'Nexa, system-ui, sans-serif',
           fontSize: '22px',
@@ -1235,20 +1342,27 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Final Thoughts Section */}
-      <div id="final-thoughts" style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '14996px',
-        width: '1295px',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '282px',
-        justifyContent: 'space-between'
-      }}>
+      <motion.div 
+        id="final-thoughts" 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '14996px',
+          width: '1295px',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '282px',
+          justifyContent: 'space-between'
+        }}
+      >
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -1305,7 +1419,7 @@ export const GreexCaseStudy: React.FC = () => {
             The platform was successfully designed and tested, with strong feedback during early demos. Although the company shut down due to investor issues, the product foundation remains one of my proudest projects - a complete, self-driven deep-dive into a complex domain translated into a clean, functional product experience.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Navigation Menu (for smaller screens) */}
       <div style={{
