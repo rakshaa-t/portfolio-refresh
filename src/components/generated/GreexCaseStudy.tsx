@@ -87,39 +87,50 @@ export const GreexCaseStudy: React.FC = () => {
       margin: '0 auto'
     }}>
       {/* Background Blurs */}
-      <div style={{
-        position: 'absolute',
-        width: '1472px',
-        height: '761px',
-        left: '-227px',
-        top: '281px',
-        backgroundColor: '#373737',
-        borderRadius: '4444px',
-        filter: 'blur(200px)',
-        pointerEvents: 'none',
-        zIndex: -2
-      }} />
-      <div style={{
-        position: 'absolute',
-        width: '1629px',
-        height: '842px',
-        left: '474px',
-        top: '537px',
-        backgroundColor: '#2d2d2d',
-        borderRadius: '4444px',
-        filter: 'blur(200px)',
-        pointerEvents: 'none',
-        zIndex: -2
-      }} />
-      <div style={{
-        position: 'absolute',
-        width: '1728px',
-        height: '760px',
-        left: '50%',
-        
-        top: '15692px',
-        backgroundColor: '#dee1ed'
-      }} />
+      <motion.div 
+        initial={{ x: '-50%' }}
+        animate={{ x: '-50%' }}
+        style={{
+          position: 'absolute',
+          width: '1472px',
+          height: '761px',
+          left: '50%',
+          top: '281px',
+          backgroundColor: '#373737',
+          borderRadius: '4444px',
+          filter: 'blur(200px)',
+          pointerEvents: 'none',
+          zIndex: -2
+        }}
+      />
+      <motion.div 
+        initial={{ x: '-50%' }}
+        animate={{ x: '-50%' }}
+        style={{
+          position: 'absolute',
+          width: '1629px',
+          height: '842px',
+          left: '50%',
+          top: '537px',
+          backgroundColor: '#2d2d2d',
+          borderRadius: '4444px',
+          filter: 'blur(200px)',
+          pointerEvents: 'none',
+          zIndex: -2
+        }}
+      />
+      <motion.div 
+        initial={{ x: '-50%' }}
+        animate={{ x: '-50%' }}
+        style={{
+          position: 'absolute',
+          width: '1728px',
+          height: '760px',
+          left: '50%',
+          top: '15692px',
+          backgroundColor: '#dee1ed'
+        }}
+      />
 
       {/* Navigation Bar - Scroll-based hide/show */}
       <nav 
