@@ -1553,21 +1553,20 @@ export const GreexCaseStudy: React.FC = () => {
           backdropFilter: 'blur(22px)',
           WebkitBackdropFilter: 'blur(22px)',
           border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: '12px',
-          padding: '12px 32px',
+          borderRadius: '16px',
+          padding: '16px 8px',
           boxSizing: 'border-box',
           display: 'flex',
-          gap: '16px',
+          gap: '8px',
           alignItems: 'center',
-          justifyContent: 'center',
-          height: '48px'
+          justifyContent: 'center'
         }}
       >
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '10px',
+          gap: '8px',
           fontSize: '16px'
         }}>
           {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
@@ -1589,13 +1588,13 @@ export const GreexCaseStudy: React.FC = () => {
                   border: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: '6px 16px',
+                  padding: '4px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  height: '100%'
+                  minHeight: '32px'
                 }}
               >
                 {section}
