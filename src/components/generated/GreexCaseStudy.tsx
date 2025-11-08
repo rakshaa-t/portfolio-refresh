@@ -80,7 +80,7 @@ export const GreexCaseStudy: React.FC = () => {
       let activeEntry: IntersectionObserverEntry | null = null;
       let maxTopRatio = -1;
 
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         if (entry.isIntersecting) {
           const rect = entry.boundingClientRect;
           const topRatio = Math.max(0, (window.innerHeight - rect.top) / window.innerHeight);
@@ -91,28 +91,32 @@ export const GreexCaseStudy: React.FC = () => {
             activeEntry = entry;
           }
         }
-      });
-
-      // If no section is at the top, find the first intersecting section
-      if (!activeEntry) {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !activeEntry) {
-            activeEntry = entry;
-          }
-        });
       }
 
-      if (activeEntry && activeEntry.target instanceof HTMLElement) {
-        const sectionId = activeEntry.target.id;
-        // Map section IDs to display names
-        const sectionMap: { [key: string]: string } = {
-          'overview': 'Overview',
-          'strategy': 'Strategy',
-          'product': 'Product',
-          'final-thoughts': 'Final Thoughts'
-        };
-        if (sectionMap[sectionId]) {
-          setActiveSection(sectionMap[sectionId]);
+      // If no section is at the top, find the first intersecting section
+      if (activeEntry === null) {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            activeEntry = entry;
+            break;
+          }
+        }
+      }
+
+      if (activeEntry !== null) {
+        const target = activeEntry.target;
+        if (target instanceof HTMLElement) {
+          const sectionId = target.id;
+          // Map section IDs to display names
+          const sectionMap: { [key: string]: string } = {
+            'overview': 'Overview',
+            'strategy': 'Strategy',
+            'product': 'Product',
+            'final-thoughts': 'Final Thoughts'
+          };
+          if (sectionMap[sectionId]) {
+            setActiveSection(sectionMap[sectionId]);
+          }
         }
       }
     };
