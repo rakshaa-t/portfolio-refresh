@@ -1541,7 +1541,7 @@ export const GreexCaseStudy: React.FC = () => {
         style={{
           position: 'fixed',
           left: '50%',
-          top: '1083px',
+          top: '100px',
           zIndex: 40,
           backgroundColor: 'rgba(0, 0, 0, 0.08)',
           backdropFilter: 'blur(22px)',
