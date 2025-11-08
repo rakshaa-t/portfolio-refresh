@@ -61,6 +61,7 @@ const imgX = "https://www.figma.com/api/mcp/asset/e4a3a7ec-771c-4706-a077-3f43fb
 
 export const GreexCaseStudy: React.FC = () => {
   const [activeSection, setActiveSection] = React.useState("Overview");
+  const [heroImageLoaded, setHeroImageLoaded] = React.useState(false);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -393,6 +394,7 @@ export const GreexCaseStudy: React.FC = () => {
                   backdropFilter: isActive ? 'blur(8px)' : 'none',
                   WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
                   border: 'none',
+                  outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
                   paddingTop: '12px',
@@ -483,7 +485,33 @@ export const GreexCaseStudy: React.FC = () => {
           overflow: 'hidden'
         }}
       >
-        <img alt="Greex Project" src={imgRectangle1553} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
+        {/* Blurred placeholder - shows while image loads */}
+        {!heroImageLoaded && (
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.3)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            borderRadius: '12px',
+            zIndex: 1
+          }} />
+        )}
+        <img 
+          alt="Greex Project" 
+          src={imgRectangle1553} 
+          onLoad={() => setHeroImageLoaded(true)}
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover', 
+            borderRadius: '12px',
+            opacity: heroImageLoaded ? 1 : 0,
+            transition: 'opacity 0.5s ease-in-out',
+            position: 'relative',
+            zIndex: 2
+          }} 
+        />
       </motion.div>
 
       {/* What I did Section */}
@@ -1431,6 +1459,7 @@ export const GreexCaseStudy: React.FC = () => {
                   backdropFilter: isActive ? 'blur(8px)' : 'none',
                   WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
                   border: 'none',
+                  outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
                   padding: isActive ? '8px 16px' : '8px',
@@ -1439,7 +1468,9 @@ export const GreexCaseStudy: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '32px'
+                  minHeight: '32px',
+                  lineHeight: '1',
+                  margin: 0
                 }}
               >
                 {section}
