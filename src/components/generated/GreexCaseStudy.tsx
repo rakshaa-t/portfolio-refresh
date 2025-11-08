@@ -378,25 +378,31 @@ export const GreexCaseStudy: React.FC = () => {
           alignItems: 'center',
           boxSizing: 'border-box'
         }}>
-          {['Overview', 'Strategy', 'Tele Bots', 'Product', 'Final Thoughts', 'Feedback'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              style={{
-                fontFamily: activeSection === section ? 'Nexa, system-ui, sans-serif' : 'Nexa, system-ui, sans-serif',
-                fontWeight: activeSection === section ? 'bold' : 'normal',
-                fontSize: '16px',
-                color: activeSection === section ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0,
-                transition: 'color 0.3s'
-              }}
-            >
-              {section}
-            </button>
-          ))}
+          {['Overview', 'Strategy', 'Tele Bots', 'Product', 'Final Thoughts', 'Feedback'].map((section) => {
+            const isActive = activeSection === section;
+            return (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backdropFilter: isActive ? 'blur(8px)' : 'none',
+                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  padding: '8px 16px',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {section}
+              </button>
+            );
+          })}
         </div>
         <div style={{
           position: 'absolute',
