@@ -515,10 +515,11 @@ export const GreexCaseStudy: React.FC = () => {
           backgroundColor: '#0c0c0c'
         }}
       >
-        {/* Blurred placeholder - loads instantly with low quality */}
+        {/* Blurred placeholder - shows immediately as image loads */}
         <img 
           alt="Greex Project" 
           src={imgRectangle1553} 
+          loading="eager"
           onLoad={() => setHeroImageBlurLoaded(true)}
           style={{ 
             width: '100%', 
@@ -530,7 +531,7 @@ export const GreexCaseStudy: React.FC = () => {
             filter: 'blur(20px)',
             transform: 'scale(1.1)',
             opacity: heroImageBlurLoaded ? 1 : 0,
-            transition: 'opacity 0.3s ease-in',
+            transition: 'opacity 0.2s ease-in',
             zIndex: 1,
             imageRendering: 'auto'
           }} 
@@ -539,6 +540,7 @@ export const GreexCaseStudy: React.FC = () => {
         <img 
           alt="Greex Project" 
           src={imgRectangle1553} 
+          loading="eager"
           onLoad={() => setHeroImageLoaded(true)}
           style={{ 
             width: '100%', 
