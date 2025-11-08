@@ -1492,8 +1492,6 @@ export const GreexCaseStudy: React.FC = () => {
               <motion.button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 style={{
                   fontFamily: 'Nexa, system-ui, sans-serif',
                   fontWeight: isActive ? 'bold' : 'normal',
