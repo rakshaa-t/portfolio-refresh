@@ -1629,15 +1629,6 @@ export const GreexCaseStudy: React.FC = () => {
         >
           <ArrowUp size={16} color="white" />
         </motion.button>
-        <div style={{
-          position: 'absolute',
-          left: '32px',
-          top: '44px',
-          width: '475px',
-          height: '0px'
-        }}>
-          <img alt="" src={imgGroup1171274696} style={{ width: '100%', height: '100%', display: 'block' }} />
-        </div>
       </motion.div>
     </div>
   );
