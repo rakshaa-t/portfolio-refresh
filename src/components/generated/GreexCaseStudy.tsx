@@ -1451,10 +1451,10 @@ export const GreexCaseStudy: React.FC = () => {
           WebkitBackdropFilter: 'blur(22px)',
           border: '1px solid rgba(255, 255, 255, 0.08)',
           borderRadius: '16px',
-          padding: '16px 8px',
+          padding: '16px 16px',
           boxSizing: 'border-box',
           display: 'flex',
-          gap: '8px',
+          gap: '16px',
           alignItems: 'center',
           justifyContent: 'center'
         }}
@@ -1464,7 +1464,9 @@ export const GreexCaseStudy: React.FC = () => {
           alignItems: 'center',
           justifyContent: 'center',
           gap: '16px',
-          fontSize: '16px'
+          fontSize: '16px',
+          margin: 0,
+          padding: 0
         }}>
           {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
             const isActive = activeSection === section;
@@ -1486,13 +1488,14 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: isActive ? '10px 16px' : '8px',
+                  padding: isActive ? '8px 16px' : '8px 8px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: isActive ? '36px' : '32px',
+                  minHeight: '32px',
+                  height: '32px',
                   lineHeight: '1',
                   margin: 0,
                   verticalAlign: 'middle'
@@ -1514,9 +1517,9 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div
           initial={{ width: 0, opacity: 0 }}
           animate={{ 
-            width: y > 500 ? 40 : 0,
+            width: y > 500 ? 32 : 0,
             opacity: y > 500 ? 1 : 0,
-            marginLeft: y > 500 ? 8 : 0
+            marginLeft: 0
           }}
           transition={{ 
             duration: 0.3, 
@@ -1527,8 +1530,11 @@ export const GreexCaseStudy: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: '40px',
-            padding: '4px 0'
+            height: '32px',
+            width: '32px',
+            flexShrink: 0,
+            margin: 0,
+            padding: 0
           }}
         >
           <motion.button
