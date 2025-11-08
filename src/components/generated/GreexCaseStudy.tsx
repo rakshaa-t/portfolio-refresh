@@ -510,8 +510,7 @@ export const GreexCaseStudy: React.FC = () => {
           width: '1293px',
           height: '833px',
           borderRadius: '12px',
-          overflow: 'hidden',
-          position: 'relative'
+          overflow: 'hidden'
         }}
       >
         {/* Blurred version - shows while image loads */}
