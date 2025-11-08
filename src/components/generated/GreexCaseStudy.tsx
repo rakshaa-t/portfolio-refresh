@@ -260,19 +260,6 @@ export const GreexCaseStudy: React.FC = () => {
           zIndex: -2
         }}
       />
-      <motion.div 
-        initial={{ x: '-50%' }}
-        animate={{ x: '-50%' }}
-        style={{
-          position: 'absolute',
-          width: '1728px',
-          height: '760px',
-          left: '50%',
-          top: '15692px',
-          backgroundColor: '#dee1ed'
-        }}
-      />
-
       {/* Navigation - Responsive */}
       <nav className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
         y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
