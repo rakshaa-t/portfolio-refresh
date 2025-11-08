@@ -186,14 +186,31 @@ export const GreexCaseStudy: React.FC = () => {
     // Prevent scroll handler from overriding during scroll animation
     setIsManualScroll(true);
     
-    const element = document.getElementById(sectionId.toLowerCase().replace(/\s+/g, '-'));
+    // Map section names to their actual IDs
+    const sectionIdMap: { [key: string]: string } = {
+      'Overview': 'overview',
+      'Strategy': 'strategy',
+      'Product': 'product',
+      'Final Thoughts': 'final-thoughts'
+    };
+    
+    const actualId = sectionIdMap[sectionId] || sectionId.toLowerCase().replace(/\s+/g, '-');
+    const element = document.getElementById(actualId);
+    
     if (element) {
       const headerHeight = 71;
       const yOffset = -headerHeight - 20;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       
-      // Reset manual scroll flag after scroll animation completes (typically ~500-1000ms)
+      // Reset manual scroll flag after scroll animation completes
+      // Use longer timeout for sections further down the page
+      const timeout = actualId === 'final-thoughts' ? 1500 : 1000;
+      setTimeout(() => {
+        setIsManualScroll(false);
+      }, timeout);
+    } else {
+      // If element not found, still keep manual scroll flag for a bit
       setTimeout(() => {
         setIsManualScroll(false);
       }, 1000);
