@@ -65,6 +65,53 @@ export const GreexCaseStudy: React.FC = () => {
   const { y, directionY } = useScroll();
   const headerTriggerY = 50;
 
+  // Scroll-based section detection
+  React.useEffect(() => {
+    const sections = ['overview', 'strategy', 'product', 'final-thoughts'];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px', // Trigger when section is in upper 20% of viewport
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          // Map section IDs to display names
+          const sectionMap: { [key: string]: string } = {
+            'overview': 'Overview',
+            'strategy': 'Strategy',
+            'product': 'Product',
+            'final-thoughts': 'Final Thoughts'
+          };
+          if (sectionMap[sectionId]) {
+            setActiveSection(sectionMap[sectionId]);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId.toLowerCase().replace(/\s+/g, '-'));
@@ -1436,8 +1483,10 @@ export const GreexCaseStudy: React.FC = () => {
           position: 'absolute',
           left: '50%',
           top: '1083px',
-          backgroundColor: 'rgba(255, 255, 255, 0.04)',
-          border: '1px solid rgba(0, 0, 0, 0.04)',
+          backgroundColor: 'rgba(0, 0, 0, 0.08)',
+          backdropFilter: 'blur(22px)',
+          WebkitBackdropFilter: 'blur(22px)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
           borderRadius: '12px',
           padding: '12px 32px 18px',
           boxSizing: 'border-box',
@@ -1454,24 +1503,34 @@ export const GreexCaseStudy: React.FC = () => {
           textAlign: 'center',
           width: '475px'
         }}>
-          {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              style={{
-                fontFamily: activeSection === section ? 'Nexa, system-ui, sans-serif' : 'Nexa, system-ui, sans-serif',
-                fontWeight: activeSection === section ? 'bold' : 'normal',
-                fontSize: '16px',
-                color: activeSection === section ? 'white' : 'rgba(255, 255, 255, 0.28)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0
-              }}
-            >
-              {section}
-            </button>
-          ))}
+          {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
+            const isActive = activeSection === section;
+            return (
+              <motion.button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backdropFilter: isActive ? 'blur(8px)' : 'none',
+                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  padding: '6px 16px',
+                  transition: 'all 0.2s ease',
+                  position: 'relative'
+                }}
+              >
+                {section}
+              </motion.button>
+            );
+          })}
         </div>
         <div style={{
           position: 'absolute',
