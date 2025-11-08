@@ -9,52 +9,6 @@ import { PortfolioMobile } from "./PortfolioMobile";
 import useScroll from "../../hooks/useScroll";
 import HighlightedText, { Controls } from "../common/HighlightedText";
 import "../common/HighlightedText.css";
-import MousePositionVarsSetter, { relativeMouseClassname } from "../common/MousePositionVarsSetter";
-import "../common/Card.css";
-import "../common/Interactions.css";
-
-// Sequential word reveal component (based on Marijana's Heading.tsx)
-const HeadingWithStagger: React.FC<{
-  words: string[];
-  className?: string;
-  style?: React.CSSProperties;
-}> = ({ words, className, style }) => {
-  const textRefs = React.useRef(new Map<number, Controls>());
-  const index = React.useRef(0);
-  const staggerMs = 300;
-
-  React.useEffect(() => {
-    if (index.current === words.length) {
-      return;
-    }
-    const interval = setInterval(() => {
-      textRefs.current.get(index.current)?.start();
-      index.current += 1;
-    }, staggerMs);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [words.length]);
-
-  return (
-    <div className={className} style={style}>
-      {words.map((word, i) => (
-        <React.Fragment key={i}>
-          <HighlightedText
-            ref={(e) => {
-              if (e) textRefs.current.set(i, e);
-            }}
-            className="inline-block"
-          >
-            {word}
-          </HighlightedText>
-          {i < words.length - 1 && ' '}
-        </React.Fragment>
-      ))}
-    </div>
-  );
-};
 
 export interface RakshaPortfolioProps {}
 
@@ -280,23 +234,26 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
 
-  // Refs for highlighted text animation - sequential word reveal
-  const headingTextRefs = React.useRef(new Map<number, Controls>());
-  const headingWordIndex = React.useRef(0);
+  // Refs for highlighted text animation - single continuous sweep across all text
+  const headingTextRef = React.useRef<Controls | null>(null);
   
-  // Sequential word reveal animation
+  // Single continuous animation for all text
   React.useEffect(() => {
-    const staggerMs = 300;
-    if (headingWordIndex.current === 2) { // "Raksha" and "T"
-      return;
-    }
-    const interval = setInterval(() => {
-      headingTextRefs.current.get(headingWordIndex.current)?.start();
-      headingWordIndex.current += 1;
-    }, staggerMs);
+    // Wait a bit for ref to be attached, then start animation
+    const timeout = setTimeout(() => {
+      if (headingTextRef.current) {
+        headingTextRef.current.start();
+      } else {
+        setTimeout(() => {
+          if (headingTextRef.current) {
+            headingTextRef.current.start();
+          }
+        }, 100);
+      }
+    }, 100);
 
     return () => {
-      clearInterval(interval);
+      clearTimeout(timeout);
     };
   }, []);
 
@@ -571,7 +528,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Unified responsive component (no separate mobile component)
   return (
     <div className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
-      <MousePositionVarsSetter />
       {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
       <div className="hidden lg:block absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
       <div className="hidden lg:block absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
@@ -686,7 +642,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
       {/* Content Container - Responsive */}
       <div className="relative w-full px-6 md:px-11 pt-6 md:pt-11 mt-10 md:mt-[60px] flex flex-col items-center">
-          {/* Main Heading - Sequential Word Reveal */}
+          {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -694,12 +650,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
           >
           <div className="w-full">
-            {/* Sequential word reveal for "Raksha T" */}
-            <HeadingWithStagger
-              words={['Raksha', 'T']}
+            <HighlightedText
+              ref={(e) => {
+                headingTextRef.current = e;
+              }}
               className="text-base md:text-xl lg:text-2xl font-bold break-words"
               style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
-            />
+            >
+              Raksha T
+            </HighlightedText>
             <span className="hidden md:inline"><br/><br/></span>
             <br/>
             <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
@@ -713,7 +672,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://cal.com/raksha-tated-v2ee58/15min"
               target="_blank"
               rel="noopener noreferrer"
-                className="link-underline cursor-pointer" 
+                className="underline hover:opacity-80 transition-opacity cursor-pointer" 
                 style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
             >
               let's talk
@@ -721,7 +680,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             <br/><br/>
               chat with my portfolio below ↓ or explore projects{' '}
             <button 
-                className="link-underline bg-none border-none p-0 cursor-pointer" 
+                className="underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
                 style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
               onClick={() => {/* TODO: navigate to projects */}}
             >
@@ -828,7 +787,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
               {/* Dynamic Messages - Memoized for performance */}
               {messages.map((msg) => (
-                <div key={msg.id} className={`message-enter w-full flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div key={msg.id} className={`w-full flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <MessageBubble msg={msg} />
                 </div>
               ))}
@@ -964,7 +923,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                   <button
                     onClick={() => handleSendMessage()}
                     disabled={isLoading || !inputValue.trim()}
-                    className="button-press w-[44px] h-[44px] bg-white rounded-[3333px] flex items-center justify-center hover:shadow-lg transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-[44px] h-[44px] bg-white rounded-[3333px] flex items-center justify-center hover:shadow-lg transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{
                       boxShadow: '-17px 20px 10px rgba(40, 63, 228, 0.01), -10px 11px 9px rgba(40, 63, 228, 0.02), -4px 5px 7px rgba(40, 63, 228, 0.03), -1px 1px 4px rgba(40, 63, 228, 0.04)'
                     }}
@@ -984,7 +943,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         key={`${suggestion}-${index}`}
                         onClick={() => handlePillClick(suggestion)}
                         disabled={isLoading}
-                        className="button-press relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
                         style={{
                           background: 'rgba(255, 255, 255, 0.3)',
                           border: '1px solid rgba(255, 255, 255, 0.4)'
@@ -1141,7 +1100,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       duration: 0.5,
                       delay: PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1
                     }}
-                    className={`absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab ${relativeMouseClassname}`}
+                    className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
                       // Always use initial position - cards reset on refresh
                       left: card.position.left,
@@ -1301,7 +1260,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="flex justify-center w-full mb-8 mt-[92px]">
         <div
           onClick={() => setIsCalendarOpen(true)}
-          className={`book-call-button button-press ${isButtonHovered ? 'is-hovered' : ''} cursor-pointer block w-[calc(100%-32px)] md:w-[410px] relative overflow-visible`}
+          className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''} cursor-pointer block w-[calc(100%-32px)] md:w-[410px] relative overflow-visible`}
         >
           {/* Hover detection overlay - exactly matches button rectangle */}
           <div
