@@ -1496,18 +1496,14 @@ export const GreexCaseStudy: React.FC = () => {
                   justifyContent: 'center',
                   minHeight: '32px',
                   height: '32px',
-                  lineHeight: '1',
+                  lineHeight: '16px',
                   margin: 0,
-                  verticalAlign: 'middle'
+                  paddingTop: isActive ? '8px' : '8px',
+                  paddingBottom: isActive ? '8px' : '8px',
+                  boxSizing: 'border-box'
                 }}
               >
-                <span style={{ 
-                  display: 'inline-block',
-                  lineHeight: '1',
-                  verticalAlign: 'middle'
-                }}>
-                  {section}
-                </span>
+                {section}
               </motion.button>
             );
           })}
