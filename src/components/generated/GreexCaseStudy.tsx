@@ -116,7 +116,7 @@ export const GreexCaseStudy: React.FC = () => {
         width: '1728px',
         height: '760px',
         left: '50%',
-        transform: 'translateX(-50%)',
+        
         top: '15692px',
         backgroundColor: '#dee1ed'
       }} />
@@ -226,7 +226,7 @@ export const GreexCaseStudy: React.FC = () => {
       <div style={{
         position: 'absolute',
         left: '50%',
-        transform: 'translateX(-50%)',
+        
         top: '930px',
         width: '866px',
         display: 'none'
@@ -234,7 +234,7 @@ export const GreexCaseStudy: React.FC = () => {
         <div style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '930px',
           width: '866px',
           height: '112px',
@@ -245,7 +245,7 @@ export const GreexCaseStudy: React.FC = () => {
         <div style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '953px',
           backdropFilter: 'blur(22px)',
           backgroundColor: 'rgba(0, 0, 0, 0.08)',
@@ -279,7 +279,7 @@ export const GreexCaseStudy: React.FC = () => {
         <div style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '997px',
           width: '626px',
           height: '0px'
@@ -291,14 +291,13 @@ export const GreexCaseStudy: React.FC = () => {
       {/* Hero Section */}
       <motion.div 
         id="overview" 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
           top: '194px',
           width: '1293px',
           display: 'flex',
@@ -332,14 +331,13 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Project Image */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
           top: '367px',
           width: '1293px',
           height: '833px',
@@ -352,14 +350,13 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* What I did Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
           top: '1260px',
           width: '1293px',
           display: 'flex',
@@ -512,14 +509,14 @@ export const GreexCaseStudy: React.FC = () => {
       {/* Strategy Section */}
       <motion.div 
         id="strategy" 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '1918px',
           width: '1293px',
           display: 'flex',
@@ -559,14 +556,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Main Features & Star Feature */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '1635px',
           width: '1293px',
           display: 'flex',
@@ -660,14 +657,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* MacBook Pro Image Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '2245px',
           width: '1293px',
           height: '603px',
@@ -692,14 +689,14 @@ export const GreexCaseStudy: React.FC = () => {
       {/* Telegram Bots Section */}
       <motion.div 
         id="tele-bots" 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '2888px',
           width: '1293px',
           display: 'flex',
@@ -732,14 +729,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Telegram Bot Screenshots Gallery */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '3071px',
           width: '1289px',
           display: 'flex',
@@ -803,14 +800,14 @@ export const GreexCaseStudy: React.FC = () => {
       {/* Product Section */}
       <motion.div 
         id="product" 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '4203px',
           width: '1293px',
           display: 'flex',
@@ -851,14 +848,13 @@ export const GreexCaseStudy: React.FC = () => {
       ].map((img, idx) => (
         <motion.div 
           key={idx} 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, x: '-50%' }}
+          whileInView={{ opacity: 1, y: 0, x: '-50%' }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
           style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
           top: img.top,
           width: '1281px',
           height: '828px',
@@ -872,14 +868,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Additional Product Images */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '8716px',
           width: '1282px',
           height: '829px'
@@ -888,14 +884,14 @@ export const GreexCaseStudy: React.FC = () => {
         <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </motion.div>
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '9605px',
           width: '1282px',
           height: '303px'
@@ -906,14 +902,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Extended Telegram Bot Gallery */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '9968px',
           width: '1289px',
           display: 'flex',
@@ -1061,14 +1057,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* High-Fidelity Designs Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '12895px',
           width: '1281px',
           display: 'flex',
@@ -1102,14 +1098,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Screenshot Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '13837px',
           width: '1281px',
           height: '1047px'
@@ -1120,14 +1116,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* Testimonial Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '15338px',
           width: '1288px',
           backgroundColor: '#0c0c0c',
@@ -1175,14 +1171,14 @@ export const GreexCaseStudy: React.FC = () => {
 
       {/* More Work Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '15814px',
           width: '970.38px',
           display: 'flex',
@@ -1283,7 +1279,7 @@ export const GreexCaseStudy: React.FC = () => {
                 fontSize: '14px',
                 color: 'black',
                 left: '50%',
-                transform: 'translateX(-50%)',
+                
                 top: '17.4px',
                 margin: 0,
                 whiteSpace: 'nowrap',
@@ -1317,7 +1313,7 @@ export const GreexCaseStudy: React.FC = () => {
                 bottom: '0.76px',
                 height: '216.05px',
                 left: '50%',
-                transform: 'translateX(-50%)',
+                
                 width: '263px',
                 borderRadius: '44px',
                 overflow: 'hidden'
@@ -1347,14 +1343,14 @@ export const GreexCaseStudy: React.FC = () => {
       {/* Final Thoughts Section */}
       <motion.div 
         id="final-thoughts" 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, x: '-50%' }}
+        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '14996px',
           width: '1295px',
           display: 'flex',
@@ -1425,7 +1421,7 @@ export const GreexCaseStudy: React.FC = () => {
       <div style={{
         position: 'absolute',
         left: '50%',
-        transform: 'translateX(-50%)',
+        
         top: '1083px',
         backgroundColor: 'rgba(255, 255, 255, 0.04)',
         border: '1px solid rgba(0, 0, 0, 0.04)',
