@@ -71,26 +71,50 @@ export const GreexCaseStudy: React.FC = () => {
     
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -60% 0px', // Trigger when section is in upper 20% of viewport
-      threshold: 0
+      rootMargin: '-100px 0px -70% 0px', // Trigger when section top is 100px from viewport top
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // Find the section that's currently most visible at the top
+      let activeEntry: IntersectionObserverEntry | null = null;
+      let maxTopRatio = -1;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          // Map section IDs to display names
-          const sectionMap: { [key: string]: string } = {
-            'overview': 'Overview',
-            'strategy': 'Strategy',
-            'product': 'Product',
-            'final-thoughts': 'Final Thoughts'
-          };
-          if (sectionMap[sectionId]) {
-            setActiveSection(sectionMap[sectionId]);
+          const rect = entry.boundingClientRect;
+          const topRatio = Math.max(0, (window.innerHeight - rect.top) / window.innerHeight);
+          
+          // Prefer sections that are closer to the top of the viewport
+          if (rect.top <= 200 && topRatio > maxTopRatio) {
+            maxTopRatio = topRatio;
+            activeEntry = entry;
           }
         }
       });
+
+      // If no section is at the top, find the first intersecting section
+      if (!activeEntry) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !activeEntry) {
+            activeEntry = entry;
+          }
+        });
+      }
+
+      if (activeEntry) {
+        const sectionId = activeEntry.target.id;
+        // Map section IDs to display names
+        const sectionMap: { [key: string]: string } = {
+          'overview': 'Overview',
+          'strategy': 'Strategy',
+          'product': 'Product',
+          'final-thoughts': 'Final Thoughts'
+        };
+        if (sectionMap[sectionId]) {
+          setActiveSection(sectionMap[sectionId]);
+        }
+      }
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -102,6 +126,35 @@ export const GreexCaseStudy: React.FC = () => {
       }
     });
 
+    // Also check on scroll for more accurate detection
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // Offset for header
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const elementTop = element.offsetTop;
+          const elementBottom = elementTop + element.offsetHeight;
+          
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+            const sectionMap: { [key: string]: string } = {
+              'overview': 'Overview',
+              'strategy': 'Strategy',
+              'product': 'Product',
+              'final-thoughts': 'Final Thoughts'
+            };
+            if (sectionMap[sections[i]]) {
+              setActiveSection(sectionMap[sections[i]]);
+            }
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
     return () => {
       sections.forEach((sectionId) => {
         const element = document.getElementById(sectionId);
@@ -109,6 +162,7 @@ export const GreexCaseStudy: React.FC = () => {
           observer.unobserve(element);
         }
       });
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -1480,14 +1534,15 @@ export const GreexCaseStudy: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Mobile Navigation Menu (for smaller screens) */}
+      {/* Mobile Navigation Menu (for smaller screens) - Sticky */}
       <motion.div 
         initial={{ x: '-50%' }}
         animate={{ x: '-50%' }}
         style={{
-          position: 'absolute',
+          position: 'fixed',
           left: '50%',
           top: '1083px',
+          zIndex: 40,
           backgroundColor: 'rgba(0, 0, 0, 0.08)',
           backdropFilter: 'blur(22px)',
           WebkitBackdropFilter: 'blur(22px)',
