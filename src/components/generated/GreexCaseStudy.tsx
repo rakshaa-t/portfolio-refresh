@@ -1629,10 +1629,11 @@ export const GreexCaseStudy: React.FC = () => {
             opacity: { duration: 0.2 }
           }}
           style={{
-            overflow: 'hidden',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            minHeight: '40px',
+            padding: '4px 0'
           }}
         >
           <motion.button
