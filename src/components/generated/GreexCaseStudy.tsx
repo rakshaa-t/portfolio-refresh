@@ -1488,7 +1488,10 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: isActive ? '8px 16px' : '8px 8px',
+                  paddingTop: '8px',
+                  paddingBottom: '8px',
+                  paddingLeft: isActive ? '16px' : '8px',
+                  paddingRight: isActive ? '16px' : '8px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
@@ -1498,8 +1501,6 @@ export const GreexCaseStudy: React.FC = () => {
                   height: '32px',
                   lineHeight: '16px',
                   margin: 0,
-                  paddingTop: isActive ? '8px' : '8px',
-                  paddingBottom: isActive ? '8px' : '8px',
                   boxSizing: 'border-box'
                 }}
               >
