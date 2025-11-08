@@ -1488,8 +1488,8 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  paddingTop: '8px',
-                  paddingBottom: '8px',
+                  paddingTop: isActive ? '9px' : '8px',
+                  paddingBottom: isActive ? '7px' : '8px',
                   paddingLeft: isActive ? '16px' : '8px',
                   paddingRight: isActive ? '16px' : '8px',
                   transition: 'all 0.2s ease',
@@ -1499,10 +1499,9 @@ export const GreexCaseStudy: React.FC = () => {
                   justifyContent: 'center',
                   minHeight: '32px',
                   height: '32px',
-                  lineHeight: '1',
+                  lineHeight: '1.2',
                   margin: 0,
-                  boxSizing: 'border-box',
-                  transform: 'translateY(0.5px)'
+                  boxSizing: 'border-box'
                 }}
               >
                 {section}
