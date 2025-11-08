@@ -1566,7 +1566,7 @@ export const GreexCaseStudy: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '8px',
+          gap: '16px',
           fontSize: '16px'
         }}>
           {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
@@ -1588,7 +1588,7 @@ export const GreexCaseStudy: React.FC = () => {
                   border: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: '4px',
+                  padding: '4px 4px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
@@ -1607,9 +1607,9 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div
           initial={{ width: 0, opacity: 0 }}
           animate={{ 
-            width: y > 200 ? 40 : 0,
-            opacity: y > 200 ? 1 : 0,
-            marginLeft: y > 200 ? 8 : 0
+            width: y > 500 ? 40 : 0,
+            opacity: y > 500 ? 1 : 0,
+            marginLeft: y > 500 ? 8 : 0
           }}
           transition={{ 
             duration: 0.3, 
@@ -1640,7 +1640,8 @@ export const GreexCaseStudy: React.FC = () => {
               WebkitBackdropFilter: 'blur(8px)',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               cursor: 'pointer',
-              flexShrink: 0
+              flexShrink: 0,
+              pointerEvents: y > 500 ? 'auto' : 'none'
             }}
             aria-label="Scroll to top"
           >
