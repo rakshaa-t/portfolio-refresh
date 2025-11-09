@@ -691,7 +691,7 @@ export const GreexCaseStudy: React.FC = () => {
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
           {/* Mobile: Single 2x2 grid container, Desktop: Horizontal rows */}
-          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap gap-3 md:gap-6 lg:gap-[41px] items-start justify-start w-full md:overflow-x-auto md:overflow-x-visible">
+          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full md:overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLandingPage1, name: 'Landing Page' },
               { src: imgDashboard1, name: 'Dashboard' },
@@ -781,7 +781,7 @@ export const GreexCaseStudy: React.FC = () => {
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
           {/* Mobile: Single 2x2 grid container, Desktop: Horizontal rows */}
-          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap gap-3 md:gap-6 lg:gap-[41px] items-start justify-start w-full md:overflow-x-auto md:overflow-x-visible">
+          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full md:overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLandingPage2, name: 'Landing Page' },
               { src: imgDashboard2, name: 'Dashboard' },
