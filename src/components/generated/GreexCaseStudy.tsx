@@ -914,18 +914,24 @@ export const GreexCaseStudy: React.FC = () => {
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderRadius: '9999px',
-          border: '1px solid rgba(255, 255, 255, 0.1)'
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          alignItems: 'center'
         }}>
-          {['Overview', 'Product', 'Final Thoughts'].map((section) => {
-            const isActive = activeSection === section;
+          {[
+            { label: 'Overview', number: '1' },
+            { label: 'Strategy', number: '2' },
+            { label: 'Product', number: '3' },
+            { label: 'Final Thoughts', number: '4' }
+          ].map((section) => {
+            const isActive = activeSection === section.label;
             return (
               <motion.button
-                key={section}
-                onClick={() => scrollToSection(section)}
+                key={section.label}
+                onClick={() => scrollToSection(section.label)}
                 style={{
                   flex: 1,
                   height: '48px',
-                  padding: '12px 20px',
+                  padding: '12px 16px',
                   background: isActive ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
                   border: 'none',
                   borderRadius: '9999px',
@@ -933,22 +939,55 @@ export const GreexCaseStudy: React.FC = () => {
                   transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden',
-                  fontSize: '14px',
+                  fontSize: '13px',
                   fontFamily: 'Nexa, system-ui, sans-serif',
                   fontWeight: isActive ? '600' : '400',
                   color: isActive ? 'white' : 'rgba(255, 255, 255, 0.6)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  gap: '4px',
                   margin: 0,
                   boxSizing: 'border-box',
                   whiteSpace: 'nowrap'
                 }}
               >
-                {section}
+                <span style={{ 
+                  fontSize: '11px', 
+                  opacity: 0.6,
+                  fontWeight: '400'
+                }}>
+                  {section.number}
+                </span>
+                <span>{section.label}</span>
               </motion.button>
             );
           })}
+          
+          {/* Scroll to top button */}
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '48px',
+              height: '48px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              cursor: 'pointer',
+              flexShrink: 0,
+              margin: 0,
+              padding: 0,
+              marginLeft: '4px'
+            }}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={18} color="white" />
+          </motion.button>
         </div>
       </div>
 
