@@ -703,7 +703,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img22, name: '#2' },
               { src: img21, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto', aspectRatio: 'auto' }}>
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
               </div>
             ))}
@@ -809,7 +809,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img33, name: '#2' },
               { src: imgLanding5, name: 'Landing' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
               </div>
             ))}
