@@ -938,23 +938,26 @@ export const GreexCaseStudy: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) - Matching Marijana's design */}
+      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) - Matching Marijana's design pixel for pixel */}
       <div 
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50"
+        className="md:hidden"
         style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
           padding: '16px',
           background: 'rgba(255,255,255,0.01)',
           backdropFilter: 'blur(11px)',
-          WebkitBackdropFilter: 'blur(11px)'
+          WebkitBackdropFilter: 'blur(11px)',
+          zIndex: 50
         }}
       >
         <div style={{
           display: 'flex',
           gap: '16px',
           maxWidth: '400px',
-          margin: '0 auto',
-          alignItems: 'center',
-          justifyContent: 'center'
+          margin: '0 auto'
         }}>
           {['Overview', 'Product', 'Final Thoughts'].map((section) => {
             const isActive = activeSection === section;
@@ -963,63 +966,46 @@ export const GreexCaseStudy: React.FC = () => {
                 key={section}
                 onClick={() => scrollToSection(section)}
                 style={{
+                  flex: 1,
+                  height: '60px',
+                  padding: '18px',
+                  background: isActive ? '#283FE4' : 'rgba(255,255,255,0.32)',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  outline: isActive ? '1px solid white' : 'none',
+                  boxShadow: isActive ? '1px 2px 4px rgba(0,0,0,0.10)' : 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  fontSize: '16px',
                   fontFamily: 'Nexa, system-ui, sans-serif',
                   fontWeight: isActive ? 'bold' : 'normal',
-                  fontSize: '16px',
-                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                  backdropFilter: isActive ? 'blur(8px)' : 'none',
-                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
-                  border: 'none',
-                  outline: 'none',
-                  borderRadius: '9999px',
-                  cursor: 'pointer',
-                  paddingTop: isActive ? '9px' : '8px',
-                  paddingBottom: isActive ? '7px' : '8px',
-                  paddingLeft: isActive ? '16px' : '8px',
-                  paddingRight: isActive ? '16px' : '8px',
-                  transition: 'all 0.2s ease',
-                  position: 'relative',
+                  color: 'white',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '32px',
-                  height: '32px',
-                  lineHeight: '1.2',
                   margin: 0,
-                  boxSizing: 'border-box',
-                  flex: 1
+                  boxSizing: 'border-box'
                 }}
               >
+                {/* Glow effect for active state - matching Marijana's */}
+                {isActive && (
+                  <div style={{
+                    position: 'absolute',
+                    left: 0,
+                    top: '-2px',
+                    width: '30px',
+                    height: '25px',
+                    background: 'white',
+                    boxShadow: '44px 44px 44px',
+                    filter: 'blur(22px)'
+                  }} />
+                )}
                 {section}
               </motion.button>
             );
           })}
-          
-          {/* Scroll to top button */}
-          <motion.button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '32px',
-              height: '32px',
-              borderRadius: '50%',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              cursor: 'pointer',
-              flexShrink: 0,
-              pointerEvents: y > 500 ? 'auto' : 'none',
-              opacity: y > 500 ? 1 : 0,
-              transition: 'opacity 0.2s ease'
-            }}
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={16} color="white" />
-          </motion.button>
         </div>
       </div>
 
