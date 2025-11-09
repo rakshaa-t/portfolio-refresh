@@ -699,8 +699,8 @@ export const GreexCaseStudy: React.FC = () => {
               { src: imgLiveTracking1, name: 'Live Tracking' },
               { src: imgLearnToEarn1, name: 'Learn to earn' }
             ].map((img, idx) => (
-              <div key={idx} className="border-0 md:border border-white/12 rounded-none md:rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
+              <div key={idx} className="border-0 md:border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
               </div>
             ))}
           </div>
@@ -712,8 +712,8 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img22, name: '#2' },
               { src: img21, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border-0 md:border border-white/12 rounded-none md:rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
+              <div key={idx} className="border-0 md:border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
               </div>
             ))}
           </div>
@@ -798,8 +798,8 @@ export const GreexCaseStudy: React.FC = () => {
               { src: imgLiveTracking2, name: 'Live Tracking' },
               { src: imgLearnToEarn2, name: 'Learn to earn' }
             ].map((img, idx) => (
-              <div key={idx} className="border-0 md:border border-white/12 rounded-none md:rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
+              <div key={idx} className="border-0 md:border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
               </div>
             ))}
           </div>
@@ -813,8 +813,8 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img24, name: '#2' },
               { src: img24, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border-0 md:border border-white/12 rounded-none md:rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
+              <div key={idx} className="border-0 md:border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
               </div>
             ))}
           </div>
