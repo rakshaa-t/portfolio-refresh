@@ -971,27 +971,29 @@ export const GreexCaseStudy: React.FC = () => {
                   padding: '18px',
                   background: isActive ? '#283FE4' : 'rgba(255,255,255,0.32)',
                   border: 'none',
-                  borderRadius: '9999px',
-                  outline: isActive ? '1px solid white' : 'none',
-                  boxShadow: isActive ? '1px 2px 4px rgba(0,0,0,0.10)' : 'none',
+                  borderRadius: '4444px',
                   cursor: 'pointer',
                   transition: 'all 0.3s',
                   position: 'relative',
                   overflow: 'hidden',
-                  fontSize: '16px',
+                  fontSize: '14px',
                   fontFamily: 'Nexa, system-ui, sans-serif',
-                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontWeight: isActive ? '600' : '400',
                   color: 'white',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: 0,
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  outline: isActive ? '1px solid white' : 'none',
+                  boxShadow: isActive ? '1px 2px 4px rgba(0,0,0,0.10)' : 'none',
+                  whiteSpace: 'nowrap'
                 }}
               >
-                {/* Glow effect for active state - matching Marijana's */}
+                {/* Glow effect for active state - matching Marijana's exact CSS */}
                 {isActive && (
                   <div style={{
+                    content: '""',
                     position: 'absolute',
                     left: 0,
                     top: '-2px',
