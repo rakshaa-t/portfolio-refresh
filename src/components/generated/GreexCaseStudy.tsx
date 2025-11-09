@@ -938,7 +938,7 @@ export const GreexCaseStudy: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) - Matching Marijana's design pixel for pixel */}
+      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) - Matching Marijana's about page design */}
       <div 
         className="md:hidden"
         style={{
@@ -955,9 +955,15 @@ export const GreexCaseStudy: React.FC = () => {
       >
         <div style={{
           display: 'flex',
-          gap: '16px',
+          gap: '8px',
           maxWidth: '400px',
-          margin: '0 auto'
+          margin: '0 auto',
+          padding: '4px',
+          background: 'rgba(0, 0, 0, 0.2)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderRadius: '9999px',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
         }}>
           {['Overview', 'Product', 'Final Thoughts'].map((section) => {
             const isActive = activeSection === section;
@@ -967,43 +973,27 @@ export const GreexCaseStudy: React.FC = () => {
                 onClick={() => scrollToSection(section)}
                 style={{
                   flex: 1,
-                  height: '60px',
-                  padding: '18px',
-                  background: isActive ? '#283FE4' : 'rgba(255,255,255,0.32)',
+                  height: '48px',
+                  padding: '12px 20px',
+                  background: isActive ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
                   border: 'none',
-                  borderRadius: '4444px',
+                  borderRadius: '9999px',
                   cursor: 'pointer',
-                  transition: 'all 0.3s',
+                  transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden',
                   fontSize: '14px',
                   fontFamily: 'Nexa, system-ui, sans-serif',
                   fontWeight: isActive ? '600' : '400',
-                  color: 'white',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.6)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: 0,
                   boxSizing: 'border-box',
-                  outline: isActive ? '1px solid white' : 'none',
-                  boxShadow: isActive ? '1px 2px 4px rgba(0,0,0,0.10)' : 'none',
                   whiteSpace: 'nowrap'
                 }}
               >
-                {/* Glow effect for active state - matching Marijana's exact CSS */}
-                {isActive && (
-                  <div style={{
-                    content: '""',
-                    position: 'absolute',
-                    left: 0,
-                    top: '-2px',
-                    width: '30px',
-                    height: '25px',
-                    background: 'white',
-                    boxShadow: '44px 44px 44px',
-                    filter: 'blur(22px)'
-                  }} />
-                )}
                 {section}
               </motion.button>
             );
