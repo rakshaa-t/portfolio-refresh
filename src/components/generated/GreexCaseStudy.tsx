@@ -651,9 +651,6 @@ export const GreexCaseStudy: React.FC = () => {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <img alt="MacBook Pro" src={imgMacBookPro1612} className="absolute top-[3.9%] left-0 w-full h-[86.63%] object-contain" />
           </div>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] md:w-[280px] lg:w-[1293px] h-[113px] md:h-[158px] lg:h-auto lg:aspect-[1293/603]">
-            <img alt="Mask group" src={imgMaskGroup21} className="w-full h-full object-cover" />
-          </div>
         </motion.div>
 
         {/* Telegram Bots Section */}
