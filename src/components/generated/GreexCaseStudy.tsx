@@ -691,7 +691,7 @@ export const GreexCaseStudy: React.FC = () => {
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
         >
           {/* Row 1 - 2x2 grid on mobile, horizontal on desktop */}
-          <div className="grid grid-cols-2 md:flex md:flex-row gap-0 md:gap-6 lg:gap-[41px] items-start justify-start w-full overflow-x-auto md:overflow-x-visible" style={{ margin: 0, padding: 0 }}>
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-start justify-start w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLandingPage1, name: 'Landing Page' },
               { src: imgDashboard1, name: 'Dashboard' },
@@ -699,21 +699,21 @@ export const GreexCaseStudy: React.FC = () => {
               { src: imgLiveTracking1, name: 'Live Tracking' },
               { src: imgLearnToEarn1, name: 'Learn to earn' }
             ].map((img, idx) => (
-              <div key={idx} className="border-0 md:border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" />
               </div>
             ))}
           </div>
           {/* Row 2 - 2x2 grid on mobile, horizontal on desktop */}
-          <div className="grid grid-cols-2 md:flex md:flex-row gap-0 md:gap-6 lg:gap-[41px] items-start md:justify-between w-full overflow-x-auto md:overflow-x-visible" style={{ margin: 0, padding: 0 }}>
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-start md:justify-between w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLanding1, name: 'Landing' },
               { src: imgLeaderboard1, name: 'Leaderboard' },
               { src: img22, name: '#2' },
               { src: img21, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border-0 md:border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 m-0 p-0" style={{ minHeight: '200px', height: 'auto', lineHeight: 0 }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px] block" style={{ display: 'block', margin: 0, padding: 0 }} />
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" />
               </div>
             ))}
           </div>
