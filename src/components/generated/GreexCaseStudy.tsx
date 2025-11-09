@@ -444,7 +444,8 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
+          style={{ minHeight: '200px' }}
         >
         {/* Blurred placeholder - shows immediately as image loads */}
         <img 
@@ -454,11 +455,16 @@ export const GreexCaseStudy: React.FC = () => {
           onLoad={() => setHeroImageBlurLoaded(true)}
           style={{ 
             width: '100%', 
-            height: '100%', 
+            height: 'auto', 
+            minHeight: '200px',
+            maxHeight: 'none',
             objectFit: 'cover', 
             borderRadius: '12px',
             position: 'absolute',
-            inset: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             filter: 'blur(20px)',
             transform: 'scale(1.1)',
             opacity: heroImageBlurLoaded ? 1 : 0,
@@ -475,11 +481,16 @@ export const GreexCaseStudy: React.FC = () => {
           onLoad={() => setHeroImageLoaded(true)}
           style={{ 
             width: '100%', 
-            height: '100%', 
+            height: 'auto', 
+            minHeight: '200px',
+            maxHeight: 'none',
             objectFit: 'cover', 
             borderRadius: '12px',
             position: 'absolute',
-            inset: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             opacity: heroImageLoaded ? 1 : 0,
             transition: 'opacity 0.6s ease-out',
             zIndex: 2
@@ -501,12 +512,12 @@ export const GreexCaseStudy: React.FC = () => {
           </h2>
 
           {/* Container for borders and content */}
-          <div className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] min-h-[200px] md:min-h-[240px] lg:min-h-[266px]">
+          <div className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px]" style={{ minHeight: '180px', paddingBottom: '60px' }}>
             {/* Top border */}
-            <div className="absolute top-0 left-0 right-0 h-16 md:h-20 lg:h-[88px] rounded-t-lg border border-white" />
+            <div className="absolute top-0 left-0 right-0 h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] rounded-t-lg border border-white" />
 
             {/* Row 1 Content - positioned over top border */}
-            <div className="absolute top-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-2 md:py-0">
+            <div className="absolute top-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-3 md:py-0">
               <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Product Design
               </div>
@@ -516,10 +527,10 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
 
             {/* Middle border */}
-            <div className="absolute top-16 md:top-20 lg:top-[88px] left-0 right-0 h-20 md:h-22 lg:h-[90px] border-l border-r border-white" />
+            <div className="absolute top-[60px] md:top-20 lg:top-[88px] left-0 right-0 h-auto md:h-22 lg:h-[90px] min-h-[60px] md:min-h-[88px] lg:min-h-[90px] border-l border-r border-white" />
 
             {/* Row 2 Content - positioned inside middle border */}
-            <div className="absolute top-20 md:top-24 lg:top-[122.5px] left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0 py-2 md:py-0">
+            <div className="absolute top-[60px] md:top-20 lg:top-[122.5px] left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0 py-3 md:py-0">
               <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Game Design
               </div>
@@ -529,10 +540,10 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
 
             {/* Bottom border */}
-            <div className="absolute bottom-0 left-0 right-0 h-16 md:h-20 lg:h-[88px] rounded-b-lg border border-white" />
+            <div className="absolute bottom-0 left-0 right-0 h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] rounded-b-lg border border-white" />
 
             {/* Row 3 Content - positioned over bottom border */}
-            <div className="absolute bottom-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-2 md:py-0">
+            <div className="absolute bottom-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-3 md:py-0">
               <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Design System
               </div>
@@ -607,7 +618,8 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[1293/603] overflow-hidden mb-8 md:mb-10 lg:mb-12"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] overflow-hidden mb-8 md:mb-10 lg:mb-12"
+          style={{ minHeight: '200px' }}
         >
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <img alt="MacBook Pro" src={imgMacBookPro1612} className="absolute top-[3.9%] left-0 w-full h-[86.63%] object-contain" />
@@ -651,7 +663,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: imgLiveTracking1, name: 'Live Tracking' },
               { src: imgLearnToEarn1, name: 'Learn to earn' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
               </div>
             ))}
@@ -664,7 +676,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img22, name: '#2' },
               { src: img21, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
               </div>
             ))}
@@ -703,7 +715,8 @@ export const GreexCaseStudy: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
-              className="relative w-full aspect-[1281/828] border border-white/12 rounded-xl overflow-hidden"
+              className="relative w-full border border-white/12 rounded-xl overflow-hidden"
+              style={{ minHeight: '200px' }}
             >
               <img alt={`Call option ${idx + 1}`} src={src} className="w-full h-full object-cover rounded-xl" />
             </motion.div>
@@ -716,7 +729,8 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] aspect-[1282/829] mb-8 md:mb-10 lg:mb-12"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] mb-8 md:mb-10 lg:mb-12"
+          style={{ minHeight: '200px' }}
         >
           <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} className="w-full h-full object-cover rounded-xl" />
         </motion.div>
@@ -725,7 +739,8 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] aspect-[1282/303] mb-8 md:mb-10 lg:mb-12"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] mb-8 md:mb-10 lg:mb-12"
+          style={{ minHeight: '100px' }}
         >
           <img alt="Frame" src={imgFrame75601} className="w-full h-full object-cover rounded-xl" />
         </motion.div>
@@ -747,7 +762,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: imgLiveTracking2, name: 'Live Tracking' },
               { src: imgLearnToEarn2, name: 'Learn to earn' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
               </div>
             ))}
@@ -762,7 +777,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img24, name: '#2' },
               { src: img24, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
               </div>
             ))}
@@ -777,7 +792,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img26, name: '#2' },
               { src: img27, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-contain rounded-[22px]" />
               </div>
             ))}
@@ -792,7 +807,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img29, name: '#2' },
               { src: img30, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-contain rounded-[22px]" />
               </div>
             ))}
@@ -807,7 +822,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img33, name: '#2' },
               { src: imgLanding5, name: 'Landing' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-contain rounded-[22px]" />
               </div>
             ))}
@@ -886,6 +901,93 @@ export const GreexCaseStudy: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) */}
+      <motion.div 
+        initial={{ x: '-50%' }}
+        animate={{ x: '-50%' }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        className="md:hidden fixed left-1/2 bottom-0 z-40 bg-black/8 backdrop-blur-[22px] border-t border-white/8 rounded-t-2xl p-4 gap-4 items-center justify-center w-full"
+        style={{
+          WebkitBackdropFilter: 'blur(22px)',
+          transform: 'translateX(-50%)'
+        }}
+      >
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '16px',
+          maxWidth: '400px',
+          margin: '0 auto',
+          width: '100%'
+        }}>
+          {['Overview', 'Product', 'Final Thoughts'].map((section) => {
+            const isActive = activeSection === section;
+            return (
+              <motion.button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backdropFilter: isActive ? 'blur(8px)' : 'none',
+                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  paddingTop: isActive ? '9px' : '8px',
+                  paddingBottom: isActive ? '7px' : '8px',
+                  paddingLeft: isActive ? '16px' : '8px',
+                  paddingRight: isActive ? '16px' : '8px',
+                  transition: 'all 0.2s ease',
+                  position: 'relative',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: '32px',
+                  height: '32px',
+                  lineHeight: '1.2',
+                  margin: 0,
+                  boxSizing: 'border-box',
+                  flex: 1
+                }}
+              >
+                {section}
+              </motion.button>
+            );
+          })}
+          
+          {/* Scroll to top button */}
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              cursor: 'pointer',
+              flexShrink: 0,
+              pointerEvents: y > 500 ? 'auto' : 'none',
+              opacity: y > 500 ? 1 : 0,
+              transition: 'opacity 0.2s ease'
+            }}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={16} color="white" />
+          </motion.button>
+        </div>
+      </motion.div>
 
       {/* Desktop Bottom Navigation Menu - Only visible on desktop (lg:) */}
       <motion.div 
