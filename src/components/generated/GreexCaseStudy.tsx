@@ -237,7 +237,7 @@ export const GreexCaseStudy: React.FC = () => {
         {/* Mobile Header - visible on mobile, hidden on desktop */}
         <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
             {/* Logo - "raks" */}
-          <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = window.location.origin; }} className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <a href="https://cursor-portfolio-git-style-batch-ui-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
               raks
           </a>
 
@@ -282,7 +282,7 @@ export const GreexCaseStudy: React.FC = () => {
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
         <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
             {/* Logo - "raks" */}
-          <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = window.location.origin; }} className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <a href="https://cursor-portfolio-git-style-batch-ui-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             raks
           </a>
 
