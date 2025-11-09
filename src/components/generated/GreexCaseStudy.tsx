@@ -957,109 +957,92 @@ export const GreexCaseStudy: React.FC = () => {
         initial={{ x: '-50%' }}
         animate={{ x: '-50%' }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        className="hidden lg:flex fixed left-1/2 bottom-10 z-40 bg-black/8 backdrop-blur-[22px] border border-white/8 rounded-2xl p-4 gap-4 items-center justify-center"
+        className="hidden lg:flex fixed left-1/2 bottom-10 z-40 bg-black/8 backdrop-blur-[22px] border border-white/8 rounded-2xl"
         style={{
-          WebkitBackdropFilter: 'blur(22px)'
+          WebkitBackdropFilter: 'blur(22px)',
+          padding: '12px 16px',
+          gap: '12px',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '16px',
-          fontSize: '16px',
-          margin: 0,
-          padding: 0
-        }}>
-          {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
-            const isActive = activeSection === section;
-            return (
-              <motion.button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                style={{
-                  fontFamily: 'Nexa, system-ui, sans-serif',
-                  fontWeight: isActive ? 'bold' : 'normal',
-                  fontSize: '16px',
-                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                  backdropFilter: isActive ? 'blur(8px)' : 'none',
-                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
-                  border: 'none',
-                  outline: 'none',
-                  borderRadius: '9999px',
-                  cursor: 'pointer',
-                  paddingTop: isActive ? '9px' : '8px',
-                  paddingBottom: isActive ? '7px' : '8px',
-                  paddingLeft: isActive ? '16px' : '8px',
-                  paddingRight: isActive ? '16px' : '8px',
-                  transition: 'all 0.2s ease',
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: '32px',
-                  height: '32px',
-                  lineHeight: '1.2',
-                  margin: 0,
-                  boxSizing: 'border-box'
-                }}
-              >
-                {section}
-              </motion.button>
-            );
-          })}
-        </div>
+        {[
+          { label: 'Overview', number: '1' },
+          { label: 'Strategy', number: '2' },
+          { label: 'Product', number: '3' },
+          { label: 'Final Thoughts', number: '4' }
+        ].map((section) => {
+          const isActive = activeSection === section.label;
+          return (
+            <motion.button
+              key={section.label}
+              onClick={() => scrollToSection(section.label)}
+              style={{
+                fontFamily: 'Nexa, system-ui, sans-serif',
+                fontWeight: isActive ? '600' : '400',
+                fontSize: '16px',
+                color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                backdropFilter: isActive ? 'blur(8px)' : 'none',
+                WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                border: 'none',
+                outline: 'none',
+                borderRadius: '9999px',
+                cursor: 'pointer',
+                padding: '10px 16px',
+                transition: 'all 0.2s ease',
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                minHeight: '40px',
+                height: '40px',
+                lineHeight: '1',
+                margin: 0,
+                boxSizing: 'border-box',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              <span style={{ 
+                fontSize: '14px', 
+                opacity: 0.6,
+                fontWeight: '400'
+              }}>
+                {section.number}
+              </span>
+              <span>{section.label}</span>
+            </motion.button>
+          );
+        })}
         
-        {/* Scroll to top button - dynamically sized */}
-        <motion.div
-          initial={{ width: 0, opacity: 0 }}
-          animate={{ 
-            width: y > 500 ? 32 : 0,
-            opacity: y > 500 ? 1 : 0,
-            marginLeft: 0
-          }}
-          transition={{ 
-            duration: 0.3, 
-            ease: [0.4, 0, 0.2, 1],
-            opacity: { duration: 0.2 }
-          }}
+        {/* Scroll to top button - always visible */}
+        <motion.button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            height: '32px',
-            width: '32px',
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            cursor: 'pointer',
             flexShrink: 0,
             margin: 0,
-            padding: 0
+            padding: 0,
+            marginLeft: '4px'
           }}
+          aria-label="Scroll to top"
         >
-          <motion.button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '32px',
-              height: '32px',
-              borderRadius: '50%',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              cursor: 'pointer',
-              flexShrink: 0,
-              pointerEvents: y > 500 ? 'auto' : 'none'
-            }}
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={16} color="white" />
-          </motion.button>
-        </motion.div>
+          <ArrowUp size={18} color="white" />
+        </motion.button>
       </motion.div>
     </div>
   );
