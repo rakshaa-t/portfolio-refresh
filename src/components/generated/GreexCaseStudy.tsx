@@ -934,6 +934,7 @@ export const GreexCaseStudy: React.FC = () => {
                   padding: '12px 16px',
                   background: isActive ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
                   border: 'none',
+                  outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
@@ -950,6 +951,7 @@ export const GreexCaseStudy: React.FC = () => {
                   boxSizing: 'border-box',
                   whiteSpace: 'nowrap'
                 }}
+                onFocus={(e) => e.target.blur()}
               >
                 {section.number}
               </motion.button>
