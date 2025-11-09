@@ -547,12 +547,9 @@ export const GreexCaseStudy: React.FC = () => {
             </div>
 
             {/* Desktop Layout - Original absolute positioning */}
-            <div className="hidden md:block relative" style={{ minHeight: '266px' }}>
-              {/* Top border */}
-              <div className="absolute top-0 left-0 right-0 h-20 lg:h-[88px] rounded-t-lg border border-white" />
-
-              {/* Row 1 Content - positioned over top border */}
-              <div className="absolute top-0 left-6 lg:left-[29px] right-6 lg:right-[29px] h-20 lg:h-[88px] flex flex-row justify-between items-center">
+            <div className="hidden md:block relative border border-white rounded-lg" style={{ minHeight: '266px', padding: '24px' }}>
+              {/* Row 1 */}
+              <div className="flex flex-row justify-between items-center pb-6 border-b border-white">
                 <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                   Product Design
                 </div>
@@ -561,11 +558,8 @@ export const GreexCaseStudy: React.FC = () => {
                 </div>
               </div>
 
-              {/* Middle border */}
-              <div className="absolute top-20 lg:top-[88px] left-0 right-0 h-22 lg:h-[90px] border-l border-r border-white" />
-
-              {/* Row 2 Content - positioned inside middle border */}
-              <div className="absolute top-20 lg:top-[122.5px] left-6 lg:left-[29px] right-6 lg:right-[29px] flex flex-row justify-between items-start">
+              {/* Row 2 */}
+              <div className="flex flex-row justify-between items-start py-6 border-b border-white">
                 <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                   Game Design
                 </div>
@@ -574,11 +568,8 @@ export const GreexCaseStudy: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bottom border */}
-              <div className="absolute bottom-0 left-0 right-0 h-20 lg:h-[88px] rounded-b-lg border border-white" />
-
-              {/* Row 3 Content - positioned over bottom border */}
-              <div className="absolute bottom-0 left-6 lg:left-[29px] right-6 lg:right-[29px] h-20 lg:h-[88px] flex flex-row justify-between items-center">
+              {/* Row 3 */}
+              <div className="flex flex-row justify-between items-center pt-6">
                 <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                   Design System
                 </div>
@@ -660,7 +651,7 @@ export const GreexCaseStudy: React.FC = () => {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <img alt="MacBook Pro" src={imgMacBookPro1612} className="absolute top-[3.9%] left-0 w-full h-[86.63%] object-contain" />
           </div>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] md:w-[280px] lg:w-[329px] h-[113px] md:h-[158px] lg:h-[186px]">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] md:w-[280px] lg:w-[1293px] h-[113px] md:h-[158px] lg:h-auto lg:aspect-[1293/833]">
             <img alt="Mask group" src={imgMaskGroup21} className="w-full h-full object-cover" />
           </div>
         </motion.div>
@@ -690,8 +681,8 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
-          {/* Mobile: Single 2x2 grid container with consistent spacing like Marijana, Desktop: Horizontal rows */}
-          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap w-full md:overflow-x-auto md:overflow-x-visible" style={{ gap: '16px' }}>
+          {/* Mobile: 2x2 grid, iPad: 4 columns, Desktop: Horizontal rows */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row lg:flex-wrap w-full lg:overflow-x-auto lg:overflow-x-visible" style={{ gap: '16px' }}>
             {[
               { src: imgLandingPage1, name: 'Landing Page' },
               { src: imgDashboard1, name: 'Dashboard' },
@@ -703,7 +694,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img22, name: '#2' },
               { src: img21, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full lg:w-[180px] xl:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
               </div>
             ))}
@@ -780,8 +771,8 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
-          {/* Mobile: Single 2x2 grid container with consistent spacing like Marijana, Desktop: Horizontal rows */}
-          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap w-full md:overflow-x-auto md:overflow-x-visible" style={{ gap: '16px' }}>
+          {/* Mobile: 2x2 grid, iPad: 4 columns, Desktop: Horizontal rows */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row lg:flex-wrap w-full lg:overflow-x-auto lg:overflow-x-visible" style={{ gap: '16px' }}>
             {[
               { src: imgLandingPage2, name: 'Landing Page' },
               { src: imgDashboard2, name: 'Dashboard' },
@@ -809,7 +800,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img33, name: '#2' },
               { src: imgLanding5, name: 'Landing' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full lg:w-[180px] xl:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
               </div>
             ))}
