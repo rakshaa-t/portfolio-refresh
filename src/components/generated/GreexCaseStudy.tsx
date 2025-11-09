@@ -716,7 +716,7 @@ export const GreexCaseStudy: React.FC = () => {
         </motion.div>
 
         {/* Product Screenshots */}
-        <div className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12">
+        <div className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col items-center md:items-center lg:items-center gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12">
           {[
             imgCallOptionHover1,
             imgCallOptionHover2,
@@ -730,7 +730,7 @@ export const GreexCaseStudy: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
-              className="relative w-full border border-white/12 rounded-xl overflow-hidden"
+              className="relative w-full md:w-[40%] lg:w-[40%] border border-white/12 rounded-xl overflow-hidden"
               style={{ minHeight: '200px' }}
             >
               <img alt={`Call option ${idx + 1}`} src={src} className="w-full h-full object-cover rounded-xl" />
