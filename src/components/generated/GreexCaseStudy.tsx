@@ -939,27 +939,19 @@ export const GreexCaseStudy: React.FC = () => {
                   transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden',
-                  fontSize: '13px',
+                  fontSize: '16px',
                   fontFamily: 'Nexa, system-ui, sans-serif',
                   fontWeight: isActive ? '600' : '400',
                   color: isActive ? 'white' : 'rgba(255, 255, 255, 0.6)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '4px',
                   margin: 0,
                   boxSizing: 'border-box',
                   whiteSpace: 'nowrap'
                 }}
               >
-                <span style={{ 
-                  fontSize: '11px', 
-                  opacity: 0.6,
-                  fontWeight: '400'
-                }}>
-                  {section.number}
-                </span>
-                <span>{section.label}</span>
+                {section.number}
               </motion.button>
             );
           })}
