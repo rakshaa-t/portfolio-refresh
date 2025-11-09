@@ -809,8 +809,8 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img33, name: '#2' },
               { src: imgLanding5, name: 'Landing' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
-                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block', position: 'absolute', top: 0, left: 0 }} />
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-auto object-cover md:rounded-[22px]" style={{ display: 'block' }} />
               </div>
             ))}
           </div>
@@ -852,10 +852,10 @@ export const GreexCaseStudy: React.FC = () => {
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1288px] bg-[#0c0c0c] border border-white/8 rounded-xl p-6 md:p-8 lg:p-10 flex flex-col gap-4 md:gap-6 items-center justify-center mb-8 md:mb-10 lg:mb-12"
         >
           <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 w-full">
-            <p className="text-xl md:text-2xl lg:text-[32px] font-bold text-white w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            <p className="text-sm md:text-2xl lg:text-[32px] font-normal text-white w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               "Raksha is a great asset to any agile team looking to overhaul designs, bringing creativity and a results-oriented approach"
             </p>
-            <p className="text-base md:text-lg lg:text-[22px] font-normal text-white/60 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <p className="text-sm md:text-lg lg:text-[22px] font-normal text-white/60 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               - Sarthak Sharma, ex Co-founder, Greex
             </p>
           </div>
