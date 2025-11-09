@@ -219,48 +219,10 @@ export const GreexCaseStudy: React.FC = () => {
   };
 
   return (
-    <div style={{ 
-      backgroundColor: '#111111', 
-      position: 'relative', 
-      width: '100%', 
-      minHeight: '16763px',
-      overflowX: 'hidden',
-      maxWidth: '1728px',
-      margin: '0 auto'
-    }}>
-      {/* Background Blurs */}
-      <motion.div 
-        initial={{ x: '-50%' }}
-        animate={{ x: '-50%' }}
-        style={{
-          position: 'absolute',
-          width: '1472px',
-          height: '761px',
-          left: '50%',
-          top: '281px',
-          backgroundColor: '#373737',
-          borderRadius: '4444px',
-          filter: 'blur(200px)',
-          pointerEvents: 'none',
-          zIndex: -2
-        }}
-      />
-      <motion.div 
-        initial={{ x: '-50%' }}
-        animate={{ x: '-50%' }}
-        style={{
-          position: 'absolute',
-          width: '1629px',
-          height: '842px',
-          left: '50%',
-          top: '537px',
-          backgroundColor: '#2d2d2d',
-          borderRadius: '4444px',
-          filter: 'blur(200px)',
-          pointerEvents: 'none',
-          zIndex: -2
-        }}
-      />
+    <div className="relative w-full bg-[#111111] overflow-x-hidden">
+      {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
+      <div className="hidden lg:block absolute w-[1472px] h-[761px] left-1/2 -translate-x-1/2 top-[281px] bg-[#373737] rounded-[4444px] blur-[200px] pointer-events-none z-[-2]" />
+      <div className="hidden lg:block absolute w-[1629px] h-[842px] left-1/2 -translate-x-1/2 top-[537px] bg-[#2d2d2d] rounded-[4444px] blur-[200px] pointer-events-none z-[-2]" />
       {/* Navigation - Responsive */}
       <nav className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
         y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
@@ -457,64 +419,33 @@ export const GreexCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <motion.div 
-        id="overview" 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: '194px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h1 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0,
-          width: '100%'
-        }}>
-          Greex : A defi Trading platform
-        </h1>
-        <p style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'rgba(255, 255, 255, 0.8)',
-          margin: 0,
-          width: '100%',
-          lineHeight: '24px'
-        }}>
-          Greex was an interesting case study because this was my stepping stone in the world of crypto. Intended to be a defi trading platform for options and futures. The USP was that they were looking to add pre built strategies within the platform that users could apply to their trades and get insights on which trade would bring what kind of impact. This was directed towards users that needed help with understanding aspects of trading options and futures and the probabilities that come with each trade.
-        </p>
-      </motion.div>
+      {/* Main Content Container - Responsive */}
+      <div className="relative w-full px-4 md:px-6 lg:px-0 pt-20 md:pt-24 lg:pt-[194px] pb-20 flex flex-col items-center">
+        {/* Hero Section */}
+        <motion.div 
+          id="overview" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-6 md:mb-8 lg:mb-10"
+        >
+          <h1 className="text-lg md:text-xl lg:text-[22px] font-bold text-white w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Greex : A defi Trading platform
+          </h1>
+          <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 w-full leading-6 md:leading-7" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            Greex was an interesting case study because this was my stepping stone in the world of crypto. Intended to be a defi trading platform for options and futures. The USP was that they were looking to add pre built strategies within the platform that users could apply to their trades and get insights on which trade would bring what kind of impact. This was directed towards users that needed help with understanding aspects of trading options and futures and the probabilities that come with each trade.
+          </p>
+        </motion.div>
 
-      {/* Project Image */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: '367px',
-          width: '1293px',
-          height: '833px',
-          borderRadius: '12px',
-          overflow: 'hidden',
-          backgroundColor: '#0c0c0c'
-        }}
-      >
+        {/* Project Image */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
+        >
         {/* Blurred placeholder - shows immediately as image loads */}
         <img 
           alt="Greex Project" 
@@ -554,405 +485,163 @@ export const GreexCaseStudy: React.FC = () => {
             zIndex: 2
           }} 
         />
-      </motion.div>
+        </motion.div>
 
-      {/* What I did Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: '1260px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          height: '315px'
-        }}
-      >
-        {/* Title */}
-        <div style={{
-          alignSelf: 'stretch',
-          color: 'white',
-          fontSize: '22px',
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: '700',
-          wordWrap: 'break-word'
-        }}>
-          What I did
-        </div>
+        {/* What I did Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 lg:gap-6 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          {/* Title */}
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            What I did
+          </h2>
 
-        {/* Container for borders and content */}
-        <div style={{ position: 'relative', width: '1293px', height: '266px' }}>
-          {/* Top border */}
-          <div style={{
-            width: '1293px',
-            height: '88px',
-            position: 'absolute',
-            top: '0',
-            borderTopLeftRadius: '8px',
-            borderTopRightRadius: '8px',
-            border: '1px white solid'
-          }} />
+          {/* Container for borders and content */}
+          <div className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] min-h-[200px] md:min-h-[240px] lg:min-h-[266px]">
+            {/* Top border */}
+            <div className="absolute top-0 left-0 right-0 h-16 md:h-20 lg:h-[88px] rounded-t-lg border border-white" />
 
-          {/* Row 1 Content - positioned over top border */}
-          <div style={{
-            width: '1235px',
-            position: 'absolute',
-            top: '0',
-            left: '29px',
-            height: '88px',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            display: 'flex'
-          }}>
-            <div style={{
-              color: 'rgba(214.88, 214.88, 214.88, 0.80)',
-              fontSize: '17px',
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: '400',
-              wordWrap: 'break-word'
-            }}>
-              Product Design
+            {/* Row 1 Content - positioned over top border */}
+            <div className="absolute top-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-16 md:h-20 lg:h-[88px] flex justify-between items-center">
+              <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                Product Design
+              </div>
+              <div className="text-sm md:text-base lg:text-[17px] text-white text-right" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                UX flows , UI design , Mobile Responsive Design
+              </div>
             </div>
-            <div style={{
-              color: 'white',
-              fontSize: '17px',
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: '400',
-              wordWrap: 'break-word'
-            }}>
-              UX flows , UI design , Mobile Responsive Design
+
+            {/* Middle border */}
+            <div className="absolute top-16 md:top-20 lg:top-[88px] left-0 right-0 h-20 md:h-22 lg:h-[90px] border-l border-r border-white" />
+
+            {/* Row 2 Content - positioned inside middle border */}
+            <div className="absolute top-20 md:top-24 lg:top-[122.5px] left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] flex justify-between items-start">
+              <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                Game Design
+              </div>
+              <div className="text-sm md:text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                Designed Telegram bots for quick gamified trading experiences and parlays
+              </div>
+            </div>
+
+            {/* Bottom border */}
+            <div className="absolute bottom-0 left-0 right-0 h-16 md:h-20 lg:h-[88px] rounded-b-lg border border-white" />
+
+            {/* Row 3 Content - positioned over bottom border */}
+            <div className="absolute bottom-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-16 md:h-20 lg:h-[88px] flex justify-between items-center">
+              <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                Design System
+              </div>
+              <div className="text-sm md:text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
+              </div>
             </div>
           </div>
+        </motion.div>
 
-          {/* Middle border */}
-          <div style={{
-            width: '1293px',
-            height: '90px',
-            position: 'absolute',
-            top: '88px',
-            borderLeft: '1px white solid',
-            borderRight: '1px white solid'
-          }} />
-
-          {/* Row 2 Content - positioned inside middle border */}
-          <div style={{
-            width: '1235px',
-            left: '29px',
-            top: '122.5px',
-            position: 'absolute',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            display: 'flex'
-          }}>
-            <div style={{
-              color: 'rgba(214.88, 214.88, 214.88, 0.80)',
-              fontSize: '17px',
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: '400',
-              wordWrap: 'break-word'
-            }}>
-              Game Design
-            </div>
-            <div style={{
-              color: 'white',
-              fontSize: '17px',
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: '400',
-              wordWrap: 'break-word'
-            }}>
-              Designed Telegram bots for quick gamified trading experiences and parlays
-            </div>
-          </div>
-
-          {/* Bottom border */}
-          <div style={{
-            width: '1293px',
-            height: '88px',
-            position: 'absolute',
-            top: '178px',
-            borderBottomRightRadius: '8px',
-            borderBottomLeftRadius: '8px',
-            border: '1px white solid'
-          }} />
-
-          {/* Row 3 Content - positioned over bottom border */}
-          <div style={{
-            width: '1235px',
-            position: 'absolute',
-            top: '178px',
-            left: '29px',
-            height: '88px',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            display: 'flex'
-          }}>
-            <div style={{
-              color: 'rgba(214.88, 214.88, 214.88, 0.80)',
-              fontSize: '17px',
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: '400',
-              wordWrap: 'break-word'
-            }}>
-              Design System
-            </div>
-            <div style={{
-              color: 'white',
-              fontSize: '17px',
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: '400',
-              wordWrap: 'break-word'
-            }}>
-              Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Strategy Section */}
-      <motion.div 
-        id="strategy" 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '1918px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          Strategy
-        </h2>
-        <div style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '24px',
-          width: '100%'
-        }}>
-          <p style={{ marginBottom: '18px' }}>
-            The goal was clear - we had to design the website in such a way that visually conveys the strategies + data in a simplified manner and allows an at-glance understanding of Strategies like Long Call Butterfly Spread, Bear Put Spread, Bull Call Spread etc.
-          </p>
-          <p style={{ marginBottom: '18px' }}>
-            There was a lot of display of data that needed to be designed in cards that looked clean and provided the user with all necessary raw material to make the trade decision. Due to a lot of data the goal was to allow progress disclosure of information vs dumping all the data on a trade screen unlike what the traditional trading platforms do.
-          </p>
-          <p>
-            For there Telegram bots we decided to go with the vision of using "Greek Mythology" as our inspiration, combing "greeks" - the term of the trading world and combing those two to be our anchor for the design system. As for the UI design dark theme was the trend for crypto startups in 2024 and we decided to primarily focus on dark theme + a variation of light theme for future use.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Main Features & Star Feature */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '1635px',
-          width: '1293px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '223px',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '637px'
-        }}>
-          <h3 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            Main Features
-          </h3>
-          <div style={{
-            backgroundColor: '#111111',
-            border: '1px solid white',
-            height: '172px',
-            borderRadius: '8px',
-            padding: '26px 32px',
-            boxSizing: 'border-box',
-            width: '100%'
-          }}>
-            <ul style={{
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: 300,
-              fontSize: '17px',
-              color: 'rgba(255, 255, 255, 0.8)',
-              lineHeight: '24px',
-              margin: 0,
-              paddingLeft: '25.5px',
-              listStyle: 'disc'
-            }}>
-              <li>Browse and apply prebuilt trading strategies</li>
-              <li>View strategy logic, risk profile, and expected outcomes</li>
-              <li>Place trades confidently through a simplified execution UI</li>
-              <li>Track trades and performance in real time through a clear portfolio dashboard</li>
-            </ul>
-          </div>
-        </div>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '223px',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '608px'
-        }}>
-          <h3 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            Star Feature
-          </h3>
-          <div style={{
-            backgroundColor: '#111111',
-            border: '1px solid white',
-            height: '172px',
-            borderRadius: '8px',
-            padding: '38px 34px',
-            boxSizing: 'border-box',
-            width: '100%'
-          }}>
-            <p style={{
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: 300,
-              fontSize: '17px',
-              color: 'rgba(255, 255, 255, 0.8)',
-              lineHeight: '24px',
-              margin: 0,
-              width: '540px'
-            }}>
-              The strategic decision to educate users while letting them act and make pre built strategies that users can apply to their trades whilst also educating them on how those strategies worked and the probobality of PNL they bring
+        {/* Strategy Section */}
+        <motion.div 
+          id="strategy" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Strategy
+          </h2>
+          <div className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <p className="mb-4 md:mb-5">
+              The goal was clear - we had to design the website in such a way that visually conveys the strategies + data in a simplified manner and allows an at-glance understanding of Strategies like Long Call Butterfly Spread, Bear Put Spread, Bull Call Spread etc.
+            </p>
+            <p className="mb-4 md:mb-5">
+              There was a lot of display of data that needed to be designed in cards that looked clean and provided the user with all necessary raw material to make the trade decision. Due to a lot of data the goal was to allow progress disclosure of information vs dumping all the data on a trade screen unlike what the traditional trading platforms do.
+            </p>
+            <p>
+              For there Telegram bots we decided to go with the vision of using "Greek Mythology" as our inspiration, combing "greeks" - the term of the trading world and combing those two to be our anchor for the design system. As for the UI design dark theme was the trend for crypto startups in 2024 and we decided to primarily focus on dark theme + a variation of light theme for future use.
             </p>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* MacBook Pro Image Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '2245px',
-          width: '1293px',
-          height: '603px',
-          overflow: 'hidden'
-        }}
-      >
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-          <img alt="MacBook Pro" src={imgMacBookPro1612} style={{ width: '100%', height: '86.63%', position: 'absolute', top: '3.9%', left: 0 }} />
-        </div>
-        <div style={{
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '329px',
-          height: '186px'
-        }}>
-          <img alt="Mask group" src={imgMaskGroup21} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
-      </motion.div>
+        {/* Main Features & Star Feature */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-0 lg:justify-between items-start lg:items-stretch mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[637px]">
+            <h3 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Main Features
+            </h3>
+            <div className="bg-[#111111] border border-white rounded-lg p-6 md:p-7 lg:p-[26px_32px] w-full">
+              <ul className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 list-disc pl-6 md:pl-7" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <li>Browse and apply prebuilt trading strategies</li>
+                <li>View strategy logic, risk profile, and expected outcomes</li>
+                <li>Place trades confidently through a simplified execution UI</li>
+                <li>Track trades and performance in real time through a clear portfolio dashboard</li>
+              </ul>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[608px]">
+            <h3 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Star Feature
+            </h3>
+            <div className="bg-[#111111] border border-white rounded-lg p-6 md:p-8 lg:p-[38px_34px] w-full">
+              <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                The strategic decision to educate users while letting them act and make pre built strategies that users can apply to their trades whilst also educating them on how those strategies worked and the probobality of PNL they bring
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Telegram Bots Section */}
-      <motion.div 
-        id="tele-bots" 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '2888px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          Tele Bots
-        </h2>
-        <p style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'white',
-          lineHeight: '24px',
-          margin: 0,
-          width: '100%'
-        }}>
+        {/* MacBook Pro Image Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[1293/603] overflow-hidden mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <img alt="MacBook Pro" src={imgMacBookPro1612} className="absolute top-[3.9%] left-0 w-full h-[86.63%] object-contain" />
+          </div>
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] md:w-[280px] lg:w-[329px] h-[113px] md:h-[158px] lg:h-[186px]">
+            <img alt="Mask group" src={imgMaskGroup21} className="w-full h-full object-cover" />
+          </div>
+        </motion.div>
+
+        {/* Telegram Bots Section */}
+        <motion.div 
+          id="tele-bots" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Tele Bots
+          </h2>
+          <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full">
           For the desktop trading platform we knew what we wanted to go with which was standard trading screens, strategy cards, line and candle graphs, and trade screens. However where we had more creative freedom was with the Telegram bots as they were supposed to be gamified trading mini apps for enthusiasts and rookies. Since these were gamified experiences we used an experimental approach for LED style CTAs, louder graphics and colors.
         </p>
       </motion.div>
 
-      {/* Telegram Bot Screenshots Gallery */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '3071px',
-          width: '1289px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '1072px',
-          justifyContent: 'space-between'
-        }}
-      >
+        {/* Telegram Bot Screenshots Gallery */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
+        >
         <div style={{
           display: 'flex',
           gap: '41px',
@@ -1005,127 +694,73 @@ export const GreexCaseStudy: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Product Section */}
-      <motion.div 
-        id="product" 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '4203px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          Product
-        </h2>
-        <p style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'white',
-          lineHeight: '24px',
-          margin: 0,
-          width: '100%'
-        }}>
-          We studied the flow of options and futures trading flow and decided to start with the trading screens first , when I was onboarded a lot of trading screens were already designed so I had to pick up from where it was left off. The trading screens had to include basic actions like call and put, browse through markets and have data visuals in the form og graphs and cards. The challenge was to make the trade screens as less bloated as possible.
-        </p>
-      </motion.div>
-
-      {/* Product Screenshots */}
-      {[
-        { src: imgCallOptionHover1, top: '4386px' },
-        { src: imgCallOptionHover2, top: '5252px' },
-        { src: imgCallOptionHover3, top: '6118px' },
-        { src: imgCallOptionHover4, top: '6984px' },
-        { src: imgCallOptionHover5, top: '7850px' }
-      ].map((img, idx) => (
+        {/* Product Section */}
         <motion.div 
-          key={idx} 
-          initial={{ opacity: 0, y: 20, x: '-50%' }}
-          whileInView={{ opacity: 1, y: 0, x: '-50%' }}
+          id="product" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
-          style={{
-          position: 'absolute',
-          left: '50%',
-          top: img.top,
-          width: '1281px',
-          height: '828px',
-          border: '1px solid rgba(255, 255, 255, 0.12)',
-          borderRadius: '12px',
-          overflow: 'hidden'
-        }}>
-          <img alt={`Call option ${idx + 1}`} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Product
+          </h2>
+          <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            We studied the flow of options and futures trading flow and decided to start with the trading screens first , when I was onboarded a lot of trading screens were already designed so I had to pick up from where it was left off. The trading screens had to include basic actions like call and put, browse through markets and have data visuals in the form og graphs and cards. The challenge was to make the trade screens as less bloated as possible.
+          </p>
         </motion.div>
-      ))}
 
-      {/* Additional Product Images */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '8716px',
-          width: '1282px',
-          height: '829px'
-        }}
-      >
-        <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '9605px',
-          width: '1282px',
-          height: '303px'
-        }}
-      >
-        <img alt="Frame" src={imgFrame75601} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </motion.div>
+        {/* Product Screenshots */}
+        <div className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12">
+          {[
+            imgCallOptionHover1,
+            imgCallOptionHover2,
+            imgCallOptionHover3,
+            imgCallOptionHover4,
+            imgCallOptionHover5
+          ].map((src, idx) => (
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
+              className="relative w-full aspect-[1281/828] border border-white/12 rounded-xl overflow-hidden"
+            >
+              <img alt={`Call option ${idx + 1}`} src={src} className="w-full h-full object-cover rounded-xl" />
+            </motion.div>
+          ))}
+        </div>
 
-      {/* Extended Telegram Bot Gallery */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '9968px',
-          width: '1289px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '88px',
-          alignItems: 'flex-start'
-        }}
-      >
+        {/* Additional Product Images */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] aspect-[1282/829] mb-8 md:mb-10 lg:mb-12"
+        >
+          <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} className="w-full h-full object-cover rounded-xl" />
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] aspect-[1282/303] mb-8 md:mb-10 lg:mb-12"
+        >
+          <img alt="Frame" src={imgFrame75601} className="w-full h-full object-cover rounded-xl" />
+        </motion.div>
+
+        {/* Extended Telegram Bot Gallery */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-12 md:gap-16 lg:gap-[88px] mb-8 md:mb-10 lg:mb-12"
+        >
         {/* Row 1 */}
         <div style={{
           display: 'flex',
@@ -1263,218 +898,87 @@ export const GreexCaseStudy: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* High-Fidelity Designs Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '12895px',
-          width: '1281px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '880px',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0,
-          height: '33px'
-        }}>
-          High-Fidelity Designs
-        </h2>
-        <div style={{
-          border: '1px solid rgba(255, 255, 255, 0.12)',
-          borderRadius: '12px',
-          width: '100%',
-          aspectRatio: '4096/2648',
-          overflow: 'hidden',
-          position: 'relative'
-        }}>
-          <img alt="Call option hover" src={imgCallOptionHover6} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-        </div>
-      </motion.div>
-
-      {/* Screenshot Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '13837px',
-          width: '1281px',
-          height: '1047px'
-        }}
-      >
-        <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </motion.div>
-
-      {/* Testimonial Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '15338px',
-          width: '1288px',
-          backgroundColor: '#0c0c0c',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: '12px',
-          padding: '40px',
-          boxSizing: 'border-box',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '165px',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '1137px'
-        }}>
-          <p style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '32px',
-            color: 'white',
-            margin: 0,
-            width: '100%'
-          }}>
-            "Raksha is a great asset to any agile team looking to overhaul designs, bringing creativity and a results-oriented approach"
-          </p>
-          <p style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
-            fontWeight: 'normal',
-            fontSize: '22px',
-            color: 'rgba(255, 255, 255, 0.6)',
-            margin: 0,
-            width: '100%'
-          }}>
-            - Sarthak Sharma, ex Co-founder, Greex
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Final Thoughts Section */}
-      <motion.div 
-        id="final-thoughts" 
-        initial={{ opacity: 0, y: 20, x: '-50%' }}
-        whileInView={{ opacity: 1, y: 0, x: '-50%' }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          
-          top: '14996px',
-          width: '1295px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '282px',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start',
-          width: '100%'
-        }}>
-          <h2 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            The Team
+        {/* High-Fidelity Designs Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            High-Fidelity Designs
           </h2>
-          <p style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
-            fontWeight: 300,
-            fontSize: '17px',
-            color: 'rgba(255, 255, 255, 0.8)',
-            lineHeight: '24px',
-            margin: 0,
-            width: '100%'
-          }}>
-            Thanks to key members of the team : Raj Karan ( Founder), Sarthak (Co-founder), Rohit Goel (CTO) , Yashovardhan (Senior Dev), and Roman Oshyyko (Designer from external Agency), Bohdan Barykin (External Agency)
-          </p>
-        </div>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start',
-          width: '100%'
-        }}>
-          <h2 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            Final Thoughts
-          </h2>
-          <p style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
-            fontWeight: 300,
-            fontSize: '17px',
-            color: 'rgba(255, 255, 255, 0.8)',
-            lineHeight: '24px',
-            margin: 0,
-            width: '100%'
-          }}>
-            The platform was successfully designed and tested, with strong feedback during early demos. Although the company shut down due to investor issues, the product foundation remains one of my proudest projects - a complete, self-driven deep-dive into a complex domain translated into a clean, functional product experience.
-          </p>
-        </div>
-      </motion.div>
+          <div className="border border-white/12 rounded-xl overflow-hidden w-full aspect-[4096/2648]">
+            <img alt="Call option hover" src={imgCallOptionHover6} className="w-full h-full object-cover rounded-xl" />
+          </div>
+        </motion.div>
 
-      {/* Mobile Navigation Menu (for smaller screens) - Sticky */}
+        {/* Screenshot Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] aspect-[1281/1047] mb-8 md:mb-10 lg:mb-12"
+        >
+          <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} className="w-full h-full object-cover rounded-xl" />
+        </motion.div>
+
+        {/* Testimonial Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1288px] bg-[#0c0c0c] border border-white/8 rounded-xl p-6 md:p-8 lg:p-10 flex flex-col gap-4 md:gap-6 items-center justify-center mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 w-full">
+            <p className="text-xl md:text-2xl lg:text-[32px] font-bold text-white w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              "Raksha is a great asset to any agile team looking to overhaul designs, bringing creativity and a results-oriented approach"
+            </p>
+            <p className="text-base md:text-lg lg:text-[22px] font-normal text-white/60 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              - Sarthak Sharma, ex Co-founder, Greex
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Final Thoughts Section */}
+        <motion.div 
+          id="final-thoughts" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1295px] flex flex-col gap-8 md:gap-10 lg:gap-12 mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="flex flex-col gap-4 md:gap-5 w-full">
+            <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              The Team
+            </h2>
+            <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              Thanks to key members of the team : Raj Karan ( Founder), Sarthak (Co-founder), Rohit Goel (CTO) , Yashovardhan (Senior Dev), and Roman Oshyyko (Designer from external Agency), Bohdan Barykin (External Agency)
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 md:gap-5 w-full">
+            <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Final Thoughts
+            </h2>
+            <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              The platform was successfully designed and tested, with strong feedback during early demos. Although the company shut down due to investor issues, the product foundation remains one of my proudest projects - a complete, self-driven deep-dive into a complex domain translated into a clean, functional product experience.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Desktop Bottom Navigation Menu - Only visible on desktop (lg:) */}
       <motion.div 
         initial={{ x: '-50%' }}
         animate={{ x: '-50%' }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        className="hidden lg:flex fixed left-1/2 bottom-10 z-40 bg-black/8 backdrop-blur-[22px] border border-white/8 rounded-2xl p-4 gap-4 items-center justify-center"
         style={{
-          position: 'fixed',
-          left: '50%',
-          bottom: '40px',
-          zIndex: 40,
-          backgroundColor: 'rgba(0, 0, 0, 0.08)',
-          backdropFilter: 'blur(22px)',
-          WebkitBackdropFilter: 'blur(22px)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: '16px',
-          padding: '16px 16px',
-          boxSizing: 'border-box',
-          display: 'flex',
-          gap: '16px',
-          alignItems: 'center',
-          justifyContent: 'center'
+          WebkitBackdropFilter: 'blur(22px)'
         }}
       >
         <div style={{

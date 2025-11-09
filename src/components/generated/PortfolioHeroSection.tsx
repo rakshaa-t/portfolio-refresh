@@ -233,7 +233,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
-  
+
   // Refs for highlighted text animation
   const headingTextRefs = React.useRef(new Map<number, Controls>());
   const headingIndex = React.useRef(0);
@@ -669,9 +669,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </HighlightedText>
               <br/>
               <span className="text-[rgba(41,41,41,0.88)] md:text-[#303034]">
-                i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
+              i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
                 <span className="hidden md:inline"> </span>to find out more  →  
-              </span>
+            </span>
             </div>
             <a 
               href="https://cal.com/raksha-tated-v2ee58/15min"
