@@ -219,7 +219,7 @@ export const GreexCaseStudy: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#111111] overflow-x-hidden">
+    <div className="relative w-full bg-[#111111] overflow-x-hidden max-w-full">
       {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
       <div className="hidden lg:block absolute w-[1472px] h-[761px] left-1/2 -translate-x-1/2 top-[281px] bg-[#373737] rounded-[4444px] blur-[200px] pointer-events-none z-[-2]" />
       <div className="hidden lg:block absolute w-[1629px] h-[842px] left-1/2 -translate-x-1/2 top-[537px] bg-[#2d2d2d] rounded-[4444px] blur-[200px] pointer-events-none z-[-2]" />
@@ -506,11 +506,11 @@ export const GreexCaseStudy: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-16 md:h-20 lg:h-[88px] rounded-t-lg border border-white" />
 
             {/* Row 1 Content - positioned over top border */}
-            <div className="absolute top-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-16 md:h-20 lg:h-[88px] flex justify-between items-center">
+            <div className="absolute top-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-2 md:py-0">
               <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Product Design
               </div>
-              <div className="text-sm md:text-base lg:text-[17px] text-white text-right" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <div className="text-sm md:text-base lg:text-[17px] text-white md:text-right" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 UX flows , UI design , Mobile Responsive Design
               </div>
             </div>
@@ -519,11 +519,11 @@ export const GreexCaseStudy: React.FC = () => {
             <div className="absolute top-16 md:top-20 lg:top-[88px] left-0 right-0 h-20 md:h-22 lg:h-[90px] border-l border-r border-white" />
 
             {/* Row 2 Content - positioned inside middle border */}
-            <div className="absolute top-20 md:top-24 lg:top-[122.5px] left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] flex justify-between items-start">
+            <div className="absolute top-20 md:top-24 lg:top-[122.5px] left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0 py-2 md:py-0">
               <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Game Design
               </div>
-              <div className="text-sm md:text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <div className="text-sm md:text-base lg:text-[17px] text-white md:text-right md:max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Designed Telegram bots for quick gamified trading experiences and parlays
               </div>
             </div>
@@ -532,11 +532,11 @@ export const GreexCaseStudy: React.FC = () => {
             <div className="absolute bottom-0 left-0 right-0 h-16 md:h-20 lg:h-[88px] rounded-b-lg border border-white" />
 
             {/* Row 3 Content - positioned over bottom border */}
-            <div className="absolute bottom-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-16 md:h-20 lg:h-[88px] flex justify-between items-center">
+            <div className="absolute bottom-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-2 md:py-0">
               <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Design System
               </div>
-              <div className="text-sm md:text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <div className="text-sm md:text-base lg:text-[17px] text-white md:text-right md:max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
               </div>
             </div>
@@ -642,57 +642,34 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
         >
-        <div style={{
-          display: 'flex',
-          gap: '41px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLandingPage1, name: 'Landing Page' },
-            { src: imgDashboard1, name: 'Dashboard' },
-            { src: imgSelectCoin1, name: 'Select coin' },
-            { src: imgLiveTracking1, name: 'Live Tracking' },
-            { src: imgLearnToEarn1, name: 'Learn to earn' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: '488px',
-              borderRadius: '22px',
-              width: '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '1028px'
-        }}>
-          {[
-            { src: imgLanding1, name: 'Landing' },
-            { src: imgLeaderboard1, name: 'Leaderboard' },
-            { src: img22, name: '#2' },
-            { src: img21, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 1 || idx === 3 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 1 || idx === 3 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-      </motion.div>
+          {/* Row 1 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: imgLandingPage1, name: 'Landing Page' },
+              { src: imgDashboard1, name: 'Dashboard' },
+              { src: imgSelectCoin1, name: 'Select coin' },
+              { src: imgLiveTracking1, name: 'Live Tracking' },
+              { src: imgLearnToEarn1, name: 'Learn to earn' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
+              </div>
+            ))}
+          </div>
+          {/* Row 2 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: imgLanding1, name: 'Landing' },
+              { src: imgLeaderboard1, name: 'Leaderboard' },
+              { src: img22, name: '#2' },
+              { src: img21, name: '#2' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Product Section */}
         <motion.div 
@@ -759,144 +736,83 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-12 md:gap-16 lg:gap-[88px] mb-8 md:mb-10 lg:mb-12"
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-6 md:gap-12 lg:gap-[88px] mb-8 md:mb-10 lg:mb-12"
         >
-        {/* Row 1 */}
-        <div style={{
-          display: 'flex',
-          gap: '41px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLandingPage2, name: 'Landing Page' },
-            { src: imgDashboard2, name: 'Dashboard' },
-            { src: imgSelectCoin2, name: 'Select coin' },
-            { src: imgLiveTracking2, name: 'Live Tracking' },
-            { src: imgLearnToEarn2, name: 'Learn to earn' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 2 ? '494px' : '488px',
-              borderRadius: '22px',
-              width: '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
+          {/* Row 1 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: imgLandingPage2, name: 'Landing Page' },
+              { src: imgDashboard2, name: 'Dashboard' },
+              { src: imgSelectCoin2, name: 'Select coin' },
+              { src: imgLiveTracking2, name: 'Live Tracking' },
+              { src: imgLearnToEarn2, name: 'Learn to earn' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
+              </div>
+            ))}
+          </div>
 
-        {/* Row 2 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLanding2, name: 'Landing' },
-            { src: imgLeaderboard2, name: 'Leaderboard' },
-            { src: img23, name: '#2' },
-            { src: img24, name: '#2' },
-            { src: img24, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 1 || idx === 3 || idx === 4 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 1 || idx === 3 || idx === 4 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
+          {/* Row 2 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: imgLanding2, name: 'Landing' },
+              { src: imgLeaderboard2, name: 'Leaderboard' },
+              { src: img23, name: '#2' },
+              { src: img24, name: '#2' },
+              { src: img24, name: '#2' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover rounded-[22px]" />
+              </div>
+            ))}
+          </div>
 
-        {/* Row 3 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLanding3, name: 'Landing' },
-            { src: imgLeaderboard3, name: 'Leaderboard' },
-            { src: img25, name: '#2' },
-            { src: img26, name: '#2' },
-            { src: img27, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 1 || idx === 3 || idx === 4 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 1 || idx === 3 || idx === 4 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
+          {/* Row 3 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: imgLanding3, name: 'Landing' },
+              { src: imgLeaderboard3, name: 'Leaderboard' },
+              { src: img25, name: '#2' },
+              { src: img26, name: '#2' },
+              { src: img27, name: '#2' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-contain rounded-[22px]" />
+              </div>
+            ))}
+          </div>
 
-        {/* Row 4 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLeaderboard4, name: 'Leaderboard' },
-            { src: imgLanding4, name: 'Landing' },
-            { src: img28, name: '#2' },
-            { src: img29, name: '#2' },
-            { src: img30, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 0 || idx === 3 || idx === 4 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 0 || idx === 3 || idx === 4 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
+          {/* Row 4 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: imgLeaderboard4, name: 'Leaderboard' },
+              { src: imgLanding4, name: 'Landing' },
+              { src: img28, name: '#2' },
+              { src: img29, name: '#2' },
+              { src: img30, name: '#2' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-contain rounded-[22px]" />
+              </div>
+            ))}
+          </div>
 
-        {/* Row 5 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: img31, name: '#2' },
-            { src: imgLeaderboard5, name: 'Leaderboard' },
-            { src: img32, name: '#2' },
-            { src: img33, name: '#2' },
-            { src: imgLanding5, name: 'Landing' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 0 || idx === 1 || idx === 2 || idx === 3 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 0 || idx === 1 || idx === 2 || idx === 3 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-      </motion.div>
+          {/* Row 5 - Stack on mobile, horizontal on desktop */}
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+            {[
+              { src: img31, name: '#2' },
+              { src: imgLeaderboard5, name: 'Leaderboard' },
+              { src: img32, name: '#2' },
+              { src: img33, name: '#2' },
+              { src: imgLanding5, name: 'Landing' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] aspect-[225/488] flex-shrink-0">
+                <img alt={img.name} src={img.src} className="w-full h-full object-contain rounded-[22px]" />
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* High-Fidelity Designs Section */}
         <motion.div 
