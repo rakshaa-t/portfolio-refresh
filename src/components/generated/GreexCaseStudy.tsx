@@ -690,8 +690,8 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
-          {/* Mobile: Single 2x2 grid container, Desktop: Horizontal rows */}
-          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full md:overflow-x-auto md:overflow-x-visible">
+          {/* Mobile: Single 2x2 grid container with consistent spacing like Marijana, Desktop: Horizontal rows */}
+          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap w-full md:overflow-x-auto md:overflow-x-visible" style={{ gap: '16px' }}>
             {[
               { src: imgLandingPage1, name: 'Landing Page' },
               { src: imgDashboard1, name: 'Dashboard' },
@@ -703,7 +703,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img22, name: '#2' },
               { src: img21, name: '#2' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto', aspectRatio: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
               </div>
             ))}
@@ -780,8 +780,8 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
-          {/* Mobile: Single 2x2 grid container, Desktop: Horizontal rows */}
-          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full md:overflow-x-auto md:overflow-x-visible">
+          {/* Mobile: Single 2x2 grid container with consistent spacing like Marijana, Desktop: Horizontal rows */}
+          <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap w-full md:overflow-x-auto md:overflow-x-visible" style={{ gap: '16px' }}>
             {[
               { src: imgLandingPage2, name: 'Landing Page' },
               { src: imgDashboard2, name: 'Dashboard' },
@@ -809,7 +809,7 @@ export const GreexCaseStudy: React.FC = () => {
               { src: img33, name: '#2' },
               { src: imgLanding5, name: 'Landing' }
             ].map((img, idx) => (
-              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto' }}>
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full md:w-[180px] lg:w-[225px] flex-shrink-0" style={{ minHeight: '200px', height: 'auto', aspectRatio: 'auto' }}>
                 <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
               </div>
             ))}
