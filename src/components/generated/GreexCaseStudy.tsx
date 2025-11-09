@@ -444,7 +444,7 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] md:aspect-[1293/833] lg:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
           style={{ minHeight: '200px' }}
         >
         {/* Blurred placeholder - shows immediately as image loads */}
@@ -453,11 +453,11 @@ export const GreexCaseStudy: React.FC = () => {
           src={imgRectangle1553} 
           loading="eager"
           onLoad={() => setHeroImageBlurLoaded(true)}
+          className="md:h-full"
           style={{ 
             width: '100%', 
-            height: 'auto', 
+            height: 'auto',
             minHeight: '200px',
-            maxHeight: 'none',
             objectFit: 'cover', 
             borderRadius: '12px',
             position: 'absolute',
@@ -479,11 +479,11 @@ export const GreexCaseStudy: React.FC = () => {
           src={imgRectangle1553} 
           loading="eager"
           onLoad={() => setHeroImageLoaded(true)}
+          className="md:h-full"
           style={{ 
             width: '100%', 
-            height: 'auto', 
+            height: 'auto',
             minHeight: '200px',
-            maxHeight: 'none',
             objectFit: 'cover', 
             borderRadius: '12px',
             position: 'absolute',
@@ -756,7 +756,7 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] mb-8 md:mb-10 lg:mb-12"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] md:aspect-[1282/1047] lg:aspect-[1282/1047] mb-8 md:mb-10 lg:mb-12"
           style={{ minHeight: '200px' }}
         >
           <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} className="w-full h-full object-cover rounded-xl" />
@@ -766,8 +766,8 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] mb-8 md:mb-10 lg:mb-12"
-          style={{ minHeight: '100px' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] md:aspect-[1282/1047] lg:aspect-[1282/1047] mb-8 md:mb-10 lg:mb-12"
+          style={{ minHeight: '200px' }}
         >
           <img alt="Frame" src={imgFrame75601} className="w-full h-full object-cover rounded-xl" />
         </motion.div>
