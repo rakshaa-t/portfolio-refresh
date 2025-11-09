@@ -237,9 +237,9 @@ export const GreexCaseStudy: React.FC = () => {
         {/* Mobile Header - visible on mobile, hidden on desktop */}
         <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
             {/* Logo - "raks" */}
-          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <a href="/" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
               raks
-          </div>
+          </a>
 
             {/* Social Icons (Mobile) */}
           <div className="flex items-center gap-4 opacity-44">
@@ -282,9 +282,9 @@ export const GreexCaseStudy: React.FC = () => {
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
         <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
             {/* Logo - "raks" */}
-          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <a href="/" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             raks
-            </div>
+          </a>
 
             {/* Social Icons */}
           <div className="w-[73px] opacity-44 flex justify-between items-center">
