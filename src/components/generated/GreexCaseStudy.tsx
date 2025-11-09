@@ -512,43 +512,79 @@ export const GreexCaseStudy: React.FC = () => {
           </h2>
 
           {/* Container for borders and content */}
-          <div className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px]" style={{ minHeight: '180px', paddingBottom: '60px' }}>
-            {/* Top border */}
-            <div className="absolute top-0 left-0 right-0 h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] rounded-t-lg border border-white" />
-
-            {/* Row 1 Content - positioned over top border */}
-            <div className="absolute top-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-3 md:py-0">
-              <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                Product Design
+          <div className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px]">
+            {/* Mobile Layout - Stacked with borders */}
+            <div className="md:hidden flex flex-col border border-white rounded-lg overflow-hidden">
+              {/* Row 1 */}
+              <div className="flex flex-col gap-2 py-4 px-4 border-b border-white">
+                <div className="text-sm text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Product Design
+                </div>
+                <div className="text-sm text-white" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  UX flows , UI design , Mobile Responsive Design
+                </div>
               </div>
-              <div className="text-sm md:text-base lg:text-[17px] text-white md:text-right" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                UX flows , UI design , Mobile Responsive Design
+              
+              {/* Row 2 */}
+              <div className="flex flex-col gap-2 py-4 px-4 border-b border-white">
+                <div className="text-sm text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Game Design
+                </div>
+                <div className="text-sm text-white" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Designed Telegram bots for quick gamified trading experiences and parlays
+                </div>
+              </div>
+              
+              {/* Row 3 */}
+              <div className="flex flex-col gap-2 py-4 px-4">
+                <div className="text-sm text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Design System
+                </div>
+                <div className="text-sm text-white" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
+                </div>
               </div>
             </div>
 
-            {/* Middle border */}
-            <div className="absolute top-[60px] md:top-20 lg:top-[88px] left-0 right-0 h-auto md:h-22 lg:h-[90px] min-h-[60px] md:min-h-[88px] lg:min-h-[90px] border-l border-r border-white" />
+            {/* Desktop Layout - Original absolute positioning */}
+            <div className="hidden md:block relative" style={{ minHeight: '266px' }}>
+              {/* Top border */}
+              <div className="absolute top-0 left-0 right-0 h-20 lg:h-[88px] rounded-t-lg border border-white" />
 
-            {/* Row 2 Content - positioned inside middle border */}
-            <div className="absolute top-[60px] md:top-20 lg:top-[122.5px] left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0 py-3 md:py-0">
-              <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                Game Design
+              {/* Row 1 Content - positioned over top border */}
+              <div className="absolute top-0 left-6 lg:left-[29px] right-6 lg:right-[29px] h-20 lg:h-[88px] flex flex-row justify-between items-center">
+                <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Product Design
+                </div>
+                <div className="text-base lg:text-[17px] text-white text-right" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  UX flows , UI design , Mobile Responsive Design
+                </div>
               </div>
-              <div className="text-sm md:text-base lg:text-[17px] text-white md:text-right md:max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                Designed Telegram bots for quick gamified trading experiences and parlays
-              </div>
-            </div>
 
-            {/* Bottom border */}
-            <div className="absolute bottom-0 left-0 right-0 h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] rounded-b-lg border border-white" />
+              {/* Middle border */}
+              <div className="absolute top-20 lg:top-[88px] left-0 right-0 h-22 lg:h-[90px] border-l border-r border-white" />
 
-            {/* Row 3 Content - positioned over bottom border */}
-            <div className="absolute bottom-0 left-4 md:left-6 lg:left-[29px] right-4 md:right-6 lg:right-[29px] h-auto md:h-20 lg:h-[88px] min-h-[60px] md:min-h-[80px] lg:min-h-[88px] flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 py-3 md:py-0">
-              <div className="text-sm md:text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                Design System
+              {/* Row 2 Content - positioned inside middle border */}
+              <div className="absolute top-20 lg:top-[122.5px] left-6 lg:left-[29px] right-6 lg:right-[29px] flex flex-row justify-between items-start">
+                <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Game Design
+                </div>
+                <div className="text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Designed Telegram bots for quick gamified trading experiences and parlays
+                </div>
               </div>
-              <div className="text-sm md:text-base lg:text-[17px] text-white md:text-right md:max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
+
+              {/* Bottom border */}
+              <div className="absolute bottom-0 left-0 right-0 h-20 lg:h-[88px] rounded-b-lg border border-white" />
+
+              {/* Row 3 Content - positioned over bottom border */}
+              <div className="absolute bottom-0 left-6 lg:left-[29px] right-6 lg:right-[29px] h-20 lg:h-[88px] flex flex-row justify-between items-center">
+                <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Design System
+                </div>
+                <div className="text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
+                </div>
               </div>
             </div>
           </div>
@@ -654,8 +690,8 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
         >
-          {/* Row 1 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 1 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLandingPage1, name: 'Landing Page' },
               { src: imgDashboard1, name: 'Dashboard' },
@@ -668,8 +704,8 @@ export const GreexCaseStudy: React.FC = () => {
               </div>
             ))}
           </div>
-          {/* Row 2 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 2 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLanding1, name: 'Landing' },
               { src: imgLeaderboard1, name: 'Leaderboard' },
@@ -753,8 +789,8 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] flex flex-col gap-6 md:gap-12 lg:gap-[88px] mb-8 md:mb-10 lg:mb-12"
         >
-          {/* Row 1 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 1 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center justify-center w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLandingPage2, name: 'Landing Page' },
               { src: imgDashboard2, name: 'Dashboard' },
@@ -768,8 +804,8 @@ export const GreexCaseStudy: React.FC = () => {
             ))}
           </div>
 
-          {/* Row 2 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 2 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLanding2, name: 'Landing' },
               { src: imgLeaderboard2, name: 'Leaderboard' },
@@ -783,8 +819,8 @@ export const GreexCaseStudy: React.FC = () => {
             ))}
           </div>
 
-          {/* Row 3 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 3 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLanding3, name: 'Landing' },
               { src: imgLeaderboard3, name: 'Leaderboard' },
@@ -798,8 +834,8 @@ export const GreexCaseStudy: React.FC = () => {
             ))}
           </div>
 
-          {/* Row 4 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 4 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: imgLeaderboard4, name: 'Leaderboard' },
               { src: imgLanding4, name: 'Landing' },
@@ -813,8 +849,8 @@ export const GreexCaseStudy: React.FC = () => {
             ))}
           </div>
 
-          {/* Row 5 - Stack on mobile, horizontal on desktop */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
+          {/* Row 5 - 2x2 grid on mobile, horizontal on desktop */}
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 lg:gap-[41px] items-center md:justify-between w-full overflow-x-auto md:overflow-x-visible">
             {[
               { src: img31, name: '#2' },
               { src: imgLeaderboard5, name: 'Leaderboard' },
@@ -902,25 +938,23 @@ export const GreexCaseStudy: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) */}
-      <motion.div 
-        initial={{ x: '-50%' }}
-        animate={{ x: '-50%' }}
-        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        className="md:hidden fixed left-1/2 bottom-0 z-40 bg-black/8 backdrop-blur-[22px] border-t border-white/8 rounded-t-2xl p-4 gap-4 items-center justify-center w-full"
+      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) - Matching Marijana's design */}
+      <div 
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50"
         style={{
-          WebkitBackdropFilter: 'blur(22px)',
-          transform: 'translateX(-50%)'
+          padding: '16px',
+          background: 'rgba(255,255,255,0.01)',
+          backdropFilter: 'blur(11px)',
+          WebkitBackdropFilter: 'blur(11px)'
         }}
       >
         <div style={{
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           gap: '16px',
           maxWidth: '400px',
           margin: '0 auto',
-          width: '100%'
+          alignItems: 'center',
+          justifyContent: 'center'
         }}>
           {['Overview', 'Product', 'Final Thoughts'].map((section) => {
             const isActive = activeSection === section;
@@ -987,7 +1021,7 @@ export const GreexCaseStudy: React.FC = () => {
             <ArrowUp size={16} color="white" />
           </motion.button>
         </div>
-      </motion.div>
+      </div>
 
       {/* Desktop Bottom Navigation Menu - Only visible on desktop (lg:) */}
       <motion.div 
