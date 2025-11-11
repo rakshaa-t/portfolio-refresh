@@ -1559,159 +1559,391 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Stats Section - From Figma Design */}
-      <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
-        {/* Background with gradient bars */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'relative',
-            overflow: 'hidden',
-            borderRadius: 60,
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            display: 'inline-flex'
-          }}
-        >
-          {/* Vertical gradient bars */}
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
-          
-          {/* Blur overlay */}
-          <div 
-            style={{
-              width: 1857,
-              height: 591,
-              left: -87,
-              top: 102,
-              position: 'absolute',
-              background: '#11229D',
-              boxShadow: '400px 400px 400px',
-              borderRadius: 200,
-              filter: 'blur(200px)',
-              backdropFilter: 'blur(2px)'
-            }} 
-          />
+      <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden flex justify-center">
+        {/* SVG Background */}
+        <div className="absolute inset-0 flex justify-center">
+          <svg width="1706" height="735" viewBox="0 0 1706 735" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
+            <g clipPath="url(#clip0_0_595)">
+              <g filter="url(#filter0_i_0_595)">
+                <rect width="115" height="735" fill="url(#paint0_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter1_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 230 0)" fill="url(#paint1_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter2_i_0_595)">
+                <rect x="230" width="115" height="735" fill="url(#paint2_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter3_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 460 0)" fill="url(#paint3_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter4_i_0_595)">
+                <rect x="460" width="115" height="735" fill="url(#paint4_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter5_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 690 0)" fill="url(#paint5_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter6_i_0_595)">
+                <rect x="690" width="115" height="735" fill="url(#paint6_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter7_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 920 0)" fill="url(#paint7_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter8_i_0_595)">
+                <rect x="920" width="115" height="735" fill="url(#paint8_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter9_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 1150 0)" fill="url(#paint9_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter10_i_0_595)">
+                <rect x="1150" width="115" height="735" fill="url(#paint10_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter11_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 1380 0)" fill="url(#paint11_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter12_i_0_595)">
+                <rect x="1380" width="115" height="735" fill="url(#paint12_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter13_i_0_595)">
+                <rect width="115" height="735" transform="matrix(-1 0 0 1 1610 0)" fill="url(#paint13_linear_0_595)"/>
+              </g>
+              <g filter="url(#filter14_i_0_595)">
+                <rect x="1610" width="115" height="735" fill="url(#paint14_linear_0_595)"/>
+              </g>
+              <foreignObject x="-487" y="-298" width="2657" height="1391">
+                <div xmlns="http://www.w3.org/1999/xhtml" style={{backdropFilter: 'blur(2px)', clipPath: 'url(#bgblur_1_0_595_clip_path)', height: '100%', width: '100%'}}></div>
+              </foreignObject>
+              <g filter="url(#filter15_f_0_595)" data-figma-bg-blur-radius="4">
+                <rect x="-87" y="102" width="1857" height="591" rx="200" fill="#11229D"/>
+              </g>
+            </g>
+            <defs>
+              <filter id="filter0_i_0_595" x="0" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter1_i_0_595" x="115" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter2_i_0_595" x="230" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter3_i_0_595" x="345" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter4_i_0_595" x="460" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter5_i_0_595" x="575" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter6_i_0_595" x="690" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter7_i_0_595" x="805" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter8_i_0_595" x="920" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter9_i_0_595" x="1035" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter10_i_0_595" x="1150" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter11_i_0_595" x="1265" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter12_i_0_595" x="1380" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter13_i_0_595" x="1495" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter14_i_0_595" x="1610" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="11"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
+              </filter>
+              <filter id="filter15_f_0_595" x="-487" y="-298" width="2657" height="1391" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_0_595"/>
+              </filter>
+              <clipPath id="bgblur_1_0_595_clip_path" transform="translate(487 298)">
+                <rect x="-87" y="102" width="1857" height="591" rx="200"/>
+              </clipPath>
+              <linearGradient id="paint0_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint2_linear_0_595" x1="345" y1="367.5" x2="230" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint3_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint4_linear_0_595" x1="575" y1="367.5" x2="460" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint5_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint6_linear_0_595" x1="805" y1="367.5" x2="690" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint7_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint8_linear_0_595" x1="1035" y1="367.5" x2="920" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint9_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint10_linear_0_595" x1="1265" y1="367.5" x2="1150" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint11_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint12_linear_0_595" x1="1495" y1="367.5" x2="1380" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint13_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <linearGradient id="paint14_linear_0_595" x1="1725" y1="367.5" x2="1610" y2="367.5" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#5D70FA"/>
+                <stop offset="1" stopColor="#283FE4"/>
+              </linearGradient>
+              <clipPath id="clip0_0_595">
+                <rect width="1706" height="735" rx="60" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
         </div>
         
-        {/* Content */}
-        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4">
-        
-        {/* 52+ Projects shipped */}
-        <div className="flex flex-col items-center gap-4 w-[245px]">
-          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-            52+ Projects shipped
-          </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
-            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Adiagnosis</li>
-                <li>Dealdoc</li>
-                <li>Tickle</li>
-                <li>Ova App</li>
-                <li>Cognix Health</li>
-                <li>Bewakoof.com</li>
-                <li>Meyraki</li>
-                <li>Indian Oil Company</li>
-                <li>Inaam</li>
-                <li>ENA</li>
-                <li>Kodo Card</li>
-                <li>Euman Technologies</li>
-                <li>KG International</li>
-                <li>Tennishop UAE</li>
-                <li>Nourish App</li>
-                <li>Unidel</li>
-                <li>Lido Learning</li>
-                <li>Unifynd</li>
-                <li>Reverce</li>
-                <li>Nesto Group (App)</li>
-                <li>And many more</li>
+        {/* Content - From Figma */}
+        <div className="relative z-10 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11">
+          {/* 52+ Projects shipped */}
+          <div className="flex flex-col h-[558px] items-center justify-between w-[245px]">
+            <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              52+ Projects shipped
+            </p>
+            <div className="bg-[rgba(255,255,255,0.1)] h-[505px] rounded-[28px] w-full overflow-hidden relative">
+              <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[201px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <ul className="list-disc mb-0">
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Adiagnosis</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Dealdoc</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Tickle</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Ova App</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Cognix Health</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Bewakoof.com</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Meyraki</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Indian Oil Company</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Inaam</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">ENA</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Kodo Card</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Euman Technologies</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">KG International</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Tennishop UAE</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Nourish App</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Unidel</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Lido Learning</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Unifynd</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Reverce</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Nesto Group (App)</span></li>
+                  <li className="ms-[24px]"><span className="leading-normal">And many more</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Work with 30+ leaders */}
+          <div className="flex flex-col h-[477px] items-center justify-between">
+            <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Work with 30+ leaders
+            </p>
+            <div className="bg-[rgba(255,255,255,0.1)] h-[424px] rounded-[28px] w-[245px] overflow-hidden relative">
+              <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[153px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <ul className="list-disc mb-0">
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Tina Hua</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Angie lee</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Aritra Senugupta</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Sarthak Sharma</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Max Mcquillan</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Hannah Wartooth</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Neerav J</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Amrita Singh</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Rohit Biwas</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Arash</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Sunny</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Raj Karan</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Deepti Singhi</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Nyshita Jain</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Thomas Phua</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Rohit Goel</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Sagar Sharma</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Maruti</span></li>
+                  <li className="ms-[24px]"><span className="leading-normal">and many more</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* $250+ M raised */}
+          <div className="flex flex-col h-[267px] items-center justify-between w-[245px]">
+            <p className="text-white text-[22px] font-bold leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              $250+ M raised
+            </p>
+            <div className="bg-[rgba(255,255,255,0.1)] h-[214px] rounded-[28px] w-full overflow-hidden relative">
+              <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <ul className="list-disc mb-0">
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Nesto group : $130M</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Bewakoof : ~$40M+</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Kodo Card : ~$10M +</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Lido Leaning : ~31.7 M+</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Euman Technologies : ~ $3.4 M+</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Unifynd : ~ $2M</span></li>
+                  <li className="mb-0 ms-[24px]"><span className="leading-normal">Cryptiq : ~ $200K+</span></li>
+                  <li className="ms-[24px]"><span className="leading-normal">and many more</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* 2.9+ M users reached */}
+          <div className="flex flex-col h-[206px] items-center justify-between">
+            <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              2.9+ M users reached
+            </p>
+            <div className="bg-[rgba(255,255,255,0.1)] h-[153px] rounded-[28px] w-[245px] overflow-hidden relative">
+              <ul className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <li className="ms-[24px] whitespace-pre-wrap">
+                  <span className="leading-normal">Cumulative number of users across all platforms I worked with in my career may be way above this number</span>
+                </li>
               </ul>
             </div>
           </div>
-        </div>
-
-        {/* Work with 30+ leaders */}
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-            Work with 30+ leaders
-          </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-[245px] relative p-4">
-            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Tina Hua</li>
-                <li>Angie lee</li>
-                <li>Aritra Senugupta</li>
-                <li>Sarthak Sharma</li>
-                <li>Max Mcquillan</li>
-                <li>Hannah Wartooth</li>
-                <li>Neerav J</li>
-                <li>Amrita Singh</li>
-                <li>Rohit Biwas</li>
-                <li>Arash</li>
-                <li>Sunny</li>
-                <li>Raj Karan</li>
-                <li>Deepti Singhi</li>
-                <li>Nyshita Jain</li>
-                <li>Thomas Phua</li>
-                <li>Rohit Goel</li>
-                <li>Sagar Sharma</li>
-                <li>Maruti</li>
-                <li>and many more</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* $250+ M raised */}
-        <div className="flex flex-col h-[267px] items-center justify-between w-[245px]">
-          <p className="text-white text-[22px] font-bold leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-            $250+ M raised
-          </p>
-          <div className="bg-[rgba(255,255,255,0.1)] h-[214px] rounded-[28px] w-full overflow-hidden relative">
-            <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Nesto group : $130M</li>
-                <li>Bewakoof : ~$40M+</li>
-                <li>Kodo Card : ~$10M +</li>
-                <li>Lido Leaning : ~31.7 M+</li>
-                <li>Euman Technologies : ~ $3.4 M+</li>
-                <li>Unifynd : ~ $2M</li>
-                <li>Cryptiq : ~ $200K+</li>
-                <li>and many more</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* 2.9+ M users reached */}
-        <div className="flex flex-col h-[206px] items-center justify-between">
-          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-            2.9+ M users reached
-          </p>
-          <div className="bg-[rgba(255,255,255,0.1)] h-[153px] rounded-[28px] w-[245px] overflow-hidden relative">
-            <ul className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <li className="pl-6">
-                Cumulative number of users across all platforms I worked with in my career may be way above this number
-              </li>
-            </ul>
-          </div>
-        </div>
         </div>
       </div>
 
