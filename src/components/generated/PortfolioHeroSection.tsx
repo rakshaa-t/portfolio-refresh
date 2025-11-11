@@ -757,7 +757,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -765,7 +765,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
@@ -834,7 +834,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
