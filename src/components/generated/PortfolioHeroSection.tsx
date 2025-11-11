@@ -221,6 +221,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const [isDesktop, setIsDesktop] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   const [containerWidth, setContainerWidth] = React.useState(1040.8);
   const [scaleFactor, setScaleFactor] = React.useState(1);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
@@ -229,21 +230,21 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
   
-  // Track if we're on desktop (lg breakpoint) for card positioning
+  // Track if we're on desktop (lg breakpoint) and mobile for card positioning
   React.useEffect(() => {
-    const checkDesktop = () => {
+    const checkBreakpoints = () => {
       setIsDesktop(window.innerWidth >= 1024);
+      setIsMobile(window.innerWidth < 768);
     };
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
+    checkBreakpoints();
+    window.addEventListener('resize', checkBreakpoints);
+    return () => window.removeEventListener('resize', checkBreakpoints);
   }, []);
 
   // Calculate proportional scale factor for iPad only (Approach 2 + 4: container + card scaling)
   // Mobile uses original layout, so skip scaling on mobile (< 768px)
   React.useEffect(() => {
     const updateScaleFactor = () => {
-      const isMobile = window.innerWidth < 768; // Mobile breakpoint
       if (!isDesktop && !isMobile) {
         // iPad/Tablet only: Desktop container width: 1040.8px
         // Desktop layout needs ~1046px to fit all cards (rightmost card at 783px + 263px card width)
@@ -271,7 +272,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     updateScaleFactor();
     window.addEventListener('resize', updateScaleFactor);
     return () => window.removeEventListener('resize', updateScaleFactor);
-  }, [isDesktop]);
+  }, [isDesktop, isMobile]);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -743,8 +744,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div 
           ref={cardsContainerRef} 
           className="relative mx-auto w-full max-w-[348px] md:h-[485.6px] md:max-w-[90vw] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
-          style={!isDesktop && window.innerWidth >= 768 ? {
-            // iPad/Tablet only: apply scaling
+          style={!isDesktop && !isMobile ? {
+            // iPad/Tablet only: apply scaling (not mobile, not desktop)
             width: `${containerWidth}px`,
             height: `${485.6 * scaleFactor}px`,
             maxWidth: `calc(100vw - 64px)`, // 32px padding on each side
