@@ -2428,9 +2428,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               allow="camera; microphone; autoplay; display-capture"
               title="Book a meeting with Raksha"
             />
-      </div>
-      </div>
+          </div>
+        </div>
       )}
-      </div>
+    </div>
   );
 };
