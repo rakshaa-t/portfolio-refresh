@@ -1562,52 +1562,52 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden flex justify-center">
         {/* SVG Background */}
         <div className="absolute inset-0 flex justify-center">
-          <svg width="1706" height="735" viewBox="0 0 1706 735" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
+          <svg width="1706" height="900" viewBox="0 0 1706 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
             <g clipPath="url(#clip0_0_595)">
               <g filter="url(#filter0_i_0_595)">
-                <rect width="115" height="735" fill="url(#paint0_linear_0_595)"/>
+                <rect width="115" height="900" fill="url(#paint0_linear_0_595)"/>
               </g>
               <g filter="url(#filter1_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 230 0)" fill="url(#paint1_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 230 0)" fill="url(#paint1_linear_0_595)"/>
               </g>
               <g filter="url(#filter2_i_0_595)">
-                <rect x="230" width="115" height="735" fill="url(#paint2_linear_0_595)"/>
+                <rect x="230" width="115" height="900" fill="url(#paint2_linear_0_595)"/>
               </g>
               <g filter="url(#filter3_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 460 0)" fill="url(#paint3_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 460 0)" fill="url(#paint3_linear_0_595)"/>
               </g>
               <g filter="url(#filter4_i_0_595)">
-                <rect x="460" width="115" height="735" fill="url(#paint4_linear_0_595)"/>
+                <rect x="460" width="115" height="900" fill="url(#paint4_linear_0_595)"/>
               </g>
               <g filter="url(#filter5_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 690 0)" fill="url(#paint5_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 690 0)" fill="url(#paint5_linear_0_595)"/>
               </g>
               <g filter="url(#filter6_i_0_595)">
-                <rect x="690" width="115" height="735" fill="url(#paint6_linear_0_595)"/>
+                <rect x="690" width="115" height="900" fill="url(#paint6_linear_0_595)"/>
               </g>
               <g filter="url(#filter7_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 920 0)" fill="url(#paint7_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 920 0)" fill="url(#paint7_linear_0_595)"/>
               </g>
               <g filter="url(#filter8_i_0_595)">
-                <rect x="920" width="115" height="735" fill="url(#paint8_linear_0_595)"/>
+                <rect x="920" width="115" height="900" fill="url(#paint8_linear_0_595)"/>
               </g>
               <g filter="url(#filter9_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 1150 0)" fill="url(#paint9_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 1150 0)" fill="url(#paint9_linear_0_595)"/>
               </g>
               <g filter="url(#filter10_i_0_595)">
-                <rect x="1150" width="115" height="735" fill="url(#paint10_linear_0_595)"/>
+                <rect x="1150" width="115" height="900" fill="url(#paint10_linear_0_595)"/>
               </g>
               <g filter="url(#filter11_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 1380 0)" fill="url(#paint11_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 1380 0)" fill="url(#paint11_linear_0_595)"/>
               </g>
               <g filter="url(#filter12_i_0_595)">
-                <rect x="1380" width="115" height="735" fill="url(#paint12_linear_0_595)"/>
+                <rect x="1380" width="115" height="900" fill="url(#paint12_linear_0_595)"/>
               </g>
               <g filter="url(#filter13_i_0_595)">
-                <rect width="115" height="735" transform="matrix(-1 0 0 1 1610 0)" fill="url(#paint13_linear_0_595)"/>
+                <rect width="115" height="900" transform="matrix(-1 0 0 1 1610 0)" fill="url(#paint13_linear_0_595)"/>
               </g>
               <g filter="url(#filter14_i_0_595)">
-                <rect x="1610" width="115" height="735" fill="url(#paint14_linear_0_595)"/>
+                <rect x="1610" width="115" height="900" fill="url(#paint14_linear_0_595)"/>
               </g>
               <foreignObject x="-487" y="-298" width="2657" height="1391">
                 <div style={{backdropFilter: 'blur(2px)', clipPath: 'url(#bgblur_1_0_595_clip_path)', height: '100%', width: '100%'}}></div>
@@ -1775,75 +1775,75 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <clipPath id="bgblur_1_0_595_clip_path" transform="translate(487 298)">
                 <rect x="-87" y="102" width="1857" height="591" rx="200"/>
               </clipPath>
-              <linearGradient id="paint0_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint0_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint1_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint1_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint2_linear_0_595" x1="345" y1="367.5" x2="230" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint2_linear_0_595" x1="345" y1="450" x2="230" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint3_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint3_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint4_linear_0_595" x1="575" y1="367.5" x2="460" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint4_linear_0_595" x1="575" y1="450" x2="460" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint5_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint5_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint6_linear_0_595" x1="805" y1="367.5" x2="690" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint6_linear_0_595" x1="805" y1="450" x2="690" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint7_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint7_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint8_linear_0_595" x1="1035" y1="367.5" x2="920" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint8_linear_0_595" x1="1035" y1="450" x2="920" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint9_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint9_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint10_linear_0_595" x1="1265" y1="367.5" x2="1150" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint10_linear_0_595" x1="1265" y1="450" x2="1150" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint11_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint11_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint12_linear_0_595" x1="1495" y1="367.5" x2="1380" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint12_linear_0_595" x1="1495" y1="450" x2="1380" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint13_linear_0_595" x1="115" y1="367.5" x2="0" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint13_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
-              <linearGradient id="paint14_linear_0_595" x1="1725" y1="367.5" x2="1610" y2="367.5" gradientUnits="userSpaceOnUse">
+              <linearGradient id="paint14_linear_0_595" x1="1725" y1="450" x2="1610" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
               <clipPath id="clip0_0_595">
-                <rect width="1706" height="735" rx="60" fill="white"/>
+                <rect width="1706" height="900" rx="60" fill="white"/>
               </clipPath>
             </defs>
           </svg>
         </div>
         
         {/* Content - Vertically centered */}
-        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 min-h-[735px]">
+        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 min-h-[900px]">
         
         {/* 52+ Projects shipped */}
         <div className="flex flex-col items-center gap-4 w-[245px]">
