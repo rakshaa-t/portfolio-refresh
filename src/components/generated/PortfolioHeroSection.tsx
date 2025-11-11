@@ -1848,8 +1848,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="flex flex-col md:flex-row items-end justify-center gap-8 md:gap-6 w-full">
         
         {/* 52+ Projects shipped */}
-        <div className="flex flex-col items-center gap-4 w-[245px]">
-          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-4 w-[245px]">
+          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             52+ Projects shipped
           </p>
           <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
@@ -1882,8 +1882,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* Work with 30+ leaders */}
-        <div className="flex flex-col items-center gap-4 w-[245px]">
-          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-4 w-[245px]">
+          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Work with 30+ leaders
           </p>
           <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
@@ -1914,8 +1914,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* $250+ M raised */}
-        <div className="flex flex-col items-center gap-4 w-[245px]">
-          <p className="text-white text-[22px] font-bold leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-4 w-[245px]">
+          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             $250+ M raised
           </p>
           <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
@@ -1935,8 +1935,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* 2.9+ M users reached */}
-        <div className="flex flex-col items-center gap-4 w-[245px]">
-          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-4 w-[245px]">
+          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             2.9+ M users reached
           </p>
           <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
