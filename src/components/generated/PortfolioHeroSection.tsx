@@ -1311,164 +1311,25 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
-      {/* Book A Call Button */}
-      <div className="flex justify-center w-full mb-8 mt-[92px]">
-        <div
-          onClick={() => setIsCalendarOpen(true)}
-          className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''} cursor-pointer block w-[calc(100%-32px)] md:w-[410px] relative overflow-visible`}
-        >
-          {/* Hover detection overlay - exactly matches button rectangle */}
-          <div
-            onMouseEnter={() => setIsButtonHovered(true)}
-            onMouseLeave={() => setIsButtonHovered(false)}
-            style={{
-              position: 'absolute',
-              top: '5.81%', // (10 / 172) * 100
-              left: '11.34%', // (46.5 / 410) * 100 - centered rectangle
-              width: '77.32%', // (317 / 410) * 100
-              height: '36.05%', // (62 / 172) * 100
-              zIndex: 10,
-              cursor: 'pointer'
-            }}
-          />
-          <svg width="410" height="172" viewBox="0 0 410 172" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', pointerEvents: 'none' }}>
-            <g filter="url(#filter0_ddddiiii_463_365)">
-              <g clipPath="url(#clip0_463_365)">
-                <rect x="46.5" y="10" width="317" height="62" rx="16" fill="#2D44E5" style={{ pointerEvents: 'auto' }}/>
-                <g filter="url(#filter1_f_463_365)">
-                  <rect x="58.5" y="-15" width="50" height="50" fill="#D9D9D9"/>
-                </g>
-                <g filter="url(#filter2_f_463_365)">
-                  <rect x="58.5" y="-15" width="50" height="50" fill="#D9D9D9"/>
-                </g>
-                <g filter="url(#filter3_f_463_365)">
-                  <rect x="310.5" y="55" width="118" height="30" fill="#D9D9D9"/>
-                </g>
-                <g filter="url(#filter4_f_463_365)">
-                  <rect x="233.5" y="19" width="183" height="56" fill="#10229F"/>
-                </g>
-                <g filter="url(#filter5_f_463_365)">
-                  <rect x="355.5" y="19" width="61" height="56" fill="#2032B9"/>
-                </g>
-                <g filter="url(#filter6_f_463_365)">
-                  <rect x="355.5" y="19" width="61" height="56" fill="#2032B9"/>
-                </g>
-                <g filter="url(#filter7_f_463_365)">
-                  <rect x="355.5" y="19" width="61" height="56" fill="#2032B9"/>
-                </g>
-                <g filter="url(#filter8_f_463_365)">
-                  <rect x="355.5" y="19" width="61" height="56" fill="#2032B9"/>
-                </g>
-                <g filter="url(#filter9_f_463_365)">
-                  <rect x="47.5" y="62" width="394" height="8" fill="#001295"/>
-                </g>
-                <path d="M162.29 48V46.2H165.908C166.544 46.2 167.036 46.002 167.384 45.606C167.732 45.21 167.906 44.754 167.906 44.238C167.906 43.89 167.828 43.566 167.672 43.266C167.516 42.966 167.288 42.726 166.988 42.546C166.688 42.366 166.328 42.276 165.908 42.276H162.29V40.476H165.602C166.142 40.476 166.574 40.338 166.898 40.062C167.222 39.786 167.384 39.378 167.384 38.838C167.384 38.298 167.222 37.89 166.898 37.614C166.574 37.338 166.142 37.2 165.602 37.2H162.29V35.4H165.656C166.508 35.4 167.216 35.556 167.78 35.868C168.344 36.18 168.764 36.582 169.04 37.074C169.316 37.566 169.454 38.094 169.454 38.658C169.454 39.318 169.268 39.9 168.896 40.404C168.536 40.908 168.002 41.316 167.294 41.628L167.456 40.98C168.248 41.304 168.866 41.76 169.31 42.348C169.754 42.936 169.976 43.626 169.976 44.418C169.976 45.066 169.814 45.66 169.49 46.2C169.178 46.74 168.71 47.178 168.086 47.514C167.474 47.838 166.718 48 165.818 48H162.29ZM160.868 48V35.4H162.938V48H160.868ZM175.755 48.18C174.915 48.18 174.153 47.982 173.469 47.586C172.785 47.178 172.239 46.632 171.831 45.948C171.435 45.264 171.237 44.502 171.237 43.662C171.237 42.822 171.435 42.066 171.831 41.394C172.239 40.722 172.785 40.188 173.469 39.792C174.153 39.384 174.915 39.18 175.755 39.18C176.607 39.18 177.375 39.378 178.059 39.774C178.743 40.17 179.283 40.71 179.679 41.394C180.087 42.066 180.291 42.822 180.291 43.662C180.291 44.502 180.087 45.264 179.679 45.948C179.283 46.632 178.743 47.178 178.059 47.586C177.375 47.982 176.607 48.18 175.755 48.18ZM175.755 46.272C176.247 46.272 176.679 46.164 177.051 45.948C177.435 45.72 177.729 45.408 177.933 45.012C178.149 44.616 178.257 44.166 178.257 43.662C178.257 43.158 178.149 42.714 177.933 42.33C177.717 41.946 177.423 41.646 177.051 41.43C176.679 41.202 176.247 41.088 175.755 41.088C175.275 41.088 174.843 41.202 174.459 41.43C174.087 41.646 173.793 41.946 173.577 42.33C173.373 42.714 173.271 43.158 173.271 43.662C173.271 44.166 173.373 44.616 173.577 45.012C173.793 45.408 174.087 45.72 174.459 45.948C174.843 46.164 175.275 46.272 175.755 46.272ZM185.898 48.18C185.058 48.18 184.296 47.982 183.612 47.586C182.928 47.178 182.382 46.632 181.974 45.948C181.578 45.264 181.38 44.502 181.38 43.662C181.38 42.822 181.578 42.066 181.974 41.394C182.382 40.722 182.928 40.188 183.612 39.792C184.296 39.384 185.058 39.18 185.898 39.18C186.75 39.18 187.518 39.378 188.202 39.774C188.886 40.17 189.426 40.71 189.822 41.394C190.23 42.066 190.434 42.822 190.434 43.662C190.434 44.502 190.23 45.264 189.822 45.948C189.426 46.632 188.886 47.178 188.202 47.586C187.518 47.982 186.75 48.18 185.898 48.18ZM185.898 46.272C186.39 46.272 186.822 46.164 187.194 45.948C187.578 45.72 187.872 45.408 188.076 45.012C188.292 44.616 188.4 44.166 188.4 43.662C188.4 43.158 188.292 42.714 188.076 42.33C187.86 41.946 187.566 41.646 187.194 41.43C186.822 41.202 186.39 41.088 185.898 41.088C185.418 41.088 184.986 41.202 184.602 41.43C184.23 41.646 183.936 41.946 183.72 42.33C183.516 42.714 183.414 43.158 183.414 43.662C183.414 44.166 183.516 44.616 183.72 45.012C183.936 45.408 184.23 45.72 184.602 45.948C184.986 46.164 185.418 46.272 185.898 46.272ZM197.57 48L193.916 43.59L197.552 39.36H199.91L195.734 44.112L195.824 42.978L200.09 48H197.57ZM192.08 48V35.04H194.06V48H192.08ZM203.702 48L208.886 35.4H210.326L215.474 48H213.242L209.21 37.794H209.966L205.898 48H203.702ZM206.258 45.57V43.77H212.936V45.57H206.258ZM226.094 48.18C225.182 48.18 224.336 48.018 223.556 47.694C222.788 47.358 222.116 46.896 221.54 46.308C220.964 45.708 220.52 45.018 220.208 44.238C219.896 43.446 219.74 42.6 219.74 41.7C219.74 40.8 219.896 39.96 220.208 39.18C220.52 38.388 220.964 37.698 221.54 37.11C222.116 36.522 222.788 36.06 223.556 35.724C224.336 35.388 225.182 35.22 226.094 35.22C227.114 35.22 227.996 35.388 228.74 35.724C229.484 36.06 230.144 36.516 230.72 37.092L229.316 38.496C228.944 38.088 228.488 37.77 227.948 37.542C227.42 37.314 226.802 37.2 226.094 37.2C225.47 37.2 224.9 37.308 224.384 37.524C223.868 37.74 223.418 38.052 223.034 38.46C222.662 38.856 222.374 39.33 222.17 39.882C221.966 40.434 221.864 41.04 221.864 41.7C221.864 42.36 221.966 42.966 222.17 43.518C221.874 44.07 222.662 44.55 223.034 44.958C223.418 45.354 223.868 45.66 224.384 45.876C224.9 46.092 225.47 46.2 226.094 46.2C226.862 46.2 227.51 46.086 228.038 45.858C228.578 45.618 229.034 45.294 229.406 44.886L230.81 46.29C230.234 46.878 229.556 47.34 228.776 47.676C227.996 48.012 227.102 48.18 226.094 48.18ZM235.759 48.18C234.979 48.18 234.271 47.982 233.635 47.586C233.011 47.19 232.513 46.656 232.141 45.984C231.781 45.3 231.601 44.538 231.601 43.698C231.601 42.846 231.781 42.084 232.141 41.412C232.513 40.728 233.011 40.188 233.635 39.792C234.271 39.384 234.979 39.18 235.759 39.18C236.419 39.18 237.001 39.324 237.505 39.612C238.021 39.888 238.429 40.272 238.729 40.764C239.029 41.256 239.179 41.814 239.179 42.438V44.922C239.179 45.546 239.029 46.104 238.729 46.596C238.441 47.088 238.039 47.478 237.523 47.766C237.007 48.042 236.419 48.18 235.759 48.18ZM236.083 46.308C236.815 46.308 237.403 46.062 237.847 45.57C238.303 45.078 238.531 44.448 238.531 43.68C238.531 43.164 238.429 42.708 238.225 42.312C238.021 41.916 237.733 41.61 237.361 41.394C237.001 41.166 236.575 41.052 236.083 41.052C235.603 41.052 235.177 41.166 234.805 41.394C234.445 41.61 234.157 41.916 233.941 42.312C233.737 42.708 233.635 43.164 233.635 43.68C233.635 44.196 233.737 44.652 233.941 45.048C234.157 45.444 234.445 45.756 234.805 45.984C235.177 46.2 235.603 46.308 236.083 46.308ZM238.405 48V45.678L238.747 43.572L238.405 41.484V39.36H240.385V48H238.405ZM242.582 48V35.04H244.562V48H242.582ZM246.766 48V35.04H248.746V48H246.766Z" fill="white"/>
-              </g>
-              <rect x="45" y="8.5" width="320" height="65" rx="17.5" stroke="url(#paint0_linear_463_365)" strokeWidth="3"/>
-            </g>
-            <defs>
-              <filter id="filter0_ddddiiii_463_365" x="0" y="-1" width="410" height="173" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="3" dy="4"/>
-                <feGaussianBlur stdDeviation="5.5"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.403922 0 0 0 0 0.462745 0 0 0 0 0.882353 0 0 0 0.22 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_463_365"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="11" dy="16"/>
-                <feGaussianBlur stdDeviation="10"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.403922 0 0 0 0 0.462745 0 0 0 0 0.882353 0 0 0 0.19 0"/>
-                <feBlend mode="normal" in2="effect1_dropShadow_463_365" result="effect2_dropShadow_463_365"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="26" dy="37"/>
-                <feGaussianBlur stdDeviation="13.5"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.403922 0 0 0 0 0.462745 0 0 0 0 0.882353 0 0 0 0.11 0"/>
-                <feBlend mode="normal" in2="effect2_dropShadow_463_365" result="effect3_dropShadow_463_365"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="46" dy="65"/>
-                <feGaussianBlur stdDeviation="16"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.403922 0 0 0 0 0.462745 0 0 0 0 0.882353 0 0 0 0.03 0"/>
-                <feBlend mode="normal" in2="effect3_dropShadow_463_365" result="effect4_dropShadow_463_365"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_463_365" result="shape"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="-4" dy="-4"/>
-                <feGaussianBlur stdDeviation="6"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="shape" result="effect5_innerShadow_463_365"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="4" dy="4"/>
-                <feGaussianBlur stdDeviation="6"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="effect5_innerShadow_463_365" result="effect6_innerShadow_463_365"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="-8" dy="-8"/>
-                <feGaussianBlur stdDeviation="6"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0"/>
-                <feBlend mode="normal" in2="effect6_innerShadow_463_365" result="effect7_innerShadow_463_365"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="4" dy="4"/>
-                <feGaussianBlur stdDeviation="2"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
-                <feBlend mode="normal" in2="effect7_innerShadow_463_365" result="effect8_innerShadow_463_365"/>
-              </filter>
-              <filter id="filter1_f_463_365" x="-76" y="-115" width="250" height="250" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter2_f_463_365" x="-76" y="-115" width="250" height="250" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter3_f_463_365" x="176" y="-45" width="318" height="230" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter4_f_463_365" x="99" y="-81" width="383" height="256" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter5_f_463_365" x="221" y="-81" width="261" height="256" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter6_f_463_365" x="221" y="-81" width="261" height="256" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter7_f_463_365" x="221" y="-81" width="261" height="256" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter8_f_463_365" x="221" y="-81" width="261" height="256" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <filter id="filter9_f_463_365" x="-9" y="40" width="438" height="52" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="11" result="effect1_foregroundBlur_463_365"/>
-              </filter>
-              <linearGradient id="paint0_linear_463_365" x1="46.5" y1="0" x2="363.5" y2="0" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#95A2FF"/>
-                <stop offset="1" stopColor="#2133B9"/>
-              </linearGradient>
-              <clipPath id="clip0_463_365">
-                <rect x="46.5" y="10" width="317" height="62" rx="16" fill="white"/>
-              </clipPath>
-            </defs>
-          </svg>
+      {/* Tabs Section - Frame 98 - Positioned 112px below chat box + cards section */}
+      <div className="relative w-full flex justify-center mt-[112px] mb-[100px]">
+        <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(0,0,0,0.04)] border-solid rounded-[12px] px-8 py-3 relative">
+          <div className="flex items-center justify-between text-base text-center w-[475px] gap-8">
+            <p className="text-[#283fe4] font-bold cursor-pointer hover:text-[#4F5CFF] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Work
+            </p>
+            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Frontend
+            </p>
+            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Hall of fame
+            </p>
+            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Concepts
+            </p>
+          </div>
+          {/* Underline indicator for active tab */}
+          <div className="absolute bottom-0 left-8 h-[2px] w-[42px] bg-[#283fe4]" />
         </div>
       </div>
 
@@ -1477,31 +1338,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         @import url('https://fonts.googleapis.com/css2?family=Nexa+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.cdnfonts.com/css/neulis-cursive');
         @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
-        
-        /* Book Call Button Hover Animation */
-        .book-call-button {
-          transition: none;
-        }
-        
-        .book-call-button.is-hovered {
-          transform: scale(1.02);
-          opacity: 0.95;
-          transition: transform 0.15s ease-out, opacity 0.15s ease-out;
-        }
-        
-        .book-call-button.is-hovered #paint0_linear_463_365 stop:first-child {
-          stop-color: #B0B9FF;
-          transition: stop-color 0.15s ease-out;
-        }
-        
-        .book-call-button.is-hovered #paint0_linear_463_365 stop:last-child {
-          stop-color: #2D45D9;
-          transition: stop-color 0.15s ease-out;
-        }
-        
-        #paint0_linear_463_365 stop {
-          transition: none;
-        }
         
         /* Custom Scrollbar Styling */
         .custom-scrollbar::-webkit-scrollbar {
@@ -1655,12 +1491,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div className="max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4">
         
         {/* 52+ Projects shipped */}
-        <div className="flex flex-col h-[558px] items-center justify-between w-[245px]">
+        <div className="flex flex-col items-center gap-4 w-[245px]">
           <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             52+ Projects shipped
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] h-[505px] rounded-[28px] w-full overflow-hidden relative">
-            <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[201px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
+            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Adiagnosis</li>
                 <li>Dealdoc</li>
@@ -1689,12 +1525,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* Work with 30+ leaders */}
-        <div className="flex flex-col h-[477px] items-center justify-between">
+        <div className="flex flex-col items-center gap-4">
           <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Work with 30+ leaders
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] h-[424px] rounded-[28px] w-[245px] overflow-hidden relative">
-            <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[153px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-[245px] relative p-4">
+            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Tina Hua</li>
                 <li>Angie lee</li>
@@ -1949,27 +1785,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
-      {/* Tabs Section - Frame 98 - From Figma Design */}
-      <div className="relative w-full flex justify-center mt-[100px] md:mt-[150px] lg:mt-[200px] mb-[100px]">
-        <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(0,0,0,0.04)] border-solid rounded-[12px] px-8 py-3 relative">
-          <div className="flex items-center justify-between text-base text-center w-[475px] gap-8">
-            <p className="text-[#283fe4] font-bold cursor-pointer hover:text-[#4F5CFF] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Work
-            </p>
-            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Frontend
-            </p>
-            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Hall of fame
-            </p>
-            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Concepts
-            </p>
-          </div>
-          {/* Underline indicator for active tab */}
-          <div className="absolute bottom-0 left-8 h-[2px] w-[42px] bg-[#283fe4]" />
-        </div>
-      </div>
 
       {/* Footer - At the very bottom */}
       <div className="relative z-10 flex justify-center w-full mt-[100px] md:mt-[150px] lg:mt-[200px]">
