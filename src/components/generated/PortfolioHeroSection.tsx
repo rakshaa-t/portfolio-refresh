@@ -239,11 +239,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Calculate proportional scale factor for iPad (Approach 2 + 4: container + card scaling)
+  // Calculate proportional scale factor for iPad only (Approach 2 + 4: container + card scaling)
+  // Mobile uses original layout, so skip scaling on mobile (< 768px)
   React.useEffect(() => {
     const updateScaleFactor = () => {
-      if (!isDesktop) {
-        // Desktop container width: 1040.8px
+      const isMobile = window.innerWidth < 768; // Mobile breakpoint
+      if (!isDesktop && !isMobile) {
+        // iPad/Tablet only: Desktop container width: 1040.8px
         // Desktop layout needs ~1046px to fit all cards (rightmost card at 783px + 263px card width)
         // Use consistent padding: 32px on each side (64px total)
         const desktopContainerWidth = 1040.8;
@@ -260,6 +262,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         const scaledContainerWidth = Math.min(desktopContainerWidth * scale, availableWidth);
         setContainerWidth(scaledContainerWidth);
       } else {
+        // Mobile or desktop: use original sizes
         setContainerWidth(1040.8);
         setScaleFactor(1);
       }
@@ -686,14 +689,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </nav>
 
 
-      {/* Content Container - Responsive - Using Marijana's system for mobile/tablet, keeping desktop as-is */}
-      <div className="relative w-full px-4 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center" style={{ overflowX: 'hidden' }}>
+      {/* Content Container - Responsive - Mobile restored to original, tablet/iPad uses Marijana's system */}
+      <div className="relative w-full px-6 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center" style={{ overflowX: 'hidden' }}>
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] text-left mt-5 md:mt-5 lg:mt-5 mb-5 md:mb-5 lg:mb-10"
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] text-left mt-5 mb-5 md:mt-5 lg:mt-5 md:mb-5 lg:mb-10"
           >
           <div className="w-full">
             <HighlightedText
@@ -736,11 +739,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
           </motion.div>
 
-        {/* Chat + Cards Container - Responsive sizing - Proportional scaling on iPad (Approach 2) */}
+        {/* Chat + Cards Container - Responsive sizing - Mobile restored to original, tablet/iPad uses scaling */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-full md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
-          style={!isDesktop ? {
+          className="relative mx-auto w-full max-w-[348px] md:h-[485.6px] md:max-w-[90vw] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
+          style={!isDesktop && window.innerWidth >= 768 ? {
+            // iPad/Tablet only: apply scaling
             width: `${containerWidth}px`,
             height: `${485.6 * scaleFactor}px`,
             maxWidth: `calc(100vw - 64px)`, // 32px padding on each side
