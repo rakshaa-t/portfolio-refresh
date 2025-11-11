@@ -1421,10 +1421,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             className="absolute"
             style={{
               width: `${activeIndicatorStyle.width}px`,
-              height: 0,
-              background: 'rgba(255, 255, 255, 0.22)',
-              outline: '1px #283FE4 solid',
-              outlineOffset: '-0.50px',
+              height: '2px',
+              background: '#283FE4',
               bottom: 18,
               left: `${32 + activeIndicatorStyle.left}px`,
               transition: 'width 0.3s ease, left 0.3s ease'
