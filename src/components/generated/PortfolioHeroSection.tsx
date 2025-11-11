@@ -2244,7 +2244,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
             </div>
           </div>
-          </div>
 
           {/* Shortcut descriptions */}
           <div 
