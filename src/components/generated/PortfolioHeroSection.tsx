@@ -1559,8 +1559,58 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Stats Section - From Figma Design */}
-      <div className="relative w-full bg-[#2d44e5] py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px]">
-        <div className="max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4">
+      <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
+        {/* Background with gradient bars */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            overflow: 'hidden',
+            borderRadius: 60,
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            display: 'inline-flex'
+          }}
+        >
+          {/* Vertical gradient bars */}
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          <div style={{width: 115, height: 735, transform: 'rotate(180deg)', transformOrigin: 'top left', background: 'linear-gradient(270deg, #5D70FA 0%, #283FE4 100%)', boxShadow: '0px 4px 22px rgba(255, 255, 255, 0.25) inset'}} />
+          
+          {/* Blur overlay */}
+          <div 
+            style={{
+              width: 1857,
+              height: 591,
+              left: -87,
+              top: 102,
+              position: 'absolute',
+              background: '#11229D',
+              boxShadow: '400px 400px 400px',
+              borderRadius: 200,
+              filter: 'blur(200px)',
+              backdropFilter: 'blur(2px)'
+            }} 
+          />
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4">
         
         {/* 52+ Projects shipped */}
         <div className="flex flex-col items-center gap-4 w-[245px]">
