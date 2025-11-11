@@ -1559,7 +1559,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Stats Section - From Figma Design */}
-      <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden flex justify-center">
+      <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden flex justify-center items-center min-h-[735px]">
         {/* SVG Background */}
         <div className="absolute inset-0 flex justify-center">
           <svg width="1706" height="735" viewBox="0 0 1706 735" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
