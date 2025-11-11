@@ -227,6 +227,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
+  const activeTabRef = React.useRef<HTMLDivElement>(null);
+  const tabsContainerRef = React.useRef<HTMLDivElement>(null);
+  const [activeIndicatorStyle, setActiveIndicatorStyle] = React.useState({ width: 72, left: 0 });
   
   // Track if we're on desktop (lg breakpoint) for card positioning
   React.useEffect(() => {
@@ -1325,7 +1328,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         >
           {/* Tabs Container */}
           <div 
-            className="flex items-center justify-between"
+            ref={tabsContainerRef}
+            className="flex items-center justify-between relative"
             style={{ width: 475 }}
           >
             <div 
@@ -1341,6 +1345,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               Work
             </div>
             <div 
+              ref={activeTabRef}
               className="text-center cursor-pointer hover:opacity-80 transition-opacity"
               style={{
                 color: '#283FE4',
@@ -1393,13 +1398,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div 
             className="absolute"
             style={{
-              width: 72,
+              width: `${activeIndicatorStyle.width}px`,
               height: 0,
               background: 'rgba(255, 255, 255, 0.22)',
               outline: '1px #283FE4 solid',
               outlineOffset: '-0.50px',
               bottom: 18,
-              left: 'calc(32px + (475px / 3) - 36px)' // Positioned under "Frontend" tab (second of 4 tabs with space-between)
+              left: `${32 + activeIndicatorStyle.left}px`,
+              transition: 'width 0.3s ease, left 0.3s ease'
             }}
           />
         </div>
