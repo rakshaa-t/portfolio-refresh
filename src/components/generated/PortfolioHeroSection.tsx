@@ -239,29 +239,34 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Track container width and calculate scale factor for iPad centering
+  // Calculate proportional scale factor for iPad (Approach 2 + 4: container + card scaling)
   React.useEffect(() => {
-    const updateContainerWidth = () => {
+    const updateScaleFactor = () => {
       if (!isDesktop) {
+        // Desktop container width: 1040.8px
         // Desktop layout needs ~1046px to fit all cards (rightmost card at 783px + 263px card width)
-        // Scale down proportionally to fit within viewport with padding
+        // Use consistent padding: 32px on each side (64px total)
+        const desktopContainerWidth = 1040.8;
         const desktopLayoutWidth = 1046;
-        const availableWidth = window.innerWidth - 40; // 20px padding on each side
+        const padding = 64; // 32px padding on each side
+        const availableWidth = window.innerWidth - padding;
+        
+        // Calculate scale factor to fit layout within viewport
+        // Scale both container and cards proportionally
         const scale = Math.min(1, availableWidth / desktopLayoutWidth);
         setScaleFactor(scale);
         
-        if (cardsContainerRef.current) {
-          const width = cardsContainerRef.current.offsetWidth;
-          setContainerWidth(width);
-        }
+        // Calculate scaled container width
+        const scaledContainerWidth = desktopContainerWidth * scale;
+        setContainerWidth(scaledContainerWidth);
       } else {
         setContainerWidth(1040.8);
         setScaleFactor(1);
       }
     };
-    updateContainerWidth();
-    window.addEventListener('resize', updateContainerWidth);
-    return () => window.removeEventListener('resize', updateContainerWidth);
+    updateScaleFactor();
+    window.addEventListener('resize', updateScaleFactor);
+    return () => window.removeEventListener('resize', updateScaleFactor);
   }, [isDesktop]);
   
   // Scroll tracking for navigation bar
@@ -730,15 +735,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
           </motion.div>
 
-        {/* Chat + Cards Container - Responsive sizing - Using Marijana's system for mobile/tablet - Centered on iPad */}
+        {/* Chat + Cards Container - Responsive sizing - Proportional scaling on iPad (Approach 2) */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-full md:h-[485.6px] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
+          className="relative mx-auto w-full max-w-full md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
           style={!isDesktop ? {
-            width: '1040.8px',
-            maxWidth: 'min(1040.8px, 95vw)',
-            transform: scaleFactor < 1 ? `scale(${scaleFactor})` : 'none',
-            transformOrigin: 'center top'
+            width: `${containerWidth}px`,
+            height: `${485.6 * scaleFactor}px`,
+            maxWidth: `calc(100vw - 64px)`, // 32px padding on each side
           } : {}}
         >
           {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
@@ -751,20 +755,31 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               zIndex: 1
             }}
           />
-          {/* Chat Interface Card - Centered on iPad and Desktop like desktop - Reduced width on iPad */}
+          {/* Chat Interface Card - Proportional scaling on iPad (Approach 2 + 4) */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
-            style={{
+            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            style={isDesktop ? {
+              top: '23.2px',
+              width: '603.2px',
+              height: '435.2px',
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
               borderRadius: '44px',
               outline: '2px white solid',
               outlineOffset: '-2px',
-              height: '483px'
+            } : {
+              top: `${23.2 * scaleFactor}px`,
+              width: `${603.2 * scaleFactor}px`,
+              height: `${435.2 * scaleFactor}px`,
+              background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
+              boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
+              borderRadius: `${44 * scaleFactor}px`,
+              outline: `${2 * scaleFactor}px white solid`,
+              outlineOffset: `${-2 * scaleFactor}px`,
             }}
           >
           {/* Drop Zone Overlay - Shows when dragging a card (iPad and desktop) */}
@@ -790,15 +805,27 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
-              style={{
+              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[304px] lg:max-w-[560px] lg:w-[560px] top-0 pointer-events-none z-10"
+              style={isDesktop ? {
+                height: '40px',
+                background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
+              } : {
+                width: `${560 * scaleFactor}px`,
+                maxWidth: `${560 * scaleFactor}px`,
+                height: `${40 * scaleFactor}px`,
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
             />
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] lg:max-w-[560px] lg:w-[560px] lg:h-[320px]"
+              style={!isDesktop ? {
+                width: `${560 * scaleFactor}px`,
+                maxWidth: `${560 * scaleFactor}px`,
+                top: `${32 * scaleFactor}px`,
+                height: `${320 * scaleFactor}px`
+              } : {}}
             >
               <div 
                 ref={chatContainerRef}
@@ -867,7 +894,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
+            <div 
+              ref={inputContainerRef} 
+              className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] lg:max-w-[560px] lg:w-[560px] lg:bottom-[40px] lg:gap-[12px]"
+              style={!isDesktop ? {
+                width: `${560 * scaleFactor}px`,
+                maxWidth: `${560 * scaleFactor}px`,
+                bottom: `${40 * scaleFactor}px`,
+                gap: `${12 * scaleFactor}px`
+              } : {}}
+            >
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -1171,23 +1207,19 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       duration: 0.5,
                       delay: PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1
                     }}
-                    className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
+                    className="absolute rounded-[44px] border border-white cursor-grab"
                     style={{
-                      // iPad-specific positioning: center cards relative to container
-                      // Desktop (lg:) uses original positions, iPad (md:) uses centered positions
+                      // Proportional scaling on iPad (Approach 2 + 4): scale card size and positions
+                      width: isDesktop ? '263px' : `${263 * scaleFactor}px`,
+                      height: isDesktop ? '266px' : `${266 * scaleFactor}px`,
+                      borderRadius: isDesktop ? '44px' : `${44 * scaleFactor}px`,
+                      borderWidth: isDesktop ? '1px' : `${1 * scaleFactor}px`,
                       left: isDesktop 
                         ? card.position.left
-                        : (() => {
-                            // On iPad, calculate position relative to container center
-                            // Desktop container is 1040.8px, center is 520.4px
-                            const desktopCenter = 520.4;
-                            const desktopLeft = parseFloat(card.position.left);
-                            const offsetFromCenter = desktopLeft - desktopCenter;
-                            // Apply same offset from iPad container center
-                            const ipadCenter = containerWidth / 2;
-                            return `${ipadCenter + offsetFromCenter}px`;
-                          })(),
-                      top: card.position.top,
+                        : `${parseFloat(card.position.left) * scaleFactor}px`,
+                      top: isDesktop 
+                        ? card.position.top
+                        : `${parseFloat(card.position.top) * scaleFactor}px`,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
