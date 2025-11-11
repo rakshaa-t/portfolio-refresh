@@ -1609,6 +1609,424 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
+      {/* Project Showcase Sections - From Figma Design */}
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 mt-[100px] md:mt-[150px] lg:mt-[200px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
+        
+        {/* Ova Project Showcase */}
+        <div className="flex flex-col gap-2">
+          <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Ova : A privacy first , Pg13+  Period Tracking App for women
+          </p>
+          <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            Focused on allowing women of all ages to track their periods, have a period companion - Ova to guide them through their cycles, give them insights about their period and give predictive feedback of their upcoming cycles, symptoms and moods
+          </p>
+          <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
+            <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center w-full max-w-[1258px] px-4">
+              <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[393px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/58263a68-76ec-40ae-9d3a-0f30c28debaf" 
+                  alt="Ova mobile mockup" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+              <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[847px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/9d49b638-e5c9-4a84-bffa-2988b0f687f3" 
+                  alt="Ova desktop mockup" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Greex Project Showcase */}
+        <div className="flex flex-col gap-2">
+          <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Greex : A defi Trading Platform
+          </p>
+          <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            Greex was a decentralized options and futures trading platform designed to make strategy-based trading more accessible. The product allowed users to apply predefined trading strategies, understand risk-reward visually, and execute trades seamlessly across web and mobile.
+          </p>
+          <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
+            <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center w-full max-w-[1258px] px-4">
+              <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[982px] relative overflow-hidden shadow-[8px_25px_57px_0px_rgba(0,0,0,0.1)]">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/0de2028f-a4ae-40d3-a439-2b4ea84ff274" 
+                  alt="Greex desktop mockup" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+              <div className="h-[200px] md:h-[300px] lg:h-[635px] rounded-[36px] w-full md:w-[264px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/2af8764a-886e-47c4-aecb-600c080d9937" 
+                  alt="Greex mobile mockup" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dealdoc Project Showcase */}
+        <div className="flex flex-col gap-2">
+          <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Dealdoc : Deal management Platform
+          </p>
+          <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            Dealdoc is a sales deal management tool for developers and founders. The idea was to create a minimal, developer-first UI that felt clean and logical, while helping users track, manage, and close sales deals more efficiently.
+          </p>
+          <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
+            <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center justify-center w-full max-w-[1258px] px-4">
+              <div className="flex-1 h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/56e2472b-c849-4d99-a14a-52f98463f9eb" 
+                  alt="Dealdoc mockup 1" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+              <div className="flex-1 h-[635px] rounded-[36px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/c6579de0-7126-4c23-9b7b-c74d298edbf7" 
+                  alt="Dealdoc mockup 2" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Adiagnosis Project Showcase */}
+        <div className="flex flex-col gap-2">
+          <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Adiagnosis : A clinical tool for psychiatrists and medical professionals
+          </p>
+          <div className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <p className="mb-0">A smarter way to assess, diagnose, and act on mental health. Whether you're a clinician or an individual, Adiagnosis helps turn complex psychiatric symptoms into organized, useful reports. Built on diagnostic frameworks used in mental health practice.</p>
+          </div>
+          <div className="relative h-[350px] md:h-[450px] lg:h-[584px] rounded-[40px] overflow-hidden mt-6 bg-[rgba(255,255,255,0.3)]">
+            <div className="absolute bg-[rgba(255,255,255,0.57)] blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1036px] pointer-events-none" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[15px] items-center justify-center w-full max-w-[1258px] px-4">
+              <div className="h-[250px] md:h-[350px] lg:h-[542px] rounded-[36px] w-full md:w-[838px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/b0b89c9e-a322-4352-b4a0-9a84f8d59567" 
+                  alt="Adiagnosis mockup 1" 
+                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
+                />
+              </div>
+              <div className="flex-1 h-[200px] md:h-[300px] lg:h-[542px] rounded-[22px] relative overflow-hidden">
+                <img 
+                  src="https://www.figma.com/api/mcp/asset/2d2422c3-f026-4f75-83be-2cd745c745d8" 
+                  alt="Adiagnosis mockup 2" 
+                  className="absolute inset-0 w-full h-full object-contain rounded-[22px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Section - From Figma Design */}
+      <div className="relative w-full bg-[#2d44e5] py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px]">
+        <div className="max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4">
+        
+        {/* 52+ Projects shipped */}
+        <div className="flex flex-col h-[558px] items-center justify-between w-[245px]">
+          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            52+ Projects shipped
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] h-[505px] rounded-[28px] w-full overflow-hidden relative">
+            <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[201px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1">
+                <li>Adiagnosis</li>
+                <li>Dealdoc</li>
+                <li>Tickle</li>
+                <li>Ova App</li>
+                <li>Cognix Health</li>
+                <li>Bewakoof.com</li>
+                <li>Meyraki</li>
+                <li>Indian Oil Company</li>
+                <li>Inaam</li>
+                <li>ENA</li>
+                <li>Kodo Card</li>
+                <li>Euman Technologies</li>
+                <li>KG International</li>
+                <li>Tennishop UAE</li>
+                <li>Nourish App</li>
+                <li>Unidel</li>
+                <li>Lido Learning</li>
+                <li>Unifynd</li>
+                <li>Reverce</li>
+                <li>Nesto Group (App)</li>
+                <li>And many more</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Work with 30+ leaders */}
+        <div className="flex flex-col h-[477px] items-center justify-between">
+          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Work with 30+ leaders
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] h-[424px] rounded-[28px] w-[245px] overflow-hidden relative">
+            <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[153px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1">
+                <li>Tina Hua</li>
+                <li>Angie lee</li>
+                <li>Aritra Senugupta</li>
+                <li>Sarthak Sharma</li>
+                <li>Max Mcquillan</li>
+                <li>Hannah Wartooth</li>
+                <li>Neerav J</li>
+                <li>Amrita Singh</li>
+                <li>Rohit Biwas</li>
+                <li>Arash</li>
+                <li>Sunny</li>
+                <li>Raj Karan</li>
+                <li>Deepti Singhi</li>
+                <li>Nyshita Jain</li>
+                <li>Thomas Phua</li>
+                <li>Rohit Goel</li>
+                <li>Sagar Sharma</li>
+                <li>Maruti</li>
+                <li>and many more</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* $250+ M raised */}
+        <div className="flex flex-col h-[267px] items-center justify-between w-[245px]">
+          <p className="text-white text-[22px] font-bold leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            $250+ M raised
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] h-[214px] rounded-[28px] w-full overflow-hidden relative">
+            <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1">
+                <li>Nesto group : $130M</li>
+                <li>Bewakoof : ~$40M+</li>
+                <li>Kodo Card : ~$10M +</li>
+                <li>Lido Leaning : ~31.7 M+</li>
+                <li>Euman Technologies : ~ $3.4 M+</li>
+                <li>Unifynd : ~ $2M</li>
+                <li>Cryptiq : ~ $200K+</li>
+                <li>and many more</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* 2.9+ M users reached */}
+        <div className="flex flex-col h-[206px] items-center justify-between">
+          <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            2.9+ M users reached
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] h-[153px] rounded-[28px] w-[245px] overflow-hidden relative">
+            <ul className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <li className="pl-6">
+                Cumulative number of users across all platforms I worked with in my career may be way above this number
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Principles Section - My non negotiables - From Figma Design */}
+      <div className="relative w-full bg-[#e4deed] h-auto min-h-[1238px] py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
+        <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none" />
+        <p className="text-center text-[#9f94ad] text-[22px] font-bold mb-[100px]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          My non negotiables
+        </p>
+        
+        {/* Principles Cards - Positioned with rotations */}
+        <div className="relative max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[1000px]">
+          {/* Main principle - Blue card */}
+          <div className="absolute left-1/2 top-[287.95px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
+            <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-[533.407px]" />
+          </div>
+          <div className="absolute left-1/2 top-[317px] -translate-x-1/2 rotate-[4deg]">
+            <p className="text-black text-base font-normal leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              My team is my fuel, if I work with you I respect you all the way
+            </p>
+          </div>
+
+          {/* Blue highlighted principle */}
+          <div className="absolute left-1/2 top-[390.42px] -translate-x-1/2 rotate-[356deg]">
+            <div className="bg-[#283fe4] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-[682.088px]" />
+          </div>
+          <div className="absolute left-1/2 top-[421.08px] -translate-x-1/2 rotate-[356deg]">
+            <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Make every function aesthetic and make every aesthetic serve a function
+            </p>
+          </div>
+
+          {/* Other principles */}
+          <div className="absolute left-1/2 top-[510.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
+            <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-[616.784px]" />
+          </div>
+          <div className="absolute left-1/2 top-[540px] -translate-x-1/2 rotate-[4deg]">
+            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              If there's no value exchange - it's theft. Create value, serve a purpose
+            </p>
+          </div>
+
+          <div className="absolute left-1/2 top-[622.07px] -translate-x-1/2 rotate-[356deg]">
+            <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-[500.788px]" />
+          </div>
+          <div className="absolute left-1/2 top-[655.03px] -translate-x-1/2 rotate-[356deg]">
+            <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Top-Tier communication, no assumptions
+            </p>
+          </div>
+
+          <div className="absolute left-1/2 top-[719.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
+            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-[509.437px]" />
+          </div>
+          <div className="absolute left-1/2 top-[750px] -translate-x-1/2 rotate-[4deg]">
+            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Work only with ethical and high integrity people
+            </p>
+          </div>
+
+          <div className="absolute left-1/2 top-[818.25px] -translate-x-1/2 rotate-[356deg]">
+            <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] w-[311.843px]" />
+          </div>
+          <div className="absolute left-1/2 top-[847.72px] -translate-x-1/2 rotate-[356deg]">
+            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Reverse engineer everything
+            </p>
+          </div>
+
+          <div className="absolute left-1/2 top-[900.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
+            <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] w-[369.17px]" />
+          </div>
+          <div className="absolute left-1/2 top-[933px] -translate-x-1/2 rotate-[4deg]">
+            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Be allergic to Mediocracy
+            </p>
+          </div>
+
+          <div className="absolute left-1/2 top-[992.98px] -translate-x-1/2 rotate-[356deg]">
+            <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] w-[330.007px]" />
+          </div>
+          <div className="absolute left-1/2 top-[1026.37px] -translate-x-1/2 rotate-[356deg]">
+            <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              NO bloated MVPs
+            </p>
+          </div>
+
+          <div className="absolute left-1/2 top-[1087.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
+            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-[321.324px]" />
+          </div>
+          <div className="absolute left-1/2 top-[1118px] -translate-x-1/2 rotate-[4deg]">
+            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Details. Details. Details >>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Keyboard Shortcuts Section - From Figma Design */}
+      <div className="relative w-full bg-[#e4deed] h-auto min-h-[607px] py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
+        <div className="absolute bg-[rgba(255,255,255,0.51)] blur-[200px] filter h-[761px] left-[-226px] rounded-[4444px] top-[281px] w-[1472px] pointer-events-none" />
+        <div className="max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11">
+          <p className="text-center text-[#232324] text-[22px] font-normal mb-[60px]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Press the following on your keyboard to unlock hidden shortcuts!
+          </p>
+          
+          {/* Keyboard Shortcut Cards */}
+          <div className="flex flex-wrap items-center justify-center gap-8 max-w-[809.617px] mx-auto">
+            {/* CMD + I */}
+            <div className="rotate-[15deg]">
+              <div className="bg-[#10219c] h-[162.509px] rounded-[28px] w-[166px] relative overflow-hidden border-2 border-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-[27.346px] h-[27.346px] relative">
+                      <img src="https://www.figma.com/api/mcp/asset/e016349e-fb17-46ae-a267-8380c96c4fe7" alt="CMD" className="w-full h-full" />
+                    </div>
+                    <p className="text-white text-[22px] font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>I</p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0px_4px_4px_0px_#393939]" />
+              </div>
+            </div>
+
+            {/* CMD + M */}
+            <div className="rotate-[345deg]">
+              <div className="bg-[rgba(255,255,255,0.29)] h-[162.509px] rounded-[28px] w-[166px] relative overflow-hidden border-2 border-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-[27.346px] h-[27.346px] relative">
+                      <img src="https://www.figma.com/api/mcp/asset/b7d00d7c-168f-47b9-84af-b30f5e3befbf" alt="CMD" className="w-full h-full" />
+                    </div>
+                    <p className="text-black text-[22px] font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>M</p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0px_4px_4px_0px_#ffffff]" />
+              </div>
+            </div>
+
+            {/* CMD + V */}
+            <div className="rotate-[15deg]">
+              <div className="bg-[#10219c] h-[162.509px] rounded-[28px] w-[166px] relative overflow-hidden border-2 border-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-[27.346px] h-[27.346px] relative">
+                      <img src="https://www.figma.com/api/mcp/asset/e016349e-fb17-46ae-a267-8380c96c4fe7" alt="CMD" className="w-full h-full" />
+                    </div>
+                    <p className="text-white text-[22px] font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>V</p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0px_4px_4px_0px_#393939]" />
+              </div>
+            </div>
+
+            {/* CMD + F */}
+            <div className="rotate-[345deg]">
+              <div className="bg-[rgba(255,255,255,0.29)] h-[162.509px] rounded-[28px] w-[166px] relative overflow-hidden border-2 border-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-[27.346px] h-[27.346px] relative">
+                      <img src="https://www.figma.com/api/mcp/asset/b7d00d7c-168f-47b9-84af-b30f5e3befbf" alt="CMD" className="w-full h-full" />
+                    </div>
+                    <p className="text-black text-[22px] font-bold" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>F</p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0px_4px_4px_0px_#ffffff]" />
+              </div>
+            </div>
+          </div>
+
+          {/* Shortcut descriptions */}
+          <div className="flex flex-col items-center gap-2 mt-12 max-w-[809.617px] mx-auto">
+            <div className="rotate-[8deg]">
+              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                CMD + I takes you to my case studies
+              </p>
+            </div>
+            <div className="rotate-[352deg]">
+              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                CMD + M takes you to my calendar
+              </p>
+            </div>
+            <div className="rotate-[8deg]">
+              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                CMD + V  takes you my vibe coded projects
+              </p>
+            </div>
+            <div className="rotate-[352deg]">
+              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                CMD + F  takes you my wall of fame
+              </p>
+          </div>
+        </div>
+        </div>
+      </div>
+
       {/* Cal.com Embedded Modal */}
       {isCalendarOpen && (
         <div 
