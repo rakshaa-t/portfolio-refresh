@@ -1610,7 +1610,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <rect x="1610" width="115" height="735" fill="url(#paint14_linear_0_595)"/>
               </g>
               <foreignObject x="-487" y="-298" width="2657" height="1391">
-                <div xmlns="http://www.w3.org/1999/xhtml" style={{backdropFilter: 'blur(2px)', clipPath: 'url(#bgblur_1_0_595_clip_path)', height: '100%', width: '100%'}}></div>
+                <div style={{backdropFilter: 'blur(2px)', clipPath: 'url(#bgblur_1_0_595_clip_path)', height: '100%', width: '100%'}}></div>
               </foreignObject>
               <g filter="url(#filter15_f_0_595)" data-figma-bg-blur-radius="4">
                 <rect x="-87" y="102" width="1857" height="591" rx="200" fill="#11229D"/>
