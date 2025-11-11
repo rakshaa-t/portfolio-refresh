@@ -286,7 +286,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
   // Mobile detection - more robust check
   const [isMobile, setIsMobile] = React.useState(false);
-  const [isButtonHovered, setIsButtonHovered] = React.useState(false);
 
   React.useEffect(() => {
     const checkMobile = () => {
