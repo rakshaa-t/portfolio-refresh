@@ -1373,7 +1373,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: 'rgba(0, 0, 0, 0.28)',
                 fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '400',
+                fontWeight: '500',
                 wordWrap: 'break-word'
               }}
             >
@@ -1385,7 +1385,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: 'rgba(0, 0, 0, 0.28)',
                 fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '400',
+                fontWeight: '500',
                 wordWrap: 'break-word'
               }}
             >
@@ -1397,7 +1397,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: 'rgba(0, 0, 0, 0.28)',
                 fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '400',
+                fontWeight: '500',
                 wordWrap: 'break-word'
               }}
             >
