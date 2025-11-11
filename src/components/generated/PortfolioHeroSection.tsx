@@ -1056,22 +1056,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           cursorY >= inputRect.top - margin &&
                           cursorY <= inputRect.bottom + margin;
                       }
-                        
-                        if (isDroppedOnChat) {
-                          // Card dropped inside chatbox - mark it and keep it under chatbox
-                          setCardsDroppedInChat(prev => new Set(prev).add(card.id));
-                          setIsDraggingCard(null);
-                          setIsCardOverChat(false);
-                          // Stop momentum immediately when dropping into chat
-                          handleCardDrop(card.id);
-                        } else {
-                          // Card dropped outside chatbox - will slide with momentum
-                          // Keep z-index high during momentum, will be lowered in onDragTransitionEnd
-                          setCardsInMomentum(prev => new Set(prev).add(card.id));
-                          setIsDraggingCard(null);
-                          setIsCardOverChat(false);
-                        }
+                      
+                      if (isDroppedOnChat) {
+                        // Card dropped inside chatbox - mark it and keep it under chatbox
+                        setCardsDroppedInChat(prev => new Set(prev).add(card.id));
+                        setIsDraggingCard(null);
+                        setIsCardOverChat(false);
+                        // Stop momentum immediately when dropping into chat
+                        handleCardDrop(card.id);
                       } else {
+                        // Card dropped outside chatbox - will slide with momentum
+                        // Keep z-index high during momentum, will be lowered in onDragTransitionEnd
+                        setCardsInMomentum(prev => new Set(prev).add(card.id));
                         setIsDraggingCard(null);
                         setIsCardOverChat(false);
                       }
@@ -1180,7 +1176,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       }}
                     >
                       {card.title}
-              </div>
+                    </div>
                   </div>
                   
                   {/* Card Image - Fills bottom portion */}
@@ -1207,8 +1203,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       className="pointer-events-none"
                       draggable={false}
                     />
-            </div>
-          </motion.div>
+                  </div>
+                </motion.div>
               );
             })}
           </AnimatePresence>
