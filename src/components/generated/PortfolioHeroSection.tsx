@@ -529,7 +529,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
   // Unified responsive component (no separate mobile component)
   return (
-    <div className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
+    <div ref={heroSectionRef} className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
       {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
       <div className="hidden lg:block absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
       <div className="hidden lg:block absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
