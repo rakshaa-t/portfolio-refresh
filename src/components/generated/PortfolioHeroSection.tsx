@@ -1873,7 +1873,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Content - Vertically centered wrapper */}
         <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex items-center justify-center min-h-[900px]">
           {/* Inner container with bottom-aligned boxes */}
-          <div className="flex flex-col md:flex-row items-end justify-center gap-8 md:gap-6 w-full">
+          <div className="flex flex-col md:flex-row items-end justify-center gap-[52px] md:gap-[44px] w-full">
         
         {/* 52+ Projects shipped */}
         <div className="flex flex-col items-start gap-4 w-[245px]">
