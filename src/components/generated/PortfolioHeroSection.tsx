@@ -1836,21 +1836,21 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <stop offset="1" stopColor="#283FE4"/>
               </linearGradient>
               <clipPath id="clip0_0_595">
-                <rect width="1706" height="735" rx="60" fill="white"/>
+                <rect width="1706" height="735" rx="40" fill="white"/>
               </clipPath>
             </defs>
           </svg>
         </div>
         
         {/* Content - From Figma */}
-        <div className="relative z-10 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11">
+        <div className="relative z-10 flex flex-col md:flex-row items-end justify-center gap-8 md:gap-4 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 h-full min-h-[735px]">
           {/* 52+ Projects shipped */}
-          <div className="flex flex-col h-[558px] items-center justify-between w-[245px]">
+          <div className="flex flex-col items-center gap-4 w-[245px]">
             <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               52+ Projects shipped
             </p>
-            <div className="bg-[rgba(255,255,255,0.1)] h-[505px] rounded-[28px] w-full overflow-hidden relative">
-              <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[201px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
+              <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 <ul className="list-disc mb-0">
                   <li className="mb-0 ms-[24px]"><span className="leading-normal">Adiagnosis</span></li>
                   <li className="mb-0 ms-[24px]"><span className="leading-normal">Dealdoc</span></li>
@@ -1879,12 +1879,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
           {/* Work with 30+ leaders */}
-          <div className="flex flex-col h-[477px] items-center justify-between">
+          <div className="flex flex-col items-center gap-4">
             <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Work with 30+ leaders
             </p>
-            <div className="bg-[rgba(255,255,255,0.1)] h-[424px] rounded-[28px] w-[245px] overflow-hidden relative">
-              <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[153px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-[245px] relative p-4">
+              <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 <ul className="list-disc mb-0">
                   <li className="mb-0 ms-[24px]"><span className="leading-normal">Tina Hua</span></li>
                   <li className="mb-0 ms-[24px]"><span className="leading-normal">Angie lee</span></li>
@@ -1911,12 +1911,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
           {/* $250+ M raised */}
-          <div className="flex flex-col h-[267px] items-center justify-between w-[245px]">
+          <div className="flex flex-col items-center gap-4 w-[245px]">
             <p className="text-white text-[22px] font-bold leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               $250+ M raised
             </p>
-            <div className="bg-[rgba(255,255,255,0.1)] h-[214px] rounded-[28px] w-full overflow-hidden relative">
-              <div className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
+              <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 <ul className="list-disc mb-0">
                   <li className="mb-0 ms-[24px]"><span className="leading-normal">Nesto group : $130M</span></li>
                   <li className="mb-0 ms-[24px]"><span className="leading-normal">Bewakoof : ~$40M+</span></li>
@@ -1932,12 +1932,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
           {/* 2.9+ M users reached */}
-          <div className="flex flex-col h-[206px] items-center justify-between">
+          <div className="flex flex-col items-center gap-4">
             <p className="text-white text-[22px] font-bold leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               2.9+ M users reached
             </p>
-            <div className="bg-[rgba(255,255,255,0.1)] h-[153px] rounded-[28px] w-[245px] overflow-hidden relative">
-              <ul className="absolute left-[21px] top-[17px] text-white text-base font-normal leading-normal w-[202px]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-[245px] relative p-4">
+              <ul className="text-white text-base font-normal leading-normal w-full mb-0" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 <li className="ms-[24px] whitespace-pre-wrap">
                   <span className="leading-normal">Cumulative number of users across all platforms I worked with in my career may be way above this number</span>
                 </li>
