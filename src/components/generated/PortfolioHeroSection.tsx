@@ -221,6 +221,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const [isDesktop, setIsDesktop] = React.useState(false);
+  const [containerWidth, setContainerWidth] = React.useState(1040.8);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
@@ -235,6 +236,19 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     checkDesktop();
     window.addEventListener('resize', checkDesktop);
     return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
+  // Track container width for iPad centering
+  React.useEffect(() => {
+    const updateContainerWidth = () => {
+      if (cardsContainerRef.current) {
+        const width = cardsContainerRef.current.offsetWidth;
+        setContainerWidth(width);
+      }
+    };
+    updateContainerWidth();
+    window.addEventListener('resize', updateContainerWidth);
+    return () => window.removeEventListener('resize', updateContainerWidth);
   }, []);
   
   // Scroll tracking for navigation bar
