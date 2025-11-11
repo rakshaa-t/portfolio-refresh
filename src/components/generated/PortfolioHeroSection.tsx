@@ -2087,28 +2087,75 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
           {/* Shortcut descriptions */}
-          <div className="flex flex-col items-center gap-2 mt-12 max-w-[809.617px] mx-auto">
-            <div className="rotate-[8deg]">
-              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                CMD + I takes you to my case studies
-              </p>
+          <div 
+            className="mt-12 max-w-[809.617px] mx-auto"
+            style={{
+              width: '100%',
+              height: '100%',
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              gap: 8,
+              display: 'inline-flex'
+            }}
+          >
+            <div 
+              style={{
+                transform: 'rotate(8deg)',
+                transformOrigin: 'top left',
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: 14,
+                fontFamily: 'Outfit, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
+              CMD + I takes you to my case studies
             </div>
-            <div className="rotate-[352deg]">
-              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                CMD + M takes you to my calendar
-              </p>
+            <div 
+              style={{
+                transform: 'rotate(-8deg)',
+                transformOrigin: 'top left',
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: 14,
+                fontFamily: 'Outfit, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
+              CMD + M takes you to my calendar
             </div>
-            <div className="rotate-[8deg]">
-              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                CMD + V  takes you my vibe coded projects
-              </p>
+            <div 
+              style={{
+                transform: 'rotate(8deg)',
+                transformOrigin: 'top left',
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: 14,
+                fontFamily: 'Outfit, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
+              CMD + V  takes you my vibe coded projects
             </div>
-            <div className="rotate-[352deg]">
-              <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-                CMD + F  takes you my wall of fame
-              </p>
+            <div 
+              style={{
+                transform: 'rotate(-8deg)',
+                transformOrigin: 'top left',
+                textAlign: 'center',
+                color: '#9F94AD',
+                fontSize: 14,
+                fontFamily: 'Outfit, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
+              CMD + F  takes you my wall of fame
+            </div>
           </div>
-        </div>
         </div>
       </div>
 
