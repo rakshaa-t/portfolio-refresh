@@ -1822,318 +1822,196 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </p>
           
           {/* Keyboard Shortcut Cards */}
-          <div className="flex flex-wrap items-center justify-center gap-8 max-w-[809.617px] mx-auto">
-            {/* CMD + I */}
-            <div className="rotate-[-15deg]">
-              <svg width="203" height="200" viewBox="0 0 203 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[203px] h-[200px]">
-                <g filter="url(#filter0_i_0_660)">
-                  <g clipPath="url(#clip0_0_660)">
-                    <rect y="42.964" width="166" height="162.509" rx="28" transform="rotate(-15 0 42.964)" fill="#919EFF"/>
-                    <g filter="url(#filter1_f_0_660)">
-                      <rect x="5.35254" y="54.7882" width="18.2177" height="52.8342" transform="rotate(-60.5518 5.35254 54.7882)" fill="#CBD1FF" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter2_f_0_660)">
-                      <rect x="148.509" y="137.361" width="18.2177" height="61.7494" transform="rotate(-60.5518 148.509 137.361)" fill="#DAE4FF" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter3_f_0_660)">
-                      <rect x="60.7031" y="141.567" width="18.2177" height="57.6411" transform="rotate(29.8744 60.7031 141.567)" fill="#D6DDFF" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter4_f_0_660)">
-                      <rect x="154.874" y="-9.79776" width="18.2177" height="64.1202" transform="rotate(29.8744 154.874 -9.79776)" fill="#B5BEFF"/>
-                    </g>
-                    <g filter="url(#filter5_d_0_660)">
-                      <rect x="38.7832" y="65.3102" width="102.537" height="98.8307" rx="28" transform="rotate(-15 38.7832 65.3102)" fill="#7288F7" fillOpacity="0.24" shapeRendering="crispEdges"/>
-                      <rect x="37.5585" y="64.603" width="104.537" height="100.831" rx="29" transform="rotate(-15 37.5585 64.603)" stroke="url(#paint0_linear_0_660)" strokeWidth="2" shapeRendering="crispEdges"/>
-                    </g>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M80.3749 99.4498C79.8049 97.3224 81.0674 95.1356 83.1948 94.5656C85.3223 93.9956 87.509 95.2581 88.079 97.3855L88.5214 99.0364L92.9237 97.8568L92.4814 96.2059C91.9113 94.0785 93.1739 91.8917 95.3013 91.3217C97.4287 90.7516 99.6155 92.0141 100.186 94.1416C100.756 96.269 99.493 98.4557 97.3656 99.0258L95.7147 99.4681L96.8943 103.87L98.5452 103.428C100.673 102.858 102.859 104.121 103.429 106.248C103.999 108.375 102.737 110.562 100.61 111.132C98.4821 111.702 96.2954 110.44 95.7253 108.312L95.283 106.661L90.8806 107.841L91.323 109.492C91.893 111.619 90.6305 113.806 88.5031 114.376C86.3756 114.946 84.1889 113.684 83.6188 111.556C83.0488 109.429 84.3113 107.242 86.4387 106.672L88.0896 106.23L86.91 101.827L85.2591 102.27C83.1317 102.84 80.945 101.577 80.3749 99.4498ZM86.3202 99.6262L85.8779 97.9753C85.6336 97.0635 84.6964 96.5225 83.7846 96.7668C82.8729 97.0111 82.3318 97.9482 82.5761 98.86C82.8204 99.7718 83.7576 100.313 84.6693 100.069L86.3202 99.6262ZM89.1112 101.238L90.2908 105.64L94.6932 104.46L93.5135 100.058L89.1112 101.238ZM88.6794 108.431L87.0285 108.873C86.1168 109.118 85.5757 110.055 85.82 110.966C86.0643 111.878 87.0015 112.419 87.9133 112.175C88.825 111.931 89.3661 110.994 89.1218 110.082L88.6794 108.431ZM97.4841 106.072L97.9265 107.723C98.1708 108.634 99.108 109.175 100.02 108.931C100.931 108.687 101.473 107.75 101.228 106.838C100.984 105.926 100.047 105.385 99.135 105.629L97.4841 106.072ZM95.1249 97.267L96.7758 96.8246C97.6876 96.5803 98.2286 95.6431 97.9843 94.7314C97.74 93.8196 96.8029 93.2785 95.8911 93.5229C94.9793 93.7672 94.4383 94.7043 94.6826 95.6161L95.1249 97.267Z" fill="#283FE4"/>
-                    <path d="M115.781 106.06L118.2 86.1889L120.517 85.5683L118.076 105.445L115.781 106.06Z" fill="#283FE4"/>
-                  </g>
-                </g>
-                <defs>
-                  <filter id="filter0_i_0_660" x="0" y="9.40561e-05" width="202.404" height="203.936" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="6"/>
-                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0.156863 0 0 0 0 0.328889 0 0 0 0 0.894118 0 0 0 0.44 0"/>
-                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_660"/>
-                  </filter>
-                  <filter id="filter1_f_0_660" x="-16.6475" y="16.9244" width="98.9648" height="85.8389" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="11" result="effect1_foregroundBlur_0_660"/>
-                  </filter>
-                  <filter id="filter2_f_0_660" x="116.509" y="89.4972" width="126.728" height="110.222" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_660"/>
-                  </filter>
-                  <filter id="filter3_f_0_660" x="-0.0078125" y="109.567" width="108.508" height="123.056" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_660"/>
-                  </filter>
-                  <filter id="filter4_f_0_660" x="94.9355" y="-37.7978" width="103.735" height="120.674" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_0_660"/>
-                  </filter>
-                  <filter id="filter5_d_0_660" x="21.0684" y="25.0572" width="160.052" height="157.431" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="11"/>
-                    <feComposite in2="hardAlpha" operator="out"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0.737971 0 0 0 0 0.742339 0 0 0 0 1 0 0 0 0.85 0"/>
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_660"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_660" result="shape"/>
-                  </filter>
-                  <linearGradient id="paint0_linear_0_660" x1="142.657" y1="73.6936" x2="39.6185" y2="155.274" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#F7F8FF" stopOpacity="0.44"/>
-                    <stop offset="1" stopColor="#8D9BFD" stopOpacity="0"/>
-                  </linearGradient>
-                  <clipPath id="clip0_0_660">
-                    <rect y="42.964" width="166" height="162.509" rx="28" transform="rotate(-15 0 42.964)" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
+          <div 
+            className="max-w-[809.617px] mx-auto"
+            style={{
+              width: '100%',
+              height: '100%',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              display: 'inline-flex'
+            }}
+          >
+            {/* CMD + M */}
+            <div 
+              style={{
+                width: 166,
+                height: 162.51,
+                position: 'relative',
+                transform: 'rotate(15deg)',
+                transformOrigin: 'top left',
+                background: '#10219C',
+                boxShadow: '0px 4px 4px #283FE4 inset',
+                overflow: 'hidden',
+                borderRadius: 28
+              }}
+            >
+              <div 
+                style={{
+                  width: 124.62,
+                  height: 122,
+                  left: 38.90,
+                  top: 38.74,
+                  position: 'absolute',
+                  background: '#172BBA',
+                  boxShadow: '0px 4px 22px #182DC1',
+                  borderRadius: 28,
+                  outline: '2px #3F56FF solid'
+                }} 
+              />
+              <div 
+                style={{
+                  left: 70.46,
+                  top: 76.74,
+                  position: 'absolute',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: 8,
+                  display: 'inline-flex'
+                }}
+              >
+                <div data-style="line" style={{width: 33.49, height: 33.49, position: 'relative'}}>
+                  <div style={{width: 25.12, height: 25.12, left: 4.19, top: 4.19, position: 'absolute', background: 'white'}} />
+                </div>
+                <div style={{textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'Nexa, system-ui, sans-serif', fontWeight: '700', wordWrap: 'break-word'}}>M</div>
+              </div>
             </div>
 
-            {/* CMD + M */}
-            <div className="rotate-[15deg]">
-              <svg width="203" height="200" viewBox="0 0 203 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[203px] h-[200px]">
-                <g filter="url(#filter0_i_0_651)">
-                  <g clipPath="url(#clip0_0_651)">
-                    <rect x="42.0605" width="166" height="162.509" rx="28" transform="rotate(15 42.0605 0)" fill="#10219C"/>
-                    <g filter="url(#filter1_f_0_651)">
-                      <rect x="40.7842" y="12.916" width="18.2177" height="52.8342" transform="rotate(-30.5518 40.7842 12.916)" fill="#223CF4" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter2_f_0_651)">
-                      <rect x="123.475" y="156.004" width="18.2177" height="61.7494" transform="rotate(-30.5518 123.475 156.004)" fill="#223CF4" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter3_f_0_651)">
-                      <rect x="45.3301" y="115.744" width="18.2177" height="57.6411" transform="rotate(59.8744 45.3301 115.744)" fill="#223CF4" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter4_f_0_651)">
-                      <rect x="202.566" y="31.7441" width="18.2177" height="64.1202" transform="rotate(59.8744 202.566 31.7441)" fill="#223CF4" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter5_d_0_651)">
-                      <rect x="64.4746" y="38.7441" width="102.537" height="98.8307" rx="28" transform="rotate(15 64.4746 38.7441)" fill="#172BBA" shapeRendering="crispEdges"/>
-                      <rect x="63.7675" y="37.5194" width="104.537" height="100.831" rx="29" transform="rotate(15 63.7675 37.5194)" stroke="url(#paint0_linear_0_651)" strokeWidth="2" shapeRendering="crispEdges"/>
-                    </g>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M79.6534 87.5137C80.2234 85.3862 82.4102 84.1237 84.5376 84.6938C86.665 85.2638 87.9275 87.4506 87.3575 89.578L86.9152 91.2289L91.3175 92.4085L91.7599 90.7576C92.3299 88.6302 94.5166 87.3676 96.6441 87.9377C98.7715 88.5077 100.034 90.6945 99.464 92.8219C98.8939 94.9493 96.7072 96.2118 94.5798 95.6418L92.9289 95.1995L91.7493 99.6018L93.4001 100.044C95.5276 100.614 96.7901 102.801 96.22 104.928C95.65 107.056 93.4633 108.318 91.3358 107.748C89.2084 107.178 87.9459 104.991 88.5159 102.864L88.9583 101.213L84.5559 100.034L84.1136 101.684C83.5435 103.812 81.3568 105.074 79.2294 104.504C77.1019 103.934 75.8394 101.748 76.4095 99.6201C76.9795 97.4927 79.1663 96.2302 81.2937 96.8002L82.9446 97.2426L84.1242 92.8402L82.4733 92.3979C80.3459 91.8278 79.0833 89.6411 79.6534 87.5137ZM84.714 90.6391L85.1563 88.9882C85.4006 88.0764 84.8596 87.1393 83.9478 86.895C83.036 86.6506 82.0989 87.1917 81.8546 88.1035C81.6103 89.0152 82.1513 89.9524 83.0631 90.1967L84.714 90.6391ZM86.3253 93.43L85.1457 97.8324L89.5481 99.012L90.7277 94.6097L86.3253 93.43ZM82.3548 99.4438L80.7039 99.0014C79.7921 98.7571 78.855 99.2982 78.6106 100.21C78.3663 101.122 78.9074 102.059 79.8192 102.303C80.7309 102.547 81.6681 102.006 81.9124 101.095L82.3548 99.4438ZM91.1595 101.803L90.7171 103.454C90.4728 104.366 91.0139 105.303 91.9256 105.547C92.8374 105.791 93.7746 105.25 94.0189 104.339C94.2632 103.427 93.7221 102.49 92.8103 102.245L91.1595 101.803ZM93.5187 92.9983L95.1696 93.4406C96.0813 93.6849 97.0185 93.1439 97.2628 92.2321C97.5071 91.3203 96.966 90.3832 96.0543 90.1389C95.1425 89.8946 94.2053 90.4356 93.961 91.3474L93.5187 92.9983Z" fill="white"/>
-                    <path d="M126.71 98.4312L128.942 99.0291L124.956 113.904L122.491 113.244L125.349 102.576L118.432 107.738L117.9 107.595L114.506 99.6935L111.653 110.34L109.167 109.674L113.153 94.7984L115.405 95.402L119.128 104.12L126.71 98.4312Z" fill="white"/>
-                  </g>
-                </g>
-                <defs>
-                  <filter id="filter0_i_0_651" x="0" y="0" width="202.404" height="203.936" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="2"/>
-                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0.156863 0 0 0 0 0.247059 0 0 0 0 0.894118 0 0 0 1 0"/>
-                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_651"/>
-                  </filter>
-                  <filter id="filter1_f_0_651" x="18.7842" y="-18.3442" width="86.5449" height="98.7593" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="11" result="effect1_foregroundBlur_0_651"/>
-                  </filter>
-                  <filter id="filter2_f_0_651" x="91.4746" y="114.744" width="111.077" height="126.437" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_651"/>
-                  </filter>
-                  <filter id="filter3_f_0_651" x="-36.5254" y="83.7441" width="122.999" height="108.687" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_651"/>
-                  </filter>
-                  <filter id="filter4_f_0_651" x="119.107" y="3.74414" width="120.603" height="103.939" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_0_651"/>
-                  </filter>
-                  <filter id="filter5_d_0_651" x="21.1807" y="25.0298" width="160.052" height="157.431" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="11"/>
-                    <feComposite in2="hardAlpha" operator="out"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0.0941176 0 0 0 0 0.176471 0 0 0 0 0.756863 0 0 0 1 0"/>
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_651"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_651" result="shape"/>
-                  </filter>
-                  <linearGradient id="paint0_linear_0_651" x1="62.6282" y1="29.9214" x2="157.267" y2="141.377" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#3F56FF"/>
-                    <stop offset="1" stopColor="#1529B3" stopOpacity="0"/>
-                  </linearGradient>
-                  <clipPath id="clip0_0_651">
-                    <rect x="42.0605" width="166" height="162.509" rx="28" transform="rotate(15 42.0605 0)" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
+            {/* CMD + I */}
+            <div 
+              style={{
+                width: 166,
+                height: 162.51,
+                position: 'relative',
+                transform: 'rotate(-15deg)',
+                transformOrigin: 'top left',
+                background: '#919EFF',
+                boxShadow: '0px 4px 12px rgba(40, 83.87, 228, 0.44) inset',
+                overflow: 'hidden',
+                borderRadius: 28
+              }}
+            >
+              <div 
+                style={{
+                  width: 124.62,
+                  height: 122,
+                  left: 38.78,
+                  top: 38.77,
+                  position: 'absolute',
+                  background: 'rgba(114, 136, 247, 0.24)',
+                  boxShadow: '0px 4px 22px rgba(188.18, 189.30, 255, 0.85)',
+                  borderRadius: 28,
+                  outline: '2px #F7F8FF solid'
+                }} 
+              />
+              <div 
+                style={{
+                  left: 74.42,
+                  top: 78.45,
+                  position: 'absolute',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: 8,
+                  display: 'inline-flex'
+                }}
+              >
+                <div data-style="line" style={{width: 33.49, height: 33.49, position: 'relative'}}>
+                  <div style={{width: 25.12, height: 25.12, left: 4.19, top: 4.19, position: 'absolute', background: '#283FE4'}} />
+                </div>
+                <div style={{textAlign: 'center', color: '#283FE4', fontSize: 22, fontFamily: 'Nexa, system-ui, sans-serif', fontWeight: '700', wordWrap: 'break-word'}}>I</div>
+              </div>
             </div>
 
             {/* CMD + V */}
-            <div className="rotate-[15deg]">
-              <svg width="203" height="200" viewBox="0 0 203 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[203px] h-[200px]">
-                <g filter="url(#filter0_i_0_669)">
-                  <g clipPath="url(#clip0_0_669)">
-                    <rect x="42.0605" width="166" height="162.509" rx="28" transform="rotate(15 42.0605 0)" fill="#151515"/>
-                    <g filter="url(#filter1_f_0_669)">
-                      <rect x="40.7842" y="12.916" width="18.2177" height="52.8342" transform="rotate(-30.5518 40.7842 12.916)" fill="#434343" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter2_f_0_669)">
-                      <rect x="123.475" y="156.004" width="18.2177" height="61.7494" transform="rotate(-30.5518 123.475 156.004)" fill="#434343" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter3_f_0_669)">
-                      <rect x="45.3301" y="115.744" width="18.2177" height="57.6411" transform="rotate(59.8744 45.3301 115.744)" fill="#434343" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter4_f_0_669)">
-                      <rect x="202.566" y="31.7441" width="18.2177" height="64.1202" transform="rotate(59.8744 202.566 31.7441)" fill="#434343" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter5_d_0_669)">
-                      <rect x="64.4746" y="38.7441" width="102.537" height="98.8307" rx="28" transform="rotate(15 64.4746 38.7441)" fill="#151515" shapeRendering="crispEdges"/>
-                      <rect x="63.7675" y="37.5194" width="104.537" height="100.831" rx="29" transform="rotate(15 63.7675 37.5194)" stroke="url(#paint0_linear_0_669)" strokeWidth="2" shapeRendering="crispEdges"/>
-                    </g>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M82.2598 88.1607C82.8299 86.0332 85.0166 84.7707 87.144 85.3407C89.2715 85.9108 90.534 88.0975 89.9639 90.225L89.5216 91.8758L93.9239 93.0554L94.3663 91.4046C94.9363 89.2771 97.1231 88.0146 99.2505 88.5847C101.378 89.1547 102.64 91.3414 102.07 93.4689C101.5 95.5963 99.3136 96.8588 97.1862 96.2888L95.5353 95.8464L94.3557 100.249L96.0066 100.691C98.134 101.261 99.3965 103.448 98.8265 105.575C98.2565 107.703 96.0697 108.965 93.9423 108.395C91.8149 107.825 90.5523 105.638 91.1224 103.511L91.5647 101.86L87.1624 100.681L86.72 102.331C86.15 104.459 83.9633 105.721 81.8358 105.151C79.7084 104.581 78.4459 102.395 79.0159 100.267C79.586 98.1397 81.7727 96.8772 83.9001 97.4472L85.551 97.8896L86.7306 93.4872L85.0797 93.0449C82.9523 92.4748 81.6898 90.2881 82.2598 88.1607ZM87.3204 91.286L87.7628 89.6352C88.0071 88.7234 87.466 87.7862 86.5542 87.5419C85.6425 87.2976 84.7053 87.8387 84.461 88.7505C84.2167 89.6622 84.7578 90.5994 85.6695 90.8437L87.3204 91.286ZM88.9318 94.077L87.7522 98.4794L92.1545 99.659L93.3341 95.2566L88.9318 94.077ZM84.9612 100.091L83.3103 99.6484C82.3986 99.4041 81.4614 99.9452 81.2171 100.857C80.9728 101.769 81.5139 102.706 82.4256 102.95C83.3374 103.194 84.2746 102.653 84.5189 101.742L84.9612 100.091ZM93.7659 102.45L93.3236 104.101C93.0793 105.013 93.6203 105.95 94.5321 106.194C95.4438 106.438 96.381 105.897 96.6253 104.986C96.8696 104.074 96.3285 103.137 95.4168 102.892L93.7659 102.45ZM96.1251 93.6453L97.776 94.0876C98.6878 94.3319 99.6249 93.7908 99.8692 92.8791C100.114 91.9673 99.5725 91.0301 98.6607 90.7858C97.749 90.5415 96.8118 91.0826 96.5675 91.9944L96.1251 93.6453Z" fill="white"/>
-                    <path d="M126.056 98.2045L128.734 98.9219L118.606 112.152L115.929 111.434L113.752 94.9076L116.43 95.6251L117.28 102.481L118.021 108.897L126.056 98.2045Z" fill="white"/>
-                  </g>
-                </g>
-                <defs>
-                  <filter id="filter0_i_0_669" x="0" y="0" width="202.404" height="203.936" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="2"/>
-                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0.225356 0 0 0 0 0.225356 0 0 0 0 0.225356 0 0 0 1 0"/>
-                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_669"/>
-                  </filter>
-                  <filter id="filter1_f_0_669" x="18.7842" y="-18.3442" width="86.5449" height="98.7593" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="11" result="effect1_foregroundBlur_0_669"/>
-                  </filter>
-                  <filter id="filter2_f_0_669" x="91.4746" y="114.744" width="111.077" height="126.437" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_669"/>
-                  </filter>
-                  <filter id="filter3_f_0_669" x="-36.5254" y="83.7441" width="122.999" height="108.687" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_669"/>
-                  </filter>
-                  <filter id="filter4_f_0_669" x="119.107" y="3.74414" width="120.603" height="103.939" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_0_669"/>
-                  </filter>
-                  <filter id="filter5_d_0_669" x="21.1807" y="25.0298" width="160.052" height="157.431" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="11"/>
-                    <feComposite in2="hardAlpha" operator="out"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_669"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_669" result="shape"/>
-                  </filter>
-                  <linearGradient id="paint0_linear_0_669" x1="62.6282" y1="29.9214" x2="157.267" y2="141.377" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#4B4B4B"/>
-                    <stop offset="1" stopColor="#4E4E4E" stopOpacity="0"/>
-                  </linearGradient>
-                  <clipPath id="clip0_0_669">
-                    <rect x="42.0605" width="166" height="162.509" rx="28" transform="rotate(15 42.0605 0)" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
+            <div 
+              style={{
+                width: 166,
+                height: 162.51,
+                position: 'relative',
+                transform: 'rotate(15deg)',
+                transformOrigin: 'top left',
+                background: '#151515',
+                boxShadow: '0px 4px 4px #393939 inset',
+                overflow: 'hidden',
+                borderRadius: 28
+              }}
+            >
+              <div 
+                style={{
+                  width: 124.62,
+                  height: 122,
+                  left: 38.90,
+                  top: 38.74,
+                  position: 'absolute',
+                  background: '#151515',
+                  boxShadow: '0px 4px 22px black',
+                  borderRadius: 28,
+                  outline: '2px #4B4B4B solid'
+                }} 
+              />
+              <div 
+                style={{
+                  left: 73.07,
+                  top: 77.39,
+                  position: 'absolute',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: 8,
+                  display: 'inline-flex'
+                }}
+              >
+                <div data-style="line" style={{width: 33.49, height: 33.49, position: 'relative'}}>
+                  <div style={{width: 25.12, height: 25.12, left: 4.19, top: 4.19, position: 'absolute', background: 'white'}} />
+                </div>
+                <div style={{textAlign: 'center', color: 'white', fontSize: 22, fontFamily: 'Nexa, system-ui, sans-serif', fontWeight: '700', wordWrap: 'break-word'}}>V</div>
+              </div>
             </div>
 
             {/* CMD + F */}
-            <div className="rotate-[-15deg]">
-              <svg width="203" height="200" viewBox="0 0 203 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[203px] h-[200px]">
-                <g filter="url(#filter0_i_0_678)">
-                  <g clipPath="url(#clip0_0_678)">
-                    <rect y="42.964" width="166" height="162.509" rx="28" transform="rotate(-15 0 42.964)" fill="white" fillOpacity="0.29"/>
-                    <g filter="url(#filter1_f_0_678)">
-                      <rect x="5.35254" y="54.7882" width="18.2177" height="52.8342" transform="rotate(-60.5518 5.35254 54.7882)" fill="white" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter2_f_0_678)">
-                      <rect x="148.509" y="137.361" width="18.2177" height="61.7494" transform="rotate(-60.5518 148.509 137.361)" fill="white" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter3_f_0_678)">
-                      <rect x="60.7031" y="141.567" width="18.2177" height="57.6411" transform="rotate(29.8744 60.7031 141.567)" fill="white" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter4_f_0_678)">
-                      <rect x="154.874" y="-9.79776" width="18.2177" height="64.1202" transform="rotate(29.8744 154.874 -9.79776)" fill="white" fillOpacity="0.64"/>
-                    </g>
-                    <g filter="url(#filter5_d_0_678)">
-                      <rect x="38.7832" y="65.3102" width="102.537" height="98.8307" rx="28" transform="rotate(-15 38.7832 65.3102)" fill="white" fillOpacity="0.56" shapeRendering="crispEdges"/>
-                      <rect x="37.5585" y="64.603" width="104.537" height="100.831" rx="29" transform="rotate(-15 37.5585 64.603)" stroke="url(#paint0_linear_0_678)" strokeWidth="2" shapeRendering="crispEdges"/>
-                    </g>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M77.6699 100.226C77.0998 98.0987 78.3623 95.912 80.4898 95.342C82.6172 94.7719 84.8039 96.0344 85.374 98.1619L85.8163 99.8127L90.2187 98.6331L89.7763 96.9823C89.2063 94.8548 90.4688 92.6681 92.5962 92.098C94.7236 91.528 96.9104 92.7905 97.4804 94.9179C98.0505 97.0454 96.788 99.2321 94.6605 99.8022L93.0096 100.245L94.1893 104.647L95.8401 104.205C97.9676 103.634 100.154 104.897 100.724 107.024C101.294 109.152 100.032 111.339 97.9044 111.909C95.777 112.479 93.5903 111.216 93.0202 109.089L92.5779 107.438L88.1755 108.617L88.6179 110.268C89.1879 112.396 87.9254 114.582 85.798 115.153C83.6705 115.723 81.4838 114.46 80.9138 112.333C80.3437 110.205 81.6062 108.018 83.7337 107.448L85.3845 107.006L84.2049 102.604L82.5541 103.046C80.4266 103.616 78.2399 102.354 77.6699 100.226ZM83.6151 100.403L83.1728 98.7517C82.9285 97.8399 81.9913 97.2988 81.0796 97.5431C80.1678 97.7874 79.6267 98.7246 79.871 99.6364C80.1153 100.548 81.0525 101.089 81.9643 100.845L83.6151 100.403ZM86.4061 102.014L87.5857 106.416L91.9881 105.237L90.8085 100.834L86.4061 102.014ZM85.9744 109.207L84.3235 109.65C83.4117 109.894 82.8706 110.831 83.1149 111.743C83.3592 112.655 84.2964 113.196 85.2082 112.951C86.1199 112.707 86.661 111.77 86.4167 110.858L85.9744 109.207ZM94.7791 106.848L95.2214 108.499C95.4657 109.411 96.4029 109.952 97.3146 109.707C98.2264 109.463 98.7675 108.526 98.5232 107.614C98.2789 106.702 97.3417 106.161 96.4299 106.406L94.7791 106.848ZM92.4198 98.0433L94.0707 97.601C94.9825 97.3567 95.5236 96.4195 95.2793 95.5077C95.0349 94.596 94.0978 94.0549 93.186 94.2992C92.2743 94.5435 91.7332 95.4807 91.9775 96.3925L92.4198 98.0433Z" fill="black"/>
-                    <path d="M115.841 88.3076C120.325 87.1061 124.139 89.2726 125.335 93.7352C126.531 98.1978 124.311 101.981 119.827 103.183L114.132 104.709L110.146 89.8336L115.841 88.3076ZM119.212 100.888C122.187 100.091 123.648 97.4672 122.828 94.4071C122.008 91.3471 119.41 89.8111 116.456 90.6026L113.247 91.4624L116.003 101.748L119.212 100.888Z" fill="black"/>
-                  </g>
-                </g>
-                <defs>
-                  <filter id="filter0_i_0_678" x="0" y="9.40561e-05" width="202.404" height="203.936" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="2"/>
-                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_678"/>
-                  </filter>
-                  <filter id="filter1_f_0_678" x="-16.6475" y="16.9244" width="98.9648" height="85.8389" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="11" result="effect1_foregroundBlur_0_678"/>
-                  </filter>
-                  <filter id="filter2_f_0_678" x="116.509" y="89.4972" width="126.728" height="110.222" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_678"/>
-                  </filter>
-                  <filter id="filter3_f_0_678" x="-0.0078125" y="109.567" width="108.508" height="123.056" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="16" result="effect1_foregroundBlur_0_678"/>
-                  </filter>
-                  <filter id="filter4_f_0_678" x="94.9355" y="-37.7978" width="103.735" height="120.674" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur_0_678"/>
-                  </filter>
-                  <filter id="filter5_d_0_678" x="21.0684" y="25.0572" width="160.052" height="157.431" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                    <feOffset dy="4"/>
-                    <feGaussianBlur stdDeviation="11"/>
-                    <feComposite in2="hardAlpha" operator="out"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_678"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_678" result="shape"/>
-                  </filter>
-                  <linearGradient id="paint0_linear_0_678" x1="140.139" y1="62.9987" x2="28.6831" y2="157.637" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="white"/>
-                    <stop offset="1" stopColor="white" stopOpacity="0.54"/>
-                  </linearGradient>
-                  <clipPath id="clip0_0_678">
-                    <rect y="42.964" width="166" height="162.509" rx="28" transform="rotate(-15 0 42.964)" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
+            <div 
+              style={{
+                width: 166,
+                height: 162.51,
+                position: 'relative',
+                transform: 'rotate(-15deg)',
+                transformOrigin: 'top left',
+                background: 'rgba(255, 255, 255, 0.29)',
+                boxShadow: '0px 4px 4px white inset',
+                overflow: 'hidden',
+                borderRadius: 28
+              }}
+            >
+              <div 
+                style={{
+                  width: 124.62,
+                  height: 122,
+                  left: 38.78,
+                  top: 38.77,
+                  position: 'absolute',
+                  background: 'rgba(255, 255, 255, 0.56)',
+                  boxShadow: '0px 4px 22px white',
+                  borderRadius: 28,
+                  outline: '2px white solid'
+                }} 
+              />
+              <div 
+                style={{
+                  left: 71.72,
+                  top: 77.68,
+                  position: 'absolute',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: 8,
+                  display: 'inline-flex'
+                }}
+              >
+                <div data-style="line" style={{width: 33.49, height: 33.49, position: 'relative'}}>
+                  <div style={{width: 25.12, height: 25.12, left: 4.19, top: 4.19, position: 'absolute', background: 'black'}} />
+                </div>
+                <div style={{textAlign: 'center', color: 'black', fontSize: 22, fontFamily: 'Nexa, system-ui, sans-serif', fontWeight: '700', wordWrap: 'break-word'}}>F</div>
+              </div>
             </div>
+          </div>
           </div>
 
           {/* Shortcut descriptions */}
