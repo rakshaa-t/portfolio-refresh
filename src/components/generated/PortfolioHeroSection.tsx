@@ -220,11 +220,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
   const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
+  const [isDesktop, setIsDesktop] = React.useState(false);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
+  
+  // Track if we're on desktop (lg breakpoint) for card positioning
+  React.useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -707,13 +718,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               zIndex: 1
             }}
           />
-          {/* Chat Interface Card - Centered on iPad and Desktop like desktop */}
+          {/* Chat Interface Card - Centered on iPad and Desktop like desktop - Reduced width on iPad */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[603.2px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -1129,8 +1140,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
-                      // Always use initial position - cards reset on refresh
-                      left: card.position.left,
+                      // iPad-specific positioning: reduce right-side card positions to bring them into viewport
+                      // Desktop (lg:) uses original positions, iPad (md:) uses adjusted positions
+                      left: card.id === 'greex' ? (isDesktop ? '777.8px' : '520px') :
+                            card.id === 'dealdoc' ? (isDesktop ? '783.09px' : '525px') :
+                            card.position.left,
                       top: card.position.top,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
