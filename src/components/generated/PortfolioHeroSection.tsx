@@ -287,6 +287,28 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     };
   }, []);
 
+  // Calculate active tab indicator position and width
+  React.useEffect(() => {
+    const updateIndicatorPosition = () => {
+      if (activeTabRef.current && tabsContainerRef.current) {
+        const tabRect = activeTabRef.current.getBoundingClientRect();
+        const containerRect = tabsContainerRef.current.getBoundingClientRect();
+        const left = tabRect.left - containerRect.left;
+        const width = tabRect.width;
+        setActiveIndicatorStyle({ width, left });
+      }
+    };
+
+    // Small delay to ensure DOM is ready
+    const timeout = setTimeout(updateIndicatorPosition, 100);
+    updateIndicatorPosition();
+    window.addEventListener('resize', updateIndicatorPosition);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('resize', updateIndicatorPosition);
+    };
+  }, []);
+
   // Mobile detection - more robust check
   const [isMobile, setIsMobile] = React.useState(false);
 
