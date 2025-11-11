@@ -221,6 +221,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const chatCardRef = React.useRef<HTMLDivElement>(null);
+  const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   
@@ -827,7 +828,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -996,39 +997,63 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     onDrag={(event, info) => {
                       // Check if card is over chat area using cursor position
                       // Include the entire chat container from top to bottom (including input box)
+                      const cursorX = info.point.x;
+                      const cursorY = info.point.y;
+                      let isOver = false;
+                      
+                      // Check main chat container
                       if (chatCardRef.current) {
                         const chatRect = chatCardRef.current.getBoundingClientRect();
-                        const cursorX = info.point.x;
-                        const cursorY = info.point.y;
-                        
-                        // Check if cursor is inside the entire chat container (top to bottom including input)
-                        // Add a small margin for better UX
-                        const margin = 5;
-                        const isOver = 
+                        // Add a margin for better UX
+                        const margin = 10;
+                        isOver = 
                           cursorX >= chatRect.left - margin &&
                           cursorX <= chatRect.right + margin &&
                           cursorY >= chatRect.top - margin &&
                           cursorY <= chatRect.bottom + margin;
-                        
-                        setIsCardOverChat(isOver);
                       }
+                      
+                      // Also check input container separately to ensure it's detected
+                      if (!isOver && inputContainerRef.current) {
+                        const inputRect = inputContainerRef.current.getBoundingClientRect();
+                        const margin = 10;
+                        isOver = 
+                          cursorX >= inputRect.left - margin &&
+                          cursorX <= inputRect.right + margin &&
+                          cursorY >= inputRect.top - margin &&
+                          cursorY <= inputRect.bottom + margin;
+                      }
+                      
+                      setIsCardOverChat(isOver);
                     }}
                     onDragEnd={(event, info) => {
                       // Check if dropped over chat - use cursor position for reliability
                       // Include the entire chat container from top to bottom (including input box)
+                      const cursorX = info.point.x;
+                      const cursorY = info.point.y;
+                      let isDroppedOnChat = false;
+                      
+                      // Check main chat container
                       if (chatCardRef.current) {
                         const chatRect = chatCardRef.current.getBoundingClientRect();
-                        const cursorX = info.point.x;
-                        const cursorY = info.point.y;
-                        
-                        // Check if cursor is inside the entire chat container (top to bottom including input)
-                        // Add a small margin for better UX
-                        const margin = 5;
-                        const isDroppedOnChat = 
+                        const margin = 10;
+                        isDroppedOnChat = 
                           cursorX >= chatRect.left - margin &&
                           cursorX <= chatRect.right + margin &&
                           cursorY >= chatRect.top - margin &&
                           cursorY <= chatRect.bottom + margin;
+                      }
+                      
+                      // Also check input container separately to ensure it's detected
+                      if (!isDroppedOnChat && inputContainerRef.current) {
+                        const inputRect = inputContainerRef.current.getBoundingClientRect();
+                        const margin = 10;
+                        isDroppedOnChat = 
+                          cursorX >= inputRect.left - margin &&
+                          cursorX <= inputRect.right + margin &&
+                          cursorY >= inputRect.top - margin &&
+                          cursorY <= inputRect.bottom + margin;
+                      }
                         
                         if (isDroppedOnChat) {
                           // Card dropped inside chatbox - mark it and keep it under chatbox
