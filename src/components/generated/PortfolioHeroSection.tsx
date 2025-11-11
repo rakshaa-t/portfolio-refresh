@@ -732,7 +732,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               zIndex: 1
             }}
           />
-          {/* Chat Interface Card - Centered on iPad and Desktop like desktop - Reduced width on iPad */}
+          {/* Chat Interface Card - Centered on iPad and Desktop */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
