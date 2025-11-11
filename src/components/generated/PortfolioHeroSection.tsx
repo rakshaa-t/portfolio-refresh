@@ -1355,22 +1355,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             style={{ width: 475 }}
           >
             <div 
+              ref={activeTabRef}
               className="text-center cursor-pointer hover:opacity-80 transition-opacity"
               style={{
-                color: 'rgba(0, 0, 0, 0.28)',
+                color: '#283FE4',
                 fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '700',
+                fontWeight: '500',
                 wordWrap: 'break-word'
               }}
             >
               Work
             </div>
             <div 
-              ref={activeTabRef}
               className="text-center cursor-pointer hover:opacity-80 transition-opacity"
               style={{
-                color: '#283FE4',
+                color: 'rgba(0, 0, 0, 0.28)',
                 fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
                 fontWeight: '400',
@@ -1416,7 +1416,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             }}
           />
 
-          {/* Active tab indicator line (under Frontend) */}
+          {/* Active tab indicator line (under Work) */}
           <div 
             className="absolute"
             style={{
