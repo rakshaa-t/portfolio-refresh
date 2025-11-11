@@ -1833,6 +1833,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             </ul>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Principles Section - My non negotiables - From Figma Design */}
@@ -1924,7 +1925,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
           <div className="absolute left-1/2 top-[1118px] -translate-x-1/2 rotate-[4deg]">
             <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Details. Details. Details >>
+              Details. Details. Details &gt;&gt;
             </p>
           </div>
         </div>
