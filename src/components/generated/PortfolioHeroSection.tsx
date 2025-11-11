@@ -220,59 +220,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [clickingCard, setClickingCard] = React.useState<string | null>(null);
   const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
-  const [isDesktop, setIsDesktop] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(false);
-  const [containerWidth, setContainerWidth] = React.useState(1040.8);
-  const [scaleFactor, setScaleFactor] = React.useState(1);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
-  
-  // Track if we're on desktop (lg breakpoint) and mobile for card positioning
-  React.useEffect(() => {
-    const checkBreakpoints = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkBreakpoints();
-    window.addEventListener('resize', checkBreakpoints);
-    return () => window.removeEventListener('resize', checkBreakpoints);
-  }, []);
-
-  // Calculate proportional scale factor for iPad only (Approach 2 + 4: container + card scaling)
-  // Mobile uses original layout, so skip scaling on mobile (< 768px)
-  React.useEffect(() => {
-    const updateScaleFactor = () => {
-      if (!isDesktop && !isMobile) {
-        // iPad/Tablet only: Desktop container width: 1040.8px
-        // Desktop layout needs ~1046px to fit all cards (rightmost card at 783px + 263px card width)
-        // Use consistent padding: 32px on each side (64px total)
-        const desktopContainerWidth = 1040.8;
-        const desktopLayoutWidth = 1046;
-        const padding = 64; // 32px padding on each side
-        const availableWidth = window.innerWidth - padding;
-        
-        // Calculate scale factor to fit layout within viewport
-        // Scale both container and cards proportionally
-        const scale = Math.max(0.5, Math.min(1, availableWidth / desktopLayoutWidth)); // Min scale 0.5 to prevent too small
-        setScaleFactor(scale);
-        
-        // Calculate scaled container width - ensure it doesn't exceed available width
-        const scaledContainerWidth = Math.min(desktopContainerWidth * scale, availableWidth);
-        setContainerWidth(scaledContainerWidth);
-      } else {
-        // Mobile or desktop: use original sizes
-        setContainerWidth(1040.8);
-        setScaleFactor(1);
-      }
-    };
-    // Run immediately and on resize
-    updateScaleFactor();
-    window.addEventListener('resize', updateScaleFactor);
-    return () => window.removeEventListener('resize', updateScaleFactor);
-  }, [isDesktop, isMobile]);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -284,26 +236,23 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Abort controller ref for cleanup
   const abortControllerRef = React.useRef<AbortController | null>(null);
 
-  // Refs for highlighted text animation - single continuous sweep across all text
-  const headingTextRef = React.useRef<Controls | null>(null);
+  // Refs for highlighted text animation
+  const headingTextRefs = React.useRef(new Map<number, Controls>());
+  const headingIndex = React.useRef(0);
   
-  // Single continuous animation for all text
+  // Sequential animation for heading text
   React.useEffect(() => {
-    // Wait a bit for ref to be attached, then start animation
-    const timeout = setTimeout(() => {
-      if (headingTextRef.current) {
-        headingTextRef.current.start();
-      } else {
-        setTimeout(() => {
-          if (headingTextRef.current) {
-            headingTextRef.current.start();
-          }
-        }, 100);
-      }
-    }, 100);
+    const lines = ['Raksha T', 'aka raks - product designer who builds products that work, look good and sell'];
+    if (headingIndex.current === lines.length) {
+      return;
+    }
+    const interval = setInterval(() => {
+      headingTextRefs.current.get(headingIndex.current)?.start();
+      headingIndex.current += 1;
+    }, 300); // 300ms stagger like Marijana's
 
     return () => {
-      clearTimeout(timeout);
+      clearInterval(interval);
     };
   }, []);
 
@@ -690,109 +639,101 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </nav>
 
 
-      {/* Content Container - Responsive - Mobile restored to original, tablet/iPad uses Marijana's system */}
-      <div className="relative w-full px-6 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center" style={{ overflowX: 'hidden' }}>
+      {/* Content Container - Responsive */}
+      <div className="relative w-full px-6 md:px-11 pt-6 md:pt-11 mt-10 md:mt-[60px] flex flex-col items-center">
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] text-left mt-5 mb-5 md:mt-5 lg:mt-5 md:mb-5 lg:mb-10"
+          className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
           >
           <div className="w-full">
-            <HighlightedText
-              ref={(e) => {
-                headingTextRef.current = e;
-              }}
-              className="text-base md:text-xl lg:text-2xl font-bold break-words"
-              style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
-            >
-              Raksha T
-            </HighlightedText>
-            <span className="hidden md:inline"><br/><br/></span>
-            <br/>
+            <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              <HighlightedText
+                ref={(e) => {
+                  if (e) headingTextRefs.current.set(0, e);
+                }}
+                className="text-base md:text-xl lg:text-2xl font-bold"
+              >
+                Raksha T
+              </HighlightedText>
+              <span className="hidden md:inline"><br/><br/></span>
+            </h1>
             <div className="text-sm md:text-lg lg:text-xl font-light break-words" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              aka raks - product designer who builds products that work, look good and sell
+              <HighlightedText
+                ref={(e) => {
+                  if (e) headingTextRefs.current.set(1, e);
+                }}
+                className="text-sm md:text-lg lg:text-xl font-light"
+              >
+                aka raks - product designer who builds products that work, look good and sell
+              </HighlightedText>
               <br/>
-              i live in duality: lead design experiences at product companies and code frontend with cursor{' '}
-              <br/>
-              <span className="hidden md:inline"> </span>
-              to find out more →{' '}
+              <span className="text-[rgba(41,41,41,0.88)] md:text-[#303034]">
+              i live in duality: lead design experiences at startups and also code frontend with cursor{' '}<br/>
+                <span className="hidden md:inline"> </span>to find out more  →  
+            </span>
+            </div>
             <a 
               href="https://cal.com/raksha-tated-v2ee58/15min"
               target="_blank"
               rel="noopener noreferrer"
-                className="underline hover:opacity-80 transition-opacity cursor-pointer" 
-                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+              className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity cursor-pointer" 
+              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
             >
               let's talk
             </a>
             <br/><br/>
+            <span className="text-sm md:text-lg lg:text-xl font-light break-words text-[rgba(41,41,41,0.88)] md:text-[#303034]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               chat with my portfolio below ↓ or explore projects{' '}
+            </span>
             <button 
-                className="underline hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
-                style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+              className="text-sm md:text-lg lg:text-xl font-light underline break-words text-[rgba(41,41,41,0.88)] md:text-[#303034] hover:opacity-80 transition-opacity bg-none border-none p-0 cursor-pointer" 
+              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
               onClick={() => {/* TODO: navigate to projects */}}
             >
               here
             </button>
           </div>
-        </div>
           </motion.div>
 
-        {/* Chat + Cards Container - Responsive sizing - Mobile restored to original, tablet/iPad uses scaling */}
+        {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
+        <div 
+          ref={dragConstraintsRef}
+          className="pointer-events-none absolute left-0 right-0 w-full"
+          style={{
+            top: '30%',
+            height: '70%',
+            zIndex: 1
+          }}
+        />
+        
+        {/* Chat + Cards Container - Responsive sizing */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-[348px] md:h-[485.6px] md:max-w-[90vw] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
-          style={!isDesktop && !isMobile ? {
-            // iPad/Tablet only: apply scaling (not mobile, not desktop)
-            width: `${containerWidth}px`,
-            height: `${485.6 * scaleFactor}px`,
-            maxWidth: `calc(100vw - 64px)`, // 32px padding on each side
-            overflow: 'hidden', // Prevent cards from going outside container
-          } : {}}
+          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
         >
-          {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
-          <div 
-            ref={dragConstraintsRef}
-            className="pointer-events-none absolute left-0 right-0 w-full"
-            style={{
-              top: '30%',
-              height: '70%',
-              zIndex: 1
-            }}
-          />
-          {/* Chat Interface Card - Proportional scaling on iPad (Approach 2 + 4) */}
+          {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
-            style={isDesktop ? {
-              top: '23.2px',
-              width: '603.2px',
-              height: '435.2px',
+            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
               borderRadius: '44px',
               outline: '2px white solid',
               outlineOffset: '-2px',
-            } : {
-              top: `${23.2 * scaleFactor}px`,
-              width: `${603.2 * scaleFactor}px`,
-              height: `${435.2 * scaleFactor}px`,
-              background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
-              boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
-              borderRadius: `${44 * scaleFactor}px`,
-              outline: `${2 * scaleFactor}px white solid`,
-              outlineOffset: `${-2 * scaleFactor}px`,
+              height: '483px'
             }}
           >
-          {/* Drop Zone Overlay - Shows when dragging a card (iPad and desktop) */}
+          {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
           {isCardOverChat && (
             <div 
-              className="hidden md:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
+              className="hidden lg:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)'
@@ -803,8 +744,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </p>
               </div>
           )}
-          {/* Inner Background Blurs - iPad and Desktop only for performance */}
-          <div className="hidden md:block">
+          {/* Inner Background Blurs - Desktop only for performance */}
+          <div className="hidden lg:block">
               <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
               <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
           </div>
@@ -812,27 +753,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[304px] lg:max-w-[560px] lg:w-[560px] top-0 pointer-events-none z-10"
-              style={isDesktop ? {
-                height: '40px',
-                background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
-              } : {
-                width: `${560 * scaleFactor}px`,
-                maxWidth: `${560 * scaleFactor}px`,
-                height: `${40 * scaleFactor}px`,
+              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
             />
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] lg:max-w-[560px] lg:w-[560px] lg:h-[320px]"
-              style={!isDesktop ? {
-                width: `${560 * scaleFactor}px`,
-                maxWidth: `${560 * scaleFactor}px`,
-                top: `${32 * scaleFactor}px`,
-                height: `${320 * scaleFactor}px`
-              } : {}}
+              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
@@ -901,16 +830,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div 
-              ref={inputContainerRef} 
-              className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] lg:max-w-[560px] lg:w-[560px] lg:bottom-[40px] lg:gap-[12px]"
-              style={!isDesktop ? {
-                width: `${560 * scaleFactor}px`,
-                maxWidth: `${560 * scaleFactor}px`,
-                bottom: `${40 * scaleFactor}px`,
-                gap: `${12 * scaleFactor}px`
-              } : {}}
-            >
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -1053,9 +973,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             </div>
           </motion.div>
 
-          {/* Project Cards - iPad & Desktop: Draggable around chat, Mobile: Stacked below chat with click */}
-          {/* iPad & Desktop Draggable Cards - Hidden on mobile, visible on iPad (md: 768px+) */}
-          <div className="hidden md:block">
+          {/* Project Cards - Desktop: Draggable around chat, Mobile/iPad Air: Stacked below chat with click */}
+          {/* Desktop Draggable Cards - Hidden on mobile/iPad Air, visible on desktop (lg: 1024px+) */}
+          <div className="hidden lg:block">
             <AnimatePresence>
               {PROJECT_CARDS.map((card) => {
                 if (!visibleCards.includes(card.id)) return null;
@@ -1078,14 +998,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     onDrag={(event, info) => {
                       // Check if card is over chat area using cursor position
-                      // Normalize to viewport coordinates so comparisons with getBoundingClientRect() work even after scroll
-                      const cursorX = info.point.x - window.scrollX;
-                      const cursorY = info.point.y - window.scrollY;
+                      // Include the entire chat container from top to bottom (including input box)
+                        // Normalize to viewport coordinates so comparisons with getBoundingClientRect() work even after scroll
+                        const cursorX = info.point.x - window.scrollX;
+                        const cursorY = info.point.y - window.scrollY;
                       let isOver = false;
-                      
+                        
                       // Check main chat container
                       if (chatCardRef.current) {
                         const chatRect = chatCardRef.current.getBoundingClientRect();
+                        // Add a margin for better UX
                         const margin = 10;
                         isOver = 
                           cursorX >= chatRect.left - margin &&
@@ -1109,9 +1031,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     onDragEnd={(event, info) => {
                       // Check if dropped over chat - use cursor position for reliability
-                      // Normalize to viewport coordinates to account for page scroll
-                      const cursorX = info.point.x - window.scrollX;
-                      const cursorY = info.point.y - window.scrollY;
+                      // Include the entire chat container from top to bottom (including input box)
+                        // Normalize to viewport coordinates to account for page scroll
+                        const cursorX = info.point.x - window.scrollX;
+                        const cursorY = info.point.y - window.scrollY;
                       let isDroppedOnChat = false;
                       
                       // Check main chat container
@@ -1187,15 +1110,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         });
                       }, 0);
                     }}
-                    initial={{ translateY: 75, opacity: 0 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
-                      translateY: 0,
           opacity: 1,
+                      scale: 1,
                       rotate: card.rotation
                     }}
                     exit={{ 
-                      translateY: 75,
           opacity: 0,
+                      scale: 0.5,
                       transition: { duration: 0.3 }
                     }}
                     whileHover={{ 
@@ -1209,24 +1132,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
                       cursor: 'grabbing'
                     }}
-                    transition={{ 
-                      ease: 'easeOut',
-                      duration: 0.5,
-                      delay: PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1
-                    }}
-                    className="absolute rounded-[44px] border border-white cursor-grab"
+                    transition={{ delay: 0.4 + PROJECT_CARDS.findIndex(c => c.id === card.id) * 0.1 }}
+                    className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
-                      // Proportional scaling on iPad (Approach 2 + 4): scale card size and positions
-                      width: isDesktop ? '263px' : `${263 * scaleFactor}px`,
-                      height: isDesktop ? '266px' : `${266 * scaleFactor}px`,
-                      borderRadius: isDesktop ? '44px' : `${44 * scaleFactor}px`,
-                      borderWidth: isDesktop ? '1px' : `${1 * scaleFactor}px`,
-                      left: isDesktop 
-                        ? card.position.left
-                        : `${parseFloat(card.position.left) * scaleFactor}px`,
-                      top: isDesktop 
-                        ? card.position.top
-                        : `${parseFloat(card.position.top) * scaleFactor}px`,
+                      // Always use initial position - cards reset on refresh
+                      left: card.position.left,
+                      top: card.position.top,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
@@ -1301,8 +1212,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </AnimatePresence>
           </div>
 
-          {/* Mobile Click Cards - Stacked vertically - Visible on mobile only, hidden on iPad/desktop */}
-          <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
+          {/* Mobile/iPad Air Click Cards - Stacked vertically - Visible on mobile/iPad Air, hidden on desktop */}
+          <div className="lg:hidden flex flex-col gap-6 mt-8 items-center">
               <AnimatePresence>
                 {PROJECT_CARDS.map((card, index) => {
                   if (!visibleCards.includes(card.id)) return null;
