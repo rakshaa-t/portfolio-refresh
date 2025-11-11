@@ -224,6 +224,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
+  const heroSectionRef = React.useRef<HTMLDivElement>(null);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -525,7 +526,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
   // Unified responsive component (no separate mobile component)
   return (
-    <div className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
+    <div ref={heroSectionRef} className="relative w-full min-h-screen bg-[#D8D4E8] overflow-hidden">
       {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
       <div className="hidden lg:block absolute w-[1472px] h-[761px] -left-[227px] top-[281px] bg-[rgba(0,132,255,0.1)] rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
       <div className="hidden lg:block absolute w-[1629px] h-[842px] right-[-300px] bottom-[-200px] bg-white rounded-[4444px] blur-[80px] pointer-events-none z-[-2]" />
@@ -697,21 +698,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
           </motion.div>
 
+        {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
+        <div 
+          ref={dragConstraintsRef}
+          className="pointer-events-none absolute left-0 right-0 w-full"
+          style={{
+            top: '30%',
+            height: '70%',
+            zIndex: 1
+          }}
+        />
+        
         {/* Chat + Cards Container - Responsive sizing */}
         <div 
           ref={cardsContainerRef} 
           className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
         >
-          {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
-          <div 
-            ref={dragConstraintsRef}
-            className="pointer-events-none fixed left-0 right-0 w-screen"
-            style={{
-              top: '30vh',
-              height: '70vh',
-              zIndex: 1
-            }}
-          />
           {/* Chat Interface Card */}
           <motion.div
             ref={chatCardRef}
