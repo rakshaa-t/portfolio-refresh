@@ -1507,7 +1507,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
             <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center w-full max-w-[1258px] px-4">
-              <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[982px] relative overflow-hidden shadow-[8px_25px_57px_0px_rgba(0,0,0,0.1)]">
+              <div 
+                onClick={() => {
+                  window.location.href = '/greex';
+                }}
+                className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[982px] relative overflow-hidden shadow-[8px_25px_57px_0px_rgba(0,0,0,0.1)] cursor-pointer transition-opacity hover:opacity-90"
+              >
                 <img 
                   src="https://www.figma.com/api/mcp/asset/0de2028f-a4ae-40d3-a439-2b4ea84ff274" 
                   alt="Greex desktop mockup" 
