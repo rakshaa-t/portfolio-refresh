@@ -639,22 +639,22 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </nav>
 
 
-      {/* Content Container - Responsive */}
-      <div className="relative w-full px-6 md:px-11 pt-6 md:pt-11 mt-10 md:mt-[60px] flex flex-col items-center">
+      {/* Content Container - Responsive - Using Marijana's system for mobile/tablet, keeping desktop as-is */}
+      <div className="relative w-full px-4 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center">
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] text-left mt-5 md:mt-5 lg:mt-5 mb-5 md:mb-5 lg:mb-10"
           >
           <div className="w-full">
-            <h1 className="text-base md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            <h1 className="text-lg md:text-xl lg:text-2xl font-bold break-words" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               <HighlightedText
                 ref={(e) => {
                   if (e) headingTextRefs.current.set(0, e);
                 }}
-                className="text-base md:text-xl lg:text-2xl font-bold"
+                className="text-lg md:text-xl lg:text-2xl font-bold"
               >
                 Raksha T
               </HighlightedText>
@@ -709,10 +709,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           }}
         />
         
-        {/* Chat + Cards Container - Responsive sizing */}
+        {/* Chat + Cards Container - Responsive sizing - Using Marijana's system for mobile/tablet */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
+          className="relative mx-auto w-full max-w-full md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
         >
           {/* Chat Interface Card */}
           <motion.div
@@ -1289,8 +1289,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
-      {/* Book A Call Button */}
-      <div className="flex justify-center w-full mb-8 mt-[92px]">
+      {/* Book A Call Button - Using Marijana's spacing system for mobile/tablet */}
+      <div className="flex justify-center w-full mb-8 md:mb-8 lg:mb-8 mt-[92px] md:mt-[92px] lg:mt-[92px]">
         <div
           onClick={() => setIsCalendarOpen(true)}
           className={`book-call-button ${isButtonHovered ? 'is-hovered' : ''} cursor-pointer block w-[calc(100%-32px)] md:w-[410px] relative overflow-visible`}
@@ -1508,28 +1508,28 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         }
       `}</style>
 
-      {/* Footer */}
+      {/* Footer - Using Marijana's system for mobile/tablet, keeping desktop as-is */}
       <div className="relative z-10 flex justify-center w-full">
-        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 mt-[60px] mb-[100px] md:mt-[220px] md:mb-0 min-w-0">
-        {/* Top Section - Title */}
-        <div className="flex flex-col justify-start items-center gap-3">
-          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
+        <div className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1200px] p-[22px] md:p-[22px] lg:p-[22px] flex flex-col justify-start items-center gap-4 md:gap-5 lg:gap-5 mt-[60px] md:mt-[60px] lg:mt-[220px] mb-[100px] md:mb-[100px] lg:mb-0 min-w-0">
+        {/* Top Section - Title - Using Marijana's typography system for mobile/tablet */}
+        <div className="flex flex-col justify-start items-center gap-3 md:gap-3 lg:gap-3">
+          <div className="text-center text-[#9F94AD] text-lg md:text-xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
             lovely to see you here!
           </div>
-          <div className="text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-[242px] h-[113px] md:w-auto md:h-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive' }}>
+          <div className="text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-[242px] md:w-auto lg:w-auto h-[113px] md:h-auto lg:h-auto leading-normal md:leading-normal lg:leading-[200px]" style={{ fontFamily: 'Neulis Cursive' }}>
             raks
           </div>
         </div>
 
-        {/* Bottom Section - Links and Credits */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 w-full max-w-full min-w-0">
-          {/* Social Links */}
-          <div className="w-auto md:w-[463px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 h-[122px] md:h-auto">
+        {/* Bottom Section - Links and Credits - Using Marijana's spacing system for mobile/tablet */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 lg:gap-20 w-full max-w-full min-w-0">
+          {/* Social Links - Using Marijana's typography system for mobile/tablet */}
+          <div className="w-auto md:w-[463px] lg:w-[463px] flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-between items-center gap-4 md:gap-5 lg:gap-0 h-[122px] md:h-auto lg:h-auto">
             <a 
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              className="text-center text-[#9F94AD] text-sm md:text-base lg:text-sm font-semibold underline break-words cursor-pointer hover:opacity-80 transition-opacity" 
               style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               Linkedin
@@ -1538,7 +1538,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://twitter.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              className="text-center text-[#9F94AD] text-sm md:text-base lg:text-sm font-semibold underline break-words cursor-pointer hover:opacity-80 transition-opacity" 
               style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               X
@@ -1547,7 +1547,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://contra.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              className="text-center text-[#9F94AD] text-sm md:text-base lg:text-sm font-semibold underline break-words cursor-pointer hover:opacity-80 transition-opacity" 
               style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               Contra
@@ -1556,28 +1556,28 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               href="https://medium.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              className="text-center text-[#9F94AD] text-sm md:text-base lg:text-sm font-semibold underline break-words cursor-pointer hover:opacity-80 transition-opacity" 
               style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               Medium
             </a>
             <a 
               href="mailto:hey@raksha.design"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              className="text-center text-[#9F94AD] text-sm md:text-base lg:text-sm font-semibold underline break-words cursor-pointer hover:opacity-80 transition-opacity" 
               style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               hey@raksha.design
             </a>
           </div>
 
-          {/* Credits */}
-          <div className="text-center self-stretch md:self-auto">
-            <span className="text-[#A599B6] text-xs md:text-sm font-semibold break-words" style={{ fontFamily: 'Geist Mono, monospace' }}>
-              Designed and coded by me and cursor<span className="md:hidden"><br /></span> → 
+          {/* Credits - Using Marijana's typography system for mobile/tablet */}
+          <div className="text-center self-stretch md:self-auto lg:self-auto">
+            <span className="text-[#A599B6] text-sm md:text-base lg:text-sm font-semibold break-words" style={{ fontFamily: 'Geist Mono, monospace' }}>
+              Designed and coded by me and cursor<span className="md:hidden lg:hidden"><br /></span> → 
             </span>
             <a 
               href="#" 
-              className="text-[#A599B6] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              className="text-[#A599B6] text-sm md:text-base lg:text-sm font-semibold underline break-words cursor-pointer hover:opacity-80 transition-opacity" 
               style={{ fontFamily: 'Geist Mono, monospace' }}
             >
               View process 
