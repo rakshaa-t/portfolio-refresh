@@ -1361,7 +1361,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 color: '#283FE4',
                 fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500',
+                fontWeight: '600',
                 wordWrap: 'break-word'
               }}
             >
