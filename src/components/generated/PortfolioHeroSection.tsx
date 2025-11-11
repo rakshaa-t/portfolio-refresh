@@ -253,17 +253,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         
         // Calculate scale factor to fit layout within viewport
         // Scale both container and cards proportionally
-        const scale = Math.min(1, availableWidth / desktopLayoutWidth);
+        const scale = Math.max(0.5, Math.min(1, availableWidth / desktopLayoutWidth)); // Min scale 0.5 to prevent too small
         setScaleFactor(scale);
         
-        // Calculate scaled container width
-        const scaledContainerWidth = desktopContainerWidth * scale;
+        // Calculate scaled container width - ensure it doesn't exceed available width
+        const scaledContainerWidth = Math.min(desktopContainerWidth * scale, availableWidth);
         setContainerWidth(scaledContainerWidth);
       } else {
         setContainerWidth(1040.8);
         setScaleFactor(1);
       }
     };
+    // Run immediately and on resize
     updateScaleFactor();
     window.addEventListener('resize', updateScaleFactor);
     return () => window.removeEventListener('resize', updateScaleFactor);
@@ -686,7 +687,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
 
       {/* Content Container - Responsive - Using Marijana's system for mobile/tablet, keeping desktop as-is */}
-      <div className="relative w-full px-4 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center">
+      <div className="relative w-full px-4 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center" style={{ overflowX: 'hidden' }}>
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -743,6 +744,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             width: `${containerWidth}px`,
             height: `${485.6 * scaleFactor}px`,
             maxWidth: `calc(100vw - 64px)`, // 32px padding on each side
+            overflow: 'hidden', // Prevent cards from going outside container
           } : {}}
         >
           {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
