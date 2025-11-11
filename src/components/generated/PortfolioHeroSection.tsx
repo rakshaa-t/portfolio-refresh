@@ -712,15 +712,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Chat + Cards Container - Responsive sizing - Using Marijana's system for mobile/tablet */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-full md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
+          className="relative mx-auto w-full max-w-full md:max-w-[90vw] md:h-[485.6px] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
         >
-          {/* Chat Interface Card */}
+          {/* Chat Interface Card - Centered on iPad and Desktop like desktop */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[603.2px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -730,10 +730,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               height: '483px'
             }}
           >
-          {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
+          {/* Drop Zone Overlay - Shows when dragging a card (iPad and desktop) */}
           {isCardOverChat && (
             <div 
-              className="hidden lg:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
+              className="hidden md:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)'
@@ -744,8 +744,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </p>
               </div>
           )}
-          {/* Inner Background Blurs - Desktop only for performance */}
-          <div className="hidden lg:block">
+          {/* Inner Background Blurs - iPad and Desktop only for performance */}
+          <div className="hidden md:block">
               <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
               <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
           </div>
@@ -973,9 +973,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             </div>
           </motion.div>
 
-          {/* Project Cards - Desktop: Draggable around chat, Mobile/iPad Air: Stacked below chat with click */}
-          {/* Desktop Draggable Cards - Hidden on mobile/iPad Air, visible on desktop (lg: 1024px+) */}
-          <div className="hidden lg:block">
+          {/* Project Cards - iPad & Desktop: Draggable around chat, Mobile: Stacked below chat with click */}
+          {/* iPad & Desktop Draggable Cards - Hidden on mobile, visible on iPad (md: 768px+) */}
+          <div className="hidden md:block">
             <AnimatePresence>
               {PROJECT_CARDS.map((card) => {
                 if (!visibleCards.includes(card.id)) return null;
@@ -1212,8 +1212,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </AnimatePresence>
           </div>
 
-          {/* Mobile/iPad Air Click Cards - Stacked vertically - Visible on mobile/iPad Air, hidden on desktop */}
-          <div className="lg:hidden flex flex-col gap-6 mt-8 items-center">
+          {/* Mobile Click Cards - Stacked vertically - Visible on mobile only, hidden on iPad/desktop */}
+          <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
               <AnimatePresence>
                 {PROJECT_CARDS.map((card, index) => {
                   if (!visibleCards.includes(card.id)) return null;
