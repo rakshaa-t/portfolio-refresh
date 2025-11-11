@@ -1310,25 +1310,98 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
-      {/* Tabs Section - Frame 98 - Positioned 112px below chat box + cards section */}
-      <div className="relative w-full flex justify-center mt-[112px] mb-[100px]">
-        <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(0,0,0,0.04)] border-solid rounded-[12px] px-8 py-3 relative">
-          <div className="flex items-center justify-between text-base text-center w-[475px] gap-8">
-            <p className="text-[#283fe4] font-bold cursor-pointer hover:text-[#4F5CFF] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+      {/* Tabs Section - Frame 98 - Positioned 192px below chat box + cards section */}
+      <div className="relative w-full flex justify-center mt-[192px] mb-[100px]">
+        <div 
+          className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative"
+          style={{
+            paddingTop: 12,
+            paddingBottom: 18,
+            paddingLeft: 32,
+            paddingRight: 32,
+            background: 'rgba(255, 255, 255, 0.04)',
+            outline: '1px rgba(0, 0, 0, 0.04) solid'
+          }}
+        >
+          {/* Tabs Container */}
+          <div 
+            className="flex items-center justify-between"
+            style={{ width: 475 }}
+          >
+            <div 
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              style={{
+                color: 'rgba(0, 0, 0, 0.28)',
+                fontSize: 16,
+                fontFamily: 'Nexa, system-ui, sans-serif',
+                fontWeight: '700',
+                wordWrap: 'break-word'
+              }}
+            >
               Work
-            </p>
-            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            </div>
+            <div 
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              style={{
+                color: '#283FE4',
+                fontSize: 16,
+                fontFamily: 'Nexa, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
               Frontend
-            </p>
-            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            </div>
+            <div 
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              style={{
+                color: 'rgba(0, 0, 0, 0.28)',
+                fontSize: 16,
+                fontFamily: 'Nexa, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
               Hall of fame
-            </p>
-            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            </div>
+            <div 
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              style={{
+                color: 'rgba(0, 0, 0, 0.28)',
+                fontSize: 16,
+                fontFamily: 'Nexa, system-ui, sans-serif',
+                fontWeight: '400',
+                wordWrap: 'break-word'
+              }}
+            >
               Concepts
-            </p>
+            </div>
           </div>
-          {/* Underline indicator for active tab */}
-          <div className="absolute bottom-0 left-8 h-[2px] w-[42px] bg-[#283fe4]" />
+
+          {/* Full width divider line */}
+          <div 
+            style={{
+              width: 475,
+              height: 0,
+              background: 'rgba(255, 255, 255, 0.22)',
+              outline: '1px white solid',
+              outlineOffset: '-0.50px'
+            }}
+          />
+
+          {/* Active tab indicator line (under Frontend) */}
+          <div 
+            className="absolute"
+            style={{
+              width: 72,
+              height: 0,
+              background: 'rgba(255, 255, 255, 0.22)',
+              outline: '1px #283FE4 solid',
+              outlineOffset: '-0.50px',
+              bottom: 18,
+              left: 'calc(32px + (475px / 3) - 36px)' // Positioned under "Frontend" tab (second of 4 tabs with space-between)
+            }}
+          />
         </div>
       </div>
 
