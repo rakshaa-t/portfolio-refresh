@@ -999,10 +999,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     onDrag={(event, info) => {
                       // Check if card is over chat area using cursor position
                       // Include the entire chat container from top to bottom (including input box)
-                      const cursorX = info.point.x;
-                      const cursorY = info.point.y;
+                        // Normalize to viewport coordinates so comparisons with getBoundingClientRect() work even after scroll
+                        const cursorX = info.point.x - window.scrollX;
+                        const cursorY = info.point.y - window.scrollY;
                       let isOver = false;
-                      
+                        
                       // Check main chat container
                       if (chatCardRef.current) {
                         const chatRect = chatCardRef.current.getBoundingClientRect();
@@ -1025,14 +1026,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           cursorY >= inputRect.top - margin &&
                           cursorY <= inputRect.bottom + margin;
                       }
-                      
-                      setIsCardOverChat(isOver);
+                        
+                        setIsCardOverChat(isOver);
                     }}
                     onDragEnd={(event, info) => {
                       // Check if dropped over chat - use cursor position for reliability
                       // Include the entire chat container from top to bottom (including input box)
-                      const cursorX = info.point.x;
-                      const cursorY = info.point.y;
+                        // Normalize to viewport coordinates to account for page scroll
+                        const cursorX = info.point.x - window.scrollX;
+                        const cursorY = info.point.y - window.scrollY;
                       let isDroppedOnChat = false;
                       
                       // Check main chat container
@@ -1056,12 +1058,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           cursorY >= inputRect.top - margin &&
                           cursorY <= inputRect.bottom + margin;
                       }
-                      
-                      if (isDroppedOnChat) {
+                        
+                        if (isDroppedOnChat) {
                         // Card dropped inside chatbox - mark it and keep it under chatbox
                         setCardsDroppedInChat(prev => new Set(prev).add(card.id));
-                        setIsDraggingCard(null);
-                        setIsCardOverChat(false);
+                          setIsDraggingCard(null);
+                          setIsCardOverChat(false);
                         // Stop momentum immediately when dropping into chat
                         handleCardDrop(card.id);
                       } else {
@@ -1176,7 +1178,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       }}
                     >
                       {card.title}
-                    </div>
+              </div>
                   </div>
                   
                   {/* Card Image - Fills bottom portion */}
@@ -1203,8 +1205,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       className="pointer-events-none"
                       draggable={false}
                     />
-                  </div>
-                </motion.div>
+            </div>
+          </motion.div>
               );
             })}
           </AnimatePresence>
