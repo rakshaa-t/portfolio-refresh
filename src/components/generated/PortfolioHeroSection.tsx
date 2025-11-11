@@ -242,15 +242,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   // Track container width and calculate scale factor for iPad centering
   React.useEffect(() => {
     const updateContainerWidth = () => {
-      if (cardsContainerRef.current && !isDesktop) {
-        const width = cardsContainerRef.current.offsetWidth;
-        setContainerWidth(width);
+      if (!isDesktop) {
         // Desktop layout needs ~1046px to fit all cards (rightmost card at 783px + 263px card width)
         // Scale down proportionally to fit within viewport with padding
         const desktopLayoutWidth = 1046;
-        const availableWidth = Math.min(width, window.innerWidth - 40); // 20px padding on each side
+        const availableWidth = window.innerWidth - 40; // 20px padding on each side
         const scale = Math.min(1, availableWidth / desktopLayoutWidth);
         setScaleFactor(scale);
+        
+        if (cardsContainerRef.current) {
+          const width = cardsContainerRef.current.offsetWidth;
+          setContainerWidth(width);
+        }
       } else {
         setContainerWidth(1040.8);
         setScaleFactor(1);
