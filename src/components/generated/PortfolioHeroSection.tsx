@@ -1842,8 +1842,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </svg>
         </div>
         
-        {/* Content - Original positioning */}
-        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-end justify-between gap-8 md:gap-4">
+        {/* Content - Vertically centered */}
+        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 min-h-[735px]">
         
         {/* 52+ Projects shipped */}
         <div className="flex flex-col items-center gap-4 w-[245px]">
