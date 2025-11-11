@@ -142,6 +142,15 @@ export const GreexCaseStudy: React.FC = () => {
       // Don't override manual tab selection during scroll animation
       if (isManualScroll) return;
       
+      // Check if user is at the bottom of the page
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+      
+      if (isAtBottom) {
+        // If at bottom, always highlight Final Thoughts
+        setActiveSection('Final Thoughts');
+        return;
+      }
+      
       const scrollPosition = window.scrollY + 200; // Offset for header
       
       for (let i = sections.length - 1; i >= 0; i--) {
