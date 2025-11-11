@@ -222,6 +222,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const [isDesktop, setIsDesktop] = React.useState(false);
   const [containerWidth, setContainerWidth] = React.useState(1040.8);
+  const [scaleFactor, setScaleFactor] = React.useState(1);
   const chatCardRef = React.useRef<HTMLDivElement>(null);
   const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
@@ -238,18 +239,27 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Track container width for iPad centering
+  // Track container width and calculate scale factor for iPad centering
   React.useEffect(() => {
     const updateContainerWidth = () => {
-      if (cardsContainerRef.current) {
+      if (cardsContainerRef.current && !isDesktop) {
         const width = cardsContainerRef.current.offsetWidth;
         setContainerWidth(width);
+        // Desktop layout needs ~1046px to fit all cards (rightmost card at 783px + 263px card width)
+        // Scale down proportionally to fit within viewport with padding
+        const desktopLayoutWidth = 1046;
+        const availableWidth = Math.min(width, window.innerWidth - 40); // 20px padding on each side
+        const scale = Math.min(1, availableWidth / desktopLayoutWidth);
+        setScaleFactor(scale);
+      } else {
+        setContainerWidth(1040.8);
+        setScaleFactor(1);
       }
     };
     updateContainerWidth();
     window.addEventListener('resize', updateContainerWidth);
     return () => window.removeEventListener('resize', updateContainerWidth);
-  }, []);
+  }, [isDesktop]);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -720,7 +730,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Chat + Cards Container - Responsive sizing - Using Marijana's system for mobile/tablet - Centered on iPad */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-full md:max-w-[90vw] md:w-[1040.8px] md:h-[485.6px] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
+          className="relative mx-auto w-full max-w-full md:h-[485.6px] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
+          style={!isDesktop ? {
+            width: '1040.8px',
+            maxWidth: 'min(1040.8px, 95vw)',
+            transform: scaleFactor < 1 ? `scale(${scaleFactor})` : 'none',
+            transformOrigin: 'center top'
+          } : {}}
         >
           {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
           <div 
