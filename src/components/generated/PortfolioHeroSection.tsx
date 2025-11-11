@@ -1154,11 +1154,20 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     className="absolute w-[263px] h-[266px] rounded-[44px] border border-white cursor-grab"
                     style={{
-                      // iPad-specific positioning: reduce right-side card positions to bring them into viewport
-                      // Desktop (lg:) uses original positions, iPad (md:) uses adjusted positions
-                      left: card.id === 'greex' ? (isDesktop ? '777.8px' : '520px') :
-                            card.id === 'dealdoc' ? (isDesktop ? '783.09px' : '525px') :
-                            card.position.left,
+                      // iPad-specific positioning: center cards relative to container
+                      // Desktop (lg:) uses original positions, iPad (md:) uses centered positions
+                      left: isDesktop 
+                        ? card.position.left
+                        : (() => {
+                            // On iPad, calculate position relative to container center
+                            // Desktop container is 1040.8px, center is 520.4px
+                            const desktopCenter = 520.4;
+                            const desktopLeft = parseFloat(card.position.left);
+                            const offsetFromCenter = desktopLeft - desktopCenter;
+                            // Apply same offset from iPad container center
+                            const ipadCenter = containerWidth / 2;
+                            return `${ipadCenter + offsetFromCenter}px`;
+                          })(),
                       top: card.position.top,
                       background: 'rgba(255, 255, 255, 0.30)',
                       backdropFilter: 'blur(20px)',
