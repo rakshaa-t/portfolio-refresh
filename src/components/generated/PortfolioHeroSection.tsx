@@ -1530,85 +1530,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         }
       `}</style>
 
-      {/* Footer */}
-      <div className="relative z-10 flex justify-center w-full">
-        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 mt-[60px] mb-[100px] md:mt-[220px] md:mb-0 min-w-0">
-        {/* Top Section - Title */}
-        <div className="flex flex-col justify-start items-center gap-3">
-          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
-            lovely to see you here!
-          </div>
-          <div className="text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-[242px] h-[113px] md:w-auto md:h-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive' }}>
-            raks
-          </div>
-        </div>
-
-        {/* Bottom Section - Links and Credits */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 w-full max-w-full min-w-0">
-          {/* Social Links */}
-          <div className="w-auto md:w-[463px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 h-[122px] md:h-auto">
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
-              style={{ fontFamily: 'Geist Mono, monospace' }}
-            >
-              Linkedin
-            </a>
-            <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
-              style={{ fontFamily: 'Geist Mono, monospace' }}
-            >
-              X
-            </a>
-            <a 
-              href="https://contra.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
-              style={{ fontFamily: 'Geist Mono, monospace' }}
-            >
-              Contra
-            </a>
-            <a 
-              href="https://medium.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
-              style={{ fontFamily: 'Geist Mono, monospace' }}
-            >
-              Medium
-            </a>
-            <a 
-              href="mailto:hey@raksha.design"
-              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
-              style={{ fontFamily: 'Geist Mono, monospace' }}
-            >
-              hey@raksha.design
-            </a>
-          </div>
-
-          {/* Credits */}
-          <div className="text-center self-stretch md:self-auto">
-            <span className="text-[#A599B6] text-xs md:text-sm font-semibold break-words" style={{ fontFamily: 'Geist Mono, monospace' }}>
-              Designed and coded by me and cursor<span className="md:hidden"><br /></span> → 
-            </span>
-            <a 
-              href="#" 
-              className="text-[#A599B6] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
-              style={{ fontFamily: 'Geist Mono, monospace' }}
-            >
-              View process 
-            </a>
-          </div>
-        </div>
-        </div>
-      </div>
-
       {/* Project Showcase Sections - From Figma Design */}
       <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 mt-[100px] md:mt-[150px] lg:mt-[200px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
         
@@ -2023,6 +1944,107 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               <p className="text-[#9f94ad] text-sm font-normal text-center" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
                 CMD + F  takes you my wall of fame
               </p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      {/* Tabs Section - Frame 98 - From Figma Design */}
+      <div className="relative w-full flex justify-center mt-[100px] md:mt-[150px] lg:mt-[200px] mb-[100px]">
+        <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(0,0,0,0.04)] border-solid rounded-[12px] px-8 py-3 relative">
+          <div className="flex items-center justify-between text-base text-center w-[475px] gap-8">
+            <p className="text-[#283fe4] font-bold cursor-pointer hover:text-[#4F5CFF] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Work
+            </p>
+            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Frontend
+            </p>
+            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Hall of fame
+            </p>
+            <p className="text-[rgba(0,0,0,0.28)] font-normal cursor-pointer hover:text-[rgba(0,0,0,0.5)] transition-colors" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Concepts
+            </p>
+          </div>
+          {/* Underline indicator for active tab */}
+          <div className="absolute bottom-0 left-8 h-[2px] w-[42px] bg-[#283fe4]" />
+        </div>
+      </div>
+
+      {/* Footer - At the very bottom */}
+      <div className="relative z-10 flex justify-center w-full mt-[100px] md:mt-[150px] lg:mt-[200px]">
+        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 mb-[100px] min-w-0">
+        {/* Top Section - Title */}
+        <div className="flex flex-col justify-start items-center gap-3">
+          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
+            lovely to see you here!
+          </div>
+          <div className="text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-[242px] h-[113px] md:w-auto md:h-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive' }}>
+            raks
+          </div>
+        </div>
+
+        {/* Bottom Section - Links and Credits */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 w-full max-w-full min-w-0">
+          {/* Social Links */}
+          <div className="w-auto md:w-[463px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 h-[122px] md:h-auto">
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
+            >
+              Linkedin
+            </a>
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
+            >
+              X
+            </a>
+            <a 
+              href="https://contra.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
+            >
+              Contra
+            </a>
+            <a 
+              href="https://medium.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
+            >
+              Medium
+            </a>
+            <a 
+              href="mailto:hey@raksha.design"
+              className="text-center text-[#9F94AD] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
+            >
+              hey@raksha.design
+            </a>
+          </div>
+
+          {/* Credits */}
+          <div className="text-center self-stretch md:self-auto">
+            <span className="text-[#A599B6] text-xs md:text-sm font-semibold break-words" style={{ fontFamily: 'Geist Mono, monospace' }}>
+              Designed and coded by me and cursor<span className="md:hidden"><br /></span> → 
+            </span>
+            <a 
+              href="#" 
+              className="text-[#A599B6] text-xs md:text-sm font-semibold underline break-words cursor-pointer" 
+              style={{ fontFamily: 'Geist Mono, monospace' }}
+            >
+              View process 
+            </a>
           </div>
         </div>
         </div>
