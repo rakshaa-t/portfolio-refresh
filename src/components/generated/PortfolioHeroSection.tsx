@@ -221,8 +221,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const [cardsInMomentum, setCardsInMomentum] = React.useState<Set<string>>(new Set());
   const [cardsDroppedInChat, setCardsDroppedInChat] = React.useState<Set<string>>(new Set());
   const chatCardRef = React.useRef<HTMLDivElement>(null);
+  const inputContainerRef = React.useRef<HTMLDivElement>(null);
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
+  const heroSectionRef = React.useRef<HTMLDivElement>(null);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
@@ -640,14 +642,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </nav>
 
 
-      {/* Content Container - Responsive */}
-      <div className="relative w-full px-6 md:px-11 pt-6 md:pt-11 mt-10 md:mt-[60px] flex flex-col items-center">
+      {/* Content Container - Responsive - Using Marijana's system for mobile/tablet, keeping desktop as-is */}
+      <div className="relative w-full px-4 md:px-6 lg:px-11 pt-6 md:pt-11 lg:pt-11 mt-10 md:mt-[60px] lg:mt-[60px] flex flex-col items-center">
           {/* Main Heading */}
           <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="w-full max-w-full lg:max-w-[603.2px] text-left mt-5 mb-5 lg:mt-10 lg:mb-10"
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[603.2px] text-left mt-5 md:mt-5 lg:mt-5 mb-5 md:mb-5 lg:mb-10"
           >
           <div className="w-full">
             <HighlightedText
@@ -690,28 +692,28 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
           </motion.div>
 
-        {/* Chat + Cards Container - Responsive sizing */}
+        {/* Chat + Cards Container - Responsive sizing - Using Marijana's system for mobile/tablet */}
         <div 
           ref={cardsContainerRef} 
-          className="relative mx-auto w-full max-w-[348px] md:max-w-[90vw] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
+          className="relative mx-auto w-full max-w-full md:max-w-[90vw] md:h-[485.6px] lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] flex justify-center"
         >
-          {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
+          {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
           <div 
             ref={dragConstraintsRef}
-            className="pointer-events-none fixed left-0 right-0 w-screen"
+            className="pointer-events-none absolute left-0 right-0 w-full"
             style={{
-              top: '30vh',
-              height: '70vh',
+              top: '30%',
+              height: '70%',
               zIndex: 1
             }}
           />
-          {/* Chat Interface Card */}
+          {/* Chat Interface Card - Centered on iPad and Desktop like desktop */}
           <motion.div
             ref={chatCardRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:p-4 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[603.2px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -721,10 +723,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               height: '483px'
             }}
           >
-          {/* Drop Zone Overlay - Shows when dragging a card (desktop only) */}
+          {/* Drop Zone Overlay - Shows when dragging a card (iPad and desktop) */}
           {isCardOverChat && (
             <div 
-              className="hidden lg:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
+              className="hidden md:flex absolute inset-0 z-50 rounded-[44px] bg-blue-500/10 border-2 border-dashed border-blue-500 items-center justify-center pointer-events-none"
               style={{
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)'
@@ -735,8 +737,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </p>
               </div>
           )}
-          {/* Inner Background Blurs - Desktop only for performance */}
-          <div className="hidden lg:block">
+          {/* Inner Background Blurs - iPad and Desktop only for performance */}
+          <div className="hidden md:block">
               <div className="absolute w-[421px] h-[336px] left-1/2 bottom-[-99px] -translate-x-1/2 translate-x-[236px] bg-[rgba(101,73,255,0.14)] rounded-[4444px] blur-[60px] pointer-events-none" />
               <div className="absolute w-[605px] h-[313px] left-1/2 bottom-[267px] -translate-x-1/2 -translate-x-[172px] bg-gradient-to-r from-[rgba(255,255,255,0.88)] to-[rgba(255,255,255,0.1936)] rounded-[4444px] blur-[60px] pointer-events-none" />
           </div>
@@ -821,7 +823,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[calc(90vw-32px)] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -964,9 +966,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             </div>
           </motion.div>
 
-          {/* Project Cards - Desktop: Draggable around chat, Mobile/iPad Air: Stacked below chat with click */}
-          {/* Desktop Draggable Cards - Hidden on mobile/iPad Air, visible on desktop (lg: 1024px+) */}
-          <div className="hidden lg:block">
+          {/* Project Cards - iPad & Desktop: Draggable around chat, Mobile: Stacked below chat with click */}
+          {/* iPad & Desktop Draggable Cards - Hidden on mobile, visible on iPad (md: 768px+) */}
+          <div className="hidden md:block">
             <AnimatePresence>
               {PROJECT_CARDS.map((card) => {
                 if (!visibleCards.includes(card.id)) return null;
@@ -989,50 +991,75 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     }}
                     onDrag={(event, info) => {
                       // Check if card is over chat area using cursor position
+                      // Normalize to viewport coordinates so comparisons with getBoundingClientRect() work even after scroll
+                      const cursorX = info.point.x - window.scrollX;
+                      const cursorY = info.point.y - window.scrollY;
+                      let isOver = false;
+                      
+                      // Check main chat container
                       if (chatCardRef.current) {
                         const chatRect = chatCardRef.current.getBoundingClientRect();
-                        const cursorX = info.point.x;
-                        const cursorY = info.point.y;
-                        
-                        // Check if cursor is inside chat area
-                        const isOver = 
-                          cursorX >= chatRect.left &&
-                          cursorX <= chatRect.right &&
-                          cursorY >= chatRect.top &&
-                          cursorY <= chatRect.bottom;
+                        const margin = 10;
+                        isOver = 
+                          cursorX >= chatRect.left - margin &&
+                          cursorX <= chatRect.right + margin &&
+                          cursorY >= chatRect.top - margin &&
+                          cursorY <= chatRect.bottom + margin;
+                      }
+                      
+                      // Also check input container separately to ensure it's detected
+                      if (!isOver && inputContainerRef.current) {
+                        const inputRect = inputContainerRef.current.getBoundingClientRect();
+                        const margin = 10;
+                        isOver = 
+                          cursorX >= inputRect.left - margin &&
+                          cursorX <= inputRect.right + margin &&
+                          cursorY >= inputRect.top - margin &&
+                          cursorY <= inputRect.bottom + margin;
+                      }
                         
                         setIsCardOverChat(isOver);
-                      }
                     }}
                     onDragEnd={(event, info) => {
                       // Check if dropped over chat - use cursor position for reliability
+                      // Normalize to viewport coordinates to account for page scroll
+                      const cursorX = info.point.x - window.scrollX;
+                      const cursorY = info.point.y - window.scrollY;
+                      let isDroppedOnChat = false;
+                      
+                      // Check main chat container
                       if (chatCardRef.current) {
                         const chatRect = chatCardRef.current.getBoundingClientRect();
-                        const cursorX = info.point.x;
-                        const cursorY = info.point.y;
-                        
-                        // Check if cursor is inside chat area when dropped
-                        const isDroppedOnChat = 
-                          cursorX >= chatRect.left &&
-                          cursorX <= chatRect.right &&
-                          cursorY >= chatRect.top &&
-                          cursorY <= chatRect.bottom;
+                        const margin = 10;
+                        isDroppedOnChat = 
+                          cursorX >= chatRect.left - margin &&
+                          cursorX <= chatRect.right + margin &&
+                          cursorY >= chatRect.top - margin &&
+                          cursorY <= chatRect.bottom + margin;
+                      }
+                      
+                      // Also check input container separately to ensure it's detected
+                      if (!isDroppedOnChat && inputContainerRef.current) {
+                        const inputRect = inputContainerRef.current.getBoundingClientRect();
+                        const margin = 10;
+                        isDroppedOnChat = 
+                          cursorX >= inputRect.left - margin &&
+                          cursorX <= inputRect.right + margin &&
+                          cursorY >= inputRect.top - margin &&
+                          cursorY <= inputRect.bottom + margin;
+                      }
                         
                         if (isDroppedOnChat) {
-                          // Card dropped inside chatbox - mark it and keep it under chatbox
-                          setCardsDroppedInChat(prev => new Set(prev).add(card.id));
+                        // Card dropped inside chatbox - mark it and keep it under chatbox
+                        setCardsDroppedInChat(prev => new Set(prev).add(card.id));
                           setIsDraggingCard(null);
                           setIsCardOverChat(false);
-                          // Stop momentum immediately when dropping into chat
-                          handleCardDrop(card.id);
-                        } else {
-                          // Card dropped outside chatbox - will slide with momentum
-                          // Keep z-index high during momentum, will be lowered in onDragTransitionEnd
-                          setCardsInMomentum(prev => new Set(prev).add(card.id));
-                          setIsDraggingCard(null);
-                          setIsCardOverChat(false);
-                        }
+                        // Stop momentum immediately when dropping into chat
+                        handleCardDrop(card.id);
                       } else {
+                        // Card dropped outside chatbox - will slide with momentum
+                        // Keep z-index high during momentum, will be lowered in onDragTransitionEnd
+                        setCardsInMomentum(prev => new Set(prev).add(card.id));
                         setIsDraggingCard(null);
                         setIsCardOverChat(false);
                       }
@@ -1179,8 +1206,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </AnimatePresence>
           </div>
 
-          {/* Mobile/iPad Air Click Cards - Stacked vertically - Visible on mobile/iPad Air, hidden on desktop */}
-          <div className="lg:hidden flex flex-col gap-6 mt-8 items-center">
+          {/* Mobile Click Cards - Stacked vertically - Visible on mobile only, hidden on iPad/desktop */}
+          <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
               <AnimatePresence>
                 {PROJECT_CARDS.map((card, index) => {
                   if (!visibleCards.includes(card.id)) return null;
