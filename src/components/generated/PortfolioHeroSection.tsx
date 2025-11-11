@@ -1613,11 +1613,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <div style={{backdropFilter: 'blur(2px)', clipPath: 'url(#bgblur_1_0_595_clip_path)', height: '100%', width: '100%'}}></div>
               </foreignObject>
               <g filter="url(#filter15_f_0_595)" data-figma-bg-blur-radius="4">
-                <rect x="-87" y="102" width="1857" height="591" rx="200" fill="#11229D"/>
+                <rect x="-87" y="102" width="1857" height="756" rx="200" fill="#11229D"/>
               </g>
             </g>
             <defs>
-              <filter id="filter0_i_0_595" x="0" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter0_i_0_595" x="0" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1627,7 +1627,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter1_i_0_595" x="115" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter1_i_0_595" x="115" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1637,7 +1637,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter2_i_0_595" x="230" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter2_i_0_595" x="230" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1647,7 +1647,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter3_i_0_595" x="345" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter3_i_0_595" x="345" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1657,7 +1657,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter4_i_0_595" x="460" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter4_i_0_595" x="460" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1667,7 +1667,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter5_i_0_595" x="575" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter5_i_0_595" x="575" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1677,7 +1677,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter6_i_0_595" x="690" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter6_i_0_595" x="690" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1687,7 +1687,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter7_i_0_595" x="805" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter7_i_0_595" x="805" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1697,7 +1697,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter8_i_0_595" x="920" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter8_i_0_595" x="920" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1707,7 +1707,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter9_i_0_595" x="1035" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter9_i_0_595" x="1035" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1717,7 +1717,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter10_i_0_595" x="1150" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter10_i_0_595" x="1150" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1727,7 +1727,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter11_i_0_595" x="1265" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter11_i_0_595" x="1265" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1737,7 +1737,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter12_i_0_595" x="1380" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter12_i_0_595" x="1380" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1747,7 +1747,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter13_i_0_595" x="1495" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter13_i_0_595" x="1495" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1757,7 +1757,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
                 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_595"/>
               </filter>
-              <filter id="filter14_i_0_595" x="1610" y="0" width="115" height="739" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <filter id="filter14_i_0_595" x="1610" y="0" width="115" height="904" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -1773,7 +1773,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_0_595"/>
               </filter>
               <clipPath id="bgblur_1_0_595_clip_path" transform="translate(487 298)">
-                <rect x="-87" y="102" width="1857" height="591" rx="200"/>
+                <rect x="-87" y="102" width="1857" height="756" rx="200"/>
               </clipPath>
               <linearGradient id="paint0_linear_0_595" x1="115" y1="450" x2="0" y2="450" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#5D70FA"/>
