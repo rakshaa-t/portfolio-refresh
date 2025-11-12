@@ -999,7 +999,7 @@ export const GreexCaseStudy: React.FC = () => {
                 onClick={() => scrollToSection(section)}
                 style={{
                   fontFamily: 'Nexa, system-ui, sans-serif',
-                  fontWeight: isActive ? 'bold' : 'normal',
+                  fontWeight: isActive ? 'bold' : '500',
                   fontSize: '16px',
                   color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
                   background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
