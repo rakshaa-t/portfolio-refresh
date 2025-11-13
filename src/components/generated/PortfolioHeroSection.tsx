@@ -2029,10 +2029,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           {/* Main principle - Blue card */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.64 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.64 
+            }}
             className="absolute left-1/2 top-[50px] -translate-x-1/2 w-[88%] lg:w-[533.407px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
@@ -2048,10 +2052,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           {/* Blue highlighted principle */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.56 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.56 
+            }}
             className="absolute left-1/2 top-[150px] lg:top-[140px] -translate-x-1/2 w-[90%] lg:w-[682.088px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
@@ -2067,10 +2075,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           {/* Other principles */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.48 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.48 
+            }}
             className="absolute left-1/2 top-[250px] lg:top-[235px] -translate-x-1/2 w-[88%] lg:w-[616.784px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
@@ -2085,10 +2097,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.40 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.40 
+            }}
             className="absolute left-1/2 top-[350px] lg:top-[325px] -translate-x-1/2 w-[85%] lg:w-[500.788px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
@@ -2103,10 +2119,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.32 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.32 
+            }}
             className="absolute left-1/2 top-[450px] lg:top-[410px] -translate-x-1/2 w-[86%] lg:w-[509.437px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
@@ -2121,10 +2141,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.24 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.24 
+            }}
             className="absolute left-1/2 top-[550px] lg:top-[495px] -translate-x-1/2 w-[75%] lg:w-[311.843px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
@@ -2139,10 +2163,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.16 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.16 
+            }}
             className="absolute left-1/2 top-[650px] lg:top-[575px] -translate-x-1/2 w-[78%] lg:w-[369.17px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
@@ -2157,10 +2185,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.08 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0.08 
+            }}
             className="absolute left-1/2 top-[750px] lg:top-[655px] -translate-x-1/2 w-[76%] lg:w-[330.007px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
@@ -2175,10 +2207,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: -25 },
-              visible: { opacity: 1, y: 0 }
+              hidden: { opacity: 0, y: -80, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1 }
             }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.34, 1.56, 0.64, 1], 
+              delay: 0 
+            }}
             className="absolute left-1/2 top-[850px] lg:top-[735px] -translate-x-1/2 w-[75%] lg:w-[321.324px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
