@@ -1983,14 +1983,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Principles Section - My non negotiables - From Figma Design */}
-      <div className="relative w-full bg-[#e4deed] h-auto min-h-[1238px] py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
-        <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none" />
-        <p className="text-center text-[#9f94ad] text-[22px] font-bold mb-[100px]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+      <div className="relative w-full bg-[#e4deed] h-auto min-h-[1238px] py-[50px] md:py-[75px] lg:py-[100px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
+        <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none z-0" />
+        <p className="relative text-center text-[#9f94ad] text-[22px] font-bold mb-[50px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
           My non negotiables
         </p>
         
         {/* Principles Cards - Positioned with rotations */}
-        <div className="relative max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[1000px]">
+        <div className="relative max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[1000px] z-10">
           {/* Main principle - Blue card */}
           <div className="absolute left-1/2 top-[287.95px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
             <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-[533.407px]" />
