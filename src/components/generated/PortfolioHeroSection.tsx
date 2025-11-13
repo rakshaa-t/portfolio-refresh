@@ -1998,88 +1998,160 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Principles Cards - Positioned with rotations */}
         <div className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10">
           {/* Main principle - Blue card */}
-          <div className="absolute left-1/2 top-[50px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1] w-[88%] lg:w-[533.407px]">
-            <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[50px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] w-[88%] lg:w-[533.407px] h-[77.238px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              My team is my fuel, if I work with you I respect you all the way
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
+            className="absolute left-1/2 top-[50px] -translate-x-1/2 w-[88%] lg:w-[533.407px]"
+          >
+            <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
+              <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[2deg] lg:rotate-[4deg] h-[77.238px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                My team is my fuel, if I work with you I respect you all the way
+              </p>
+            </div>
+          </motion.div>
 
           {/* Blue highlighted principle */}
-          <div className="absolute left-1/2 top-[150px] lg:top-[140px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[90%] lg:w-[682.088px]">
-            <div className="bg-[#283fe4] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[150px] lg:top-[140px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[90%] lg:w-[682.088px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Make every function aesthetic and make every aesthetic serve a function
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.08 }}
+            className="absolute left-1/2 top-[150px] lg:top-[140px] -translate-x-1/2 w-[90%] lg:w-[682.088px]"
+          >
+            <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
+              <div className="bg-[#283fe4] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-full" />
+            </div>
+            <div className="relative rotate-[358deg] lg:rotate-[356deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Make every function aesthetic and make every aesthetic serve a function
+              </p>
+            </div>
+          </motion.div>
 
           {/* Other principles */}
-          <div className="absolute left-1/2 top-[250px] lg:top-[235px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1] w-[88%] lg:w-[616.784px]">
-            <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[250px] lg:top-[235px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] w-[88%] lg:w-[616.784px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              If there's no value exchange - it's theft. Create value, serve a purpose
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.16 }}
+            className="absolute left-1/2 top-[250px] lg:top-[235px] -translate-x-1/2 w-[88%] lg:w-[616.784px]"
+          >
+            <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
+              <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[2deg] lg:rotate-[4deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                If there's no value exchange - it's theft. Create value, serve a purpose
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="absolute left-1/2 top-[350px] lg:top-[325px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[85%] lg:w-[500.788px]">
-            <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[350px] lg:top-[325px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[85%] lg:w-[500.788px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Top-Tier communication, no assumptions
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.24 }}
+            className="absolute left-1/2 top-[350px] lg:top-[325px] -translate-x-1/2 w-[85%] lg:w-[500.788px]"
+          >
+            <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
+              <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
+            </div>
+            <div className="relative rotate-[358deg] lg:rotate-[356deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Top-Tier communication, no assumptions
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="absolute left-1/2 top-[450px] lg:top-[410px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1] w-[86%] lg:w-[509.437px]">
-            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[450px] lg:top-[410px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] w-[86%] lg:w-[509.437px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Work only with ethical and high integrity people
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.32 }}
+            className="absolute left-1/2 top-[450px] lg:top-[410px] -translate-x-1/2 w-[86%] lg:w-[509.437px]"
+          >
+            <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
+              <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[2deg] lg:rotate-[4deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Work only with ethical and high integrity people
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="absolute left-1/2 top-[550px] lg:top-[495px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[75%] lg:w-[311.843px]">
-            <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[550px] lg:top-[495px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[75%] lg:w-[311.843px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Reverse engineer everything
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.40 }}
+            className="absolute left-1/2 top-[550px] lg:top-[495px] -translate-x-1/2 w-[75%] lg:w-[311.843px]"
+          >
+            <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
+              <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[358deg] lg:rotate-[356deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Reverse engineer everything
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="absolute left-1/2 top-[650px] lg:top-[575px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1] w-[78%] lg:w-[369.17px]">
-            <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[650px] lg:top-[575px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] w-[78%] lg:w-[369.17px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Be allergic to Mediocracy
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.48 }}
+            className="absolute left-1/2 top-[650px] lg:top-[575px] -translate-x-1/2 w-[78%] lg:w-[369.17px]"
+          >
+            <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
+              <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[2deg] lg:rotate-[4deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Be allergic to Mediocracy
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="absolute left-1/2 top-[750px] lg:top-[655px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[76%] lg:w-[330.007px]">
-            <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[750px] lg:top-[655px] -translate-x-1/2 rotate-[358deg] lg:rotate-[356deg] w-[76%] lg:w-[330.007px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              NO bloated MVPs
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.56 }}
+            className="absolute left-1/2 top-[750px] lg:top-[655px] -translate-x-1/2 w-[76%] lg:w-[330.007px]"
+          >
+            <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
+              <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[358deg] lg:rotate-[356deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                NO bloated MVPs
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="absolute left-1/2 top-[850px] lg:top-[735px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1] w-[75%] lg:w-[321.324px]">
-            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-full" />
-          </div>
-          <div className="absolute left-1/2 top-[850px] lg:top-[735px] -translate-x-1/2 rotate-[2deg] lg:rotate-[4deg] w-[75%] lg:w-[321.324px] h-[77px] flex items-center justify-center px-3 lg:px-6">
-            <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-              Details. Details. Details &gt;&gt;
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.64 }}
+            className="absolute left-1/2 top-[850px] lg:top-[735px] -translate-x-1/2 w-[75%] lg:w-[321.324px]"
+          >
+            <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
+              <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-full" />
+            </div>
+            <div className="relative rotate-[2deg] lg:rotate-[4deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
+              <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+                Details. Details. Details &gt;&gt;
+              </p>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
 
