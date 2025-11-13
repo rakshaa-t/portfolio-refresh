@@ -1336,7 +1336,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Tabs Section - Frame 98 - Positioned 192px below chat box + cards section */}
-      <div className="relative w-full flex justify-center mt-[192px] mb-[100px]">
+      <div className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]">
         <div 
           className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative"
           style={{
@@ -1465,7 +1465,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       `}</style>
 
       {/* Project Showcase Sections - From Figma Design */}
-      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 mt-[100px] md:mt-[150px] lg:mt-[200px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
         
         {/* Ova Project Showcase */}
         <div className="flex flex-col gap-2">
@@ -1590,7 +1590,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Stats Section - From Figma Design */}
-      <div className="relative w-full py-16 md:py-24 lg:py-[200px] mt-20 md:mt-32 lg:mt-[200px] overflow-hidden flex justify-center">
+      <div className="relative w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden flex justify-center">
         {/* SVG Background */}
         <div className="absolute inset-0 flex justify-center">
           <svg width="1706" height="900" viewBox="0 0 1706 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
@@ -1882,7 +1882,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -1922,7 +1922,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -1960,7 +1960,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -1987,7 +1987,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -2012,7 +2012,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "-100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative w-full bg-[#e4deed] h-auto min-h-[1050px] md:min-h-[900px] lg:min-h-[1050px] py-12 md:py-16 lg:py-[100px] mt-20 md:mt-32 lg:mt-[200px] overflow-hidden"
+        className="relative w-full bg-[#e4deed] h-auto min-h-[1050px] md:min-h-[900px] lg:min-h-[1050px] py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden"
       >
         <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none z-0" />
         <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-8 md:mb-10 lg:mb-12 z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -2024,7 +2024,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
         >
           {/* Main principle - Blue card */}
           <motion.div
@@ -2196,8 +2196,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
 
       {/* Footer - At the very bottom */}
-      <div className="relative z-10 flex justify-center w-full mt-[100px] md:mt-[150px] lg:mt-[200px]">
-        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 mb-[100px] min-w-0">
+      <div className="relative z-10 flex justify-center w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]">
+        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 min-w-0">
         {/* Top Section - Title */}
         <div className="flex flex-col justify-start items-center gap-3">
           <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
