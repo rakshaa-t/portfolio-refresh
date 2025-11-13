@@ -759,7 +759,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           {/* Chat Interface Card - Centered on iPad and Desktop */}
           <motion.div
             ref={chatCardRef}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
@@ -1879,7 +1879,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="flex flex-col md:flex-col lg:flex-row items-start md:items-start lg:items-end justify-center gap-6 md:gap-8 lg:gap-[44px] w-full">
         
         {/* 52+ Projects shipped */}
-        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+        >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             52+ Projects shipped
           </p>
@@ -1910,10 +1916,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Work with 30+ leaders */}
-        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+        >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Work with 30+ leaders
           </p>
@@ -1942,10 +1954,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* $250+ M raised */}
-        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+        >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             $250+ M raised
           </p>
@@ -1963,10 +1981,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2.9+ M users reached */}
-        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+        >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             2.9+ M users reached
           </p>
@@ -1977,14 +2001,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
           </div>
         </div>
       </div>
 
       {/* Principles Section - My non negotiables - From Figma Design */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "-100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
