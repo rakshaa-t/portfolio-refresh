@@ -1993,83 +1993,83 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div className="relative max-w-[95vw] md:max-w-[90vw] lg:max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[800px] md:h-[900px] lg:h-[1000px] z-10">
           {/* Main principle - Blue card */}
           <div className="absolute left-1/2 top-[138px] md:top-[138px] lg:top-[138px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[85%] max-w-[420px] md:w-[90%] md:max-w-[500px] lg:w-auto lg:max-w-[533.407px]">
-            <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+            <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[167px] md:top-[167px] lg:top-[167px] -translate-x-1/2 rotate-[4deg] w-[85%] max-w-[420px] md:w-[90%] md:max-w-[500px] lg:w-auto lg:max-w-[533.407px]">
+          <div className="absolute left-1/2 top-[138px] md:top-[167px] lg:top-[167px] -translate-x-1/2 rotate-[4deg] w-[85%] max-w-[420px] md:w-[90%] md:max-w-[500px] lg:w-auto lg:max-w-[533.407px] h-[77.238px] flex items-center justify-center">
             <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               My team is my fuel, if I work with you I respect you all the way
             </p>
           </div>
 
           {/* Blue highlighted principle */}
-          <div className="absolute left-1/2 top-[240px] md:top-[240px] lg:top-[240px] -translate-x-1/2 rotate-[356deg] w-[90%] max-w-[480px] md:w-[95%] md:max-w-[620px] lg:w-auto lg:max-w-[682.088px]">
-            <div className="bg-[#283fe4] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-full" />
+          <div className="absolute left-1/2 top-[205px] md:top-[240px] lg:top-[240px] -translate-x-1/2 rotate-[356deg] w-[90%] max-w-[480px] md:w-[95%] md:max-w-[620px] lg:w-auto lg:max-w-[682.088px]">
+            <div className="bg-[#283fe4] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[271px] md:top-[271px] lg:top-[271px] -translate-x-1/2 rotate-[356deg] w-[90%] max-w-[480px] md:w-[95%] md:max-w-[620px] lg:w-auto lg:max-w-[682.088px]">
+          <div className="absolute left-1/2 top-[205px] md:top-[271px] lg:top-[271px] -translate-x-1/2 rotate-[356deg] w-[90%] max-w-[480px] md:w-[95%] md:max-w-[620px] lg:w-auto lg:max-w-[682.088px] h-[77px] flex items-center justify-center">
             <p className="text-white text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Make every function aesthetic and make every aesthetic serve a function
             </p>
           </div>
 
           {/* Other principles */}
-          <div className="absolute left-1/2 top-[360px] md:top-[360px] lg:top-[360px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[88%] max-w-[450px] md:w-[92%] md:max-w-[570px] lg:w-auto lg:max-w-[616.784px]">
-            <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+          <div className="absolute left-1/2 top-[272px] md:top-[360px] lg:top-[360px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[88%] max-w-[450px] md:w-[92%] md:max-w-[570px] lg:w-auto lg:max-w-[616.784px]">
+            <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[390px] md:top-[390px] lg:top-[390px] -translate-x-1/2 rotate-[4deg] w-[88%] max-w-[450px] md:w-[92%] md:max-w-[570px] lg:w-auto lg:max-w-[616.784px]">
+          <div className="absolute left-1/2 top-[272px] md:top-[390px] lg:top-[390px] -translate-x-1/2 rotate-[4deg] w-[88%] max-w-[450px] md:w-[92%] md:max-w-[570px] lg:w-auto lg:max-w-[616.784px] h-[77px] flex items-center justify-center">
             <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               If there's no value exchange - it's theft. Create value, serve a purpose
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[472px] md:top-[472px] lg:top-[472px] -translate-x-1/2 rotate-[356deg] w-[85%] max-w-[400px] md:w-[88%] md:max-w-[480px] lg:w-auto lg:max-w-[500.788px]">
-            <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
+          <div className="absolute left-1/2 top-[339px] md:top-[472px] lg:top-[472px] -translate-x-1/2 rotate-[356deg] w-[85%] max-w-[400px] md:w-[88%] md:max-w-[480px] lg:w-auto lg:max-w-[500.788px]">
+            <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[505px] md:top-[505px] lg:top-[505px] -translate-x-1/2 rotate-[356deg] w-[85%] max-w-[400px] md:w-[88%] md:max-w-[480px] lg:w-auto lg:max-w-[500.788px]">
+          <div className="absolute left-1/2 top-[339px] md:top-[505px] lg:top-[505px] -translate-x-1/2 rotate-[356deg] w-[85%] max-w-[400px] md:w-[88%] md:max-w-[480px] lg:w-auto lg:max-w-[500.788px] h-[77px] flex items-center justify-center">
             <p className="text-white text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Top-Tier communication, no assumptions
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[569px] md:top-[569px] lg:top-[569px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[85%] max-w-[410px] md:w-[88%] md:max-w-[490px] lg:w-auto lg:max-w-[509.437px]">
-            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+          <div className="absolute left-1/2 top-[406px] md:top-[569px] lg:top-[569px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[85%] max-w-[410px] md:w-[88%] md:max-w-[490px] lg:w-auto lg:max-w-[509.437px]">
+            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[600px] md:top-[600px] lg:top-[600px] -translate-x-1/2 rotate-[4deg] w-[85%] max-w-[410px] md:w-[88%] md:max-w-[490px] lg:w-auto lg:max-w-[509.437px]">
+          <div className="absolute left-1/2 top-[406px] md:top-[600px] lg:top-[600px] -translate-x-1/2 rotate-[4deg] w-[85%] max-w-[410px] md:w-[88%] md:max-w-[490px] lg:w-auto lg:max-w-[509.437px] h-[77px] flex items-center justify-center">
             <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Work only with ethical and high integrity people
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[668px] md:top-[668px] lg:top-[668px] -translate-x-1/2 rotate-[356deg] w-[70%] max-w-[280px] md:w-[75%] md:max-w-[300px] lg:w-auto lg:max-w-[311.843px]">
-            <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+          <div className="absolute left-1/2 top-[473px] md:top-[668px] lg:top-[668px] -translate-x-1/2 rotate-[356deg] w-[70%] max-w-[280px] md:w-[75%] md:max-w-[300px] lg:w-auto lg:max-w-[311.843px]">
+            <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[698px] md:top-[698px] lg:top-[698px] -translate-x-1/2 rotate-[356deg] w-[70%] max-w-[280px] md:w-[75%] md:max-w-[300px] lg:w-auto lg:max-w-[311.843px]">
+          <div className="absolute left-1/2 top-[473px] md:top-[698px] lg:top-[698px] -translate-x-1/2 rotate-[356deg] w-[70%] max-w-[280px] md:w-[75%] md:max-w-[300px] lg:w-auto lg:max-w-[311.843px] h-[77px] flex items-center justify-center">
             <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Reverse engineer everything
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[750px] md:top-[750px] lg:top-[750px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[75%] max-w-[320px] md:w-[78%] md:max-w-[350px] lg:w-auto lg:max-w-[369.17px]">
-            <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+          <div className="absolute left-1/2 top-[540px] md:top-[750px] lg:top-[750px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[75%] max-w-[320px] md:w-[78%] md:max-w-[350px] lg:w-auto lg:max-w-[369.17px]">
+            <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[783px] md:top-[783px] lg:top-[783px] -translate-x-1/2 rotate-[4deg] w-[75%] max-w-[320px] md:w-[78%] md:max-w-[350px] lg:w-auto lg:max-w-[369.17px]">
+          <div className="absolute left-1/2 top-[540px] md:top-[783px] lg:top-[783px] -translate-x-1/2 rotate-[4deg] w-[75%] max-w-[320px] md:w-[78%] md:max-w-[350px] lg:w-auto lg:max-w-[369.17px] h-[77px] flex items-center justify-center">
             <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Be allergic to Mediocracy
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[843px] md:top-[843px] lg:top-[843px] -translate-x-1/2 rotate-[356deg] w-[72%] max-w-[290px] md:w-[75%] md:max-w-[320px] lg:w-auto lg:max-w-[330.007px]">
-            <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+          <div className="absolute left-1/2 top-[607px] md:top-[843px] lg:top-[843px] -translate-x-1/2 rotate-[356deg] w-[72%] max-w-[290px] md:w-[75%] md:max-w-[320px] lg:w-auto lg:max-w-[330.007px]">
+            <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[876px] md:top-[876px] lg:top-[876px] -translate-x-1/2 rotate-[356deg] w-[72%] max-w-[290px] md:w-[75%] md:max-w-[320px] lg:w-auto lg:max-w-[330.007px]">
+          <div className="absolute left-1/2 top-[607px] md:top-[876px] lg:top-[876px] -translate-x-1/2 rotate-[356deg] w-[72%] max-w-[290px] md:w-[75%] md:max-w-[320px] lg:w-auto lg:max-w-[330.007px] h-[77px] flex items-center justify-center">
             <p className="text-white text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               NO bloated MVPs
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[937px] md:top-[937px] lg:top-[937px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[70%] max-w-[280px] md:w-[72%] md:max-w-[310px] lg:w-auto lg:max-w-[321.324px]">
-            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
+          <div className="absolute left-1/2 top-[674px] md:top-[937px] lg:top-[937px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[70%] max-w-[280px] md:w-[72%] md:max-w-[310px] lg:w-auto lg:max-w-[321.324px]">
+            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[968px] md:top-[968px] lg:top-[968px] -translate-x-1/2 rotate-[4deg] w-[70%] max-w-[280px] md:w-[72%] md:max-w-[310px] lg:w-auto lg:max-w-[321.324px]">
+          <div className="absolute left-1/2 top-[674px] md:top-[968px] lg:top-[968px] -translate-x-1/2 rotate-[4deg] w-[70%] max-w-[280px] md:w-[72%] md:max-w-[310px] lg:w-auto lg:max-w-[321.324px] h-[77px] flex items-center justify-center">
             <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Details. Details. Details &gt;&gt;
             </p>
