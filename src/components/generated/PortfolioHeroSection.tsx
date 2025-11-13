@@ -1591,8 +1591,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
       {/* Stats Section - From Figma Design */}
       <div className="relative w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden flex justify-center">
-        {/* SVG Background */}
-        <div className="absolute inset-0 flex justify-center">
+        {/* SVG Background - Desktop only */}
+        <div className="absolute inset-0 hidden lg:flex justify-center">
           <svg width="1706" height="900" viewBox="0 0 1706 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
             <g clipPath="url(#clip0_0_595)">
               <g filter="url(#filter0_i_0_595)">
@@ -1873,8 +1873,146 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </svg>
         </div>
         
-        {/* Content - Vertically centered wrapper */}
-        <div className="relative z-10 max-w-full md:max-w-[90vw] lg:max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex items-center justify-center min-h-0 md:min-h-0 lg:min-h-[900px]">
+        {/* Mobile/iPad Background Wrapper - hugs content */}
+        <div className="relative z-10 w-full max-w-[90vw] mx-auto lg:hidden">
+          <div className="bg-gradient-to-br from-[#283fe4] to-[#1a2d9f] rounded-[24px] p-6 md:p-8 backdrop-blur-sm shadow-2xl">
+            {/* Inner container with bottom-aligned boxes */}
+            <div className="flex flex-col gap-6 md:gap-8 w-full">
+        
+        {/* 52+ Projects shipped */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
+        >
+          <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            52+ Projects shipped
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] w-full relative p-3 md:p-4">
+            <div className="text-white text-sm md:text-sm font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5">
+                <li>Adiagnosis</li>
+                <li>Dealdoc</li>
+                <li>Tickle</li>
+                <li>Ova App</li>
+                <li>Cognix Health</li>
+                <li>Bewakoof.com</li>
+                <li>Meyraki</li>
+                <li>Indian Oil Company</li>
+                <li>Inaam</li>
+                <li>ENA</li>
+                <li>Kodo Card</li>
+                <li>Euman Technologies</li>
+                <li>KG International</li>
+                <li>Tennishop UAE</li>
+                <li>Nourish App</li>
+                <li>Unidel</li>
+                <li>Lido Learning</li>
+                <li>Unifynd</li>
+                <li>Reverce</li>
+                <li>Nesto Group (App)</li>
+                <li>And many more</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Work with 30+ leaders */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
+        >
+          <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Work with 30+ leaders
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] w-full relative p-3 md:p-4">
+            <div className="text-white text-sm md:text-sm font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5">
+                <li>Tina Hua</li>
+                <li>Angie lee</li>
+                <li>Aritra Senugupta</li>
+                <li>Sarthak Sharma</li>
+                <li>Max Mcquillan</li>
+                <li>Hannah Wartooth</li>
+                <li>Neerav J</li>
+                <li>Amrita Singh</li>
+                <li>Rohit Biwas</li>
+                <li>Arash</li>
+                <li>Sunny</li>
+                <li>Raj Karan</li>
+                <li>Deepti Sisoki</li>
+                <li>Nyshtita Jain</li>
+                <li>Thomas Phua</li>
+                <li>Rohit Goel</li>
+                <li>Sagar Sharma</li>
+                <li>Maruti</li>
+                <li>and many more</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* $250+ M raised */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
+        >
+          <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            $250+ M raised
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] w-full relative p-3 md:p-4">
+            <div className="text-white text-sm md:text-sm font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5">
+                <li>Nesto group : $130M</li>
+                <li>Bewakoof : ~$40M+</li>
+                <li>Kodo Card : ~$10M +</li>
+                <li>Lido Learning : ~$1.7 M+</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 32 Industries */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
+          className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
+        >
+          <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            32 Industries
+          </p>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] w-full relative p-3 md:p-4">
+            <div className="text-white text-sm md:text-sm font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5">
+                <li>Edutech</li>
+                <li>Fintech</li>
+                <li>Healthtech</li>
+                <li>Consumer tech</li>
+                <li>E-Commerce</li>
+                <li>Aviation</li>
+                <li>Fintech</li>
+                <li>Sales CRM</li>
+                <li>and more</li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Content - With SVG Background */}
+        <div className="relative z-10 max-w-full md:max-w-[90vw] lg:max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 hidden lg:flex items-center justify-center min-h-0 md:min-h-0 lg:min-h-[900px]">
           {/* Inner container with bottom-aligned boxes */}
           <div className="flex flex-col md:flex-col lg:flex-row items-start md:items-start lg:items-end justify-center gap-6 md:gap-8 lg:gap-[44px] w-full">
         
