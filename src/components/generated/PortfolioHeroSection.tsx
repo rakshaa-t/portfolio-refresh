@@ -1590,7 +1590,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Stats Section - From Figma Design */}
-      <div className="relative w-full py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden flex justify-center">
+      <div className="relative w-full py-16 md:py-24 lg:py-[200px] mt-20 md:mt-32 lg:mt-[200px] overflow-hidden flex justify-center">
         {/* SVG Background */}
         <div className="absolute inset-0 flex justify-center">
           <svg width="1706" height="900" viewBox="0 0 1706 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
@@ -1874,18 +1874,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
         
         {/* Content - Vertically centered wrapper */}
-        <div className="relative z-10 max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex items-center justify-center min-h-[900px]">
+        <div className="relative z-10 max-w-full md:max-w-[90vw] lg:max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 flex items-center justify-center min-h-0 md:min-h-0 lg:min-h-[900px]">
           {/* Inner container with bottom-aligned boxes */}
-          <div className="flex flex-col md:flex-row items-end justify-center gap-[52px] md:gap-[44px] w-full">
+          <div className="flex flex-col md:flex-col lg:flex-row items-start md:items-start lg:items-end justify-center gap-6 md:gap-8 lg:gap-[44px] w-full">
         
         {/* 52+ Projects shipped */}
-        <div className="flex flex-col items-start gap-4 w-[245px]">
-          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+          <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             52+ Projects shipped
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
-            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+            <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
                 <li>Adiagnosis</li>
                 <li>Dealdoc</li>
                 <li>Tickle</li>
@@ -1913,13 +1913,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* Work with 30+ leaders */}
-        <div className="flex flex-col items-start gap-4 w-[245px]">
-          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+          <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Work with 30+ leaders
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
-            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+            <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
                 <li>Tina Hua</li>
                 <li>Angie lee</li>
                 <li>Aritra Senugupta</li>
@@ -1945,13 +1945,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* $250+ M raised */}
-        <div className="flex flex-col items-start gap-4 w-[245px]">
-          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+          <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             $250+ M raised
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
-            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+            <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
                 <li>Nesto group : $130M</li>
                 <li>Bewakoof : ~$40M+</li>
                 <li>Kodo Card : ~$10M +</li>
@@ -1966,12 +1966,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* 2.9+ M users reached */}
-        <div className="flex flex-col items-start gap-4 w-[245px]">
-          <p className="text-white text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <div className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]">
+          <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             2.9+ M users reached
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[28px] w-full relative p-4">
-            <div className="text-white text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+            <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <p>
                 Cumulative number of users across all platforms I worked with in my career may be way above this number
               </p>
@@ -1983,94 +1983,94 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Principles Section - My non negotiables - From Figma Design */}
-      <div className="relative w-full bg-[#e4deed] h-auto min-h-[1238px] py-[50px] md:py-[75px] lg:py-[100px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
+      <div className="relative w-full bg-[#e4deed] h-auto min-h-[800px] md:min-h-[900px] lg:min-h-[1238px] py-12 md:py-16 lg:py-[100px] mt-20 md:mt-32 lg:mt-[200px] overflow-hidden">
         <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none z-0" />
-        <p className="relative text-center text-[#9f94ad] text-[22px] font-bold mb-[50px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-10 md:mb-12 lg:mb-[50px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
           My non negotiables
         </p>
         
         {/* Principles Cards - Positioned with rotations */}
-        <div className="relative max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[1000px] z-10">
+        <div className="relative max-w-[95vw] md:max-w-[90vw] lg:max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[800px] md:h-[900px] lg:h-[1000px] z-10">
           {/* Main principle - Blue card */}
-          <div className="absolute left-1/2 top-[138px] md:top-[138px] lg:top-[138px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg] scale-y-[-1]">
-            <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-[533.407px]" />
+          <div className="absolute left-1/2 top-[138px] md:top-[138px] lg:top-[138px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[85%] max-w-[420px] md:w-[90%] md:max-w-[500px] lg:w-auto lg:max-w-[533.407px]">
+            <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[167px] md:top-[167px] lg:top-[167px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg]">
-            <p className="text-black text-base font-normal leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[167px] md:top-[167px] lg:top-[167px] -translate-x-1/2 rotate-[4deg] w-[85%] max-w-[420px] md:w-[90%] md:max-w-[500px] lg:w-auto lg:max-w-[533.407px]">
+            <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               My team is my fuel, if I work with you I respect you all the way
             </p>
           </div>
 
           {/* Blue highlighted principle */}
-          <div className="absolute left-1/2 top-[240px] md:top-[240px] lg:top-[240px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <div className="bg-[#283fe4] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-[682.088px]" />
+          <div className="absolute left-1/2 top-[240px] md:top-[240px] lg:top-[240px] -translate-x-1/2 rotate-[356deg] w-[90%] max-w-[480px] md:w-[95%] md:max-w-[620px] lg:w-auto lg:max-w-[682.088px]">
+            <div className="bg-[#283fe4] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[271px] md:top-[271px] lg:top-[271px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[271px] md:top-[271px] lg:top-[271px] -translate-x-1/2 rotate-[356deg] w-[90%] max-w-[480px] md:w-[95%] md:max-w-[620px] lg:w-auto lg:max-w-[682.088px]">
+            <p className="text-white text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Make every function aesthetic and make every aesthetic serve a function
             </p>
           </div>
 
           {/* Other principles */}
-          <div className="absolute left-1/2 top-[360px] md:top-[360px] lg:top-[360px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg] scale-y-[-1]">
-            <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-[616.784px]" />
+          <div className="absolute left-1/2 top-[360px] md:top-[360px] lg:top-[360px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[88%] max-w-[450px] md:w-[92%] md:max-w-[570px] lg:w-auto lg:max-w-[616.784px]">
+            <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[390px] md:top-[390px] lg:top-[390px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg]">
-            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[390px] md:top-[390px] lg:top-[390px] -translate-x-1/2 rotate-[4deg] w-[88%] max-w-[450px] md:w-[92%] md:max-w-[570px] lg:w-auto lg:max-w-[616.784px]">
+            <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               If there's no value exchange - it's theft. Create value, serve a purpose
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[472px] md:top-[472px] lg:top-[472px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-[500.788px]" />
+          <div className="absolute left-1/2 top-[472px] md:top-[472px] lg:top-[472px] -translate-x-1/2 rotate-[356deg] w-[85%] max-w-[400px] md:w-[88%] md:max-w-[480px] lg:w-auto lg:max-w-[500.788px]">
+            <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[505px] md:top-[505px] lg:top-[505px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[505px] md:top-[505px] lg:top-[505px] -translate-x-1/2 rotate-[356deg] w-[85%] max-w-[400px] md:w-[88%] md:max-w-[480px] lg:w-auto lg:max-w-[500.788px]">
+            <p className="text-white text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Top-Tier communication, no assumptions
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[569px] md:top-[569px] lg:top-[569px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg] scale-y-[-1]">
-            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-[509.437px]" />
+          <div className="absolute left-1/2 top-[569px] md:top-[569px] lg:top-[569px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[85%] max-w-[410px] md:w-[88%] md:max-w-[490px] lg:w-auto lg:max-w-[509.437px]">
+            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[600px] md:top-[600px] lg:top-[600px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg]">
-            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[600px] md:top-[600px] lg:top-[600px] -translate-x-1/2 rotate-[4deg] w-[85%] max-w-[410px] md:w-[88%] md:max-w-[490px] lg:w-auto lg:max-w-[509.437px]">
+            <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Work only with ethical and high integrity people
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[668px] md:top-[668px] lg:top-[668px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] w-[311.843px]" />
+          <div className="absolute left-1/2 top-[668px] md:top-[668px] lg:top-[668px] -translate-x-1/2 rotate-[356deg] w-[70%] max-w-[280px] md:w-[75%] md:max-w-[300px] lg:w-auto lg:max-w-[311.843px]">
+            <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[698px] md:top-[698px] lg:top-[698px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[698px] md:top-[698px] lg:top-[698px] -translate-x-1/2 rotate-[356deg] w-[70%] max-w-[280px] md:w-[75%] md:max-w-[300px] lg:w-auto lg:max-w-[311.843px]">
+            <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Reverse engineer everything
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[750px] md:top-[750px] lg:top-[750px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg] scale-y-[-1]">
-            <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] w-[369.17px]" />
+          <div className="absolute left-1/2 top-[750px] md:top-[750px] lg:top-[750px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[75%] max-w-[320px] md:w-[78%] md:max-w-[350px] lg:w-auto lg:max-w-[369.17px]">
+            <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[783px] md:top-[783px] lg:top-[783px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg]">
-            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[783px] md:top-[783px] lg:top-[783px] -translate-x-1/2 rotate-[4deg] w-[75%] max-w-[320px] md:w-[78%] md:max-w-[350px] lg:w-auto lg:max-w-[369.17px]">
+            <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Be allergic to Mediocracy
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[843px] md:top-[843px] lg:top-[843px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] w-[330.007px]" />
+          <div className="absolute left-1/2 top-[843px] md:top-[843px] lg:top-[843px] -translate-x-1/2 rotate-[356deg] w-[72%] max-w-[290px] md:w-[75%] md:max-w-[320px] lg:w-auto lg:max-w-[330.007px]">
+            <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[876px] md:top-[876px] lg:top-[876px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[356deg]">
-            <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[876px] md:top-[876px] lg:top-[876px] -translate-x-1/2 rotate-[356deg] w-[72%] max-w-[290px] md:w-[75%] md:max-w-[320px] lg:w-auto lg:max-w-[330.007px]">
+            <p className="text-white text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               NO bloated MVPs
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[937px] md:top-[937px] lg:top-[937px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg] scale-y-[-1]">
-            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-[321.324px]" />
+          <div className="absolute left-1/2 top-[937px] md:top-[937px] lg:top-[937px] -translate-x-1/2 rotate-[4deg] scale-y-[-1] w-[70%] max-w-[280px] md:w-[72%] md:max-w-[310px] lg:w-auto lg:max-w-[321.324px]">
+            <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[18px] md:rounded-[20px] lg:rounded-[22px] w-full" />
           </div>
-          <div className="absolute left-1/2 top-[968px] md:top-[968px] lg:top-[968px] -translate-x-1/2 md:translate-x-[100px] lg:translate-x-[-50%] rotate-[4deg]">
-            <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+          <div className="absolute left-1/2 top-[968px] md:top-[968px] lg:top-[968px] -translate-x-1/2 rotate-[4deg] w-[70%] max-w-[280px] md:w-[72%] md:max-w-[310px] lg:w-auto lg:max-w-[321.324px]">
+            <p className="text-black text-sm md:text-base lg:text-base font-normal leading-relaxed md:leading-normal lg:leading-normal text-center px-4 md:px-5 lg:px-6" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Details. Details. Details &gt;&gt;
             </p>
           </div>
