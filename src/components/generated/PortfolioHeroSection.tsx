@@ -1983,100 +1983,97 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Principles Section - My non negotiables - From Figma Design */}
-      <div className="relative w-full bg-[#e4deed] h-[1238px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
+      <div className="relative w-full bg-[#e4deed] h-auto min-h-[1238px] py-[100px] md:py-[150px] lg:py-[200px] mt-[100px] md:mt-[150px] lg:mt-[200px] overflow-hidden">
         <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none" />
-        <p className="absolute left-1/2 -translate-x-1/2 text-[#9f94ad] text-[22px] font-bold top-[158px]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <p className="text-center text-[#9f94ad] text-[22px] font-bold mb-[100px]" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
           My non negotiables
         </p>
         
-        {/* Principles Cards - Positioned with rotations - Matching Figma exact positions */}
-        <div className="relative max-w-[1728px] mx-auto h-full">
-          {/* Main principle - Gradient card */}
-          <div className="absolute left-[597px] top-[287.95px] rotate-[4deg] scale-y-[-1]">
+        {/* Principles Cards - Positioned with rotations */}
+        <div className="relative max-w-[1728px] mx-auto px-4 md:px-6 lg:px-11 h-[1000px]">
+          {/* Main principle - Blue card */}
+          <div className="absolute left-1/2 top-[287.95px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
             <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-[533.407px]" />
           </div>
-          <div className="absolute left-[633.33px] top-[317px] rotate-[4deg]">
+          <div className="absolute left-1/2 top-[317px] -translate-x-1/2 rotate-[4deg]">
             <p className="text-black text-base font-normal leading-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               My team is my fuel, if I work with you I respect you all the way
             </p>
           </div>
 
           {/* Blue highlighted principle */}
-          <div className="absolute left-[557px] top-[390.42px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[390.42px] -translate-x-1/2 rotate-[356deg]">
             <div className="bg-[#283fe4] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-[682.088px]" />
           </div>
-          <div className="absolute left-[621px] top-[421.08px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[421.08px] -translate-x-1/2 rotate-[356deg]">
             <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Make every function aesthetic and make every aesthetic serve a function
             </p>
           </div>
 
           {/* Other principles */}
-          <div className="absolute left-[486px] top-[510.19px] rotate-[4deg] scale-y-[-1]">
+          <div className="absolute left-1/2 top-[510.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
             <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-[616.784px]" />
           </div>
-          <div className="absolute left-[534.33px] top-[540px] rotate-[4deg]">
+          <div className="absolute left-1/2 top-[540px] -translate-x-1/2 rotate-[4deg]">
             <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               If there's no value exchange - it's theft. Create value, serve a purpose
             </p>
           </div>
 
-          <div className="absolute left-[668px] top-[622.07px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[622.07px] -translate-x-1/2 rotate-[356deg]">
             <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-[500.788px]" />
           </div>
-          <div className="absolute left-[763px] top-[655.03px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[655.03px] -translate-x-1/2 rotate-[356deg]">
             <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Top-Tier communication, no assumptions
             </p>
           </div>
 
-          <div className="absolute left-[487px] top-[719.19px] rotate-[4deg] scale-y-[-1]">
+          <div className="absolute left-1/2 top-[719.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
             <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-[509.437px]" />
           </div>
-          <div className="absolute left-[561.33px] top-[750px] rotate-[4deg]">
+          <div className="absolute left-1/2 top-[750px] -translate-x-1/2 rotate-[4deg]">
             <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Work only with ethical and high integrity people
             </p>
           </div>
 
-          <div className="absolute left-[834px] top-[818.25px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[818.25px] -translate-x-1/2 rotate-[356deg]">
             <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] w-[311.843px]" />
           </div>
-          <div className="absolute left-[881px] top-[847.72px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[847.72px] -translate-x-1/2 rotate-[356deg]">
             <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Reverse engineer everything
             </p>
           </div>
 
-          <div className="absolute left-[629px] top-[900.19px] rotate-[4deg] scale-y-[-1]">
+          <div className="absolute left-1/2 top-[900.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
             <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] w-[369.17px]" />
           </div>
-          <div className="absolute left-[719.33px] top-[933px] rotate-[4deg]">
+          <div className="absolute left-1/2 top-[933px] -translate-x-1/2 rotate-[4deg]">
             <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Be allergic to Mediocracy
             </p>
           </div>
 
-          <div className="absolute left-[762px] top-[992.98px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[992.98px] -translate-x-1/2 rotate-[356deg]">
             <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] w-[330.007px]" />
           </div>
-          <div className="absolute left-[860px] top-[1026.37px] rotate-[356deg]">
+          <div className="absolute left-1/2 top-[1026.37px] -translate-x-1/2 rotate-[356deg]">
             <p className="text-white text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               NO bloated MVPs
             </p>
           </div>
 
-          <div className="absolute left-[684px] top-[1087.19px] rotate-[4deg] scale-y-[-1]">
+          <div className="absolute left-1/2 top-[1087.19px] -translate-x-1/2 rotate-[4deg] scale-y-[-1]">
             <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-[321.324px]" />
           </div>
-          <div className="absolute left-[751.33px] top-[1118px] rotate-[4deg]">
+          <div className="absolute left-1/2 top-[1118px] -translate-x-1/2 rotate-[4deg]">
             <p className="text-black text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
               Details. Details. Details &gt;&gt;
             </p>
           </div>
-
-          {/* Additional blur effect */}
-          <div className="absolute bg-[rgba(255,255,255,0.44)] blur-[50px] filter h-[693px] left-[1077px] rounded-[4444px] top-[483px] w-[1027px] pointer-events-none" />
         </div>
       </div>
 
