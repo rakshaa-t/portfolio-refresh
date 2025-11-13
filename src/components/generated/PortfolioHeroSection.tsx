@@ -1996,12 +1996,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </p>
         
         {/* Principles Cards - Positioned with rotations */}
-        <div className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10">
+        <motion.div 
+          className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Main principle - Blue card */}
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.64 }}
             className="absolute left-1/2 top-[50px] -translate-x-1/2 w-[88%] lg:w-[533.407px]"
           >
@@ -2017,9 +2023,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           {/* Blue highlighted principle */}
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.56 }}
             className="absolute left-1/2 top-[150px] lg:top-[140px] -translate-x-1/2 w-[90%] lg:w-[682.088px]"
           >
@@ -2035,9 +2042,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           {/* Other principles */}
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.48 }}
             className="absolute left-1/2 top-[250px] lg:top-[235px] -translate-x-1/2 w-[88%] lg:w-[616.784px]"
           >
@@ -2052,9 +2060,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.40 }}
             className="absolute left-1/2 top-[350px] lg:top-[325px] -translate-x-1/2 w-[85%] lg:w-[500.788px]"
           >
@@ -2069,9 +2078,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.32 }}
             className="absolute left-1/2 top-[450px] lg:top-[410px] -translate-x-1/2 w-[86%] lg:w-[509.437px]"
           >
@@ -2086,9 +2096,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.24 }}
             className="absolute left-1/2 top-[550px] lg:top-[495px] -translate-x-1/2 w-[75%] lg:w-[311.843px]"
           >
@@ -2103,9 +2114,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.16 }}
             className="absolute left-1/2 top-[650px] lg:top-[575px] -translate-x-1/2 w-[78%] lg:w-[369.17px]"
           >
@@ -2120,9 +2132,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.08 }}
             className="absolute left-1/2 top-[750px] lg:top-[655px] -translate-x-1/2 w-[76%] lg:w-[330.007px]"
           >
@@ -2137,9 +2150,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "200px", amount: 0.1 }}
+            variants={{
+              hidden: { opacity: 0, y: -25 },
+              visible: { opacity: 1, y: 0 }
+            }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
             className="absolute left-1/2 top-[850px] lg:top-[735px] -translate-x-1/2 w-[75%] lg:w-[321.324px]"
           >
@@ -2152,7 +2166,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </p>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
 
 
