@@ -459,7 +459,7 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[4/3] md:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[16/10] md:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
         >
         {/* Blurred placeholder - shows immediately as image loads */}
         <img 
@@ -757,9 +757,8 @@ export const GreexCaseStudy: React.FC = () => {
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] md:aspect-[1282/1047] lg:aspect-[1282/1047] mb-8 md:mb-10 lg:mb-12"
-          style={{ minHeight: '200px' }}
         >
-          <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} className="w-full h-full object-cover rounded-xl" />
+          <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} className="w-full h-full object-contain rounded-xl" />
         </motion.div>
 
         {/* Extended Telegram Bot Gallery */}
@@ -819,7 +818,7 @@ export const GreexCaseStudy: React.FC = () => {
             High-Fidelity Designs
           </h2>
           <div className="border border-white/12 rounded-xl overflow-hidden w-full aspect-[4096/2648]">
-            <img alt="Call option hover" src={imgCallOptionHover6} className="w-full h-full object-cover rounded-xl" />
+            <img alt="Call option hover" src={imgCallOptionHover6} className="w-full h-full object-contain rounded-xl" />
           </div>
         </motion.div>
 
@@ -831,7 +830,7 @@ export const GreexCaseStudy: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] aspect-[1281/1047] mb-8 md:mb-10 lg:mb-12"
         >
-          <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} className="w-full h-full object-cover rounded-xl" />
+          <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} className="w-full h-full object-contain rounded-xl" />
         </motion.div>
 
         {/* Testimonial Section */}
@@ -1012,10 +1011,7 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  paddingTop: isActive ? '10px' : '8px',
-                  paddingBottom: isActive ? '10px' : '8px',
-                  paddingLeft: isActive ? '20px' : '12px',
-                  paddingRight: isActive ? '20px' : '12px',
+                  padding: isActive ? '10px 20px' : '8px 12px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
@@ -1023,7 +1019,7 @@ export const GreexCaseStudy: React.FC = () => {
                   justifyContent: 'center',
                   minHeight: '36px',
                   height: '36px',
-                  lineHeight: '1.2',
+                  lineHeight: '1',
                   margin: 0,
                   boxSizing: 'border-box'
                 }}
