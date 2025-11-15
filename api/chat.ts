@@ -24,16 +24,26 @@ export default async function handler(
     // Try both VITE_ prefixed (for compatibility) and non-prefixed versions
     const apiKey = process.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
     
-    console.log('🔍 Environment variables available:', Object.keys(process.env).filter(k => k.includes('OPENAI') || k.includes('API')));
-    console.log('🔑 API Key found:', apiKey ? `Yes (${apiKey.substring(0, 10)}...)` : 'No');
+    console.log('🔍 Checking environment variables...');
+    console.log('   - All env keys:', Object.keys(process.env).join(', '));
+    console.log('   - OPENAI related:', Object.keys(process.env).filter(k => k.includes('OPENAI')));
+    console.log('   - VITE_OPENAI_API_KEY exists:', !!process.env.VITE_OPENAI_API_KEY);
+    console.log('   - OPENAI_API_KEY exists:', !!process.env.OPENAI_API_KEY);
+    console.log('   - Final apiKey found:', !!apiKey);
+    if (apiKey) {
+      console.log('   - API Key starts with:', apiKey.substring(0, 7));
+    }
     
     if (!apiKey) {
       console.error('❌ API Key not found in environment');
-      console.error('Available env vars:', Object.keys(process.env));
-      return res.status(500).json({ 
+      const debugInfo = {
         error: 'API configuration error',
-        hint: 'VITE_OPENAI_API_KEY or OPENAI_API_KEY not found'
-      });
+        hint: 'VITE_OPENAI_API_KEY or OPENAI_API_KEY not found',
+        availableEnvVars: Object.keys(process.env).filter(k => !k.includes('SECRET') && !k.includes('KEY')),
+        timestamp: new Date().toISOString()
+      };
+      console.error('Debug info:', debugInfo);
+      return res.status(500).json(debugInfo);
     }
 
     console.log('✅ Calling OpenAI API from serverless function...');
@@ -58,9 +68,14 @@ export default async function handler(
       const errorData = await response.json().catch(() => ({}));
       console.error('❌ OpenAI API error:', response.status, errorData);
       
+      // Return detailed error to help debug
       return res.status(response.status).json({
         error: 'OpenAI API error',
+        status: response.status,
         details: errorData,
+        apiKeyPresent: !!apiKey,
+        apiKeyPrefix: apiKey ? apiKey.substring(0, 7) : 'N/A',
+        timestamp: new Date().toISOString()
       });
     }
 

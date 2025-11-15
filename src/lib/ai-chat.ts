@@ -186,7 +186,8 @@ export async function sendToAI(
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.error(`❌ API Error ${response.status}:`, errorData);
-      throw new Error(`API Error: ${response.status}`);
+      console.error('Full error details:', JSON.stringify(errorData, null, 2));
+      throw new Error(`API Error: ${response.status} - ${JSON.stringify(errorData)}`);
     }
 
     const data = await response.json();
