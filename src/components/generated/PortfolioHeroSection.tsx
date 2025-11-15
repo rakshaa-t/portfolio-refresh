@@ -1035,12 +1035,15 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     data-card-id={card.id}
                     drag
                     dragMomentum={true}
-                    dragElastic={0.2}
+                    dragElastic={0.1}
                     dragConstraints={dragConstraintsRef}
                     dragTransition={{ 
-                      bounceStiffness: 200, 
-                      bounceDamping: 15,
-                      power: 0.4
+                      bounceStiffness: 300, 
+                      bounceDamping: 20,
+                      power: 0.3,
+                      timeConstant: 200,
+                      min: 0,
+                      max: 100
                     }}
                     onDragStart={() => {
                       setIsDraggingCard(card.id);
@@ -1173,10 +1176,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       transition: { duration: 0.2 }
                     }}
                     whileDrag={{ 
-                      scale: 1.1, 
+                      scale: 1.08, 
                       rotate: 0,
                       boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
-                      cursor: 'grabbing'
+                      cursor: 'grabbing',
+                      transition: { duration: 0.15, ease: [0.34, 1.56, 0.64, 1] }
                     }}
                     transition={{ 
                       ease: 'easeOut',
@@ -1207,7 +1211,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                           : cardsDroppedInChat.has(card.id)
                             ? 5
                             : 10,
-                      transformStyle: 'preserve-3d'
+                      transformStyle: 'preserve-3d',
+                      // Performance optimizations for ultra-smooth drag like Marijana's stickers
+                      willChange: 'transform',
+                      touchAction: 'none',
+                      userSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      WebkitTouchCallout: 'none'
                     }}
                   >
                   {/* Card Title - Clean text at top */}
