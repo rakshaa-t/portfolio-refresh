@@ -1344,12 +1344,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
       >
         <div 
-          className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative"
+          className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative w-full max-w-[475px] px-4 md:px-8"
           style={{
             paddingTop: 12,
             paddingBottom: 18,
-            paddingLeft: 32,
-            paddingRight: 32,
             background: 'rgba(255, 255, 255, 0.04)',
             outline: '1px rgba(0, 0, 0, 0.04) solid'
           }}
@@ -1357,54 +1355,45 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           {/* Tabs Container */}
           <div 
             ref={tabsContainerRef}
-            className="flex items-center justify-between relative"
-            style={{ width: 475 }}
+            className="flex items-center justify-between relative w-full"
           >
             <div 
               ref={activeTabRef}
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
               style={{
                 color: '#283FE4',
-                fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '600',
-                wordWrap: 'break-word'
+                fontWeight: '600'
               }}
             >
               Work
             </div>
             <div 
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
               style={{
                 color: 'rgba(0, 0, 0, 0.28)',
-                fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500',
-                wordWrap: 'break-word'
+                fontWeight: '500'
               }}
             >
               Frontend
             </div>
             <div 
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
               style={{
                 color: 'rgba(0, 0, 0, 0.28)',
-                fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500',
-                wordWrap: 'break-word'
+                fontWeight: '500'
               }}
             >
               Hall of fame
             </div>
             <div 
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity"
+              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
               style={{
                 color: 'rgba(0, 0, 0, 0.28)',
-                fontSize: 16,
                 fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500',
-                wordWrap: 'break-word'
+                fontWeight: '500'
               }}
             >
               Concepts
@@ -1413,8 +1402,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           {/* Full width divider line */}
           <div 
+            className="w-full"
             style={{
-              width: 475,
               height: 0,
               background: 'rgba(255, 255, 255, 0.22)',
               outline: '1px white solid',
@@ -1424,14 +1413,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
           {/* Active tab indicator line (under Work) */}
           <div 
-            className="absolute"
+            className="absolute left-4 md:left-8"
             style={{
               width: `${activeIndicatorStyle.width}px`,
               height: '2px',
               background: '#283FE4',
               bottom: 18,
-              left: `${32 + activeIndicatorStyle.left}px`,
-              transition: 'width 0.3s ease, left 0.3s ease'
+              marginLeft: `${activeIndicatorStyle.left}px`,
+              transition: 'width 0.3s ease, margin-left 0.3s ease'
             }}
           />
         </div>
