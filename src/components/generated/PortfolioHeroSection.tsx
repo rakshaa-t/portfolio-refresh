@@ -1336,7 +1336,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Tabs Section - Frame 98 - Positioned 192px below chat box + cards section */}
-      <div className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]">
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2, margin: "100px" }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
+      >
         <div 
           className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative"
           style={{
@@ -1429,7 +1435,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             }}
           />
         </div>
-      </div>
+      </motion.div>
 
       <style>{`
         @import url('https://fonts.cdnfonts.com/css/nexa-bold');
@@ -1468,7 +1474,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
         
         {/* Ova Project Showcase */}
-        <div className="flex flex-col gap-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex flex-col gap-2"
+        >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Ova : A privacy first , Pg13+  Period Tracking App for women
           </p>
@@ -1494,10 +1506,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Greex Project Showcase */}
-        <div className="flex flex-col gap-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex flex-col gap-2"
+        >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Greex : A defi Trading Platform
           </p>
@@ -1528,10 +1546,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Dealdoc Project Showcase */}
-        <div className="flex flex-col gap-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex flex-col gap-2"
+        >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Dealdoc : Deal management Platform
           </p>
@@ -1557,10 +1581,16 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Adiagnosis Project Showcase */}
-        <div className="flex flex-col gap-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex flex-col gap-2"
+        >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Adiagnosis : A clinical tool for psychiatrists and medical professionals
           </p>
@@ -1586,7 +1616,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Stats Section - From Figma Design */}
@@ -2225,7 +2255,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
               <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-full" />
-            </div>
+          </div>
             <div className="relative rotate-[2deg] lg:rotate-[4deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
               <p className="text-black text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
                 If there's no value exchange - it's theft. Create value, serve a purpose
@@ -2247,12 +2277,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
               <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
-            </div>
+          </div>
             <div className="relative rotate-[358deg] lg:rotate-[356deg] h-[77px] flex items-center justify-center px-3 lg:px-6">
               <p className="text-white text-sm lg:text-base font-normal leading-normal text-center" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
                 Top-Tier communication, no assumptions
               </p>
-            </div>
+        </div>
           </motion.div>
 
           <motion.div
@@ -2370,7 +2400,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
 
       {/* Footer - At the very bottom */}
-      <div className="relative z-10 flex justify-center w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]">
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2, margin: "100px" }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="relative z-10 flex justify-center w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
+      >
         <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 min-w-0">
         {/* Top Section - Title */}
         <div className="flex flex-col justify-start items-center gap-3">
@@ -2446,7 +2482,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
         </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Cal.com Embedded Modal */}
       {isCalendarOpen && (
