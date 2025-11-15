@@ -20,7 +20,8 @@ body {
   overflow: auto;
   overscroll-behavior: none;
   overscroll-behavior-y: none;
-  background-color: #111111;
+  background: linear-gradient(180deg, #E5E3FF 0%, #F5F5F5 50%, #111111 100%);
+  background-attachment: fixed;
   scroll-behavior: auto;
 }
 
