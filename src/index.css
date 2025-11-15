@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Arial&family=Helvetica&family=Times+New+Roman&family=Georgia&family=Roboto&display=swap');
-@import url('https://fonts.cdnfonts.com/css/neulis-cursive');
-@import url('https://fonts.cdnfonts.com/css/nexa-bold');
+@import url('https://fonts.cdnfonts.com/css/neulis-cursive?styles=42717');
+@import url('https://fonts.cdnfonts.com/css/nexa-bold?styles=14987');
 @import url('https://fonts.googleapis.com/css2?family=Nexa+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
+
+/* Preload critical fonts for Safari */
+@font-face {
+  font-family: 'Neulis Cursive';
+  src: url('https://fonts.cdnfonts.com/s/42717/NeulisCursiveRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 @import 'tailwindcss';
 
 @plugin "tailwindcss-animate";

@@ -805,11 +805,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[32px] flex flex-col w-[calc(100%-16px)] md:w-[calc(100%-32px)] max-w-[304px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
-                className="overflow-y-auto flex flex-col gap-3 pr-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
+                className="overflow-y-auto flex flex-col gap-3 pr-2 md:pr-3 custom-scrollbar flex-1 pb-4 lg:pb-20"
                 style={{ 
                   scrollPaddingBottom: '20px'
                 }}
@@ -874,7 +874,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-24px)] max-w-[304px] md:w-[calc(100%-32px)] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-16px)] md:w-[calc(100%-32px)] max-w-[304px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[12px] gap-[8px] md:bottom-[20px] lg:bottom-[40px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
