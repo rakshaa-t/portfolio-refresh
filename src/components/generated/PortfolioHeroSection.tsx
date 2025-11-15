@@ -1341,7 +1341,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2, margin: "100px" }}
+        viewport={{ once: true, amount: 0.2, margin: "100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-4 md:px-6"
       >
@@ -1468,7 +1468,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex flex-col gap-2"
         >
@@ -1503,7 +1503,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex flex-col gap-2"
         >
@@ -1541,7 +1541,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex flex-col gap-2"
         >
@@ -1576,7 +1576,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex flex-col gap-2"
         >
@@ -1902,7 +1902,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
         >
@@ -1942,7 +1942,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
         >
@@ -1980,7 +1980,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
         >
@@ -2003,7 +2003,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
         >
@@ -2039,7 +2039,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -2079,7 +2079,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -2117,7 +2117,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -2144,7 +2144,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1, margin: "100px" }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
         >
@@ -2167,7 +2167,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative w-full bg-[#e4deed] h-auto min-h-[1050px] md:min-h-[900px] lg:min-h-[1050px] py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden"
       >
@@ -2181,7 +2181,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1, margin: "200px" }}
+          viewport={{ once: true, amount: 0.1, margin: "200px" }}
         >
           {/* Main principle - Blue card */}
           <motion.div
@@ -2392,7 +2392,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2, margin: "100px" }}
+        viewport={{ once: true, amount: 0.2, margin: "100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative z-10 flex justify-center w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
       >

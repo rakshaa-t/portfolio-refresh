@@ -436,7 +436,7 @@ export const GreexCaseStudy: React.FC = () => {
           id="overview" 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-6 md:mb-8 lg:mb-10"
         >
@@ -452,7 +452,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] md:aspect-[1293/833] lg:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
           style={{ minHeight: '200px' }}
@@ -512,7 +512,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 lg:gap-6 items-start mb-8 md:mb-10 lg:mb-12"
         >
@@ -596,7 +596,7 @@ export const GreexCaseStudy: React.FC = () => {
           id="strategy" 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
         >
@@ -620,7 +620,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-0 lg:justify-between items-start lg:items-stretch mb-8 md:mb-10 lg:mb-12"
         >
@@ -653,7 +653,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] overflow-hidden mb-8 md:mb-10 lg:mb-12"
           style={{ minHeight: '200px' }}
@@ -668,7 +668,7 @@ export const GreexCaseStudy: React.FC = () => {
           id="tele-bots" 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
         >
@@ -684,7 +684,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
@@ -713,7 +713,7 @@ export const GreexCaseStudy: React.FC = () => {
           id="product" 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
         >
@@ -738,7 +738,7 @@ export const GreexCaseStudy: React.FC = () => {
               key={idx} 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2, margin: "100px" }}
+              viewport={{ once: true, amount: 0.2, margin: "100px" }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
               className="relative w-full border border-white/12 rounded-xl overflow-hidden"
               style={{ minHeight: '200px' }}
@@ -752,7 +752,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] md:aspect-[1282/1047] lg:aspect-[1282/1047] mb-8 md:mb-10 lg:mb-12"
           style={{ minHeight: '200px' }}
@@ -764,7 +764,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
         >
@@ -809,7 +809,7 @@ export const GreexCaseStudy: React.FC = () => {
           id="high-fidelity"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
         >
@@ -825,7 +825,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] aspect-[1281/1047] mb-8 md:mb-10 lg:mb-12"
         >
@@ -836,7 +836,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1288px] bg-[#0c0c0c] border border-white/8 rounded-xl p-6 md:p-8 lg:p-10 flex flex-col gap-4 md:gap-6 items-center justify-center mb-8 md:mb-10 lg:mb-12"
         >
@@ -855,7 +855,7 @@ export const GreexCaseStudy: React.FC = () => {
           id="final-thoughts" 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2, margin: "100px" }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1295px] flex flex-col gap-8 md:gap-10 lg:gap-12 mb-8 md:mb-10 lg:mb-12"
         >
