@@ -454,8 +454,7 @@ export const GreexCaseStudy: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] md:aspect-[1293/833] lg:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
-          style={{ minHeight: '200px' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] aspect-[4/3] md:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
         >
         {/* Blurred placeholder - shows immediately as image loads */}
         <img 
@@ -466,8 +465,7 @@ export const GreexCaseStudy: React.FC = () => {
           className="md:h-full"
           style={{ 
             width: '100%', 
-            height: 'auto',
-            minHeight: '200px',
+            height: '100%',
             objectFit: 'cover', 
             borderRadius: '12px',
             position: 'absolute',
@@ -492,8 +490,7 @@ export const GreexCaseStudy: React.FC = () => {
           className="md:h-full"
           style={{ 
             width: '100%', 
-            height: 'auto',
-            minHeight: '200px',
+            height: '100%',
             objectFit: 'cover', 
             borderRadius: '12px',
             position: 'absolute',
