@@ -1034,12 +1034,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     key={card.id}
                     data-card-id={card.id}
                     drag
-                    dragMomentum={false}
-                    dragElastic={0.05}
                     dragConstraints={dragConstraintsRef}
                     dragTransition={{ 
                       bounceStiffness: 100, 
-                      bounceDamping: 10
+                      bounceDamping: 10, 
+                      power: 0.4
                     }}
                     onDragStart={() => {
                       setIsDraggingCard(card.id);
@@ -1172,11 +1171,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                       transition: { duration: 0.2 }
                     }}
                     whileDrag={{ 
-                      scale: 1.08, 
+                      scale: 1.2, 
                       rotate: 0,
-                      boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
-                      cursor: 'grabbing',
-                      transition: { duration: 0.15, ease: [0.34, 1.56, 0.64, 1] }
+                      cursor: 'grabbing'
                     }}
                     transition={{ 
                       ease: 'easeOut',
