@@ -131,7 +131,7 @@ when people are just chatting normally, i chat back naturally. i don't constantl
 export async function sendToAI(
   message: string,
   conversationHistory: ChatMessage[],
-  apiKey: string
+  apiKey: string // Note: apiKey param kept for backward compatibility but not used (server handles it)
 ): Promise<AIResponse> {
   try {
     // Limit conversation history to last 10 messages to save costs
@@ -166,33 +166,31 @@ export async function sendToAI(
       }
     ];
 
-    if (!apiKey || apiKey.trim() === '') {
-      console.error('❌ API Key is missing or empty');
-      throw new Error('API Key not configured');
-    }
+    console.log('📤 Sending message to secure API route...');
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    // Call our secure serverless API route instead of OpenAI directly
+    // This keeps the API key secure on the server and avoids CORS issues
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
         model: 'gpt-4o', // Using full version for personality consistency
         messages: messages,
         max_tokens: maxTokens, // Dynamic: 250 for casual, 400 for interview questions
-        temperature: 0.7,
-        stream: false
+        temperature: 0.7
       })
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`❌ API Error ${response.status}:`, errorText);
-      throw new Error(`API Error: ${response.status} - ${errorText.substring(0, 100)}`);
+      const errorData = await response.json().catch(() => ({}));
+      console.error(`❌ API Error ${response.status}:`, errorData);
+      throw new Error(`API Error: ${response.status}`);
     }
 
     const data = await response.json();
+    console.log('✅ Response received from API');
     
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
       console.error('❌ Invalid API response:', data);
