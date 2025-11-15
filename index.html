@@ -16,6 +16,10 @@
     <!-- Neulis Cursive from Adobe Typekit (Primary Design Font) -->
     <link rel="stylesheet" href="https://use.typekit.net/ddv1vlx.css">
     
+    <!-- Preload Typekit fonts for faster rendering -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="dns-prefetch" href="https://use.typekit.net">
+    
     <!-- Outfit font for body text -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -44,7 +48,7 @@
         min-height: 100vh;
       }
       
-      /* Smooth loading overlay - fades out once content loads */
+      /* Smooth loading overlay - fades out once content loads (only once on initial load) */
       #loading-overlay {
         position: fixed;
         top: 0;
@@ -60,6 +64,16 @@
       
       #loading-overlay.loaded {
         opacity: 0;
+      }
+      
+      /* Font family fallback chain for Neulis Cursive from Typekit */
+      /* This ensures the font works even if Typekit loads it with a different name */
+      @font-face {
+        font-family: 'Neulis Cursive Fallback';
+        src: local('Caveat'), local('Pacifico'), local('Brush Script MT'), local('cursive');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
       }
       
       /* Mobile optimizations */
@@ -96,35 +110,38 @@
     <div id="root"></div>
     
     <script>
-      // Smooth loading: fade out overlay once React content is ready
-      // This prevents the white flash and matches Marijana's approach
-      window.addEventListener('load', function() {
-        // Wait for fonts and images to be ready
-        if (document.fonts && document.fonts.ready) {
-          document.fonts.ready.then(function() {
-            fadeOutLoader();
-          });
-        } else {
-          // Fallback: fade out after short delay
-          setTimeout(fadeOutLoader, 300);
+      // Smooth loading: fade out overlay once React content is ready (ONLY on initial page load)
+      (function() {
+        var hasLoaded = false;
+        
+        function fadeOutLoader() {
+          if (hasLoaded) return; // Only fade out once
+          hasLoaded = true;
+          
+          var overlay = document.getElementById('loading-overlay');
+          if (overlay) {
+            overlay.classList.add('loaded');
+            // Remove from DOM after animation completes
+            setTimeout(function() {
+              overlay.remove(); // Completely remove so it never shows again
+            }, 600);
+          }
         }
-      });
-      
-      function fadeOutLoader() {
-        const overlay = document.getElementById('loading-overlay');
-        if (overlay) {
-          overlay.classList.add('loaded');
-          // Remove from DOM after animation completes
-          setTimeout(function() {
-            overlay.style.display = 'none';
-          }, 600);
+        
+        // Fade out when everything is loaded
+        window.addEventListener('load', function() {
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(fadeOutLoader);
+          } else {
+            setTimeout(fadeOutLoader, 200);
+          }
+        });
+        
+        // Also trigger quickly if DOM is already ready
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          setTimeout(fadeOutLoader, 100);
         }
-      }
-      
-      // Also trigger on DOMContentLoaded for faster perceived loading
-      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        setTimeout(fadeOutLoader, 100);
-      }
+      })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

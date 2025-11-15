@@ -600,7 +600,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Mobile Header - visible on mobile, hidden on desktop */}
         <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
             {/* Logo - "raks" */}
-          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
               raks
           </div>
 
@@ -645,7 +645,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
         <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
             {/* Logo - "raks" */}
-          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <div className="text-center text-white text-4xl font-medium break-words" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
             raks
             </div>
 
@@ -797,7 +797,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-8px)] md:w-[calc(100%-32px)] max-w-[304px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-4px)] md:w-[calc(100%-32px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -805,11 +805,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[12px] md:top-[32px] flex flex-col w-[calc(100%-8px)] md:w-[calc(100%-32px)] max-w-[304px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[24px] md:top-[32px] flex flex-col w-[calc(100%-4px)] md:w-[calc(100%-32px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
-                className="overflow-y-auto flex flex-col gap-2 md:gap-3 pr-1 md:pr-3 custom-scrollbar flex-1 pb-2 md:pb-4 lg:pb-20"
+                className="overflow-y-auto flex flex-col gap-2 md:gap-3 pr-1 md:pr-3 custom-scrollbar flex-1 pb-6 md:pb-4 lg:pb-20"
                 style={{ 
                   scrollPaddingBottom: '20px'
                 }}
@@ -874,7 +874,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-8px)] md:w-[calc(100%-32px)] max-w-[304px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[8px] md:bottom-[20px] lg:bottom-[40px] gap-[6px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-4px)] md:w-[calc(100%-32px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[16px] md:bottom-[20px] lg:bottom-[40px] gap-[6px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
@@ -2399,10 +2399,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 min-w-0">
         {/* Top Section - Title */}
         <div className="flex flex-col justify-start items-center gap-3">
-          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
             lovely to see you here!
           </div>
-          <div className="text-center text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-full md:w-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+          <div className="text-center text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-full md:w-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
             raks
           </div>
         </div>
