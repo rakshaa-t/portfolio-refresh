@@ -2181,7 +2181,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.1, margin: "200px" }}
         >
           {/* Main principle - Blue card */}
           <motion.div
