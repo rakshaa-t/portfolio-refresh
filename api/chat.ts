@@ -20,11 +20,19 @@ export default async function handler(
     }
 
     // Get API key from environment
-    const apiKey = process.env.VITE_OPENAI_API_KEY;
+    // Try both VITE_ prefixed (for compatibility) and non-prefixed versions
+    const apiKey = process.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+    
+    console.log('🔍 Environment variables available:', Object.keys(process.env).filter(k => k.includes('OPENAI') || k.includes('API')));
+    console.log('🔑 API Key found:', apiKey ? `Yes (${apiKey.substring(0, 10)}...)` : 'No');
     
     if (!apiKey) {
       console.error('❌ API Key not found in environment');
-      return res.status(500).json({ error: 'API configuration error' });
+      console.error('Available env vars:', Object.keys(process.env));
+      return res.status(500).json({ 
+        error: 'API configuration error',
+        hint: 'VITE_OPENAI_API_KEY or OPENAI_API_KEY not found'
+      });
     }
 
     console.log('✅ Calling OpenAI API from serverless function...');
