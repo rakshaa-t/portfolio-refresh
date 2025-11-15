@@ -987,12 +987,12 @@ export const GreexCaseStudy: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '16px',
+          gap: '20px',
           fontSize: '16px',
           margin: 0,
           padding: 0
         }}>
-          {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
+          {['Overview', 'Product', 'Delivery'].map((section) => {
             const isActive = activeSection === section;
             return (
               <motion.button
@@ -1010,17 +1010,17 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  paddingTop: isActive ? '9px' : '8px',
-                  paddingBottom: isActive ? '7px' : '8px',
-                  paddingLeft: isActive ? '16px' : '8px',
-                  paddingRight: isActive ? '16px' : '8px',
+                  paddingTop: isActive ? '10px' : '8px',
+                  paddingBottom: isActive ? '10px' : '8px',
+                  paddingLeft: isActive ? '20px' : '12px',
+                  paddingRight: isActive ? '20px' : '12px',
                   transition: 'all 0.2s ease',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '32px',
-                  height: '32px',
+                  minHeight: '36px',
+                  height: '36px',
                   lineHeight: '1.2',
                   margin: 0,
                   boxSizing: 'border-box'
@@ -1036,7 +1036,7 @@ export const GreexCaseStudy: React.FC = () => {
         <motion.div
           initial={{ width: 0, opacity: 0 }}
           animate={{ 
-            width: y > 500 ? 32 : 0,
+            width: y > 500 ? 36 : 0,
             opacity: y > 500 ? 1 : 0,
             marginLeft: 0
           }}
@@ -1049,8 +1049,8 @@ export const GreexCaseStudy: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            height: '32px',
-            width: '32px',
+            height: '36px',
+            width: '36px',
             flexShrink: 0,
             margin: 0,
             padding: 0
