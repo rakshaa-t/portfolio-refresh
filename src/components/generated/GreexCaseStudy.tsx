@@ -142,36 +142,36 @@ export const GreexCaseStudy: React.FC = () => {
       // Don't override manual tab selection during scroll animation
       if (isManualScroll) return;
       
-      // Check if user is at the bottom of the page
-      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
-      
-      if (isAtBottom) {
-        // If at bottom, always highlight Final Thoughts
-        setActiveSection('Final Thoughts');
-        return;
-      }
-      
       const scrollPosition = window.scrollY + 200; // Offset for header
       
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
+      // For mobile navigation: Overview, Product (tele-bots), Delivery (high-fidelity)
+      // Each tab stays active until the next section is reached
+      const mobileSections = [
+        { id: 'tele-bots', name: 'Product' },
+        { id: 'high-fidelity', name: 'Delivery' }
+      ];
+      
+      // Check from bottom to top to find which section we're in
+      let currentSection = 'Overview'; // Default to Overview
+      
+      for (const section of mobileSections) {
+        const element = document.getElementById(section.id);
         if (element) {
           const elementTop = element.offsetTop;
-          const elementBottom = elementTop + element.offsetHeight;
-          
-          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-            const sectionMap: { [key: string]: string } = {
-              'overview': 'Overview',
-              'strategy': 'Strategy',
-              'product': 'Product',
-              'final-thoughts': 'Final Thoughts'
-            };
-            if (sectionMap[sections[i]]) {
-              setActiveSection(sectionMap[sections[i]]);
-            }
-            break;
+          // If we've scrolled past this section's start, update active
+          if (scrollPosition >= elementTop) {
+            currentSection = section.name;
           }
         }
+      }
+      
+      // Check if at bottom of page - keep last section active
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+      if (isAtBottom && currentSection === 'Delivery') {
+        // Stay on Delivery if we're at the bottom
+        setActiveSection('Delivery');
+      } else {
+        setActiveSection(currentSection);
       }
     };
 
