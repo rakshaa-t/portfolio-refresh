@@ -8,74 +8,58 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Raksha - Product Designer & Brand Strategist</title>
     
-    <!-- Preconnect to font CDNs for faster loading -->
+    <!-- Preconnect to font services for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
     
-    <!-- Preload critical Nexa font files -->
-    <link rel="preload" href="https://fonts.cdnfonts.com/s/15613/Nexa-Bold.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="https://fonts.cdnfonts.com/s/15613/Nexa-Regular.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="https://fonts.cdnfonts.com/s/15613/Nexa-Light.woff" as="font" type="font/woff" crossorigin>
+    <!-- Neulis Cursive from Adobe Typekit (Primary Design Font) -->
+    <link rel="stylesheet" href="https://use.typekit.net/ddv1vlx.css">
     
-    <!-- Preload hero image for instant blurred display -->
-    <link rel="preload" href="https://www.figma.com/api/mcp/asset/3a49c6e6-b7c9-4cde-b76b-a62035d160d9" as="image" fetchpriority="high">
-    
-    <!-- Custom Fonts -->
+    <!-- Outfit font for body text -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Load custom fonts from CDN -->
+    <!-- Nexa fonts for UI -->
     <link href="https://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
     
-    <!-- Custom Fonts with fallbacks -->
+    <!-- Preload hero image -->
+    <link rel="preload" href="https://www.figma.com/api/mcp/asset/3a49c6e6-b7c9-4cde-b76b-a62035d160d9" as="image" fetchpriority="high">
+    
+    <!-- Critical inline styles for instant loading (Marijana's approach) -->
     <style>
-      @import url('https://fonts.cdnfonts.com/css/nexa-bold');
-      @import url('https://fonts.cdnfonts.com/css/neulis-cursive');
-      
-      @font-face {
-        font-family: 'Nexa';
-        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Bold.woff') format('woff');
-        font-weight: 700;
-        font-style: normal;
-        font-display: block;
-      }
-      @font-face {
-        font-family: 'Nexa Text';
-        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Light.woff') format('woff');
-        font-weight: 300;
-        font-style: normal;
-        font-display: block;
-      }
-      @font-face {
-        font-family: 'Nexa Text';
-        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Regular.woff') format('woff');
-        font-weight: 400;
-        font-style: normal;
-        font-display: block;
+      /* Instant background gradient - no flash */
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #111111;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overscroll-behavior: none;
       }
       
-      /* Hide content until fonts are loaded to prevent FOUT */
-      body:not(.fonts-loaded) {
-        visibility: hidden;
+      #root {
+        width: 100%;
+        min-height: 100vh;
       }
       
-      body.fonts-loaded {
-        visibility: visible;
+      /* Smooth loading overlay - fades out once content loads */
+      #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111111;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
       }
-      @font-face {
-        font-family: 'Neulis Cursive';
-        src: local('Caveat'), local('Pacifico'), local('cursive');
-        font-weight: 500;
-        font-style: italic;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Geist Mono';
-        src: local('Geist Mono'), local('Courier New'), local('monospace');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
+      
+      #loading-overlay.loaded {
+        opacity: 0;
       }
       
       /* Mobile optimizations */
@@ -89,17 +73,6 @@
       input, textarea, button, a {
         -webkit-user-select: text;
         user-select: text;
-      }
-      
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overscroll-behavior: none;
-      }
-      
-      #root {
-        width: 100%;
-        min-height: 100vh;
       }
       
       /* Prevent input zoom on iOS */
@@ -117,18 +90,40 @@
     <meta name="twitter:description" content="Raksha leads Product and Brand Design for startups, big thinkers and game changers. 6+ years of industry experience and 55+ clients so far." />
   </head>
   <body>
+    <!-- Loading overlay - smooth fade out (Marijana's style) -->
+    <div id="loading-overlay"></div>
+    
     <div id="root"></div>
+    
     <script>
-      // Wait for fonts to load before showing content
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(function() {
-          document.body.classList.add('fonts-loaded');
-        });
-      } else {
-        // Fallback for browsers without Font Loading API
-        setTimeout(function() {
-          document.body.classList.add('fonts-loaded');
-        }, 100);
+      // Smooth loading: fade out overlay once React content is ready
+      // This prevents the white flash and matches Marijana's approach
+      window.addEventListener('load', function() {
+        // Wait for fonts and images to be ready
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function() {
+            fadeOutLoader();
+          });
+        } else {
+          // Fallback: fade out after short delay
+          setTimeout(fadeOutLoader, 300);
+        }
+      });
+      
+      function fadeOutLoader() {
+        const overlay = document.getElementById('loading-overlay');
+        if (overlay) {
+          overlay.classList.add('loaded');
+          // Remove from DOM after animation completes
+          setTimeout(function() {
+            overlay.style.display = 'none';
+          }, 600);
+        }
+      }
+      
+      // Also trigger on DOMContentLoaded for faster perceived loading
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(fadeOutLoader, 100);
       }
     </script>
     <script type="module" src="/src/main.tsx"></script>
