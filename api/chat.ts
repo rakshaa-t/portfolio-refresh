@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // Serverless function to handle OpenAI chat completions
 // This keeps the API key secure on the server side
+// Updated: Now checks for both VITE_OPENAI_API_KEY and OPENAI_API_KEY
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse,
