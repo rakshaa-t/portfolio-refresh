@@ -69,6 +69,11 @@ export const GreexCaseStudy: React.FC = () => {
   const { y, directionY } = useScroll();
   const headerTriggerY = 50;
 
+  // Scroll to top on page load
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Scroll-based section detection
   React.useEffect(() => {
     const sections = ['overview', 'strategy', 'product', 'final-thoughts'];

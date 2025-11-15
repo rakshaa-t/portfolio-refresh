@@ -233,6 +233,11 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const tabsContainerRef = React.useRef<HTMLDivElement>(null);
   const [activeIndicatorStyle, setActiveIndicatorStyle] = React.useState({ width: 72, left: 0 });
   
+  // Scroll to top on page load
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   // Track if we're on desktop (lg breakpoint) for card positioning
   React.useEffect(() => {
     const checkDesktop = () => {
