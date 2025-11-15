@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Arial&family=Helvetica&family=Times+New+Roman&family=Georgia&family=Roboto&display=swap');
+@import url('https://fonts.cdnfonts.com/css/neulis-cursive');
+@import url('https://fonts.cdnfonts.com/css/nexa-bold');
+@import url('https://fonts.googleapis.com/css2?family=Nexa+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
@@ -16,7 +21,7 @@ body {
   overflow: auto;
   overscroll-behavior: none;
   overscroll-behavior-y: none;
-  background-color: #111111;
+  background-color: #ffffff;
   scroll-behavior: auto;
 }
 

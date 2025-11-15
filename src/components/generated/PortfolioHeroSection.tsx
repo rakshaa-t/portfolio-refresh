@@ -764,7 +764,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-3 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-2 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -2399,10 +2399,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 min-w-0">
         {/* Top Section - Title */}
         <div className="flex flex-col justify-start items-center gap-3">
-          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive' }}>
+          <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             lovely to see you here!
           </div>
-          <div className="text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-[242px] h-[113px] md:w-auto md:h-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive' }}>
+          <div className="text-center text-white text-[100px] md:text-[150px] lg:text-[200px] font-medium break-words w-full md:w-auto leading-normal md:leading-[200px]" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
             raks
           </div>
         </div>
