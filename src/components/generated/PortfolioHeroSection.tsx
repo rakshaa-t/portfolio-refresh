@@ -1035,15 +1035,14 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                     data-card-id={card.id}
                     drag
                     dragMomentum={true}
-                    dragElastic={0.1}
+                    dragElastic={0.2}
                     dragConstraints={dragConstraintsRef}
                     dragTransition={{ 
-                      bounceStiffness: 300, 
-                      bounceDamping: 20,
-                      power: 0.3,
-                      timeConstant: 200,
-                      min: 0,
-                      max: 100
+                      bounceStiffness: 150, 
+                      bounceDamping: 40,
+                      power: 0.2,
+                      timeConstant: 700,
+                      modifyTarget: (target) => target
                     }}
                     onDragStart={() => {
                       setIsDraggingCard(card.id);
