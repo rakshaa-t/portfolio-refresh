@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container, Theme } from './settings/types';
 // %IMPORT_STATEMENT
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
+import { GreexCaseStudy } from './components/generated/GreexCaseStudy'
 
 let theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
@@ -18,20 +20,23 @@ function App() {
 
   setTheme(theme);
 
-  const generatedComponent = useMemo(() => {
-    // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
-    // On style/batch-ui branch: Always show homepage preview
-    return <PortfolioHeroSection />;
-  }, []);
+  const content = (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PortfolioHeroSection />} />
+        <Route path="/greex" element={<GreexCaseStudy />} />
+      </Routes>
+    </BrowserRouter>
+  );
 
   if (container === 'centered') {
     return (
       <div className="h-full w-full flex flex-col items-center justify-center">
-        {generatedComponent}
+        {content}
       </div>
     );
   } else {
-    return generatedComponent;
+    return content;
   }
 }
 
