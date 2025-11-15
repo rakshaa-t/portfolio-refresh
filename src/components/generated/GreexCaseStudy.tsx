@@ -1011,20 +1011,22 @@ export const GreexCaseStudy: React.FC = () => {
                   outline: 'none',
                   borderRadius: '9999px',
                   cursor: 'pointer',
-                  padding: isActive ? '10px 20px' : '8px 12px',
+                  padding: 0,
                   transition: 'all 0.2s ease',
                   position: 'relative',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minHeight: '36px',
                   height: '36px',
-                  lineHeight: '1',
+                  paddingLeft: isActive ? '20px' : '12px',
+                  paddingRight: isActive ? '20px' : '12px',
+                  lineHeight: '36px',
                   margin: 0,
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  verticalAlign: 'middle'
                 }}
               >
-                {section}
+                <span style={{ display: 'block', lineHeight: '1' }}>{section}</span>
               </motion.button>
             );
           })}
