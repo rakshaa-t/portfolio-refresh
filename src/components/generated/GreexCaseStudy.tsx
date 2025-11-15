@@ -200,7 +200,8 @@ export const GreexCaseStudy: React.FC = () => {
     const sectionIdMap: { [key: string]: string } = {
       'Overview': 'overview',
       'Strategy': 'strategy',
-      'Product': 'product',
+      'Product': 'tele-bots',  // Mobile: Product scrolls to tele-bots section
+      'Delivery': 'high-fidelity',  // Mobile: Delivery scrolls to high-fidelity section
       'Final Thoughts': 'final-thoughts'
     };
     
@@ -246,7 +247,7 @@ export const GreexCaseStudy: React.FC = () => {
         {/* Mobile Header - visible on mobile, hidden on desktop */}
         <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
             {/* Logo - "raks" */}
-          <a href="https://cursor-portfolio-git-style-batch-ui-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
+          <a href="https://cursor-portfolio-git-main-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
               raks
           </a>
 
@@ -291,7 +292,7 @@ export const GreexCaseStudy: React.FC = () => {
         {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
         <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
             {/* Logo - "raks" */}
-          <a href="https://cursor-portfolio-git-style-batch-ui-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
+          <a href="https://cursor-portfolio-git-main-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
             raks
           </a>
 
@@ -805,6 +806,7 @@ export const GreexCaseStudy: React.FC = () => {
 
         {/* High-Fidelity Designs Section */}
         <motion.div 
+          id="high-fidelity"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
@@ -905,10 +907,9 @@ export const GreexCaseStudy: React.FC = () => {
           alignItems: 'center'
         }}>
           {[
-            { label: 'Overview', number: '1' },
-            { label: 'Strategy', number: '2' },
-            { label: 'Product', number: '3' },
-            { label: 'Final Thoughts', number: '4' }
+            { label: 'Overview', displayText: 'Overview' },
+            { label: 'Product', displayText: 'Product' },
+            { label: 'Delivery', displayText: 'Delivery' }
           ].map((section) => {
             const isActive = activeSection === section.label;
             return (
@@ -918,7 +919,7 @@ export const GreexCaseStudy: React.FC = () => {
                 style={{
                   flex: 1,
                   height: '48px',
-                  padding: '12px 16px',
+                  padding: '8px 12px',
                   background: isActive ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
                   border: 'none',
                   outline: 'none',
@@ -927,7 +928,7 @@ export const GreexCaseStudy: React.FC = () => {
                   transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden',
-                  fontSize: '16px',
+                  fontSize: '14px',
                   fontFamily: 'Nexa, system-ui, sans-serif',
                   fontWeight: isActive ? '600' : '400',
                   color: isActive ? 'white' : 'rgba(255, 255, 255, 0.6)',
@@ -940,7 +941,7 @@ export const GreexCaseStudy: React.FC = () => {
                 }}
                 onFocus={(e) => e.target.blur()}
               >
-                {section.number}
+                {section.displayText}
               </motion.button>
             );
           })}
