@@ -753,13 +753,13 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           ref={cardsContainerRef} 
           className="relative mx-auto w-full max-w-full md:w-full md:h-[485.6px] md:flex md:justify-center lg:max-w-[1040.8px] lg:w-[1040.8px] lg:h-[485.6px] lg:flex lg:justify-center"
         >
-          {/* Drag Constraints Container - Full width, bottom 70% of hero section */}
+          {/* Drag Constraints Container - Full width, bottom 70% of viewport */}
           <div 
             ref={dragConstraintsRef}
-            className="pointer-events-none absolute left-0 right-0 w-full"
+            className="pointer-events-none fixed left-0 right-0 w-screen"
             style={{
-              top: '30%',
-              height: '70%',
+              top: '30vh',
+              height: '70vh',
               zIndex: 1
             }}
           />
