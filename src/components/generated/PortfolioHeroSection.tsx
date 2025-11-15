@@ -1341,7 +1341,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2, margin: "100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
+        className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-4 md:px-6"
       >
         <div 
           className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative w-full max-w-[475px] px-4 md:px-8"

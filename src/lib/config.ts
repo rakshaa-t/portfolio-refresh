@@ -19,13 +19,19 @@ export const AI_CONFIG = {
 };
 
 // Debug: Log if API key is loaded (first 10 chars only for security)
+console.log('🔍 Environment check:');
+console.log('   - VITE_OPENAI_API_KEY exists:', !!import.meta.env.VITE_OPENAI_API_KEY);
+console.log('   - API_KEY length:', AI_CONFIG.API_KEY?.length || 0);
 if (AI_CONFIG.API_KEY) {
   console.log('🔑 API Key loaded:', AI_CONFIG.API_KEY.substring(0, 10) + '...');
   console.log('✅ Chat functionality is ready!');
 } else {
   console.error('❌ NO API KEY FOUND!');
-  console.error('📖 See ENV_SETUP.md for configuration instructions');
-  console.error('🔗 Quick fix: Add VITE_OPENAI_API_KEY to Vercel and redeploy WITHOUT cache');
+  console.error('📖 Possible fixes:');
+  console.error('   1. Check Vercel Environment Variables: VITE_OPENAI_API_KEY');
+  console.error('   2. Redeploy WITHOUT build cache (Settings > Deploy)');
+  console.error('   3. Make sure key starts with "sk-"');
+  console.error('🔗 Current env vars:', Object.keys(import.meta.env));
 }
 
 // Instructions for updating the API key:
