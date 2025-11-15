@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 import useScroll from "../../hooks/useScroll";
 
 // Image assets from Figma MCP
@@ -60,180 +61,296 @@ const imgX = "https://www.figma.com/api/mcp/asset/e4a3a7ec-771c-4706-a077-3f43fb
 
 export const GreexCaseStudy: React.FC = () => {
   const [activeSection, setActiveSection] = React.useState("Overview");
+  const [heroImageLoaded, setHeroImageLoaded] = React.useState(false);
+  const [heroImageBlurLoaded, setHeroImageBlurLoaded] = React.useState(false);
+  const [isManualScroll, setIsManualScroll] = React.useState(false);
   
   // Scroll tracking for navigation bar
   const { y, directionY } = useScroll();
   const headerTriggerY = 50;
 
+  // Scroll-based section detection
+  React.useEffect(() => {
+    const sections = ['overview', 'strategy', 'product', 'final-thoughts'];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-100px 0px -70% 0px', // Trigger when section top is 100px from viewport top
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // Don't override manual tab selection during scroll animation
+      if (isManualScroll) return;
+      
+      // Find the section that's currently most visible at the top
+      let activeEntry: IntersectionObserverEntry | null = null;
+      let maxTopRatio = -1;
+
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const rect = entry.boundingClientRect;
+          const topRatio = Math.max(0, (window.innerHeight - rect.top) / window.innerHeight);
+          
+          // Prefer sections that are closer to the top of the viewport
+          if (rect.top <= 200 && topRatio > maxTopRatio) {
+            maxTopRatio = topRatio;
+            activeEntry = entry;
+          }
+        }
+      }
+
+      // If no section is at the top, find the first intersecting section
+      if (activeEntry === null) {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            activeEntry = entry;
+            break;
+          }
+        }
+      }
+
+      if (activeEntry !== null) {
+        const target = activeEntry.target;
+        if (target instanceof HTMLElement) {
+          const sectionId = target.id;
+          // Map section IDs to display names
+          const sectionMap: { [key: string]: string } = {
+            'overview': 'Overview',
+            'strategy': 'Strategy',
+            'product': 'Product',
+            'final-thoughts': 'Final Thoughts'
+          };
+          if (sectionMap[sectionId]) {
+            setActiveSection(sectionMap[sectionId]);
+          }
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    // Also check on scroll for more accurate detection
+    const handleScroll = () => {
+      // Don't override manual tab selection during scroll animation
+      if (isManualScroll) return;
+      
+      // Check if user is at the bottom of the page
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+      
+      if (isAtBottom) {
+        // If at bottom, always highlight Final Thoughts
+        setActiveSection('Final Thoughts');
+        return;
+      }
+      
+      const scrollPosition = window.scrollY + 200; // Offset for header
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const elementTop = element.offsetTop;
+          const elementBottom = elementTop + element.offsetHeight;
+          
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+            const sectionMap: { [key: string]: string } = {
+              'overview': 'Overview',
+              'strategy': 'Strategy',
+              'product': 'Product',
+              'final-thoughts': 'Final Thoughts'
+            };
+            if (sectionMap[sections[i]]) {
+              setActiveSection(sectionMap[sections[i]]);
+            }
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => {
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isManualScroll]);
+
   const scrollToSection = (sectionId: string) => {
+    // Set active immediately when clicked
     setActiveSection(sectionId);
-    const element = document.getElementById(sectionId.toLowerCase().replace(/\s+/g, '-'));
+    
+    // Prevent scroll handler from overriding during scroll animation
+    setIsManualScroll(true);
+    
+    // Map section names to their actual IDs
+    const sectionIdMap: { [key: string]: string } = {
+      'Overview': 'overview',
+      'Strategy': 'strategy',
+      'Product': 'product',
+      'Final Thoughts': 'final-thoughts'
+    };
+    
+    const actualId = sectionIdMap[sectionId] || sectionId.toLowerCase().replace(/\s+/g, '-');
+    const element = document.getElementById(actualId);
+    
     if (element) {
       const headerHeight = 71;
       const yOffset = -headerHeight - 20;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
+      
+      // Reset manual scroll flag after scroll animation completes
+      // Use longer timeout for sections further down the page
+      const timeout = actualId === 'final-thoughts' ? 1500 : 1000;
+      setTimeout(() => {
+        setIsManualScroll(false);
+      }, timeout);
+    } else {
+      // If element not found, still keep manual scroll flag for a bit
+      setTimeout(() => {
+        setIsManualScroll(false);
+      }, 1000);
     }
   };
 
   return (
-    <div style={{ 
-      backgroundColor: '#111111', 
-      position: 'relative', 
-      width: '100%', 
-      minHeight: '16763px',
-      overflowX: 'hidden',
-      maxWidth: '1728px',
-      margin: '0 auto'
-    }}>
-      {/* Background Blurs */}
-      <div style={{
-        position: 'absolute',
-        width: '1472px',
-        height: '761px',
-        left: '-227px',
-        top: '281px',
-        backgroundColor: '#373737',
-        borderRadius: '4444px',
-        filter: 'blur(200px)',
-        pointerEvents: 'none',
-        zIndex: -2
-      }} />
-      <div style={{
-        position: 'absolute',
-        width: '1629px',
-        height: '842px',
-        left: '474px',
-        top: '537px',
-        backgroundColor: '#2d2d2d',
-        borderRadius: '4444px',
-        filter: 'blur(200px)',
-        pointerEvents: 'none',
-        zIndex: -2
-      }} />
-      <div style={{
-        position: 'absolute',
-        width: '1728px',
-        height: '760px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '15692px',
-        backgroundColor: '#dee1ed'
-      }} />
-
-      {/* Navigation Bar - Scroll-based hide/show */}
-      <nav 
-        className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
-          y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
-        }`}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          paddingLeft: '44px',
-          paddingRight: '44px',
-          paddingTop: '12px',
-          paddingBottom: '12px',
-          boxSizing: 'border-box'
-        }}
-      >
+    <div className="relative w-full bg-[#111111] overflow-x-hidden max-w-full">
+      {/* Background Blurs - Hidden on mobile, visible on desktop (lg:) */}
+      <div className="hidden lg:block absolute w-[1472px] h-[761px] left-1/2 -translate-x-1/2 top-[281px] bg-[#373737] rounded-[4444px] blur-[200px] pointer-events-none z-[-2]" />
+      <div className="hidden lg:block absolute w-[1629px] h-[842px] left-1/2 -translate-x-1/2 top-[537px] bg-[#2d2d2d] rounded-[4444px] blur-[200px] pointer-events-none z-[-2]" />
+      {/* Navigation - Responsive */}
+      <nav className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+        y > headerTriggerY && directionY === 'down' ? '-translate-y-[128px]' : 'translate-y-0'
+      }`}>
         {/* Backdrop blur with gradient fade */}
-        <div 
-          className="absolute inset-0 z-[-1] backdrop-blur-[11px] [mask-image:linear-gradient(to_top,transparent,black_65%)]" 
+        <div className="absolute inset-0 z-[-1] backdrop-blur-[11px] [mask-image:linear-gradient(to_top,transparent,black_65%)]" 
           style={{
-            background: 'rgba(255, 255, 255, 0.01)'
+            background: 'rgba(255,255,255,0.01)'
           }}
         />
         
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            // Navigate to production homepage
-            const currentHost = window.location.hostname;
-            let productionUrl = '/';
-            
-            // If we're on a Vercel preview URL (contains -git-), navigate to production
-            if (currentHost.includes('-git-')) {
-              const baseProject = currentHost.split('-git-')[0];
-              productionUrl = `https://${baseProject}.vercel.app/`;
-            } else {
-              productionUrl = '/';
-            }
-            
-            window.location.href = productionUrl;
-          }}
-          style={{
-            fontFamily: 'Neulis Cursive, cursive, serif',
-            fontSize: '36px',
-            color: 'white',
-            margin: 0,
-            fontWeight: 500,
-            textDecoration: 'none',
-            cursor: 'pointer',
-            transition: 'opacity 0.3s'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.opacity = '0.8';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.opacity = '1';
-          }}
-        >
-          raks
-        </a>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '73px',
-          opacity: 0.44
-        }}>
-          <a
-            href="https://linkedin.com/in/raksha-t"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            style={{
-              width: '29px',
-              height: '29px',
-              position: 'relative',
-              overflow: 'hidden',
-              display: 'block'
-            }}
-          >
-            <img alt="LinkedIn" src={imgLinkedIn} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+        {/* Mobile Header - visible on mobile, hidden on desktop */}
+        <div className="flex md:hidden items-center justify-center h-full w-full p-3 gap-[200px]">
+            {/* Logo - "raks" */}
+          <a href="https://cursor-portfolio-git-style-batch-ui-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+              raks
           </a>
-          <a
-            href="https://twitter.com/rakshatated"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-            style={{
-              width: '24px',
-              height: '24px',
-              position: 'relative',
-              overflow: 'hidden',
-              display: 'block'
-            }}
-          >
-            <img alt="X" src={imgX} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-          </a>
-        </div>
-      </nav>
 
-      {/* Sticky Navigation Menu */}
+            {/* Social Icons (Mobile) */}
+          <div className="flex items-center gap-4 opacity-44">
+              <a
+                href="https://linkedin.com/in/raksha-t"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                style={{
+                  width: '29px',
+                  height: '29px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.9583 3.625C23.5993 3.625 24.214 3.87961 24.6672 4.33283C25.1204 4.78604 25.375 5.40073 25.375 6.04167V22.9583C25.375 23.5993 25.1204 24.214 24.6672 24.6672C24.214 25.1204 23.5993 25.375 22.9583 25.375H6.04167C5.40073 25.375 4.78604 25.1204 4.33283 24.6672C3.87961 24.214 3.625 23.5993 3.625 22.9583V6.04167C3.625 5.40073 3.87961 4.78604 4.33283 4.33283C4.78604 3.87961 5.40073 3.625 6.04167 3.625H22.9583ZM22.3542 22.3542V15.95C22.3542 14.9053 21.9391 13.9033 21.2004 13.1646C20.4617 12.4259 19.4597 12.0108 18.415 12.0108C17.3879 12.0108 16.1917 12.6392 15.6117 13.5817V12.2404H12.2404V22.3542H15.6117V16.3971C15.6117 15.4667 16.3608 14.7054 17.2913 14.7054C17.7399 14.7054 18.1702 14.8836 18.4874 15.2009C18.8047 15.5181 18.9829 15.9484 18.9829 16.3971V22.3542H22.3542ZM8.31333 10.3433C8.85172 10.3433 9.36806 10.1295 9.74876 9.74876C10.1295 9.36806 10.3433 8.85172 10.3433 8.31333C10.3433 7.18958 9.43708 6.27125 8.31333 6.27125C7.77174 6.27125 7.25233 6.4864 6.86936 6.86936C6.4864 7.25233 6.27125 7.77174 6.27125 8.31333C6.27125 9.43708 7.18958 10.3433 8.31333 10.3433ZM9.99292 22.3542V12.2404H6.64583V22.3542H9.99292Z" fill="white" />
+                </svg>
+              </a>
+
+              <a
+                href="https://twitter.com/rakshatated"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M21.5859 21.375L14.0885 10.4471L14.1013 10.4574L20.8613 2.625H18.6023L13.0954 9L8.72227 2.625H2.79766L9.79723 12.8276L9.79638 12.8267L2.41406 21.375H4.67309L10.7955 14.2824L15.6613 21.375H21.5859ZM7.82719 4.32954L18.3466 19.6705H16.5564L6.02852 4.32954H7.82719Z" fill="white" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        {/* Desktop Navigation - hidden on mobile, visible on desktop (md:) */}
+        <div className="hidden md:flex w-full px-20 py-2.5 justify-between items-center">
+            {/* Logo - "raks" */}
+          <a href="https://cursor-portfolio-git-style-batch-ui-rakshas-projects-2fff9f6d.vercel.app/" target="_self" className="text-center text-white text-4xl font-medium break-words no-underline hover:opacity-80 transition-opacity cursor-pointer" style={{ fontFamily: 'Neulis Cursive, cursive, serif' }}>
+            raks
+          </a>
+
+            {/* Social Icons */}
+          <div className="w-[73px] opacity-44 flex justify-between items-center">
+              {/* LinkedIn Icon */}
+              <a
+                href="https://linkedin.com/in/raksha-t"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="hover:opacity-100 transition-opacity"
+                style={{
+                  width: '29px',
+                  height: '29px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.9583 3.625C23.5993 3.625 24.214 3.87961 24.6672 4.33283C25.1204 4.78604 25.375 5.40073 25.375 6.04167V22.9583C25.375 23.5993 25.1204 24.214 24.6672 24.6672C24.214 25.1204 23.5993 25.375 22.9583 25.375H6.04167C5.40073 25.375 4.78604 25.1204 4.33283 24.6672C3.87961 24.214 3.625 23.5993 3.625 22.9583V6.04167C3.625 5.40073 3.87961 4.78604 4.33283 4.33283C4.78604 3.87961 5.40073 3.625 6.04167 3.625H22.9583ZM22.3542 22.3542V15.95C22.3542 14.9053 21.9391 13.9033 21.2004 13.1646C20.4617 12.4259 19.4597 12.0108 18.415 12.0108C17.3879 12.0108 16.1917 12.6392 15.6117 13.5817V12.2404H12.2404V22.3542H15.6117V16.3971C15.6117 15.4667 16.3608 14.7054 17.2913 14.7054C17.7399 14.7054 18.1702 14.8836 18.4874 15.2009C18.8047 15.5181 18.9829 15.9484 18.9829 16.3971V22.3542H22.3542ZM8.31333 10.3433C8.85172 10.3433 9.36806 10.1295 9.74876 9.74876C10.1295 9.36806 10.3433 8.85172 10.3433 8.31333C10.3433 7.18958 9.43708 6.27125 8.31333 6.27125C7.77174 6.27125 7.25233 6.4864 6.86936 6.86936C6.4864 7.25233 6.27125 7.77174 6.27125 8.31333C6.27125 9.43708 7.18958 10.3433 8.31333 10.3433ZM9.99292 22.3542V12.2404H6.64583V22.3542H9.99292Z" fill="white" />
+                </svg>
+              </a>
+
+              {/* X (Twitter) Icon */}
+              <a
+                href="https://twitter.com/rakshatated"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="hover:opacity-100 transition-opacity"
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M21.5859 21.375L14.0885 10.4471L14.1013 10.4574L20.8613 2.625H18.6023L13.0954 9L8.72227 2.625H2.79766L9.79723 12.8276L9.79638 12.8267L2.41406 21.375H4.67309L10.7955 14.2824L15.6613 21.375H21.5859ZM7.82719 4.32954L18.3466 19.6705H16.5564L6.02852 4.32954H7.82719Z" fill="white" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </nav>
+
+      {/* Sticky Navigation Menu - Hidden to prevent showing behind cards */}
       <div style={{
         position: 'absolute',
         left: '50%',
-        transform: 'translateX(-50%)',
+        
         top: '930px',
-        width: '866px'
+        width: '866px',
+        display: 'none'
       }}>
         <div style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '930px',
           width: '866px',
           height: '112px',
@@ -244,7 +361,7 @@ export const GreexCaseStudy: React.FC = () => {
         <div style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '953px',
           backdropFilter: 'blur(22px)',
           backgroundColor: 'rgba(0, 0, 0, 0.08)',
@@ -255,30 +372,54 @@ export const GreexCaseStudy: React.FC = () => {
           alignItems: 'center',
           boxSizing: 'border-box'
         }}>
-          {['Overview', 'Strategy', 'Tele Bots', 'Product', 'Final Thoughts', 'Feedback'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              style={{
-                fontFamily: activeSection === section ? 'Nexa, system-ui, sans-serif' : 'Nexa, system-ui, sans-serif',
-                fontWeight: activeSection === section ? 'bold' : 'normal',
-                fontSize: '16px',
-                color: activeSection === section ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0,
-                transition: 'color 0.3s'
-              }}
-            >
-              {section}
-            </button>
-          ))}
+          {['Overview', 'Strategy', 'Tele Bots', 'Product', 'Final Thoughts', 'Feedback'].map((section) => {
+            const isActive = activeSection === section;
+            return (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? '700' : '500',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backdropFilter: isActive ? 'blur(8px)' : 'none',
+                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  paddingTop: isActive ? '14px' : '12px',
+                  paddingBottom: isActive ? '14px' : '12px',
+                  paddingLeft: '20px',
+                  paddingRight: '20px',
+                  margin: 0,
+                  lineHeight: '1',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                  boxSizing: 'border-box',
+                  whiteSpace: 'nowrap',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <span style={{ 
+                  display: 'inline-block',
+                  lineHeight: '1',
+                  verticalAlign: 'middle'
+                }}>
+                  {section}
+                </span>
+              </button>
+            );
+          })}
         </div>
         <div style={{
           position: 'absolute',
           left: '50%',
-          transform: 'translateX(-50%)',
+          
           top: '997px',
           width: '626px',
           height: '0px'
@@ -287,1105 +428,659 @@ export const GreexCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <motion.div 
-        id="overview" 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '254px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h1 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0,
-          width: '100%'
-        }}>
-          Greex : A defi Trading platform
-        </h1>
-        <p style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'rgba(255, 255, 255, 0.8)',
-          margin: 0,
-          width: '100%',
-          lineHeight: '24px'
-        }}>
-          Greex was an interesting case study because this was my stepping stone in the world of crypto. Intended to be a defi trading platform for options and futures. The USP was that they were looking to add pre built strategies within the platform that users could apply to their trades and get insights on which trade would bring what kind of impact. This was directed towards users that needed help with understanding aspects of trading options and futures and the probabilities that come with each trade.
-        </p>
-      </motion.div>
-
-      {/* Project Image */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '427px',
-          width: '1293px',
-          height: '833px',
-          borderRadius: '12px',
-          overflow: 'hidden'
-        }}
-      >
-        <img alt="Greex Project" src={imgRectangle1553} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-      </motion.div>
-
-      {/* What I did Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '1320px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '315px',
-          justifyContent: 'space-between'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          What I did
-        </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'max-content',
-          gridTemplateRows: 'max-content'
-        }}>
-          <div style={{
-            border: '1px solid white',
-            height: '88px',
-            borderRadius: '8px 8px 0 0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingLeft: '34px',
-            paddingRight: '34px',
-            boxSizing: 'border-box'
-          }}>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'rgba(215, 215, 215, 0.8)' }}>
-              Product Design
-            </span>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'white' }}>
-              UX flows , UI design , Mobile Responsive Design
-            </span>
-          </div>
-          <div style={{
-            borderLeft: '1px solid white',
-            borderRight: '1px solid white',
-            borderBottom: 'none',
-            borderTop: 'none',
-            height: '90px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingLeft: '34px',
-            paddingRight: '34px',
-            boxSizing: 'border-box'
-          }}>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'rgba(215, 215, 215, 0.8)' }}>
-              Game Design
-            </span>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'white' }}>
-              Designed Telegram bots for quick gamified trading experiences and parlays
-            </span>
-          </div>
-          <div style={{
-            border: '1px solid white',
-            height: '88px',
-            borderRadius: '0 0 8px 8px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingLeft: '29px',
-            paddingRight: '29px',
-            boxSizing: 'border-box'
-          }}>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'rgba(215, 215, 215, 0.8)' }}>
-              Design System
-            </span>
-            <span style={{ fontFamily: 'Outfit, system-ui, sans-serif', fontSize: '17px', color: 'white' }}>
-              Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
-            </span>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Strategy Section */}
-      <motion.div 
-        id="strategy" 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '1978px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          Strategy
-        </h2>
-        <div style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '24px',
-          width: '100%'
-        }}>
-          <p style={{ marginBottom: '18px' }}>
-            The goal was clear - we had to design the website in such a way that visually conveys the strategies + data in a simplified manner and allows an at-glance understanding of Strategies like Long Call Butterfly Spread, Bear Put Spread, Bull Call Spread etc.
+      {/* Main Content Container - Responsive */}
+      <div className="relative w-full px-4 md:px-6 lg:px-0 pt-20 md:pt-24 lg:pt-[194px] pb-20 flex flex-col items-center">
+        {/* Hero Section */}
+        <motion.div 
+          id="overview" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-6 md:mb-8 lg:mb-10"
+        >
+          <h1 className="text-lg md:text-xl lg:text-[22px] font-bold text-white w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Greex : A defi Trading platform
+          </h1>
+          <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 w-full leading-6 md:leading-7" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            Greex was an interesting case study because this was my stepping stone in the world of crypto. Intended to be a defi trading platform for options and futures. The USP was that they were looking to add pre built strategies within the platform that users could apply to their trades and get insights on which trade would bring what kind of impact. This was directed towards users that needed help with understanding aspects of trading options and futures and the probabilities that come with each trade.
           </p>
-          <p style={{ marginBottom: '18px' }}>
-            There was a lot of display of data that needed to be designed in cards that looked clean and provided the user with all necessary raw material to make the trade decision. Due to a lot of data the goal was to allow progress disclosure of information vs dumping all the data on a trade screen unlike what the traditional trading platforms do.
-          </p>
-          <p>
-            For there Telegram bots we decided to go with the vision of using "Greek Mythology" as our inspiration, combing "greeks" - the term of the trading world and combing those two to be our anchor for the design system. As for the UI design dark theme was the trend for crypto startups in 2024 and we decided to primarily focus on dark theme + a variation of light theme for future use.
-          </p>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Main Features & Star Feature */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.35 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '1695px',
-          width: '1293px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '223px',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '637px'
-        }}>
-          <h3 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            Main Features
-          </h3>
-          <div style={{
-            backgroundColor: '#111111',
-            border: '1px solid white',
-            height: '172px',
-            borderRadius: '8px',
-            padding: '26px 32px',
-            boxSizing: 'border-box',
-            width: '100%'
-          }}>
-            <ul style={{
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: 300,
-              fontSize: '17px',
-              color: 'rgba(255, 255, 255, 0.8)',
-              lineHeight: '24px',
-              margin: 0,
-              paddingLeft: '25.5px',
-              listStyle: 'disc'
-            }}>
-              <li>Browse and apply prebuilt trading strategies</li>
-              <li>View strategy logic, risk profile, and expected outcomes</li>
-              <li>Place trades confidently through a simplified execution UI</li>
-              <li>Track trades and performance in real time through a clear portfolio dashboard</li>
-            </ul>
+        {/* Project Image */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] md:aspect-[1293/833] lg:aspect-[1293/833] rounded-xl overflow-hidden bg-[#0c0c0c] mb-6 md:mb-8 lg:mb-10"
+          style={{ minHeight: '200px' }}
+        >
+        {/* Blurred placeholder - shows immediately as image loads */}
+        <img 
+          alt="Greex Project" 
+          src={imgRectangle1553} 
+          loading="eager"
+          onLoad={() => setHeroImageBlurLoaded(true)}
+          className="md:h-full"
+          style={{ 
+            width: '100%', 
+            height: 'auto',
+            minHeight: '200px',
+            objectFit: 'cover', 
+            borderRadius: '12px',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            filter: 'blur(20px)',
+            transform: 'scale(1.1)',
+            opacity: heroImageBlurLoaded ? 1 : 0,
+            transition: 'opacity 0.2s ease-in',
+            zIndex: 1,
+            imageRendering: 'auto'
+          }} 
+        />
+        {/* Full quality image - fades in when loaded */}
+        <img 
+          alt="Greex Project" 
+          src={imgRectangle1553} 
+          loading="eager"
+          onLoad={() => setHeroImageLoaded(true)}
+          className="md:h-full"
+          style={{ 
+            width: '100%', 
+            height: 'auto',
+            minHeight: '200px',
+            objectFit: 'cover', 
+            borderRadius: '12px',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: heroImageLoaded ? 1 : 0,
+            transition: 'opacity 0.6s ease-out',
+            zIndex: 2
+          }} 
+        />
+        </motion.div>
+
+        {/* What I did Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 lg:gap-6 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          {/* Title */}
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            What I did
+          </h2>
+
+          {/* Container for borders and content */}
+          <div className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px]">
+            {/* Mobile Layout - Stacked with borders */}
+            <div className="md:hidden flex flex-col border border-white rounded-lg overflow-hidden">
+              {/* Row 1 */}
+              <div className="flex flex-col gap-2 py-4 px-4 border-b border-white">
+                <div className="text-sm text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Product Design
+                </div>
+                <div className="text-sm text-white" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  UX flows , UI design , Mobile Responsive Design
+                </div>
+              </div>
+              
+              {/* Row 2 */}
+              <div className="flex flex-col gap-2 py-4 px-4 border-b border-white">
+                <div className="text-sm text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Game Design
+                </div>
+                <div className="text-sm text-white" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Designed Telegram bots for quick gamified trading experiences and parlays
+                </div>
+              </div>
+              
+              {/* Row 3 */}
+              <div className="flex flex-col gap-2 py-4 px-4">
+                <div className="text-sm text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Design System
+                </div>
+                <div className="text-sm text-white" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Layout - Original absolute positioning */}
+            <div className="hidden md:block relative border border-white rounded-lg" style={{ minHeight: '266px', padding: '24px' }}>
+              {/* Row 1 */}
+              <div className="flex flex-row justify-between items-center pb-6 border-b border-white">
+                <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Product Design
+                </div>
+                <div className="text-base lg:text-[17px] text-white text-right" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  UX flows , UI design , Mobile Responsive Design
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="flex flex-row justify-between items-start py-6 border-b border-white">
+                <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Game Design
+                </div>
+                <div className="text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Designed Telegram bots for quick gamified trading experiences and parlays
+                </div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="flex flex-row justify-between items-center pt-6">
+                <div className="text-base lg:text-[17px] text-white/80" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Design System
+                </div>
+                <div className="text-base lg:text-[17px] text-white text-right max-w-[60%]" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                  Foundations (Tokens for color, typography, spacing, radii, grid, and breakpoints) and Components (Reusable UI)
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '223px',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '608px'
-        }}>
-          <h3 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            Star Feature
-          </h3>
-          <div style={{
-            backgroundColor: '#111111',
-            border: '1px solid white',
-            height: '172px',
-            borderRadius: '8px',
-            padding: '38px 34px',
-            boxSizing: 'border-box',
-            width: '100%'
-          }}>
-            <p style={{
-              fontFamily: 'Outfit, system-ui, sans-serif',
-              fontWeight: 300,
-              fontSize: '17px',
-              color: 'rgba(255, 255, 255, 0.8)',
-              lineHeight: '24px',
-              margin: 0,
-              width: '540px'
-            }}>
-              The strategic decision to educate users while letting them act and make pre built strategies that users can apply to their trades whilst also educating them on how those strategies worked and the probobality of PNL they bring
+        </motion.div>
+
+        {/* Strategy Section */}
+        <motion.div 
+          id="strategy" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Strategy
+          </h2>
+          <div className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            <p className="mb-4 md:mb-5">
+              The goal was clear - we had to design the website in such a way that visually conveys the strategies + data in a simplified manner and allows an at-glance understanding of Strategies like Long Call Butterfly Spread, Bear Put Spread, Bull Call Spread etc.
+            </p>
+            <p className="mb-4 md:mb-5">
+              There was a lot of display of data that needed to be designed in cards that looked clean and provided the user with all necessary raw material to make the trade decision. Due to a lot of data the goal was to allow progress disclosure of information vs dumping all the data on a trade screen unlike what the traditional trading platforms do.
+            </p>
+            <p>
+              For there Telegram bots we decided to go with the vision of using "Greek Mythology" as our inspiration, combing "greeks" - the term of the trading world and combing those two to be our anchor for the design system. As for the UI design dark theme was the trend for crypto startups in 2024 and we decided to primarily focus on dark theme + a variation of light theme for future use.
             </p>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* MacBook Pro Image Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '2305px',
-          width: '1293px',
-          height: '603px',
-          overflow: 'hidden'
-        }}
-      >
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-          <img alt="MacBook Pro" src={imgMacBookPro1612} style={{ width: '100%', height: '86.63%', position: 'absolute', top: '3.9%', left: 0 }} />
-        </div>
-        <div style={{
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '329px',
-          height: '186px'
-        }}>
-          <img alt="Mask group" src={imgMaskGroup21} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
-      </motion.div>
+        {/* Main Features & Star Feature */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-0 lg:justify-between items-start lg:items-stretch mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[637px]">
+            <h3 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Main Features
+            </h3>
+            <div className="bg-[#111111] border border-white rounded-lg p-6 md:p-7 lg:p-[26px_32px] w-full">
+              <ul className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 list-disc pl-6 md:pl-7" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                <li>Browse and apply prebuilt trading strategies</li>
+                <li>View strategy logic, risk profile, and expected outcomes</li>
+                <li>Place trades confidently through a simplified execution UI</li>
+                <li>Track trades and performance in real time through a clear portfolio dashboard</li>
+              </ul>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[608px]">
+            <h3 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Star Feature
+            </h3>
+            <div className="bg-[#111111] border border-white rounded-lg p-6 md:p-8 lg:p-[38px_34px] w-full">
+              <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                The strategic decision to educate users while letting them act and make pre built strategies that users can apply to their trades whilst also educating them on how those strategies worked and the probobality of PNL they bring
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Telegram Bots Section */}
-      <motion.div 
-        id="tele-bots" 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '2948px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          Tele Bots
-        </h2>
-        <p style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'white',
-          lineHeight: '24px',
-          margin: 0,
-          width: '100%'
-        }}>
+        {/* MacBook Pro Image Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] overflow-hidden mb-8 md:mb-10 lg:mb-12"
+          style={{ minHeight: '200px' }}
+        >
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <img alt="MacBook Pro" src={imgMacBookPro1612} className="absolute top-[3.9%] left-0 w-full h-[86.63%] object-contain" />
+          </div>
+        </motion.div>
+
+        {/* Telegram Bots Section */}
+        <motion.div 
+          id="tele-bots" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Tele Bots
+          </h2>
+          <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full">
           For the desktop trading platform we knew what we wanted to go with which was standard trading screens, strategy cards, line and candle graphs, and trade screens. However where we had more creative freedom was with the Telegram bots as they were supposed to be gamified trading mini apps for enthusiasts and rookies. Since these were gamified experiences we used an experimental approach for LED style CTAs, louder graphics and colors.
         </p>
       </motion.div>
 
-      {/* Telegram Bot Screenshots Gallery */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.55 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '3131px',
-          width: '1289px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '1072px',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          gap: '41px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLandingPage1, name: 'Landing Page' },
-            { src: imgDashboard1, name: 'Dashboard' },
-            { src: imgSelectCoin1, name: 'Select coin' },
-            { src: imgLiveTracking1, name: 'Live Tracking' },
-            { src: imgLearnToEarn1, name: 'Learn to earn' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: '488px',
-              borderRadius: '22px',
-              width: '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '1028px'
-        }}>
-          {[
-            { src: imgLanding1, name: 'Landing' },
-            { src: imgLeaderboard1, name: 'Leaderboard' },
-            { src: img22, name: '#2' },
-            { src: img21, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 1 || idx === 3 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 1 || idx === 3 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Product Section */}
-      <motion.div 
-        id="product" 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '4263px',
-          width: '1293px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0
-        }}>
-          Product
-        </h2>
-        <p style={{
-          fontFamily: 'Outfit, system-ui, sans-serif',
-          fontWeight: 300,
-          fontSize: '17px',
-          color: 'white',
-          lineHeight: '24px',
-          margin: 0,
-          width: '100%'
-        }}>
-          We studied the flow of options and futures trading flow and decided to start with the trading screens first , when I was onboarded a lot of trading screens were already designed so I had to pick up from where it was left off. The trading screens had to include basic actions like call and put, browse through markets and have data visuals in the form og graphs and cards. The challenge was to make the trade screens as less bloated as possible.
-        </p>
-      </motion.div>
-
-      {/* Product Screenshots */}
-      {[
-        { src: imgCallOptionHover1, top: '4446px' },
-        { src: imgCallOptionHover2, top: '5312px' },
-        { src: imgCallOptionHover3, top: '6178px' },
-        { src: imgCallOptionHover4, top: '7044px' },
-        { src: imgCallOptionHover5, top: '7910px' }
-      ].map((img, idx) => (
+        {/* Telegram Bot Screenshots Gallery */}
         <motion.div 
-          key={idx} 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.65 + idx * 0.1 }}
-          style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: img.top,
-          width: '1281px',
-          height: '828px',
-          border: '1px solid rgba(255, 255, 255, 0.12)',
-          borderRadius: '12px',
-          overflow: 'hidden'
-        }}>
-          <img alt={`Call option ${idx + 1}`} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
+        >
+          {/* Mobile: 2x2 grid, iPad: 4 columns, Desktop: Horizontal rows */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row lg:flex-wrap w-full lg:overflow-x-auto lg:overflow-x-visible" style={{ gap: '16px' }}>
+            {[
+              { src: imgLandingPage1, name: 'Landing Page' },
+              { src: imgDashboard1, name: 'Dashboard' },
+              { src: imgSelectCoin1, name: 'Select coin' },
+              { src: imgLiveTracking1, name: 'Live Tracking' },
+              { src: imgLearnToEarn1, name: 'Learn to earn' },
+              { src: imgLanding1, name: 'Landing' },
+              { src: imgLeaderboard1, name: 'Leaderboard' },
+              { src: img22, name: '#2' },
+              { src: img21, name: '#2' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full lg:w-[180px] xl:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
+              </div>
+            ))}
+          </div>
         </motion.div>
-      ))}
 
-      {/* Additional Product Images */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.15 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '8776px',
-          width: '1282px',
-          height: '829px'
-        }}
-      >
-        <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </motion.div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.2 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '9665px',
-          width: '1282px',
-          height: '303px'
-        }}
-      >
-        <img alt="Frame" src={imgFrame75601} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </motion.div>
-
-      {/* Extended Telegram Bot Gallery */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.25 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '10028px',
-          width: '1289px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '88px',
-          alignItems: 'flex-start'
-        }}
-      >
-        {/* Row 1 */}
-        <div style={{
-          display: 'flex',
-          gap: '41px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLandingPage2, name: 'Landing Page' },
-            { src: imgDashboard2, name: 'Dashboard' },
-            { src: imgSelectCoin2, name: 'Select coin' },
-            { src: imgLiveTracking2, name: 'Live Tracking' },
-            { src: imgLearnToEarn2, name: 'Learn to earn' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 2 ? '494px' : '488px',
-              borderRadius: '22px',
-              width: '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-
-        {/* Row 2 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLanding2, name: 'Landing' },
-            { src: imgLeaderboard2, name: 'Leaderboard' },
-            { src: img23, name: '#2' },
-            { src: img24, name: '#2' },
-            { src: img24, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 1 || idx === 3 || idx === 4 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 1 || idx === 3 || idx === 4 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-
-        {/* Row 3 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLanding3, name: 'Landing' },
-            { src: imgLeaderboard3, name: 'Leaderboard' },
-            { src: img25, name: '#2' },
-            { src: img26, name: '#2' },
-            { src: img27, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 1 || idx === 3 || idx === 4 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 1 || idx === 3 || idx === 4 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-
-        {/* Row 4 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: imgLeaderboard4, name: 'Leaderboard' },
-            { src: imgLanding4, name: 'Landing' },
-            { src: img28, name: '#2' },
-            { src: img29, name: '#2' },
-            { src: img30, name: '#2' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 0 || idx === 3 || idx === 4 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 0 || idx === 3 || idx === 4 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-
-        {/* Row 5 */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}>
-          {[
-            { src: img31, name: '#2' },
-            { src: imgLeaderboard5, name: 'Leaderboard' },
-            { src: img32, name: '#2' },
-            { src: img33, name: '#2' },
-            { src: imgLanding5, name: 'Landing' }
-          ].map((img, idx) => (
-            <div key={idx} style={{
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              height: idx === 0 || idx === 1 || idx === 2 || idx === 3 ? '490px' : '488px',
-              borderRadius: '22px',
-              width: idx === 0 || idx === 1 || idx === 2 || idx === 3 ? '226px' : '225px',
-              overflow: 'hidden',
-              position: 'relative'
-            }}>
-              <img alt={img.name} src={img.src} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '22px' }} />
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* High-Fidelity Designs Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.3 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '12955px',
-          width: '1281px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '880px',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '22px',
-          color: 'white',
-          margin: 0,
-          height: '33px'
-        }}>
-          High-Fidelity Designs
-        </h2>
-        <div style={{
-          border: '1px solid rgba(255, 255, 255, 0.12)',
-          borderRadius: '12px',
-          width: '100%',
-          aspectRatio: '4096/2648',
-          overflow: 'hidden',
-          position: 'relative'
-        }}>
-          <img alt="Call option hover" src={imgCallOptionHover6} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-        </div>
-      </motion.div>
-
-      {/* Screenshot Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.35 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '13897px',
-          width: '1281px',
-          height: '1047px'
-        }}
-      >
-        <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </motion.div>
-
-      {/* Testimonial Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.4 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '15398px',
-          width: '1288px',
-          backgroundColor: '#0c0c0c',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: '12px',
-          padding: '40px',
-          boxSizing: 'border-box',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '165px',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '1137px'
-        }}>
-          <p style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '32px',
-            color: 'white',
-            margin: 0,
-            width: '100%'
-          }}>
-            "Raksha is a great asset to any agile team looking to overhaul designs, bringing creativity and a results-oriented approach"
-          </p>
-          <p style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
-            fontWeight: 'normal',
-            fontSize: '22px',
-            color: 'rgba(255, 255, 255, 0.6)',
-            margin: 0,
-            width: '100%'
-          }}>
-            - Sarthak Sharma, ex Co-founder, Greex
-          </p>
-        </div>
-      </motion.div>
-
-      {/* More Work Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.45 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '15874px',
-          width: '970.38px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '396.2px',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}
-      >
-        <h2 style={{
-          fontFamily: 'Nexa, system-ui, sans-serif',
-          fontSize: '22px',
-          color: 'black',
-          margin: 0,
-          textAlign: 'center',
-          width: '100%'
-        }}>
-          More work
-        </h2>
-        <div style={{
-          display: 'flex',
-          gap: '22px',
-          alignItems: 'center',
-          width: '100%'
-        }}>
-          {/* Ova Card */}
-          <div style={{
-            transform: 'rotate(-15deg)',
-            width: '322.05px',
-            height: '324.2px',
-            position: 'relative'
-          }}>
-            <div style={{
-              backdropFilter: 'blur(2px)',
-              backgroundColor: 'white',
-              height: '265.35px',
-              borderRadius: '44px',
-              boxShadow: '0px 182px 51px 0px rgba(0,0,0,0), 0px 117px 47px 0px rgba(0,0,0,0.01), 0px 66px 39px 0px rgba(0,0,0,0.05), 0px 29px 29px 0px rgba(0,0,0,0.09), 0px 7px 16px 0px rgba(0,0,0,0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '18.74%',
-                left: '0.03%',
-                right: '-0.37%',
-                bottom: '-0.22%',
-                borderRadius: '44px',
-                overflow: 'hidden'
-              }}>
-                <img alt="ova" src={imgRectangle1542} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '44px' }} />
-              </div>
-              <p style={{
-                position: 'absolute',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontSize: '14px',
-                color: 'black',
-                left: '29.65px',
-                top: '20.15px',
-                margin: 0
-              }}>
-                ova : period tracking app
-              </p>
-            </div>
-          </div>
-
-          {/* IOC Card */}
-          <div style={{
-            transform: 'rotate(4.598deg)',
-            width: '282.53px',
-            height: '285.31px',
-            position: 'relative'
-          }}>
-            <div style={{
-              backdropFilter: 'blur(2px)',
-              backgroundColor: 'white',
-              height: '265.15px',
-              borderRadius: '44px',
-              boxShadow: '0px 182px 51px 0px rgba(0,0,0,0), 0px 117px 47px 0px rgba(0,0,0,0.01), 0px 66px 39px 0px rgba(0,0,0,0.05), 0px 29px 29px 0px rgba(0,0,0,0.09), 0px 7px 16px 0px rgba(0,0,0,0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '18.47%',
-                left: '0.26%',
-                right: '-0.6%',
-                bottom: '0.05%',
-                borderRadius: '44px',
-                overflow: 'hidden'
-              }}>
-                <img alt="ioc" src={imgRectangle1543} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '44px' }} />
-              </div>
-              <p style={{
-                position: 'absolute',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: 'bold',
-                fontSize: '14px',
-                color: 'black',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                top: '17.4px',
-                margin: 0,
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                width: '195.87px'
-              }}>
-                ioc : vendor management app
-              </p>
-            </div>
-          </div>
-
-          {/* Dealdoc Card */}
-          <div style={{
-            transform: 'rotate(-15deg)',
-            width: '321.81px',
-            height: '323.96px',
-            position: 'relative'
-          }}>
-            <div style={{
-              backdropFilter: 'blur(2px)',
-              backgroundColor: 'white',
-              border: '1px solid rgba(0, 0, 0, 0.18)',
-              height: '265.15px',
-              borderRadius: '44px',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              <div style={{
-                position: 'absolute',
-                bottom: '0.76px',
-                height: '216.05px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '263px',
-                borderRadius: '44px',
-                overflow: 'hidden'
-              }}>
-                <img alt="dealdoc" src={imgRectangle1544} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '44px' }} />
-              </div>
-              <p style={{
-                position: 'absolute',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontSize: '14px',
-                color: 'black',
-                left: '26.62px',
-                top: '15.48px',
-                margin: 0,
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                width: '213.37px'
-              }}>
-                dealdoc : deal management platform
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Final Thoughts Section */}
-      <motion.div 
-        id="final-thoughts" 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.5 }}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '15056px',
-          width: '1295px',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '282px',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start',
-          width: '100%'
-        }}>
-          <h2 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            The Team
+        {/* Product Section */}
+        <motion.div 
+          id="product" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1293px] flex flex-col gap-4 md:gap-5 items-start mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            Product
           </h2>
-          <p style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
-            fontWeight: 300,
-            fontSize: '17px',
-            color: 'rgba(255, 255, 255, 0.8)',
-            lineHeight: '24px',
-            margin: 0,
-            width: '100%'
-          }}>
-            Thanks to key members of the team : Raj Karan ( Founder), Sarthak (Co-founder), Rohit Goel (CTO) , Yashovardhan (Senior Dev), and Roman Oshyyko (Designer from external Agency), Bohdan Barykin (External Agency)
+          <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            We studied the flow of options and futures trading flow and decided to start with the trading screens first , when I was onboarded a lot of trading screens were already designed so I had to pick up from where it was left off. The trading screens had to include basic actions like call and put, browse through markets and have data visuals in the form og graphs and cards. The challenge was to make the trade screens as less bloated as possible.
           </p>
-        </div>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '18px',
-          alignItems: 'flex-start',
-          width: '100%'
-        }}>
-          <h2 style={{
-            fontFamily: 'Nexa, system-ui, sans-serif',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            color: 'white',
-            margin: 0
-          }}>
-            Final Thoughts
-          </h2>
-          <p style={{
-            fontFamily: 'Outfit, system-ui, sans-serif',
-            fontWeight: 300,
-            fontSize: '17px',
-            color: 'rgba(255, 255, 255, 0.8)',
-            lineHeight: '24px',
-            margin: 0,
-            width: '100%'
-          }}>
-            The platform was successfully designed and tested, with strong feedback during early demos. Although the company shut down due to investor issues, the product foundation remains one of my proudest projects - a complete, self-driven deep-dive into a complex domain translated into a clean, functional product experience.
-          </p>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Mobile Navigation Menu (for smaller screens) */}
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        top: '1083px',
-        backgroundColor: 'rgba(255, 255, 255, 0.04)',
-        border: '1px solid rgba(0, 0, 0, 0.04)',
-        borderRadius: '12px',
-        padding: '12px 32px 18px',
-        boxSizing: 'border-box',
-        display: 'flex',
-        gap: '10px',
-        alignItems: 'flex-start'
-      }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          fontSize: '16px',
-          textAlign: 'center',
-          width: '475px'
-        }}>
-          {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              style={{
-                fontFamily: activeSection === section ? 'Nexa, system-ui, sans-serif' : 'Nexa, system-ui, sans-serif',
-                fontWeight: activeSection === section ? 'bold' : 'normal',
-                fontSize: '16px',
-                color: activeSection === section ? 'white' : 'rgba(255, 255, 255, 0.28)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0
-              }}
+        {/* Product Screenshots */}
+        <div className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12">
+          {[
+            imgCallOptionHover1,
+            imgCallOptionHover2,
+            imgCallOptionHover3,
+            imgCallOptionHover4,
+            imgCallOptionHover5
+          ].map((src, idx) => (
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.1 }}
+              className="relative w-full border border-white/12 rounded-xl overflow-hidden"
+              style={{ minHeight: '200px' }}
             >
-              {section}
-            </button>
+              <img alt={`Call option ${idx + 1}`} src={src} className="w-full h-full object-cover rounded-xl" />
+            </motion.div>
           ))}
         </div>
+
+        {/* Additional Product Images */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1282px] md:aspect-[1282/1047] lg:aspect-[1282/1047] mb-8 md:mb-10 lg:mb-12"
+          style={{ minHeight: '200px' }}
+        >
+          <img alt="Greex Options trading" src={imgGreexOptionsTrading6611} className="w-full h-full object-cover rounded-xl" />
+        </motion.div>
+
+        {/* Extended Telegram Bot Gallery */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1289px] mb-8 md:mb-10 lg:mb-12"
+        >
+          {/* Mobile: 2x2 grid, iPad: 4 columns, Desktop: Horizontal rows */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-row lg:flex-wrap w-full lg:overflow-x-auto lg:overflow-x-visible" style={{ gap: '16px' }}>
+            {[
+              { src: imgLandingPage2, name: 'Landing Page' },
+              { src: imgDashboard2, name: 'Dashboard' },
+              { src: imgSelectCoin2, name: 'Select coin' },
+              { src: imgLiveTracking2, name: 'Live Tracking' },
+              { src: imgLearnToEarn2, name: 'Learn to earn' },
+              { src: imgLanding2, name: 'Landing' },
+              { src: imgLeaderboard2, name: 'Leaderboard' },
+              { src: img23, name: '#2' },
+              { src: img24, name: '#2' },
+              { src: img24, name: '#2' },
+              { src: imgLanding3, name: 'Landing' },
+              { src: imgLeaderboard3, name: 'Leaderboard' },
+              { src: img25, name: '#2' },
+              { src: img26, name: '#2' },
+              { src: img27, name: '#2' },
+              { src: imgLeaderboard4, name: 'Leaderboard' },
+              { src: imgLanding4, name: 'Landing' },
+              { src: img28, name: '#2' },
+              { src: img29, name: '#2' },
+              { src: img30, name: '#2' },
+              { src: img31, name: '#2' },
+              { src: imgLeaderboard5, name: 'Leaderboard' },
+              { src: img32, name: '#2' },
+              { src: img33, name: '#2' },
+              { src: imgLanding5, name: 'Landing' }
+            ].map((img, idx) => (
+              <div key={idx} className="border border-white/12 rounded-[22px] overflow-hidden relative w-full lg:w-[180px] xl:w-[225px] flex-shrink-0 md:aspect-[9/16] lg:aspect-[9/16]" style={{ minHeight: '200px', height: 'auto' }}>
+                <img alt={img.name} src={img.src} className="w-full h-full object-cover md:rounded-[22px]" style={{ width: '100%', height: '100%', display: 'block' }} />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* High-Fidelity Designs Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] flex flex-col gap-6 md:gap-8 lg:gap-10 mb-8 md:mb-10 lg:mb-12"
+        >
+          <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            High-Fidelity Designs
+          </h2>
+          <div className="border border-white/12 rounded-xl overflow-hidden w-full aspect-[4096/2648]">
+            <img alt="Call option hover" src={imgCallOptionHover6} className="w-full h-full object-cover rounded-xl" />
+          </div>
+        </motion.div>
+
+        {/* Screenshot Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="relative w-full max-w-full md:max-w-[90vw] lg:max-w-[1281px] aspect-[1281/1047] mb-8 md:mb-10 lg:mb-12"
+        >
+          <img alt="Screenshot" src={imgScreenshot20251030At41829Pm1} className="w-full h-full object-cover rounded-xl" />
+        </motion.div>
+
+        {/* Testimonial Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1288px] bg-[#0c0c0c] border border-white/8 rounded-xl p-6 md:p-8 lg:p-10 flex flex-col gap-4 md:gap-6 items-center justify-center mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 w-full">
+            <p className="text-sm md:text-2xl lg:text-[32px] font-normal text-white w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              "Raksha is a great asset to any agile team looking to overhaul designs, bringing creativity and a results-oriented approach"
+            </p>
+            <p className="text-sm md:text-lg lg:text-[22px] font-normal text-white/60 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              - Sarthak Sharma, ex Co-founder, Greex
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Final Thoughts Section */}
+        <motion.div 
+          id="final-thoughts" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="w-full max-w-full md:max-w-[90vw] lg:max-w-[1295px] flex flex-col gap-8 md:gap-10 lg:gap-12 mb-8 md:mb-10 lg:mb-12"
+        >
+          <div className="flex flex-col gap-4 md:gap-5 w-full">
+            <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              The Team
+            </h2>
+            <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              Thanks to key members of the team : Raj Karan ( Founder), Sarthak (Co-founder), Rohit Goel (CTO) , Yashovardhan (Senior Dev), and Roman Oshyyko (Designer from external Agency), Bohdan Barykin (External Agency)
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 md:gap-5 w-full">
+            <h2 className="text-lg md:text-xl lg:text-[22px] font-bold text-white" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Final Thoughts
+            </h2>
+            <p className="text-sm md:text-base lg:text-[17px] font-light text-white/80 leading-6 md:leading-7 w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              The platform was successfully designed and tested, with strong feedback during early demos. Although the company shut down due to investor issues, the product foundation remains one of my proudest projects - a complete, self-driven deep-dive into a complex domain translated into a clean, functional product experience.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Mobile Bottom Navigation Menu - Only visible on mobile (md:hidden) - Matching Marijana's about page design */}
+      <div 
+        className="md:hidden"
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: '16px',
+          background: 'rgba(255,255,255,0.01)',
+          backdropFilter: 'blur(11px)',
+          WebkitBackdropFilter: 'blur(11px)',
+          zIndex: 50
+        }}
+      >
         <div style={{
-          position: 'absolute',
-          left: '32px',
-          top: '44px',
-          width: '475px',
-          height: '0px'
+          display: 'flex',
+          gap: '8px',
+          maxWidth: '400px',
+          margin: '0 auto',
+          padding: '4px',
+          background: 'rgba(0, 0, 0, 0.2)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderRadius: '9999px',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          alignItems: 'center'
         }}>
-          <img alt="" src={imgGroup1171274696} style={{ width: '100%', height: '100%', display: 'block' }} />
+          {[
+            { label: 'Overview', number: '1' },
+            { label: 'Strategy', number: '2' },
+            { label: 'Product', number: '3' },
+            { label: 'Final Thoughts', number: '4' }
+          ].map((section) => {
+            const isActive = activeSection === section.label;
+            return (
+              <motion.button
+                key={section.label}
+                onClick={() => scrollToSection(section.label)}
+                style={{
+                  flex: 1,
+                  height: '48px',
+                  padding: '12px 16px',
+                  background: isActive ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  fontSize: '16px',
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? '600' : '400',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.6)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: 0,
+                  boxSizing: 'border-box',
+                  whiteSpace: 'nowrap'
+                }}
+                onFocus={(e) => e.target.blur()}
+              >
+                {section.number}
+              </motion.button>
+            );
+          })}
+          
+          {/* Scroll to top button */}
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '48px',
+              height: '48px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              cursor: 'pointer',
+              flexShrink: 0,
+              margin: 0,
+              padding: 0,
+              marginLeft: '4px'
+            }}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={18} color="white" />
+          </motion.button>
         </div>
       </div>
+
+      {/* Desktop Bottom Navigation Menu - Only visible on desktop (lg:) */}
+      <motion.div 
+        initial={{ x: '-50%' }}
+        animate={{ x: '-50%' }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        className="hidden lg:flex fixed left-1/2 bottom-10 z-40 bg-black/8 backdrop-blur-[22px] border border-white/8 rounded-2xl p-4 gap-4 items-center justify-center"
+        style={{
+          WebkitBackdropFilter: 'blur(22px)'
+        }}
+      >
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '16px',
+          fontSize: '16px',
+          margin: 0,
+          padding: 0
+        }}>
+          {['Overview', 'Strategy', 'Product', 'Final Thoughts'].map((section) => {
+            const isActive = activeSection === section;
+            return (
+              <motion.button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? 'bold' : '600',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backdropFilter: isActive ? 'blur(8px)' : 'none',
+                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  paddingTop: isActive ? '9px' : '8px',
+                  paddingBottom: isActive ? '7px' : '8px',
+                  paddingLeft: isActive ? '16px' : '8px',
+                  paddingRight: isActive ? '16px' : '8px',
+                  transition: 'all 0.2s ease',
+                  position: 'relative',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: '32px',
+                  height: '32px',
+                  lineHeight: '1.2',
+                  margin: 0,
+                  boxSizing: 'border-box'
+                }}
+              >
+                {section}
+              </motion.button>
+            );
+          })}
+        </div>
+        
+        {/* Scroll to top button - dynamically sized */}
+        <motion.div
+          initial={{ width: 0, opacity: 0 }}
+          animate={{ 
+            width: y > 500 ? 32 : 0,
+            opacity: y > 500 ? 1 : 0,
+            marginLeft: 0
+          }}
+          transition={{ 
+            duration: 0.3, 
+            ease: [0.4, 0, 0.2, 1],
+            opacity: { duration: 0.2 }
+          }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '32px',
+            width: '32px',
+            flexShrink: 0,
+            margin: 0,
+            padding: 0
+          }}
+        >
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              cursor: 'pointer',
+              flexShrink: 0,
+              pointerEvents: y > 500 ? 'auto' : 'none'
+            }}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={16} color="white" />
+          </motion.button>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

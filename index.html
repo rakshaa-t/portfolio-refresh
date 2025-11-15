@@ -8,9 +8,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Raksha - Product Designer & Brand Strategist</title>
     
-    <!-- Custom Fonts -->
+    <!-- Preconnect to font CDNs for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    
+    <!-- Preload critical Nexa font files -->
+    <link rel="preload" href="https://fonts.cdnfonts.com/s/15613/Nexa-Bold.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="https://fonts.cdnfonts.com/s/15613/Nexa-Regular.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="https://fonts.cdnfonts.com/s/15613/Nexa-Light.woff" as="font" type="font/woff" crossorigin>
+    
+    <!-- Preload hero image for instant blurred display -->
+    <link rel="preload" href="https://www.figma.com/api/mcp/asset/3a49c6e6-b7c9-4cde-b76b-a62035d160d9" as="image" fetchpriority="high">
+    
+    <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -24,27 +35,33 @@
       
       @font-face {
         font-family: 'Nexa';
-        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Bold.woff') format('woff'),
-             local('Outfit');
+        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Bold.woff') format('woff');
         font-weight: 700;
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
       @font-face {
         font-family: 'Nexa Text';
-        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Light.woff') format('woff'),
-             local('Outfit');
+        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Light.woff') format('woff');
         font-weight: 300;
         font-style: normal;
-        font-display: swap;
+        font-display: block;
       }
       @font-face {
         font-family: 'Nexa Text';
-        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Regular.woff') format('woff'),
-             local('Outfit');
+        src: url('https://fonts.cdnfonts.com/s/15613/Nexa-Regular.woff') format('woff');
         font-weight: 400;
         font-style: normal;
-        font-display: swap;
+        font-display: block;
+      }
+      
+      /* Hide content until fonts are loaded to prevent FOUT */
+      body:not(.fonts-loaded) {
+        visibility: hidden;
+      }
+      
+      body.fonts-loaded {
+        visibility: visible;
       }
       @font-face {
         font-family: 'Neulis Cursive';
@@ -101,6 +118,19 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Wait for fonts to load before showing content
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function() {
+          document.body.classList.add('fonts-loaded');
+        });
+      } else {
+        // Fallback for browsers without Font Loading API
+        setTimeout(function() {
+          document.body.classList.add('fonts-loaded');
+        }, 100);
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
