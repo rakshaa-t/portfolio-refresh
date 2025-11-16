@@ -962,7 +962,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
 
               {/* Suggestion Pills - Static (no animations) */}
-              <div className="w-full overflow-x-auto px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              <div className="w-full overflow-x-auto px-4 md:px-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 <div className="flex items-center justify-center gap-[12px]">
                   {visiblePills.map((suggestion, index) => {
                     return (
@@ -1322,9 +1322,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-[16px] md:px-[20px] lg:px-[22px]"
       >
-        <div className="w-full max-w-[540px] mx-auto">
-          {/* Tabs container */}
-          <div className="flex items-center justify-start md:justify-center gap-[16px] md:gap-[32px] lg:gap-[64px] overflow-x-auto pb-2 px-2">
+            <div className="w-full max-w-[540px] mx-auto">
+              {/* Tabs container */}
+              <div className="flex items-center justify-center gap-[24px] md:gap-[32px] lg:gap-[64px] overflow-x-auto pb-2 px-2">
             {['Work', 'Frontend', 'Hall of fame', 'Concepts'].map((tab, index) => {
               const isActive = index === 0; // 'Work' is active by default
               return (
