@@ -3,7 +3,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import { X, ArrowUp, Sparkles, Paperclip, Linkedin, Trash2, Bot } from 'lucide-react';
-import { ensureLightMode } from '../../lib/utils';
 import { sendToAI, getFallbackResponse, type ChatMessage as AIChatMessage } from '../../lib/ai-chat';
 import { AI_CONFIG } from '../../lib/config';
 interface DraggableCard {
@@ -80,9 +79,6 @@ const CASE_STUDIES: CaseStudy[] = [{
 export const PortfolioHeroSection: React.FC<PortfolioHeroSectionProps> = ({
   cards: customCards
 }) => {
-  useEffect(() => {
-    ensureLightMode();
-  }, []);
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([{
     id: 'greeting',
