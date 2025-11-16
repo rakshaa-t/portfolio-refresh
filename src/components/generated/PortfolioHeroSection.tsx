@@ -1320,7 +1320,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2, margin: "100px" }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-[16px] md:px-[20px] lg:px-[22px]"
+        className="relative w-full flex justify-center py-[32px] md:py-[52px] lg:py-[72px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-[16px] md:px-[20px] lg:px-[22px]"
       >
             <div className="w-full max-w-[540px] mx-auto">
               {/* Tabs container */}
@@ -1405,7 +1405,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       `}</style>
 
       {/* Project Showcase Sections - From Figma Design */}
-      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[40px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
         
         {/* Ova Project Showcase */}
         <motion.div 
@@ -1552,7 +1552,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
       {/* Stats Section - From Figma Design */}
-      <div className="relative w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden flex justify-center">
+      <div className="relative w-full py-[32px] md:py-[52px] lg:py-[72px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden flex justify-center">
         {/* SVG Background - Desktop only */}
         <div className="absolute inset-0 hidden lg:flex justify-center">
           <svg width="1706" height="900" viewBox="0 0 1706 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-[1706px]">
@@ -2337,7 +2337,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2, margin: "100px" }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative z-10 flex justify-center w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
+        className="relative z-10 flex justify-center w-full py-[32px] md:py-[52px] lg:py-[72px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
       >
         <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-[20px] min-w-0">
         {/* Top Section - Title */}
