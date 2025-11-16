@@ -229,7 +229,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const cardsContainerRef = React.useRef<HTMLDivElement>(null);
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
-  const activeTabRef = React.useRef<HTMLDivElement>(null);
+  const activeTabRef = React.useRef<HTMLButtonElement>(null);
   
   // Scroll to top on page load
   React.useEffect(() => {
