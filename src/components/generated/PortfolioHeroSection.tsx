@@ -89,7 +89,7 @@ const ChunkyText = ({ content }: { content: string }) => {
 const MessageBubble = React.memo(({ msg }: { msg: ChatMessage }) => {
   if (msg.sender === 'ai') {
     return (
-      <div className="flex items-start gap-3 max-w-[560px]">
+      <div className="flex items-start gap-[12px] max-w-[560px]">
         <div className="relative w-[48px] h-[48px] flex-shrink-0 rounded-full overflow-hidden bg-[#D9D9D9]">
           <img
             src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg"
@@ -579,7 +579,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
             {/* Social Icons (Mobile) */}
-          <div className="flex items-center gap-4 opacity-44">
+          <div className="flex items-center gap-[16px] opacity-44">
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -790,7 +790,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               >
               {/* Initial Welcome Message - Always show */}
               <div className="w-full flex-shrink-0">
-                <div className="flex items-start gap-3 max-w-[560px]">
+                <div className="flex items-start gap-[12px] max-w-[560px]">
                   <div className="relative w-[48px] h-[48px] flex-shrink-0 rounded-full overflow-hidden bg-[#D9D9D9]">
                     <img
                       src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg"
@@ -822,7 +822,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               {/* Loading Indicator */}
               {isLoading && (
                 <div className="w-full flex justify-start">
-                  <div className="flex items-start gap-3 max-w-[560px]">
+                  <div className="flex items-start gap-[12px] max-w-[560px]">
                     <div className="relative w-[48px] h-[48px] flex-shrink-0 rounded-full overflow-hidden bg-[#D9D9D9]">
                       <img
                         src="https://storage.googleapis.com/storage.magicpath.ai/user/323295203727400960/assets/a162f3c9-9017-4e52-a2b7-d48614b32b0f.jpg"
@@ -859,9 +859,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                   boxShadow: '0px 297px 119px rgba(0, 0, 0, 0.01), 0px 167px 100px rgba(0, 0, 0, 0.02), 0px 74px 74px rgba(0, 0, 0, 0.03), 0px 19px 41px rgba(0, 0, 0, 0.04)'
                 }}
               >
-                <div className="w-full flex items-center justify-between gap-3">
+                <div className="w-full flex items-center justify-between gap-[12px]">
                   {/* Left: Sparkle Icon + Input */}
-                  <div className="flex items-center gap-3 flex-1" style={{ alignItems: 'center' }}>
+                  <div className="flex items-center gap-[12px] flex-1" style={{ alignItems: 'center' }}>
                     {/* Sparkle Icon SVG */}
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                       <g clipPath="url(#clip0_371_175)">
@@ -1238,7 +1238,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
 
           {/* Mobile Click Cards - Stacked vertically - Visible on mobile only, hidden on iPad/desktop */}
-          <div className="md:hidden flex flex-col gap-6 mt-8 items-center">
+          <div className="md:hidden flex flex-col gap-[20px] mt-8 items-center">
               <AnimatePresence>
                 {PROJECT_CARDS.map((card, index) => {
                   if (!visibleCards.includes(card.id)) return null;
@@ -1413,7 +1413,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-[8px]"
         >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Ova : A privacy first , Pg13+  Period Tracking App for women
@@ -1423,7 +1423,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </p>
           <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
             <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center w-full max-w-[1258px] px-4">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[16px] items-center w-full max-w-[1258px] px-4">
               <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[393px] relative overflow-hidden">
                 <img 
                   src="https://www.figma.com/api/mcp/asset/58263a68-76ec-40ae-9d3a-0f30c28debaf" 
@@ -1448,7 +1448,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-[8px]"
         >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Greex : A defi Trading Platform
@@ -1458,7 +1458,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </p>
           <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
             <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center w-full max-w-[1258px] px-4">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[16px] items-center w-full max-w-[1258px] px-4">
               <div 
                 onClick={() => navigate('/greex')}
                 className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[982px] relative overflow-hidden shadow-[8px_25px_57px_0px_rgba(0,0,0,0.1)] cursor-pointer transition-opacity hover:opacity-90"
@@ -1486,7 +1486,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-[8px]"
         >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Dealdoc : Deal management Platform
@@ -1521,7 +1521,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-[8px]"
         >
           <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Adiagnosis : A clinical tool for psychiatrists and medical professionals
@@ -1531,7 +1531,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
           <div className="relative h-[350px] md:h-[450px] lg:h-[584px] rounded-[40px] overflow-hidden mt-6 bg-[rgba(255,255,255,0.3)]">
             <div className="absolute bg-[rgba(255,255,255,0.57)] blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1036px] pointer-events-none" />
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[15px] items-center justify-center w-full max-w-[1258px] px-4">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[16px] items-center justify-center w-full max-w-[1258px] px-4">
               <div className="h-[250px] md:h-[350px] lg:h-[542px] rounded-[36px] w-full md:w-[838px] relative overflow-hidden">
                 <img 
                   src="https://www.figma.com/api/mcp/asset/b0b89c9e-a322-4352-b4a0-9a84f8d59567" 
@@ -1839,7 +1839,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         <div className="relative z-10 w-full max-w-[90vw] mx-auto lg:hidden">
           <div className="bg-gradient-to-br from-[#283fe4] to-[#1a2d9f] rounded-[24px] p-6 md:p-8 backdrop-blur-sm shadow-2xl">
             {/* Inner container with bottom-aligned boxes */}
-            <div className="flex flex-col gap-6 md:gap-8 w-full">
+            <div className="flex flex-col gap-[20px] w-full">
         
         {/* 52+ Projects shipped */}
         <motion.div
@@ -1976,7 +1976,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         {/* Desktop Content - With SVG Background */}
         <div className="relative z-10 max-w-full md:max-w-[90vw] lg:max-w-[1142px] mx-auto px-4 md:px-6 lg:px-11 hidden lg:flex items-center justify-center min-h-0 md:min-h-0 lg:min-h-[900px]">
           {/* Inner container with bottom-aligned boxes */}
-          <div className="flex flex-col md:flex-col lg:flex-row items-start md:items-start lg:items-end justify-center gap-6 md:gap-8 lg:gap-[44px] w-full">
+          <div className="flex flex-col md:flex-col lg:flex-row items-start md:items-start lg:items-end justify-center gap-[20px] lg:gap-[44px] w-full">
         
         {/* 52+ Projects shipped */}
         <motion.div
@@ -1984,12 +1984,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
-          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+          className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
         >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             52+ Projects shipped
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-[16px]">
             <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
                 <li>Adiagnosis</li>
@@ -2024,12 +2024,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+          className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
         >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             Work with 30+ leaders
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-[16px]">
             <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
                 <li>Tina Hua</li>
@@ -2062,12 +2062,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
-          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+          className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
         >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             $250+ M raised
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-[16px]">
             <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
                 <li>Nesto group : $130M</li>
@@ -2089,12 +2089,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
-          className="flex flex-col items-start gap-3 md:gap-3.5 lg:gap-4 w-full lg:w-[245px]"
+          className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
         >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
             2.9+ M users reached
           </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-3 md:p-4 lg:p-4">
+          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-[16px]">
             <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
               <p>
                 Cumulative number of users across all platforms I worked with in my career may be way above this number
@@ -2339,9 +2339,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative z-10 flex justify-center w-full py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px]"
       >
-        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-5 min-w-0">
+        <div className="w-full max-w-full md:max-w-[1200px] p-[22px] flex flex-col justify-start items-center gap-[20px] min-w-0">
         {/* Top Section - Title */}
-        <div className="flex flex-col justify-start items-center gap-3">
+        <div className="flex flex-col justify-start items-center gap-[12px]">
           <div className="text-center text-[#9F94AD] text-xl md:text-2xl lg:text-4xl font-medium italic break-words" style={{ fontFamily: 'neulis-cursive, "Neulis Cursive", Caveat, Pacifico, cursive' }}>
             lovely to see you here!
           </div>
@@ -2351,9 +2351,9 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
 
         {/* Bottom Section - Links and Credits */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 w-full max-w-full min-w-0">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-[32px] w-full max-w-full min-w-0">
           {/* Social Links */}
-          <div className="w-auto md:w-[463px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-5 md:gap-0 h-[122px] md:h-auto">
+          <div className="w-auto md:w-[463px] flex flex-col md:flex-row justify-center md:justify-between items-center gap-[20px] md:gap-0 h-[122px] md:h-auto">
             <a 
               href="https://linkedin.com" 
               target="_blank" 
