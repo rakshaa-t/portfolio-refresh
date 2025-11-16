@@ -738,7 +738,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-0 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full p-1 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
