@@ -4,6 +4,7 @@ import { Container, Theme } from './settings/types';
 // %IMPORT_STATEMENT
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
 import { GreexCaseStudy } from './components/generated/GreexCaseStudy'
+import { ShadcnExample } from './components/ui/example'
 
 let theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PortfolioHeroSection />} />
         <Route path="/greex" element={<GreexCaseStudy />} />
+        <Route path="/examples" element={<ShadcnExample />} />
       </Routes>
     </BrowserRouter>
   );
