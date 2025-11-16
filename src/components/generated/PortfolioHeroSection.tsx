@@ -962,8 +962,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               </div>
 
               {/* Suggestion Pills - Static (no animations) */}
-              <div className="w-full overflow-x-auto px-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <div className="flex items-center justify-center gap-2 md:gap-3">
+              <div className="w-full overflow-x-auto px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className="flex items-center justify-center gap-[12px]">
                   {visiblePills.map((suggestion, index) => {
                     return (
                       <button 
