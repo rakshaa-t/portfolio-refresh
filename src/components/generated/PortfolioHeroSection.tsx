@@ -2137,7 +2137,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.64 
             }}
-            className="absolute left-1/2 top-[50px] -translate-x-1/2 w-[88%] lg:w-[533.407px]"
+            className="absolute left-1/2 top-0 -translate-x-1/2 w-[88%] lg:w-[533.407px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
               <div className="bg-gradient-to-l from-[rgba(255,255,255,0.32)] to-[rgba(40,63,228,0.32)] h-[77.238px] rounded-[22px] w-full" />
@@ -2160,7 +2160,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.56 
             }}
-            className="absolute left-1/2 top-[150px] lg:top-[140px] -translate-x-1/2 w-[90%] lg:w-[682.088px]"
+            className="absolute left-1/2 top-[100px] lg:top-[90px] -translate-x-1/2 w-[90%] lg:w-[682.088px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
               <div className="bg-[#283fe4] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(74,93,229,0),0px_242px_97px_0px_rgba(74,93,229,0.03),0px_136px_82px_0px_rgba(74,93,229,0.11),0px_61px_61px_0px_rgba(74,93,229,0.19),0px_15px_33px_0px_rgba(74,93,229,0.22)] w-full" />
@@ -2183,7 +2183,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.48 
             }}
-            className="absolute left-1/2 top-[250px] lg:top-[235px] -translate-x-1/2 w-[88%] lg:w-[616.784px]"
+            className="absolute left-1/2 top-[200px] lg:top-[185px] -translate-x-1/2 w-[88%] lg:w-[616.784px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
               <div className="bg-[rgba(255,255,255,0.96)] h-[77px] rounded-[22px] w-full" />
@@ -2205,7 +2205,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.40 
             }}
-            className="absolute left-1/2 top-[350px] lg:top-[325px] -translate-x-1/2 w-[85%] lg:w-[500.788px]"
+            className="absolute left-1/2 top-[300px] lg:top-[275px] -translate-x-1/2 w-[85%] lg:w-[500.788px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
               <div className="bg-[rgba(0,0,0,0.64)] h-[77px] rounded-[22px] shadow-[0px_379px_106px_0px_rgba(0,0,0,0),0px_242px_97px_0px_rgba(0,0,0,0.03),0px_136px_82px_0px_rgba(0,0,0,0.06),0px_61px_61px_0px_rgba(0,0,0,0.08),0px_15px_33px_0px_rgba(0,0,0,0.12)] w-full" />
@@ -2227,7 +2227,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.32 
             }}
-            className="absolute left-1/2 top-[450px] lg:top-[410px] -translate-x-1/2 w-[86%] lg:w-[509.437px]"
+            className="absolute left-1/2 top-[400px] lg:top-[360px] -translate-x-1/2 w-[86%] lg:w-[509.437px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
               <div className="bg-[rgba(255,255,255,0.72)] h-[77px] rounded-[22px] w-full" />
@@ -2249,7 +2249,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.24 
             }}
-            className="absolute left-1/2 top-[550px] lg:top-[495px] -translate-x-1/2 w-[75%] lg:w-[311.843px]"
+            className="absolute left-1/2 top-[500px] lg:top-[445px] -translate-x-1/2 w-[75%] lg:w-[311.843px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
               <div className="bg-[rgba(255,255,255,0.22)] h-[77px] rounded-[22px] w-full" />
@@ -2271,7 +2271,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.16 
             }}
-            className="absolute left-1/2 top-[650px] lg:top-[575px] -translate-x-1/2 w-[78%] lg:w-[369.17px]"
+            className="absolute left-1/2 top-[600px] lg:top-[525px] -translate-x-1/2 w-[78%] lg:w-[369.17px]"
           >
             <div className="absolute inset-0 rotate-[2deg] lg:rotate-[4deg] scale-y-[-1]">
               <div className="bg-[rgba(255,255,255,0.44)] h-[77px] rounded-[22px] w-full" />
@@ -2293,7 +2293,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               ease: [0.34, 1.56, 0.64, 1], 
               delay: 0.08 
             }}
-            className="absolute left-1/2 top-[750px] lg:top-[655px] -translate-x-1/2 w-[76%] lg:w-[330.007px]"
+            className="absolute left-1/2 top-[700px] lg:top-[605px] -translate-x-1/2 w-[76%] lg:w-[330.007px]"
           >
             <div className="absolute inset-0 rotate-[358deg] lg:rotate-[356deg]">
               <div className="bg-[rgba(0,0,0,0.6)] h-[77px] rounded-[22px] w-full" />
