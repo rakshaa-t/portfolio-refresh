@@ -738,7 +738,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative overflow-hidden w-full p-1 md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] md:p-0 lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px] lg:p-0"
+            className="relative overflow-hidden w-full md:absolute md:overflow-hidden md:z-20 md:left-1/2 md:-translate-x-1/2 md:top-[23.2px] md:w-[482.56px] md:h-[435.2px] lg:absolute lg:overflow-hidden lg:z-20 lg:left-1/2 lg:-translate-x-1/2 lg:top-[23.2px] lg:w-[603.2px] lg:h-[435.2px]"
             style={{
               background: 'linear-gradient(180deg, #E9E8FF 0%, #EFF4EC 100%)',
               boxShadow: '0px 30px 66px rgba(0, 0, 0, 0.04)',
@@ -771,7 +771,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="relative h-full flex flex-col items-center">
             {/* Top Transparent Blur Overlay */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-4px)] md:w-[calc(100%-32px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] top-0 h-[40px] pointer-events-none z-10"
+              className="absolute left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] top-0 h-[40px] pointer-events-none z-10"
               style={{
                 background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
               }}
@@ -779,7 +779,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
             
             {/* Chat Messages Container - Scrollable */}
             <div 
-              className="absolute left-1/2 -translate-x-1/2 top-[24px] md:top-[32px] flex flex-col w-[calc(100%-4px)] md:w-[calc(100%-32px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] h-[320px] lg:h-[320px]"
+              className="absolute left-1/2 -translate-x-1/2 top-[24px] md:top-[32px] flex flex-col w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] h-[320px] lg:h-[320px]"
             >
               <div 
                 ref={chatContainerRef}
@@ -848,7 +848,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-4px)] md:w-[calc(100%-32px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] lg:w-[560px] bottom-[16px] md:bottom-[20px] lg:bottom-[40px] gap-[6px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] bottom-[16px] md:bottom-[20px] lg:bottom-[40px] gap-[6px] md:gap-[10px] lg:gap-[12px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
