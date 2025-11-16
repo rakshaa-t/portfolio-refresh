@@ -8,16 +8,17 @@
  */
 
 // ============================================
-// SPACING SCALE (8px base system)
+// SPACING SCALE (12px base system - from Figma)
 // ============================================
 // Use these for padding, margin, gaps
+// Based on actual Figma values: https://www.figma.com/design/ALGMQumxMv07s5sUYgx259
 export const spacing = {
-  xs: '8px',      // 8px  - tight spacing
-  sm: '16px',     // 16px - small spacing
-  md: '24px',     // 24px - medium spacing
-  lg: '32px',     // 32px - large spacing
-  xl: '48px',     // 48px - extra large
-  '2xl': '64px',  // 64px - section spacing
+  xs: '8px',      // 8px  - minimal spacing
+  sm: '12px',     // 12px - base gap (FROM FIGMA: pill gaps, element spacing)
+  md: '16px',     // 16px - mobile padding
+  lg: '22px',     // 22px - desktop padding (FROM FIGMA: input horizontal padding)
+  xl: '32px',     // 32px - section internal padding
+  '2xl': '44px',  // 44px - large border radius (FROM FIGMA)
   '3xl': '80px',  // 80px - between sections
   '4xl': '120px', // 120px - hero spacing
 } as const;
@@ -114,7 +115,68 @@ export const borderRadius = {
   lg: '16px',
   xl: '20px',
   '2xl': '24px',
+  '3xl': '44px',    // FROM FIGMA: chatbox container
   full: '9999px',
+} as const;
+
+// ============================================
+// CHATBOX SPECIFIC VALUES (FROM FIGMA)
+// ============================================
+// Extracted from: https://www.figma.com/design/ALGMQumxMv07s5sUYgx259
+export const chatbox = {
+  // Container
+  containerWidth: {
+    mobile: '100%',      // Full width on mobile
+    tablet: '600px',     // 80% of desktop
+    desktop: '748.93px', // FROM FIGMA (exact value)
+  },
+  containerHeight: {
+    mobile: '483px',     // Current mobile height
+    tablet: '500px',     // Between mobile and desktop
+    desktop: '544px',    // FROM FIGMA
+  },
+  containerRadius: '44px',       // FROM FIGMA
+  containerBorder: '2px solid white',
+  
+  // Internal Padding (horizontal)
+  internalPadding: {
+    mobile: '16px',      // 73% of desktop (comfortable for mobile)
+    tablet: '18px',      // 82% of desktop
+    desktop: '22px',     // FROM FIGMA (input px-[22px])
+  },
+  
+  // Messages
+  messageFontSize: {
+    mobile: '14px',      // Smaller for mobile
+    tablet: '16px',      // FROM FIGMA
+    desktop: '16px',     // FROM FIGMA
+  },
+  messageBubbleRadius: '30px',   // Current design (Figma uses 30px 30px 30px 0px)
+  avatarSize: '48px',            // Current design
+  messageGap: '12px',            // FROM FIGMA (gap-[12px])
+  
+  // Suggestion Pills
+  pillHeight: '37px',            // FROM FIGMA
+  pillRadius: '2222px',          // FROM FIGMA (fully rounded)
+  pillGap: '12px',               // FROM FIGMA
+  pillFontSize: '14px',          // FROM FIGMA
+  pillBackground: 'rgba(255, 255, 255, 0.1)', // FROM FIGMA
+  
+  // Input Container
+  inputHeight: {
+    mobile: '56px',      // Slightly smaller for mobile
+    tablet: '56px',      // Same as mobile
+    desktop: '63px',     // FROM FIGMA
+  },
+  inputPaddingX: '22px',         // FROM FIGMA
+  inputPaddingY: '6px',          // FROM FIGMA
+  inputRadius: '100px',          // FROM FIGMA
+  inputFontSize: '16px',         // FROM FIGMA
+  
+  // Send Button
+  sendButtonSize: '50px',        // FROM FIGMA
+  sendButtonPadding: '13px',     // FROM FIGMA (internal icon padding)
+  sendButtonRadius: '3333px',    // FROM FIGMA (fully rounded)
 } as const;
 
 // ============================================
