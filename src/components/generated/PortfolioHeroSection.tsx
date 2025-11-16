@@ -2112,7 +2112,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative w-full bg-[#e4deed] h-auto min-h-[1050px] md:min-h-[900px] lg:min-h-[1050px] py-[40px] md:py-[40px] lg:py-[60px] mt-[60px] md:mt-[60px] lg:mt-[80px] overflow-hidden"
+        className="relative w-full bg-[#e4deed] h-auto min-h-[820px] md:min-h-[900px] lg:min-h-[1050px] py-[40px] md:py-[40px] lg:py-[60px] mt-[60px] md:mt-[60px] lg:mt-[80px] overflow-hidden"
       >
         <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none z-0" />
         <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-[20px] md:mb-[40px] lg:mb-[60px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -2121,7 +2121,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         
         {/* Principles Cards - Positioned with rotations */}
         <motion.div 
-          className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[950px] lg:h-[900px] z-10"
+          className="relative max-w-[1728px] mx-auto px-6 md:px-6 lg:px-11 h-[780px] md:h-[850px] lg:h-[900px] z-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
