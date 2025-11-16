@@ -51,24 +51,6 @@
         min-height: 100vh;
       }
       
-      /* Smooth loading overlay - fades out once content loads (only once on initial load) */
-      #loading-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, #E5E3FF 0%, #F5F5F5 50%, #111111 100%);
-        z-index: 9999;
-        opacity: 1;
-        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-      }
-      
-      #loading-overlay.loaded {
-        opacity: 0;
-      }
-      
       /* Font family fallback chain for Neulis Cursive from Typekit */
       /* This ensures the font works even if Typekit loads it with a different name */
       @font-face {
@@ -107,45 +89,7 @@
     <meta name="twitter:description" content="Raksha leads Product and Brand Design for startups, big thinkers and game changers. 6+ years of industry experience and 55+ clients so far." />
   </head>
   <body>
-    <!-- Loading overlay - smooth fade out (Marijana's style) -->
-    <div id="loading-overlay"></div>
-    
     <div id="root"></div>
-    
-    <script>
-      // Smooth loading: fade out overlay once React content is ready (ONLY on initial page load)
-      (function() {
-        var hasLoaded = false;
-        
-        function fadeOutLoader() {
-          if (hasLoaded) return; // Only fade out once
-          hasLoaded = true;
-          
-          var overlay = document.getElementById('loading-overlay');
-          if (overlay) {
-            overlay.classList.add('loaded');
-            // Remove from DOM after animation completes
-            setTimeout(function() {
-              overlay.remove(); // Completely remove so it never shows again
-            }, 600);
-          }
-        }
-        
-        // Fade out when everything is loaded
-        window.addEventListener('load', function() {
-          if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(fadeOutLoader);
-          } else {
-            setTimeout(fadeOutLoader, 200);
-          }
-        });
-        
-        // Also trigger quickly if DOM is already ready
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-          setTimeout(fadeOutLoader, 100);
-        }
-      })();
-    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
