@@ -2115,7 +2115,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         className="relative w-full bg-[#e4deed] h-auto min-h-[1050px] md:min-h-[900px] lg:min-h-[1050px] py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden"
       >
         <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none z-0" />
-        <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-8 md:mb-10 lg:mb-12 z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-[20px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
           My non negotiables
         </p>
         
