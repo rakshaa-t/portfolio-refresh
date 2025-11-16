@@ -1314,59 +1314,60 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
-      {/* Tabs Section - Greex-style glassmorphism design */}
+      {/* Tabs Section - Figma design with underline */}
       <motion.div 
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2, margin: "100px" }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-4 md:px-6"
+        className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-[16px] md:px-[20px] lg:px-[22px]"
       >
-        <div 
-          className="bg-black/8 backdrop-blur-[22px] border border-white/8 rounded-2xl p-4 flex items-center justify-center gap-4"
-          style={{
-            WebkitBackdropFilter: 'blur(22px)'
-          }}
-        >
-          {['Work', 'Frontend', 'Hall of fame', 'Concepts'].map((tab, index) => {
-            const isActive = index === 0; // 'Work' is active by default
-            return (
-              <motion.button
-                key={tab}
-                ref={index === 0 ? activeTabRef : null}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  fontFamily: 'Nexa, system-ui, sans-serif',
-                  fontWeight: isActive ? 'bold' : '600',
-                  fontSize: '16px',
-                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
-                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                  backdropFilter: isActive ? 'blur(8px)' : 'none',
-                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
-                  border: 'none',
-                  outline: 'none',
-                  borderRadius: '9999px',
-                  cursor: 'pointer',
-                  padding: 0,
-                  transition: 'all 0.2s ease',
-                  position: 'relative',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  height: '36px',
-                  paddingLeft: isActive ? '20px' : '12px',
-                  paddingRight: isActive ? '20px' : '12px',
-                  lineHeight: '36px',
-                  margin: 0,
-                  boxSizing: 'border-box',
-                  verticalAlign: 'middle'
-                }}
-              >
-                <span style={{ display: 'block', lineHeight: '1' }}>{tab}</span>
-              </motion.button>
-            );
-          })}
+        <div className="w-full max-w-[540px] mx-auto">
+          {/* Tabs container */}
+          <div className="flex items-center justify-start md:justify-center gap-[16px] md:gap-[32px] lg:gap-[64px] overflow-x-auto pb-2 px-2">
+            {['Work', 'Frontend', 'Hall of fame', 'Concepts'].map((tab, index) => {
+              const isActive = index === 0; // 'Work' is active by default
+              return (
+                <div key={tab} className="relative flex-shrink-0">
+                  <motion.button
+                    ref={index === 0 ? activeTabRef : null}
+                    whileHover={{ opacity: 0.8 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="relative pb-[4px] transition-all duration-200"
+                    style={{
+                      fontFamily: 'Nexa, system-ui, sans-serif',
+                      fontWeight: isActive ? '600' : '400',
+                      fontSize: '16px',
+                      lineHeight: '24px',
+                      color: isActive ? '#283FE4' : 'rgba(0, 0, 0, 0.44)',
+                      background: 'transparent',
+                      border: 'none',
+                      outline: 'none',
+                      cursor: 'pointer',
+                      padding: 0,
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    {tab}
+                  </motion.button>
+                  
+                  {/* Underline for active tab */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTabUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#283FE4]"
+                      initial={false}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 380,
+                        damping: 30
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </motion.div>
 
