@@ -85,7 +85,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
     }, 100);
 
     try {
-      const response = await sendToAI(textToSend, messages, AI_CONFIG.API_KEY);
+      const response = await sendToAI(textToSend, messages, '');
       const assistantMessage: ChatMessage = {
         id: `ai-${Date.now()}`,
         type: 'text',
@@ -141,7 +141,7 @@ export const PortfolioMobile: React.FC<PortfolioMobileProps> = (props: Portfolio
       // Get AI response
       (async () => {
         try {
-          const response = await sendToAI(card.message, messages, AI_CONFIG.API_KEY);
+          const response = await sendToAI(card.message, messages, '');
           const assistantMessage: ChatMessage = {
             id: `ai-${Date.now()}`,
             type: 'text',

@@ -363,15 +363,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     setIsLoading(true);
 
     try {
-      // Debug: Check if API key exists
-      if (!AI_CONFIG.API_KEY) {
-        console.error('❌ API Key is missing! Check Vercel environment variables.');
-        throw new Error('API Key not configured');
-      }
-      console.log('✅ API Key found, sending message to AI...');
-      
-      // Send to AI
-      const response = await sendToAI(textToSend, messages, AI_CONFIG.API_KEY);
+      // Send to AI (API key is handled securely by serverless function)
+      const response = await sendToAI(textToSend, messages, '');
       
       // Check if response was successful
       if (!response.success) {
@@ -450,7 +443,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     setIsLoading(true);
     
     try {
-      const response = await sendToAI(pillText, messages, AI_CONFIG.API_KEY);
+      const response = await sendToAI(pillText, messages, '');
       const aiMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         type: 'text',
@@ -511,8 +504,8 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
     addMessage(userMessage);
     setIsLoading(true);
 
-    try {
-      const response = await sendToAI(card.message, messages, AI_CONFIG.API_KEY);
+    try{
+      const response = await sendToAI(card.message, messages, '');
       const aiMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         type: 'text',

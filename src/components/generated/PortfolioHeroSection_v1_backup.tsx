@@ -208,11 +208,11 @@ export const PortfolioHeroSection: React.FC<PortfolioHeroSectionProps> = ({
         
         // Auto-reply to the card question
         setTimeout(async () => {
-          if (AI_CONFIG.ENABLED && AI_CONFIG.API_KEY && AI_CONFIG.API_KEY !== 'sk-proj-your-openai-key-here') {
+          if (AI_CONFIG.ENABLED) {
             setIsAITyping(true);
             
             try {
-              const aiResponse = await sendToAI(autoReplyText, messages, AI_CONFIG.API_KEY);
+              const aiResponse = await sendToAI(autoReplyText, messages, '');
               
               const aiMessage: ChatMessage = {
                 id: `ai-${Date.now()}`,
@@ -266,11 +266,11 @@ export const PortfolioHeroSection: React.FC<PortfolioHeroSectionProps> = ({
       setInputValue('');
       
       // Handle AI response (always enabled, hidden from users)
-      if (AI_CONFIG.ENABLED && AI_CONFIG.API_KEY && AI_CONFIG.API_KEY !== 'sk-proj-your-openai-key-here') {
+      if (AI_CONFIG.ENABLED) {
         setIsAITyping(true);
         
         try {
-          const aiResponse = await sendToAI(inputValue, messages, AI_CONFIG.API_KEY);
+          const aiResponse = await sendToAI(inputValue, messages, '');
           
           const aiMessage: ChatMessage = {
             id: `ai-${Date.now()}`,
