@@ -230,8 +230,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
   const activeTabRef = React.useRef<HTMLDivElement>(null);
-  const tabsContainerRef = React.useRef<HTMLDivElement>(null);
-  const [activeIndicatorStyle, setActiveIndicatorStyle] = React.useState({ width: 72, left: 0 });
   
   // Scroll to top on page load
   React.useEffect(() => {
@@ -291,28 +289,6 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
 
     return () => {
       clearTimeout(timeout);
-    };
-  }, []);
-
-  // Calculate active tab indicator position and width
-  React.useEffect(() => {
-    const updateIndicatorPosition = () => {
-      if (activeTabRef.current && tabsContainerRef.current) {
-        const tabRect = activeTabRef.current.getBoundingClientRect();
-        const containerRect = tabsContainerRef.current.getBoundingClientRect();
-        const left = tabRect.left - containerRect.left;
-        const width = tabRect.width;
-        setActiveIndicatorStyle({ width, left });
-      }
-    };
-
-    // Small delay to ensure DOM is ready
-    const timeout = setTimeout(updateIndicatorPosition, 100);
-    updateIndicatorPosition();
-    window.addEventListener('resize', updateIndicatorPosition);
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener('resize', updateIndicatorPosition);
     };
   }, []);
 
@@ -1345,94 +1321,59 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         </div>
       </div>
 
-      {/* Tabs Section - Frame 98 - Positioned 192px below chat box + cards section */}
+      {/* Tabs Section - Greex-style glassmorphism design */}
       <motion.div 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2, margin: "100px" }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.2, margin: "100px" }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
         className="relative w-full flex justify-center py-[20px] md:py-[40px] lg:py-[60px] mt-[40px] md:mt-[60px] lg:mt-[80px] px-4 md:px-6"
       >
         <div 
-          className="inline-flex flex-col items-start gap-[10px] rounded-[12px] relative w-full max-w-[475px] px-4 md:px-8"
+          className="bg-black/8 backdrop-blur-[22px] border border-white/8 rounded-2xl p-4 flex items-center justify-center gap-4"
           style={{
-            paddingTop: 12,
-            paddingBottom: 18,
-            background: 'rgba(255, 255, 255, 0.04)',
-            outline: '1px rgba(0, 0, 0, 0.04) solid'
+            WebkitBackdropFilter: 'blur(22px)'
           }}
         >
-          {/* Tabs Container */}
-          <div 
-            ref={tabsContainerRef}
-            className="flex items-center justify-between relative w-full"
-          >
-            <div 
-              ref={activeTabRef}
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
-              style={{
-                color: '#283FE4',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '600'
-              }}
-            >
-              Work
-            </div>
-            <div 
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
-              style={{
-                color: 'rgba(0, 0, 0, 0.28)',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500'
-              }}
-            >
-              Frontend
-            </div>
-            <div 
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
-              style={{
-                color: 'rgba(0, 0, 0, 0.28)',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500'
-              }}
-            >
-              Hall of fame
-            </div>
-            <div 
-              className="text-center cursor-pointer hover:opacity-80 transition-opacity text-xs md:text-sm lg:text-base whitespace-nowrap"
-              style={{
-                color: 'rgba(0, 0, 0, 0.28)',
-                fontFamily: 'Nexa, system-ui, sans-serif',
-                fontWeight: '500'
-              }}
-            >
-              Concepts
-            </div>
-          </div>
-
-          {/* Full width divider line */}
-          <div 
-            className="w-full"
-            style={{
-              height: 0,
-              background: 'rgba(255, 255, 255, 0.22)',
-              outline: '1px white solid',
-              outlineOffset: '-0.50px'
-            }}
-          />
-
-          {/* Active tab indicator line (under Work) */}
-          <div 
-            className="absolute left-4 md:left-8"
-            style={{
-              width: `${activeIndicatorStyle.width}px`,
-              height: '2px',
-              background: '#283FE4',
-              bottom: 18,
-              marginLeft: `${activeIndicatorStyle.left}px`,
-              transition: 'width 0.3s ease, margin-left 0.3s ease'
-            }}
-          />
+          {['Work', 'Frontend', 'Hall of fame', 'Concepts'].map((tab, index) => {
+            const isActive = index === 0; // 'Work' is active by default
+            return (
+              <motion.button
+                key={tab}
+                ref={index === 0 ? activeTabRef : null}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  fontFamily: 'Nexa, system-ui, sans-serif',
+                  fontWeight: isActive ? 'bold' : '600',
+                  fontSize: '16px',
+                  color: isActive ? 'white' : 'rgba(255, 255, 255, 0.44)',
+                  background: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backdropFilter: isActive ? 'blur(8px)' : 'none',
+                  WebkitBackdropFilter: isActive ? 'blur(8px)' : 'none',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '9999px',
+                  cursor: 'pointer',
+                  padding: 0,
+                  transition: 'all 0.2s ease',
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: '36px',
+                  paddingLeft: isActive ? '20px' : '12px',
+                  paddingRight: isActive ? '20px' : '12px',
+                  lineHeight: '36px',
+                  margin: 0,
+                  boxSizing: 'border-box',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <span style={{ display: 'block', lineHeight: '1' }}>{tab}</span>
+              </motion.button>
+            );
+          })}
         </div>
       </motion.div>
 
