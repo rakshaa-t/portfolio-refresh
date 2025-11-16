@@ -848,7 +848,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       </div>
 
             {/* Bottom Section - Input + Suggestions */}
-            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] bottom-[16px] md:bottom-[20px] lg:bottom-[40px] gap-[6px] md:gap-[10px] lg:gap-[12px]">
+            <div ref={inputContainerRef} className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center w-[calc(100%-32px)] md:w-[calc(100%-48px)] lg:w-[calc(100%-64px)] max-w-[340px] md:max-w-[448px] lg:max-w-[560px] bottom-[16px] md:bottom-[20px] lg:bottom-[40px] gap-[16px]">
               {/* Input Bar with Backdrop Blur */}
               <div
                 className="w-full h-[56px] flex items-center justify-center px-[22px] py-[4px] rounded-[100px] border border-white/40 backdrop-blur-xl"
