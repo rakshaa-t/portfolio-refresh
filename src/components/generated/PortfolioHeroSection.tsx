@@ -1405,7 +1405,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
       `}</style>
 
       {/* Project Showcase Sections - From Figma Design */}
-      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[40px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[20px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
         
         {/* Ova Project Showcase */}
         <motion.div 
@@ -2115,7 +2115,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         className="relative w-full bg-[#e4deed] h-auto min-h-[920px] md:min-h-[960px] lg:min-h-[1020px] py-[40px] md:py-[40px] lg:py-[60px] mt-[80px] md:mt-[60px] lg:mt-[80px] overflow-hidden"
       >
         <div className="absolute bg-white blur-[200px] filter h-[870px] left-[534px] -top-[424px] rounded-[4444px] w-[1682px] pointer-events-none z-0" />
-        <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-[40px] md:mb-[40px] lg:mb-[60px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+        <p className="relative text-center text-[#9f94ad] text-lg md:text-xl lg:text-[22px] font-bold mb-[60px] md:mb-[40px] lg:mb-[60px] z-10" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
           My non negotiables
         </p>
         
