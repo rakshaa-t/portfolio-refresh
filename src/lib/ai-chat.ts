@@ -176,7 +176,7 @@ export async function sendToAI(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini', // Using mini version for cost efficiency
+        model: 'gpt-4o', // Using full version for personality consistency
         messages: messages,
         max_tokens: maxTokens, // Dynamic: 250 for casual, 400 for interview questions
         temperature: 0.7
