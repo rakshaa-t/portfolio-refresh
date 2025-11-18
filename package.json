@@ -31,6 +31,7 @@
     "framer-motion": "^12.4.10",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.542.0",
+    "motion": "^12.23.24",
     "radix-ui": "^1.4.3",
     "react": "^19.0.0",
     "react-day-picker": "^9.9.0",
