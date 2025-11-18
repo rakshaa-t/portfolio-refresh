@@ -5,6 +5,7 @@ import { Container, Theme } from './settings/types';
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
 import { GreexCaseStudy } from './components/generated/GreexCaseStudy'
 import { ShadcnExample } from './components/ui/example'
+import { MotionTest } from './components/test/MotionTest'
 
 let theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
@@ -21,15 +22,16 @@ function App() {
 
   setTheme(theme);
 
-  const content = (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<PortfolioHeroSection />} />
-        <Route path="/greex" element={<GreexCaseStudy />} />
-        <Route path="/examples" element={<ShadcnExample />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    const content = (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PortfolioHeroSection />} />
+          <Route path="/greex" element={<GreexCaseStudy />} />
+          <Route path="/examples" element={<ShadcnExample />} />
+          <Route path="/motion-test" element={<MotionTest />} />
+        </Routes>
+      </BrowserRouter>
+    );
 
   if (container === 'centered') {
     return (
