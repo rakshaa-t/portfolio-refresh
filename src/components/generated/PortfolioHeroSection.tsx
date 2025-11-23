@@ -970,9 +970,17 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         key={`${suggestion}-${index}`}
                         onClick={() => handlePillClick(suggestion)}
                         disabled={isLoading}
-                        whileHover={{ opacity: 0.8 }}
+                        whileHover={{ 
+                          opacity: 0.8,
+                          scale: 1.02
+                        }}
                         whileTap={{ scale: 0.98 }}
-                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 transition-opacity"
+                        transition={{
+                          type: 'spring',
+                          stiffness: 400,
+                          damping: 17
+                        }}
+                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0"
                         style={{
                           background: 'rgba(255, 255, 255, 0.3)',
                           border: '1px solid rgba(255, 255, 255, 0.4)'
