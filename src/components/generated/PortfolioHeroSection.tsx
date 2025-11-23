@@ -961,16 +961,18 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                 </div>
               </div>
 
-              {/* Suggestion Pills - Static (no animations) */}
+              {/* Suggestion Pills - With Marijana's tab hover interaction on desktop */}
               <div className="w-full overflow-x-auto px-4 md:px-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 <div className="flex items-center justify-center gap-[12px]">
                   {visiblePills.map((suggestion, index) => {
                     return (
-                      <button 
+                      <motion.button 
                         key={`${suggestion}-${index}`}
                         onClick={() => handlePillClick(suggestion)}
                         disabled={isLoading}
-                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                        whileHover={{ opacity: 0.8 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="relative px-3 md:px-5 py-2 h-[37px] rounded-full flex items-center justify-center disabled:cursor-not-allowed cursor-pointer flex-shrink-0 transition-opacity"
                         style={{
                           background: 'rgba(255, 255, 255, 0.3)',
                           border: '1px solid rgba(255, 255, 255, 0.4)'
@@ -982,7 +984,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                         >
                           {suggestion}
         </span>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
