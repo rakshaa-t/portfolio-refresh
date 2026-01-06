@@ -230,6 +230,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
   const dragConstraintsRef = React.useRef<HTMLDivElement>(null);
   const heroSectionRef = React.useRef<HTMLDivElement>(null);
   const activeTabRef = React.useRef<HTMLButtonElement>(null);
+  const [activeTab, setActiveTab] = React.useState('Work');
   
   // Scroll to top on page load
   React.useEffect(() => {
@@ -1336,11 +1337,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
               {/* Tabs container */}
               <div className="flex items-center justify-center gap-[24px] md:gap-[32px] lg:gap-[64px] overflow-x-auto pb-2 px-2">
             {['Work', 'Frontend', 'Hall of fame', 'Concepts'].map((tab, index) => {
-              const isActive = index === 0; // 'Work' is active by default
+              const isActive = activeTab === tab;
               return (
                 <div key={tab} className="relative flex-shrink-0">
                   <motion.button
-                    ref={index === 0 ? activeTabRef : null}
+                    ref={isActive ? activeTabRef : null}
+                    onClick={() => setActiveTab(tab)}
                     whileHover={{ opacity: 0.8 }}
                     whileTap={{ scale: 0.98 }}
                     className="relative pb-[4px] transition-all duration-200"
@@ -1360,7 +1362,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
                   >
                     {tab}
                   </motion.button>
-                  
+
                   {/* Underline for active tab */}
                   {isActive && (
                     <motion.div
@@ -1414,9 +1416,10 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
         }
       `}</style>
 
-      {/* Project Showcase Sections - From Figma Design */}
+      {/* Work Tab Content */}
+      {activeTab === 'Work' && (
       <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[20px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[150px]">
-        
+
         {/* Ova Project Showcase */}
         <motion.div 
           initial={{ opacity: 0, y: 80 }}
@@ -1431,23 +1434,19 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
             Focused on allowing women of all ages to track their periods, have a period companion - Ova to guide them through their cycles, give them insights about their period and give predictive feedback of their upcoming cycles, symptoms and moods
           </p>
-          <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
-            <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[16px] items-center w-full max-w-[1258px] px-4">
-              <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[393px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/58263a68-76ec-40ae-9d3a-0f30c28debaf" 
-                  alt="Ova mobile mockup" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
-              </div>
-              <div className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[847px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/9d49b638-e5c9-4a84-bffa-2988b0f687f3" 
-                  alt="Ova desktop mockup" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
-              </div>
+          <div
+            onClick={() => navigate('/ova')}
+            className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6 cursor-pointer group"
+          >
+            <img
+              src="https://res.cloudinary.com/dky01erho/image/upload/v1761388415/Slide_4_3_-_1_2_zr9r7i.png"
+              alt="Ova Period Tracking App"
+              className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[40px]" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-white/80 text-sm mb-2" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>Privacy-First Period Tracking</p>
+              <p className="text-white font-bold text-2xl md:text-3xl" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>View Case Study →</p>
             </div>
           </div>
         </motion.div>
@@ -1466,26 +1465,19 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
             Greex was a decentralized options and futures trading platform designed to make strategy-based trading more accessible. The product allowed users to apply predefined trading strategies, understand risk-reward visually, and execute trades seamlessly across web and mobile.
           </p>
-          <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
-            <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[16px] items-center w-full max-w-[1258px] px-4">
-              <div 
-                onClick={() => navigate('/greex')}
-                className="h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] w-full md:w-[982px] relative overflow-hidden shadow-[8px_25px_57px_0px_rgba(0,0,0,0.1)] cursor-pointer transition-opacity hover:opacity-90"
-              >
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/0de2028f-a4ae-40d3-a439-2b4ea84ff274" 
-                  alt="Greex desktop mockup" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
-              </div>
-              <div className="h-[200px] md:h-[300px] lg:h-[635px] rounded-[36px] w-full md:w-[264px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/2af8764a-886e-47c4-aecb-600c080d9937" 
-                  alt="Greex mobile mockup" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
-              </div>
+          <div
+            onClick={() => navigate('/greex')}
+            className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6 cursor-pointer group"
+          >
+            <img
+              src="https://res.cloudinary.com/dky01erho/image/upload/v1760525138/172_2x_shots_so_plr79y.png"
+              alt="Greex DeFi Trading Platform"
+              className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[40px]" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-white/80 text-sm mb-2" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>DeFi Trading Platform</p>
+              <p className="text-white font-bold text-2xl md:text-3xl" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>View Case Study →</p>
             </div>
           </div>
         </motion.div>
@@ -1504,29 +1496,56 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
             Dealdoc is a sales deal management tool for developers and founders. The idea was to create a minimal, developer-first UI that felt clean and logical, while helping users track, manage, and close sales deals more efficiently.
           </p>
-          <div className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6">
-            <div className="absolute bg-white blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1472px] pointer-events-none" />
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[14px] items-center justify-center w-full max-w-[1258px] px-4">
-              <div className="flex-1 h-[300px] md:h-[400px] lg:h-[635px] rounded-[36px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/56e2472b-c849-4d99-a14a-52f98463f9eb" 
-                  alt="Dealdoc mockup 1" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
-              </div>
-              <div className="flex-1 h-[635px] rounded-[36px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/c6579de0-7126-4c23-9b7b-c74d298edbf7" 
-                  alt="Dealdoc mockup 2" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
-              </div>
+          <div
+            onClick={() => navigate('/dealdoc')}
+            className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6 cursor-pointer group"
+          >
+            <img
+              src="https://res.cloudinary.com/dky01erho/image/upload/v1761388291/656_3x_shots_so_qced29.png"
+              alt="Dealdoc Deal Management Platform"
+              className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[40px]" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-white/80 text-sm mb-2" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>Deal Management for Investors</p>
+              <p className="text-white font-bold text-2xl md:text-3xl" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>View Case Study →</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* IOC Project Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[8px]"
+        >
+          <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+            IOC : Vendor Management System for Indian Oil Corporation
+          </p>
+          <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+            Redesigned a legacy 29-page vendor management system for 4 different user types - DO officers, engineers, vendors, and contractors. The challenge was making complexity feel manageable while working within rigid government backend systems.
+          </p>
+          <div
+            onClick={() => navigate('/ioc')}
+            className="relative h-[400px] md:h-[500px] lg:h-[677px] rounded-[40px] overflow-hidden mt-6 cursor-pointer group"
+          >
+            <img
+              src="https://res.cloudinary.com/dky01erho/image/upload/v1760525270/190_2x_shots_so_gytftu.png"
+              alt="IOC Vendor Management System"
+              className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-[40px]" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-white/80 text-sm mb-2" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>Enterprise Vendor Management</p>
+              <p className="text-white font-bold text-2xl md:text-3xl" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>View Case Study →</p>
             </div>
           </div>
         </motion.div>
 
         {/* Adiagnosis Project Showcase */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2, margin: "100px" }}
@@ -1539,27 +1558,629 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           <div className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
             <p className="mb-0">A smarter way to assess, diagnose, and act on mental health. Whether you're a clinician or an individual, Adiagnosis helps turn complex psychiatric symptoms into organized, useful reports. Built on diagnostic frameworks used in mental health practice.</p>
           </div>
-          <div className="relative h-[350px] md:h-[450px] lg:h-[584px] rounded-[40px] overflow-hidden mt-6 bg-[rgba(255,255,255,0.3)]">
-            <div className="absolute bg-[rgba(255,255,255,0.57)] blur-[200px] filter h-[761px] left-[-227px] top-1/2 -translate-y-1/2 w-[1036px] pointer-events-none" />
+          <div className="relative h-[350px] md:h-[450px] lg:h-[584px] rounded-[40px] overflow-hidden mt-6 cursor-pointer group">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#11998e] via-[#38ef7d] to-[#11998e] rounded-[40px]" />
+            <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-all duration-300" />
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row gap-[16px] items-center justify-center w-full max-w-[1258px] px-4">
-              <div className="h-[250px] md:h-[350px] lg:h-[542px] rounded-[36px] w-full md:w-[838px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/b0b89c9e-a322-4352-b4a0-9a84f8d59567" 
-                  alt="Adiagnosis mockup 1" 
-                  className="absolute inset-0 w-full h-full object-cover rounded-[36px]"
-                />
+              <div className="h-[250px] md:h-[350px] lg:h-[450px] rounded-[36px] w-full md:w-[838px] relative overflow-hidden bg-white/15 backdrop-blur-sm flex items-center justify-center shadow-xl">
+                <div className="text-center p-8">
+                  <p className="text-white/70 text-sm mb-2" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>Clinical Mental Health Tool</p>
+                  <p className="text-white font-bold text-3xl md:text-5xl" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>Adiagnosis</p>
+                  <p className="text-white/60 text-sm mt-4 max-w-md mx-auto" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+                    Turning complex psychiatric symptoms into organized, actionable reports
+                  </p>
+                </div>
               </div>
-              <div className="flex-1 h-[200px] md:h-[300px] lg:h-[542px] rounded-[22px] relative overflow-hidden">
-                <img 
-                  src="https://www.figma.com/api/mcp/asset/2d2422c3-f026-4f75-83be-2cd745c745d8" 
-                  alt="Adiagnosis mockup 2" 
-                  className="absolute inset-0 w-full h-full object-contain rounded-[22px]"
-                />
+              <div className="flex-1 h-[200px] md:h-[300px] lg:h-[450px] rounded-[22px] relative overflow-hidden bg-white/15 backdrop-blur-sm flex items-center justify-center shadow-xl">
+                <div className="text-center p-4">
+                  <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="text-2xl">🧠</span>
+                  </div>
+                  <p className="text-white/80 font-medium text-sm" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>Diagnostic Framework</p>
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
+      )}
+
+      {/* Frontend Tab Content */}
+      {activeTab === 'Frontend' && (
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[20px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[100px]">
+
+        {/* Portfolio Site Build */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[24px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              This Portfolio : Design + Code in One Week
+            </p>
+            <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              My first time designing and coding together. Built this entire portfolio from Figma designs to deployed site in about a week using Cursor (AI-powered code editor) and React. The chat interface was the hardest part - getting it to feel natural and responsive took several iterations.
+            </p>
+          </div>
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-[12px]">
+            {['Figma', 'Cursor', 'React', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Vercel'].map((tech) => (
+              <span
+                key={tech}
+                className="px-[16px] py-[8px] rounded-full text-sm font-medium"
+                style={{
+                  fontFamily: 'Outfit, system-ui, sans-serif',
+                  background: 'rgba(40, 63, 228, 0.08)',
+                  color: '#283FE4'
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Process Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px] mt-[16px]">
+            {[
+              { step: '01', title: 'Design in Figma', desc: 'Layout, animations, chat interface - all designed first' },
+              { step: '02', title: 'Code with Cursor', desc: 'AI-powered editor that writes code based on descriptions' },
+              { step: '03', title: 'Build with React', desc: 'Interactive components, Framer Motion for animations' },
+              { step: '04', title: 'Deploy on Vercel', desc: 'One-click deployment, automatic previews for each change' }
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="p-[24px] rounded-[24px] flex flex-col gap-[12px]"
+                style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+              >
+                <span
+                  className="text-[32px] font-bold"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif', color: '#283FE4' }}
+                >
+                  {item.step}
+                </span>
+                <h4
+                  className="text-[18px] font-semibold text-black"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  className="text-[14px] text-[rgba(0,0,0,0.6)]"
+                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Learning Frontend */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[24px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Why I Started Coding
+            </p>
+            <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              Been learning more frontend to get better at the build side, not just design. The gap between "I designed this" and "it's actually built" used to frustrate me. Now with tools like Cursor and Magicpath, I can prototype and ship ideas much faster.
+            </p>
+          </div>
+
+          <div
+            className="p-[32px] rounded-[32px] flex flex-col gap-[16px]"
+            style={{ background: 'linear-gradient(135deg, rgba(40, 63, 228, 0.05) 0%, rgba(139, 127, 186, 0.1) 100%)' }}
+          >
+            <p
+              className="text-[20px] italic text-[rgba(0,0,0,0.7)]"
+              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+            >
+              "Design is like building muscle. You don't get better by reading about it, you get better by doing it repeatedly and breaking things."
+            </p>
+          </div>
+        </motion.div>
+      </div>
+      )}
+
+      {/* Hall of Fame Tab Content */}
+      {activeTab === 'Hall of fame' && (
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[20px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[100px]">
+
+        {/* Career Highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Career Milestones
+            </p>
+          </div>
+
+          {/* Achievement Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+            {[
+              {
+                number: '$60M',
+                label: 'Startup Value',
+                desc: 'Bewakoof - worked on payments & growth squad (acquired 2022)',
+                color: '#283FE4'
+              },
+              {
+                number: '12',
+                label: 'Designers Led',
+                desc: 'Doodleblue agency - built Design COE, trained junior designers',
+                color: '#8B7FBA'
+              },
+              {
+                number: 'IOC',
+                label: 'Government Client',
+                desc: 'Indian Oil Corporation - simplified 29-page vendor system',
+                color: '#283FE4'
+              },
+              {
+                number: 'US',
+                label: 'Global Clients',
+                desc: 'SF, Texas, NYC - Cryptiq, Tickle App, Dealdoc, ENA',
+                color: '#8B7FBA'
+              }
+            ].map((achievement, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-[32px] rounded-[32px] flex flex-col gap-[16px]"
+                style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+              >
+                <span
+                  className="text-[48px] md:text-[64px] font-bold leading-none"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif', color: achievement.color }}
+                >
+                  {achievement.number}
+                </span>
+                <h4
+                  className="text-[20px] font-semibold text-black"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                >
+                  {achievement.label}
+                </h4>
+                <p
+                  className="text-[14px] text-[rgba(0,0,0,0.6)]"
+                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                >
+                  {achievement.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Career Journey
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[0px]">
+            {[
+              { year: '2020-2021', role: 'UI/UX Designer', company: 'Bewakoof', desc: 'Payments squad → Growth squad. Fast-paced startup environment.' },
+              { year: '2021-Present', role: 'Independent Designer', company: 'Freelance', desc: 'Contract work with agencies. Clients: ENA (USA), INAM (Dubai), IOC (India).' },
+              { year: '2024', role: 'Design Lead', company: 'Doodleblue', desc: 'Led team of 12 designers. Built Design COE. Handled IOC, ENA, INAM.' },
+              { year: '2024-Present', role: '0-1 Products', company: 'US Clients', desc: 'Cryptiq, Tickle App, Dealdoc. 1-2 month sprint timelines.' }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex gap-[24px] md:gap-[48px] py-[24px] border-b border-[rgba(0,0,0,0.08)]"
+              >
+                <span
+                  className="text-[14px] md:text-[16px] font-medium w-[100px] md:w-[120px] flex-shrink-0"
+                  style={{ fontFamily: 'Geist Mono, monospace', color: '#283FE4' }}
+                >
+                  {item.year}
+                </span>
+                <div className="flex flex-col gap-[4px]">
+                  <div className="flex flex-wrap items-center gap-[8px]">
+                    <span
+                      className="text-[16px] md:text-[18px] font-semibold text-black"
+                      style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                    >
+                      {item.role}
+                    </span>
+                    <span
+                      className="text-[14px] text-[rgba(0,0,0,0.5)]"
+                      style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                    >
+                      @ {item.company}
+                    </span>
+                  </div>
+                  <p
+                    className="text-[14px] text-[rgba(0,0,0,0.6)]"
+                    style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Healthcare Work */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[24px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Healthcare & Medical Products
+            </p>
+            <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              Healthcare design is specific - you can't just experiment and see what works. Everything has to be precise because you're dealing with real medical outcomes.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-[16px]">
+            <a
+              href="https://www.cognixhealth.com/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-[24px] py-[16px] rounded-[16px] flex items-center gap-[12px] transition-all hover:scale-[1.02]"
+              style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+            >
+              <span
+                className="text-[16px] font-medium text-black"
+                style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+              >
+                Cognix Health
+              </span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#283FE4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.xychiatry.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-[24px] py-[16px] rounded-[16px] flex items-center gap-[12px] transition-all hover:scale-[1.02]"
+              style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+            >
+              <span
+                className="text-[16px] font-medium text-black"
+                style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+              >
+                Xychiatry
+              </span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#283FE4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </motion.div>
+      </div>
+      )}
+
+      {/* Concepts Tab Content - Optimid */}
+      {activeTab === 'Concepts' && (
+      <div className="relative w-full max-w-[1293px] mx-auto px-4 md:px-6 lg:px-11 py-[32px] md:py-[52px] lg:py-[72px] mt-[20px] md:mt-[60px] lg:mt-[80px] flex flex-col gap-[60px] md:gap-[80px] lg:gap-[100px]">
+
+        {/* Optimid Hero */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[24px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Optimid : AI Usage Optimizer
+            </p>
+            <p className="text-black text-base font-normal leading-relaxed" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
+              A concept project exploring how to help AI power users understand and optimize their usage patterns. Built with a Dieter Rams-inspired neumorphic design language - less but better, honest UI, unobtrusive interactions.
+            </p>
+          </div>
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-[12px]">
+            {['React', 'Vite', 'Recharts', 'Framer Motion', 'Neumorphism', 'Dieter Rams'].map((tech) => (
+              <span
+                key={tech}
+                className="px-[16px] py-[8px] rounded-full text-sm font-medium"
+                style={{
+                  fontFamily: 'Outfit, system-ui, sans-serif',
+                  background: 'rgba(40, 63, 228, 0.08)',
+                  color: '#283FE4'
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Design Principles */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Dieter Rams Design Principles Applied
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+            {[
+              { principle: 'Less but better', desc: 'Removed visual noise, kept only what\'s essential for understanding AI usage' },
+              { principle: 'Honest design', desc: 'UI elements look like what they do - buttons feel pressable, inputs feel editable' },
+              { principle: 'Unobtrusive', desc: 'Design doesn\'t compete for attention - data and insights take center stage' },
+              { principle: 'Thorough', desc: 'Pixel-perfect consistency across all components and states' },
+              { principle: 'Long-lasting', desc: 'Timeless neumorphic aesthetic, not trendy gradients or glass effects' },
+              { principle: 'Environmentally friendly', desc: 'Light color palette reduces eye strain during extended use' }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-[24px] rounded-[24px] flex flex-col gap-[12px]"
+                style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+              >
+                <h4
+                  className="text-[16px] font-semibold text-black"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                >
+                  {item.principle}
+                </h4>
+                <p
+                  className="text-[14px] text-[rgba(0,0,0,0.6)]"
+                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                >
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Color Palette */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Neumorphic Color System
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-[16px]">
+            {[
+              { color: '#E8E5E1', name: 'Cream Base', desc: 'Warm background' },
+              { color: '#d1cec9', name: 'Shadow Dark', desc: 'Soft shadows' },
+              { color: '#ffffff', name: 'Shadow Light', desc: 'Light edges' },
+              { color: '#FF6B6B', name: 'Coral', desc: 'Primary accent' },
+              { color: '#4ECDC4', name: 'Teal', desc: 'Secondary accent' },
+              { color: '#96CEB4', name: 'Sage', desc: 'Success states' }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="flex items-center gap-[12px] p-[12px] rounded-[16px]"
+                style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+              >
+                <div
+                  className="w-[48px] h-[48px] rounded-[12px]"
+                  style={{
+                    background: item.color,
+                    boxShadow: '2px 2px 4px rgba(0,0,0,0.1), -2px -2px 4px rgba(255,255,255,0.8)'
+                  }}
+                />
+                <div className="flex flex-col">
+                  <span
+                    className="text-[14px] font-medium text-black"
+                    style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                  >
+                    {item.name}
+                  </span>
+                  <span
+                    className="text-[12px] text-[rgba(0,0,0,0.5)]"
+                    style={{ fontFamily: 'Geist Mono, monospace' }}
+                  >
+                    {item.color}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Key Features
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+            {[
+              {
+                title: 'Usage Analytics',
+                desc: 'Recharts-powered visualizations showing token consumption, model breakdown, and cost tracking over time.',
+                icon: '📊'
+              },
+              {
+                title: 'Story Mode Dashboard',
+                desc: 'Scroll-based narrative that reveals AI usage insights progressively - each scroll snap tells part of your story.',
+                icon: '📖'
+              },
+              {
+                title: 'File Management',
+                desc: 'Upload, view history, and manage your exported AI usage data with intuitive modal interfaces.',
+                icon: '📁'
+              },
+              {
+                title: 'Neumorphic Components',
+                desc: 'Custom NeuCard, NeuButton, and chart containers with soft shadows creating tactile, hardware-inspired feel.',
+                icon: '✨'
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-[32px] rounded-[32px] flex flex-col gap-[16px]"
+                style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+              >
+                <span className="text-[32px]">{feature.icon}</span>
+                <h4
+                  className="text-[18px] font-semibold text-black"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                >
+                  {feature.title}
+                </h4>
+                <p
+                  className="text-[14px] text-[rgba(0,0,0,0.6)] leading-relaxed"
+                  style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                >
+                  {feature.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Process */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[32px]"
+        >
+          <div className="flex flex-col gap-[8px]">
+            <p className="text-[rgba(0,0,0,0.6)] text-base font-normal" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
+              Design + Build Process
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[0px]">
+            {[
+              { step: '01', title: 'Research', desc: 'Studied Dieter Rams principles and neumorphism patterns. Analyzed AI dashboard UIs for common patterns.' },
+              { step: '02', title: 'Design System', desc: 'Created comprehensive Tailwind config with custom shadows, colors, and spacing. Built reusable component library.' },
+              { step: '03', title: 'Component Build', desc: 'Developed NeuCard, NeuButton, custom chart containers. Integrated Recharts for data visualization.' },
+              { step: '04', title: 'Page Assembly', desc: 'Built upload flow, analyzing animation, story dashboard, and main analytics page.' },
+              { step: '05', title: 'Polish', desc: 'Added micro-interactions, coin animations, loading states, and responsive breakpoints.' }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex gap-[24px] md:gap-[48px] py-[24px] border-b border-[rgba(0,0,0,0.08)]"
+              >
+                <span
+                  className="text-[24px] md:text-[32px] font-bold w-[60px] md:w-[80px] flex-shrink-0"
+                  style={{ fontFamily: 'Nexa, system-ui, sans-serif', color: '#283FE4' }}
+                >
+                  {item.step}
+                </span>
+                <div className="flex flex-col gap-[8px]">
+                  <h4
+                    className="text-[18px] font-semibold text-black"
+                    style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p
+                    className="text-[14px] text-[rgba(0,0,0,0.6)]"
+                    style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Learnings */}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2, margin: "100px" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col gap-[24px]"
+        >
+          <div
+            className="p-[32px] rounded-[32px] flex flex-col gap-[16px]"
+            style={{ background: 'linear-gradient(135deg, rgba(40, 63, 228, 0.05) 0%, rgba(139, 127, 186, 0.1) 100%)' }}
+          >
+            <p
+              className="text-[rgba(0,0,0,0.6)] text-sm font-normal"
+              style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}
+            >
+              Key Takeaway
+            </p>
+            <p
+              className="text-[20px] text-[rgba(0,0,0,0.8)] leading-relaxed"
+              style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}
+            >
+              Neumorphism works best when used sparingly. The soft shadows create depth without overwhelming the interface. Combined with Dieter Rams' "less but better" philosophy, it creates a calm, focused experience where data visualization takes center stage.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+      )}
 
       {/* Stats Section - From Figma Design */}
       <div className="relative w-full py-[32px] md:py-[52px] lg:py-[72px] mt-[40px] md:mt-[60px] lg:mt-[80px] overflow-hidden flex justify-center">
@@ -1891,50 +2512,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
         </motion.div>
 
-        {/* Work with 30+ leaders */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-          className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
-        >
-          <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-            Work with 30+ leaders
-          </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] w-full relative p-3 md:p-4">
-            <div className="text-white text-sm md:text-sm font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5">
-                <li>Tina Hua</li>
-                <li>Angie lee</li>
-                <li>Aritra Senugupta</li>
-                <li>Sarthak Sharma</li>
-                <li>Max Mcquillan</li>
-                <li>Hannah Wartooth</li>
-                <li>Neerav J</li>
-                <li>Amrita Singh</li>
-                <li>Rohit Biwas</li>
-                <li>Arash</li>
-                <li>Sunny</li>
-                <li>Raj Karan</li>
-                <li>Deepti Sisoki</li>
-                <li>Nyshtita Jain</li>
-                <li>Thomas Phua</li>
-                <li>Rohit Goel</li>
-                <li>Sagar Sharma</li>
-                <li>Maruti</li>
-                <li>and many more</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
         {/* $250+ M raised */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
         >
           <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -1957,7 +2540,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
           className="flex flex-col items-start gap-3 md:gap-3.5 w-full"
         >
           <p className="text-white text-base md:text-lg font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -2028,50 +2611,12 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           </div>
         </motion.div>
 
-        {/* Work with 30+ leaders */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-          className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
-        >
-          <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
-            Work with 30+ leaders
-          </p>
-          <div className="bg-[rgba(255,255,255,0.1)] rounded-[20px] md:rounded-[24px] lg:rounded-[28px] w-full relative p-[16px]">
-            <div className="text-white text-sm md:text-sm lg:text-base font-normal leading-normal w-full" style={{ fontFamily: 'Outfit, system-ui, sans-serif' }}>
-              <ul className="list-disc pl-6 space-y-1 md:space-y-1.5 lg:space-y-2">
-                <li>Tina Hua</li>
-                <li>Angie lee</li>
-                <li>Aritra Senugupta</li>
-                <li>Sarthak Sharma</li>
-                <li>Max Mcquillan</li>
-                <li>Hannah Wartooth</li>
-                <li>Neerav J</li>
-                <li>Amrita Singh</li>
-                <li>Rohit Biwas</li>
-                <li>Arash</li>
-                <li>Sunny</li>
-                <li>Raj Karan</li>
-                <li>Deepti Singhi</li>
-                <li>Nyshita Jain</li>
-                <li>Thomas Phua</li>
-                <li>Rohit Goel</li>
-                <li>Sagar Sharma</li>
-                <li>Maruti</li>
-                <li>and many more</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
         {/* $250+ M raised */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
         >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>
@@ -2098,7 +2643,7 @@ export const PortfolioHeroSection: React.FC<RakshaPortfolioProps> = (props: Raks
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1, margin: "100px" }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.45 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.30 }}
           className="flex flex-col items-start gap-[16px] w-full lg:w-[245px]"
         >
           <p className="text-white text-base md:text-lg lg:text-[20px] font-bold leading-normal w-full" style={{ fontFamily: 'Nexa, system-ui, sans-serif' }}>

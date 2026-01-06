@@ -4,6 +4,9 @@ import { Container, Theme } from './settings/types';
 // %IMPORT_STATEMENT
 import { PortfolioHeroSection } from './components/generated/PortfolioHeroSection'
 import { GreexCaseStudy } from './components/generated/GreexCaseStudy'
+import { OvaCaseStudy } from './components/generated/OvaCaseStudy'
+import { IOCCaseStudy } from './components/generated/IOCCaseStudy'
+import { DealdocCaseStudy } from './components/generated/DealdocCaseStudy'
 import { ShadcnExample } from './components/ui/example'
 import { MotionTest } from './components/test/MotionTest'
 import { LoadingScreen } from './components/LoadingScreen'
@@ -35,6 +38,9 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<PortfolioHeroSection />} />
         <Route path="/greex" element={<GreexCaseStudy />} />
+        <Route path="/ova" element={<OvaCaseStudy />} />
+        <Route path="/ioc" element={<IOCCaseStudy />} />
+        <Route path="/dealdoc" element={<DealdocCaseStudy />} />
         <Route path="/examples" element={<ShadcnExample />} />
         <Route path="/motion-test" element={<MotionTest />} />
       </Routes>
