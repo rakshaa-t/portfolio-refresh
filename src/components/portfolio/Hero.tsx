@@ -4,18 +4,14 @@ export const Hero: React.FC = () => {
   return (
     <section className="section pt-24 md:pt-32">
       <div className="container-main">
-        {/* Avatar placeholder - replace with your pixel art */}
+        {/* Profile photo */}
         <div className="mb-8">
-          <div
-            className="w-24 h-24 rounded-full bg-background-secondary border-2 border-accent overflow-hidden"
-            style={{
-              imageRendering: 'pixelated',
-            }}
-          >
-            {/* Placeholder - add your pixel avatar image here */}
-            <div className="w-full h-full flex items-center justify-center text-accent text-3xl font-bold">
-              R
-            </div>
+          <div className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-accent overflow-hidden">
+            <img
+              src="/images/raksha.jpg"
+              alt="Raksha"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
