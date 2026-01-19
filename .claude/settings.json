@@ -1,0 +1,38 @@
+{
+  "env": {
+    "INSIDE_CLAUDE_CODE": "1"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$CLAUDE_TOOL_INPUT_FILE_PATH\" =~ \\.(tsx?|jsx?|css|json|md)$ ]]; then npx prettier --write \"$CLAUDE_TOOL_INPUT_FILE_PATH\" 2>/dev/null && echo '{\"feedback\": \"Formatted with Prettier\", \"suppressOutput\": true}' || echo '{}'; else echo '{}'; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$CLAUDE_TOOL_INPUT_FILE_PATH\" =~ \\.(tsx?|jsx?)$ ]]; then npx eslint --fix \"$CLAUDE_TOOL_INPUT_FILE_PATH\" 2>/dev/null && echo '{\"feedback\": \"Linted with ESLint\", \"suppressOutput\": true}' || echo '{}'; else echo '{}'; fi"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "BRANCH=$(git -C \"$CLAUDE_PROJECT_DIR\" rev-parse --abbrev-ref HEAD 2>/dev/null); if [ \"$BRANCH\" = \"main\" ] || [ \"$BRANCH\" = \"master\" ]; then echo '{\"feedback\": \"Warning: You are on the main branch. Consider creating a feature branch.\", \"block\": false}'; else echo '{}'; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
